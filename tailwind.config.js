@@ -6,6 +6,17 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'caption': ['12px', { lineHeight: '1.45' }],
+        'supporting': ['13px', { lineHeight: '1.45' }],
+        'base-lg': ['15px', { lineHeight: '1.55' }],
+        'card': ['16px', { lineHeight: '1.3' }],
+        'subheading': ['20px', { lineHeight: '1.3' }],
+        'heading-sm': ['22px', { lineHeight: '1.25' }],
+        'hero': ['clamp(46px, 4vw, 60px)', { lineHeight: '1.06' }],
+        'section': ['clamp(42px, 4vw, 58px)', { lineHeight: '1.08' }],
+        'display': ['clamp(48px, 4.5vw, 64px)', { lineHeight: '1.06' }],
+      },
       colors: {
         orange: {
           DEFAULT: '#f07f25',

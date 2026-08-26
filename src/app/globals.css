@@ -4,6 +4,22 @@
 
 /* ===== Theme Variables ===== */
 :root {
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-body: 14px;
+  --text-body-lg: 15px;
+  --text-card: 16px;
+  --text-subheading: 20px;
+  --text-heading-sm: 22px;
+  --text-hero: clamp(46px, 4vw, 60px);
+  --text-section: clamp(42px, 4vw, 58px);
+  --text-display: clamp(48px, 4.5vw, 64px);
+  --text-hero-mobile: clamp(32px, 7vw, 40px);
+  --text-section-mobile: clamp(28px, 7vw, 36px);
+  --text-eyebrow: clamp(12px, 1vw, 14px);
+  --text-intro: clamp(14px, 1.15vw, 16px);
+  --text-body-fluid: clamp(14px, 1vw, 15px);
+
   --bg: #071A2E;
   --bg-top: #071A2E;
   --bg-gradient: #071A2E;
@@ -328,4 +344,39 @@ body {
   .section-description {
     max-width: 800px;
   }
+
+  .text-eyebrow {
+    font-size: var(--text-eyebrow);
+    line-height: 1.2;
+  }
+
+  .text-intro {
+    font-size: var(--text-intro);
+    line-height: 1.55;
+  }
+
+  .text-body-fluid {
+    font-size: var(--text-body-fluid);
+    line-height: 1.55;
+  }
+
+  .text-hero {
+    font-size: var(--text-hero);
+    line-height: 1.06;
+  }
+
+  .text-section-heading {
+    font-size: var(--text-section);
+    line-height: 1.08;
+  }
+
+  .text-display-heading {
+    font-size: var(--text-display);
+    line-height: 1.06;
+  }
+}
+
+body {
+  font-size: var(--text-body);
+  line-height: 1.55;
 }

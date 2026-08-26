@@ -78,7 +78,7 @@ const icons: Record<IconKey, LucideIcon> = {
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-3 text-[11px] font-semibold uppercase tracking-[1.2px] text-orange">
+    <p className="mb-3 text-[12px] font-semibold uppercase tracking-[1.2px] text-orange">
       {children}
     </p>
   );
@@ -98,7 +98,7 @@ function MegaItem({ item, onNavigate }: { item: MegaLink; onNavigate: () => void
       />
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
-          <span className="text-[18px] font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
+          <span className="text-[16px] font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
             {item.title}
           </span>
           <ArrowRight
@@ -136,11 +136,11 @@ function FeatureBlock({
       {children}
       <div className="relative z-[1]">
         <Label>{label}</Label>
-        <h3 className="max-w-[18ch] text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-white">
+        <h3 className="max-w-[18ch] text-[22px] font-semibold leading-[1.15] tracking-[-0.03em] text-white">
           {heading}
         </h3>
         {copy && (
-          <p className="mt-3 max-w-[34ch] text-[14px] leading-relaxed text-nav-muted">
+          <p className="mt-3 max-w-[34ch] text-[13px] leading-relaxed text-nav-muted">
             {copy}
           </p>
         )}
@@ -148,7 +148,7 @@ function FeatureBlock({
           <a
             href={href}
             onClick={onNavigate}
-            className="group mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-orange"
+            className="group mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-orange"
           >
             {cta}
             <ArrowRight size={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
@@ -253,13 +253,13 @@ function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
         <InsightNetwork />
         <div className="relative z-[1]">
           <Label>Latest Insight</Label>
-          <h3 className="text-[19px] font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
+          <h3 className="text-[16px] font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
             Turning Utility Data Into Intelligence
           </h3>
           <p className="mt-3 text-[13px] leading-relaxed text-nav-muted">
             Explore how intelligent analytics can help utilities make faster, better decisions.
           </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-orange">
+          <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-orange">
             Read Insight
             <ArrowRight size={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
           </span>
@@ -411,7 +411,7 @@ export default function SiteHeader() {
                   key={item.id}
                   href={item.href}
                   onClick={closeAll}
-                  className="px-3 py-2 text-[15px] font-medium tracking-[0.01em] text-nav-ink transition-colors duration-[180ms] hover:text-orange"
+                  className="px-3 py-2 text-[14px] font-medium tracking-[0.01em] text-nav-ink transition-colors duration-[180ms] hover:text-orange"
                 >
                   {item.label}
                 </a>
@@ -432,7 +432,7 @@ export default function SiteHeader() {
                 onClick={() =>
                   setOpenId((current) => (current === item.id ? null : (item.id as MegaId)))
                 }
-                className={`relative flex items-center gap-1 px-3 py-2 text-[15px] font-medium tracking-[0.01em] transition-colors duration-[180ms] ${
+                className={`relative flex items-center gap-1 px-3 py-2 text-[14px] font-medium tracking-[0.01em] transition-colors duration-[180ms] ${
                   active ? "text-orange" : "text-nav-ink hover:text-orange"
                 }`}
               >
@@ -509,12 +509,12 @@ export default function SiteHeader() {
                     onClick={() =>
                       setMobileExpanded((current) => (current === item.id ? null : item.id))
                     }
-                    className={`flex w-full items-center justify-between py-4 text-left text-[16px] font-medium ${
+                    className={`flex w-full items-center justify-between py-4 text-left text-[15px] font-medium ${
                       expanded ? "text-orange" : "text-white"
                     }`}
                   >
                     {item.label}
-                    <span className="text-[18px] leading-none">{expanded ? "–" : "+"}</span>
+                    <span className="text-[16px] leading-none">{expanded ? "–" : "+"}</span>
                   </button>
                   {expanded && (
                     <div className="pb-3">
@@ -525,8 +525,8 @@ export default function SiteHeader() {
                           onClick={closeAll}
                           className="block border-t border-nav-line py-3"
                         >
-                          <span className="block text-[15px] font-semibold text-white">{child.title}</span>
-                          <span className="mt-1 block text-[13px] text-nav-muted">{child.description}</span>
+                          <span className="block text-[14px] font-semibold text-white">{child.title}</span>
+                          <span className="mt-1 block text-[12px] text-nav-muted">{child.description}</span>
                         </a>
                       ))}
                     </div>
@@ -537,7 +537,7 @@ export default function SiteHeader() {
             <a
               href="#contact"
               onClick={closeAll}
-              className="block border-b border-nav-line py-4 text-[16px] font-medium text-white"
+              className="block border-b border-nav-line py-4 text-[15px] font-medium text-white"
             >
               Contact
             </a>

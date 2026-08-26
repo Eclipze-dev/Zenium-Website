@@ -170,7 +170,7 @@ function Button({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-[13px] transition-all duration-200 [&>svg]:block [&>svg]:shrink-0 ${
+      className={`inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-[14px] transition-all duration-200 [&>svg]:block [&>svg]:shrink-0 ${
         outline
           ? "button-secondary"
           : "button-primary hover:-translate-y-0.5"
@@ -196,14 +196,14 @@ function SectionIntro({
     <header
       className={`section-heading ${centered ? "mx-auto text-center" : ""}`}
     >
-      <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
+      <p className="text-eyebrow tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
         {eyebrow}
       </p>
-      <h2 className="text-[clamp(30px,4.5vw,65px)] font-normal leading-[1.08] tracking-[0] m-0 max-sm:text-[clamp(26px,8vw,34px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
+      <h2 className="text-section-heading font-normal tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
         {children}
       </h2>
       {text && (
-        <p className="section-description text-muted text-base leading-[1.5] mx-auto mt-[22px]">
+        <p className="section-description text-muted text-intro mx-auto mt-[20px]">
           {text}
         </p>
       )}
@@ -318,17 +318,17 @@ export default function Home() {
       >
         <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
           <div className="min-w-0 max-w-[680px] relative z-[2] max-md:max-w-full">
-            <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
+            <p className="text-eyebrow tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
               ENERGY INTELLIGENCE
             </p>
             <h1
               id="hero-title"
-              className="text-[clamp(32px,4.2vw,62px)] leading-[1.06] font-normal tracking-[-0.035em] m-0 max-w-full max-sm:text-[clamp(28px,7vw,40px)]"
+              className="text-hero font-normal tracking-[-0.035em] m-0 max-w-full max-sm:text-[clamp(32px,7vw,40px)]"
             >
               Turn energy data into intelligence.
               <Typewriter />
             </h1>
-            <p className="text-muted text-[clamp(14px,1.2vw,17px)] leading-[1.5] mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-[14px]">
+            <p className="text-muted text-intro mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-[14px]">
               Building smart-grid intelligence on a trusted HES and MDM
               foundation.
             </p>
@@ -369,10 +369,10 @@ export default function Home() {
                 key={value}
                 className={`min-w-0 px-[24px] border-l border-line max-md:border-l-0 max-md:border-t max-md:px-0 max-md:pt-[20px] max-md:[&:nth-child(-n+2)]:border-t-0 max-md:[&:nth-child(-n+2)]:pt-0 ${i === 0 ? "border-l-0 pl-0" : ""}`}
               >
-                <b className="text-[30px] font-semibold text-muted block">
+                <b className="text-[24px] font-semibold text-muted block">
                   {value}
                 </b>
-                <span className="text-[14px] leading-[1.4] text-muted block mt-[18px]">
+                <span className="text-[13px] leading-[1.4] text-muted block mt-[14px]">
                   {label}
                 </span>
               </div>
@@ -397,12 +397,12 @@ export default function Home() {
                 key={label}
                 className="min-w-0 bg-card rounded-[8px] p-[42px] min-h-[280px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0"
               >
-                <Icon className="text-orange w-8 h-8 mb-[22px]" />
-                <span className="text-[15px] text-muted block">{label}</span>
-                <h3 className="text-[22px] leading-[1.18] my-[14px] mx-0 mb-[18px]">
+                <Icon className="text-orange w-7 h-7 mb-[20px]" />
+                <span className="text-[13px] text-muted block">{label}</span>
+                <h3 className="text-[20px] leading-[1.25] my-[12px] mx-0 mb-[16px]">
                   {title}
                 </h3>
-                <p className="text-muted text-base leading-[1.5] m-0">{text}</p>
+                <p className="text-muted text-[14px] leading-[1.55] m-0">{text}</p>
               </article>
             ))}
           </div>
@@ -442,11 +442,11 @@ export default function Home() {
                     <span className="capability-rule relative mb-[26px] block h-px bg-line">
                       {active && <span key={activeCapability} className="capability-progress" />}
                     </span>
-                    <b className={`text-[16px] transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
+                    <b className={`text-[15px] transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
                       {title}
                     </b>
                     <span className={`capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0"}`}>
-                      <span className="min-h-0 overflow-hidden text-muted text-base leading-[1.5]">
+                      <span className="min-h-0 overflow-hidden text-muted text-[14px] leading-[1.55]">
                         {text}
                       </span>
                     </span>
@@ -501,11 +501,11 @@ export default function Home() {
                 },
               ].map((item) => (
                 <article key={item.b} className="border-t border-line py-[24px]">
-                  <b className="block text-[16px]">{item.b}</b>
-                  <em className="block text-[16px] text-orange my-2 italic">
+                  <b className="block text-[15px]">{item.b}</b>
+                  <em className="block text-[15px] text-orange my-2 italic">
                     {item.em}
                   </em>
-                  <p className="text-muted text-base leading-[1.5] m-0">
+                  <p className="text-muted text-[14px] leading-[1.55] m-0">
                     {item.p}
                   </p>
                 </article>
@@ -519,12 +519,12 @@ export default function Home() {
       <section className="pt-[80px] text-center">
         <div className="container">
           <SectionIntro centered eyebrow="CUSTOMER STORY">
-            <p className="text-[clamp(38px,4.5vw,65px)] font-normal leading-[1.08] tracking-[-0.045em] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
+            <p className="text-display-heading font-normal tracking-[-0.045em] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
               Proven in the field. One of <strong>India's large-scale</strong>{" "}
               electricity deployments.
             </p>
           </SectionIntro>
-          <p className="text-muted text-base leading-[1.5] my-[20px] mb-[65px] max-sm:text-[12px]">
+          <p className="text-muted text-[14px] leading-[1.55] my-[20px] mb-[60px] max-sm:text-[12px]">
             Punjab electricity deployment{" "}
             <i className="not-italic text-orange px-2 font-bold max-sm:px-[3px]">
               ·
@@ -536,21 +536,21 @@ export default function Home() {
             2 million+ meters onboarded
           </p>
           <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
-            <div className="text-[22px] font-bold text-[#2d5e9f] tracking-[0.04em] light-card-heading">
+            <div className="text-[20px] font-bold text-[#2d5e9f] tracking-[0.04em] light-card-heading">
               PUNJAB
               <span className="block text-[10px] text-orange tracking-[0.2em]">
                 POWER
               </span>
             </div>
-            <blockquote className="text-[20px] leading-[1.6] font-light max-w-[850px] m-0 max-sm:text-[16px] max-sm:leading-[1.5]">
+            <blockquote className="text-[18px] leading-[1.6] font-light max-w-[850px] m-0 max-sm:text-[15px] max-sm:leading-[1.5]">
               "ZENIUM has helped us modernize our utility operations with a
               technology platform that is reliable, scalable, and built around our
               real-world requirements. Their understanding of utility workflows
               and focus on seamless implementation made the entire deployment much
               more efficient."
             </blockquote>
-            <b className="text-orange text-[16px]">Rajesh Kumar</b>
-            <span className="text-[15px] light-card-subtitle">
+            <b className="text-orange text-[15px]">Rajesh Kumar</b>
+            <span className="text-[14px] light-card-subtitle">
               Chief Technology Officer · Punjab State Power Utility
             </span>
           </article>
@@ -577,7 +577,7 @@ export default function Home() {
             <SectionIntro eyebrow="WHO WE SERVE">
               <strong>Intelligence</strong> across the energy ecosystem.
             </SectionIntro>
-            <p className="text-muted text-base leading-[1.5] my-[20px] mb-[26px]">
+            <p className="text-muted text-[14px] leading-[1.55] my-[20px] mb-[26px]">
               Zenium's technology is designed for the evolving needs of utilities
               and the wider energy ecosystem.
             </p>
@@ -598,11 +598,11 @@ export default function Home() {
                       : "col-span-3 max-lg:col-span-1"
                   }`}
                 >
-                  <AudienceIcon className="text-orange w-8 h-8 mb-[22px]" />
-                  <h3 className="text-[22px] leading-[1.18] my-[14px] mx-0 mb-[18px]">
+                  <AudienceIcon className="text-orange w-7 h-7 mb-[20px]" />
+                  <h3 className="text-[20px] leading-[1.25] my-[12px] mx-0 mb-[16px]">
                     {title as string}
                   </h3>
-                  <p className="text-muted text-base leading-[1.5] m-0">
+                  <p className="text-muted text-[14px] leading-[1.55] m-0">
                     {text as string}
                   </p>
                 </article>
@@ -633,11 +633,11 @@ export default function Home() {
                   key={title}
                   className="min-w-0 bg-card rounded-[8px] p-[42px] min-h-[300px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0"
                 >
-                  <PartnerIcon className="text-orange w-8 h-8 mb-[22px]" />
-                  <h3 className="text-[22px] leading-[1.18] my-[14px] mx-0 mb-[18px]">
+                  <PartnerIcon className="text-orange w-7 h-7 mb-[20px]" />
+                  <h3 className="text-[20px] leading-[1.25] my-[12px] mx-0 mb-[16px]">
                     {title}
                   </h3>
-                  <p className="text-muted text-base leading-[1.5] m-0">{text}</p>
+                  <p className="text-muted text-[14px] leading-[1.55] m-0">{text}</p>
                 </article>
               );
             })}
@@ -666,7 +666,7 @@ export default function Home() {
               >
                 <div className="flex justify-between items-center mb-[22px]">
                   <span className="flex items-center text-orange">
-                    <Icon size={30} />
+                    <Icon size={26} />
                   </span>
                   {/* <span className="text-white/30 transition-all duration-250 group-hover:text-orange group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     {action === "download" ? (
@@ -676,16 +676,16 @@ export default function Home() {
                     )}
                   </span> */}
                 </div>
-                <span className="flex items-center gap-[7px] text-[15px] pb-4 font-bold tracking-[0.12em] text-orange">
+                <span className="flex items-center gap-[7px] text-[13px] pb-4 font-bold tracking-[0.12em] text-orange">
                   {type}
                 </span>
-                <h3 className="text-[22px] leading-[1.18] my-0 mx-0 mb-[14px]">
+                <h3 className="text-[20px] leading-[1.25] my-0 mx-0 mb-[12px]">
                   {title}
                 </h3>
-                <p className="text-muted text-base leading-[1.5] m-0 flex-1">
+                <p className="text-muted text-[14px] leading-[1.55] m-0 flex-1">
                   {text}
                 </p>
-                <button className="inline-flex items-center self-start gap-2 h-[20px] mt-[22px] p-0 border-0 bg-none text-orange text-[14px] font-semibold leading-[20px] whitespace-nowrap transition-all duration-250 hover:gap-3">
+                <button className="inline-flex items-center self-start gap-2 h-[20px] mt-[20px] p-0 border-0 bg-none text-orange text-[14px] font-semibold leading-[20px] whitespace-nowrap transition-all duration-250 hover:gap-3">
                   <span className="block h-[20px] leading-[20px]">{cta}</span>
                   <div className="pl-1">
                     {action === "download" ? (
@@ -716,16 +716,16 @@ export default function Home() {
         <CTANetworkBackground />
 
         <div className="container relative z-[2] text-center">
-          <p className="text-[clamp(13px,1.15vw,17px)] leading-[1.2] tracking-[0.02em] mb-[clamp(18px,2.4vw,30px)] text-zen-text font-normal">
+          <p className="text-eyebrow tracking-[0.02em] mb-[clamp(18px,2.4vw,30px)] text-zen-text font-normal">
             YOUR ENERGY DATA ALREADY KNOWS MORE.
           </p>
           <h2
             id="final-cta-title"
-            className="text-[clamp(34px,5vw,72px)] font-normal leading-[1.08] tracking-[0] m-0 max-sm:text-[clamp(28px,8vw,42px)]"
+            className="text-display-heading font-normal tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,42px)]"
           >
             Put it to work with <strong className="inline text-orange font-bold">Zenium.</strong>
           </h2>
-          <p className="text-muted text-[clamp(13px,1vw,16px)] leading-[1.5] max-w-[680px] mx-auto mt-[clamp(18px,2vw,26px)]">
+          <p className="text-muted text-intro max-w-[680px] mx-auto mt-[clamp(18px,2vw,26px)]">
             Turn connected utility data into trusted information, deeper insight and smarter decisions.
           </p>
           <div className="mt-[40px] flex justify-center">
