@@ -4,14 +4,15 @@
 
 /* ===== Theme Variables ===== */
 :root {
-  --bg: #071A2E;
-  --bg-gradient: linear-gradient(160deg, #152D48 0%, #071A2E 100%);
+  --bg: #051626;
+  --bg-top: #0E2238;
+  --bg-gradient: linear-gradient(160deg, var(--bg-top) 0%, var(--bg) 100%);
   --text: #FFFFFF;
   --text-muted: rgba(255, 255, 255, 0.68);
   --card: rgba(255, 255, 255, 0.065);
   --line: rgba(255, 255, 255, 0.16);
-  --header: #152D48;
-  --nav-surface: #152D48;
+  --header: var(--bg-top);
+  --nav-surface: var(--bg-top);
   --nav-card: #15283A;
   --nav-navy: #152D48;
   --nav-feature-bg: rgba(21, 45, 72, 0.4);
