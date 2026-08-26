@@ -86,13 +86,6 @@ body {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
 
-/* Customer story card uses the navy navigation palette in dark mode */
-.light-card {
-  background: linear-gradient(135deg, #071A2E 0%, #152D48 100%);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 18px 45px rgba(7, 26, 46, 0.28);
-}
-
 /* Light mode: customer story card stays white but with subtle border */
 [data-theme="light"] .light-card {
   background-color: #FFFFFF;
