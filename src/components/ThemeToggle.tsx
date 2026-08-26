@@ -25,7 +25,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="h-10 w-[44px] rounded-full border border-line bg-card" aria-hidden="true" />
+      <div className="h-[28px] w-[56px] rounded-full border border-line bg-card" aria-hidden="true" />
     );
   }
 
@@ -34,14 +34,14 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      className="relative flex h-10 w-[44px] items-center rounded-full border border-line bg-card transition-colors duration-300 hover:border-orange/50"
+      className="relative flex h-[28px] w-[56px] items-center rounded-full border border-line bg-card transition-colors duration-300 hover:border-orange/50"
     >
       <span
-        className={`absolute flex h-8 w-8 items-center justify-center rounded-full bg-orange text-white transition-all duration-300 ease-in-out ${
-          theme === "dark" ? "left-[2px]" : "left-[14px]"
+        className={`absolute flex h-[22px] w-[22px] items-center justify-center rounded-full bg-orange text-white transition-all duration-300 ease-in-out ${
+          theme === "dark" ? "left-[2px]" : "left-[32px]"
         }`}
       >
-        {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
+        {theme === "dark" ? <Moon size={13} /> : <Sun size={13} />}
       </span>
     </button>
   );
