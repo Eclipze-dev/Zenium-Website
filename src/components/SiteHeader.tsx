@@ -320,7 +320,7 @@ function DemoButton({
     <a
       href="#contact"
       onClick={onClick}
-      className={`group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] bg-orange px-4 text-[14px] font-semibold text-white transition-[filter] duration-[180ms] hover:brightness-110 ${full ? "w-full" : ""} ${className}`}
+      className={`button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-[14px] font-semibold transition-colors duration-[180ms] hover:-translate-y-0.5 ${full ? "w-full" : ""} ${className}`}
     >
       Request a Demo
       <ArrowRight size={16} className="transition-transform duration-[180ms] group-hover:translate-x-1" />

@@ -9,7 +9,7 @@ export default {
       colors: {
         orange: {
           DEFAULT: '#f07f25',
-          dark: '#d96e1d',
+          dark: '#C55F0D',
         },
         muted: 'var(--text-muted)',
         line: 'var(--line)',

@@ -172,8 +172,8 @@ function Button({
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-[13px] transition-all duration-200 [&>svg]:block [&>svg]:shrink-0 ${
         outline
-          ? "border-line bg-transparent text-zen-text hover:bg-hover-surface"
-          : "border-orange bg-orange text-white hover:border-orange-dark hover:bg-orange-dark hover:-translate-y-0.5"
+          ? "button-secondary"
+          : "button-primary hover:-translate-y-0.5"
       }`}
     >
       {children}
@@ -706,7 +706,7 @@ export default function Home() {
           <div className="mt-[40px] flex justify-center">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-[4px] bg-orange border border-orange px-[18px] py-[11px] text-[14px] font-semibold text-white transition-all duration-200 hover:bg-orange-dark hover:border-orange-dark hover:-translate-y-0.5"
+              className="button-primary group inline-flex items-center gap-2 rounded-[4px] border px-[18px] py-[11px] text-[14px] font-semibold transition-all duration-200 hover:-translate-y-0.5"
             >
               Request a Demo
               <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
