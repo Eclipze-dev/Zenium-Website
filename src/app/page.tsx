@@ -535,7 +535,7 @@ export default function Home() {
             </i>{" "}
             2 million+ meters onboarded
           </p>
-          <article className="max-w-[995px] mx-auto bg-white rounded-[8px] text-[#1a1a1a] p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
+          <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
             <div className="text-[22px] font-bold text-[#2d5e9f] tracking-[0.04em] light-card-heading">
               PUNJAB
               <span className="block text-[10px] text-orange tracking-[0.2em]">
