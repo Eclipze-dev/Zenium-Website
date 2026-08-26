@@ -118,6 +118,32 @@ body {
   color: #FFFFFF;
 }
 
+/* ===== Zenium Edge Accordion ===== */
+.capability-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  width: 100%;
+  transform-origin: left center;
+  background: var(--text);
+  animation: capability-progress-fill 5s linear forwards;
+}
+
+.capability-paused .capability-progress {
+  animation-play-state: paused;
+}
+
+@keyframes capability-progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-progress {
+    animation: none;
+  }
+}
+
 /* ===== Zenium Data Flow SVG Animations ===== */
 .zdf-wordmark-glow {
   filter: drop-shadow(0 0 8px rgba(240, 127, 37, 0.5));

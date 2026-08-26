@@ -294,6 +294,17 @@ function Typewriter() {
 export default function Home() {
   const [activeCapability, setActiveCapability] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [capabilityPaused, setCapabilityPaused] = useState(false);
+
+  useEffect(() => {
+    if (capabilityPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveCapability((current) => (current + 1) % capabilities.length);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, [capabilityPaused]);
 
   return (
     <div id="top" className="bg-zen-bg">
@@ -413,21 +424,35 @@ export default function Home() {
               utilities.
             </SectionIntro>
             <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
-              {capabilities.map(([title, text], index) => (
-                <button
-                  className={`block text-left w-full border-0 bg-transparent text-zen-text pb-[28px] mb-[10px] ${activeCapability === index ? "[&_.capability-line]:before:content-[''] [&_.capability-line]:before:block [&_.capability-line]:before:h-[2px] [&_.capability-line]:before:w-[22%] [&_.capability-line]:before:bg-[#eee]" : ""}`}
-                  key={title}
-                  onClick={() => setActiveCapability(index)}
-                >
-                  <span className="block h-px bg-line mb-[26px] relative" />
-                  <b className="text-[16px]">{title}</b>
-                  {activeCapability === index && (
-                    <p className="text-muted text-base leading-[1.5] mt-[9px]">
-                      {text}
-                    </p>
-                  )}
-                </button>
-              ))}
+              {capabilities.map(([title, text], index) => {
+                const active = activeCapability === index;
+
+                return (
+                  <button
+                    key={title}
+                    type="button"
+                    aria-expanded={active}
+                    onClick={() => setActiveCapability(index)}
+                    onMouseEnter={() => setCapabilityPaused(true)}
+                    onMouseLeave={() => setCapabilityPaused(false)}
+                    onFocus={() => setCapabilityPaused(true)}
+                    onBlur={() => setCapabilityPaused(false)}
+                    className={`capability-item block w-full border-0 bg-transparent pb-[28px] mb-[10px] text-left text-zen-text ${capabilityPaused ? "capability-paused" : ""}`}
+                  >
+                    <span className="capability-rule relative mb-[26px] block h-px bg-line">
+                      {active && <span key={activeCapability} className="capability-progress" />}
+                    </span>
+                    <b className={`text-[16px] transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
+                      {title}
+                    </b>
+                    <span className={`capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0"}`}>
+                      <span className="min-h-0 overflow-hidden text-muted text-base leading-[1.5]">
+                        {text}
+                      </span>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
           {/* <div className="relative w-full min-h-[680px] border border-line rounded-[10px] bg-zen-bg overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-md:min-h-[520px] max-sm:min-h-[560px]">
