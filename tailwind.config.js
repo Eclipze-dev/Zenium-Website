@@ -24,6 +24,7 @@ export default {
         'nav-muted': 'var(--nav-muted)',
         'nav-line': 'var(--nav-line)',
         'hover-surface': 'var(--hover-surface)',
+        'zen-text': 'var(--text)',
       },
       keyframes: {
         'caret-blink': { '0%,100%': { opacity: '1' }, '50%': { opacity: '0' } },

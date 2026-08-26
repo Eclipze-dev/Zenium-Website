@@ -10,7 +10,7 @@ function FooterLink({ label, href, arrow = false }: FooterLinkItem) {
   return (
     <a
       href={href}
-      className="group/link inline-flex items-center gap-1.5 text-[13px] font-normal leading-[1.6] text-muted transition-colors duration-[200ms] hover:text-zen-bg"
+      className="group/link inline-flex items-center gap-1.5 text-[13px] font-normal leading-[1.6] text-muted transition-colors duration-[200ms] hover:text-zen-text"
     >
       <span className="transition-colors duration-[200ms] group-hover/link:text-orange">
         {label}
@@ -59,13 +59,13 @@ function FooterBottomBar() {
           <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
             <a
               href="#privacy"
-              className="text-[11px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-bg"
+              className="text-[11px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Privacy Policy
             </a>
             <a
               href="#terms"
-              className="text-[11px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-bg"
+              className="text-[11px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Terms &amp; Conditions
             </a>
@@ -163,7 +163,7 @@ export default function Footer() {
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link mt-[24px] inline-flex items-center gap-1.5 text-[13px] font-normal text-muted transition-colors duration-200 hover:text-zen-bg"
+              className="group/link mt-[24px] inline-flex items-center gap-1.5 text-[13px] font-normal text-muted transition-colors duration-200 hover:text-zen-text"
             >
               <Linkedin
                 size={16}

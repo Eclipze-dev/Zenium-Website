@@ -172,7 +172,7 @@ function Button({
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-[13px] transition-all duration-200 [&>svg]:block [&>svg]:shrink-0 ${
         outline
-          ? "border-line bg-transparent text-zen-bg hover:bg-hover-surface"
+          ? "border-line bg-transparent text-zen-text hover:bg-hover-surface"
           : "border-orange bg-orange text-white hover:border-orange-dark hover:bg-orange-dark hover:-translate-y-0.5"
       }`}
     >
@@ -196,7 +196,7 @@ function SectionIntro({
     <header
       className={`section-heading ${centered ? "mx-auto text-center" : ""}`}
     >
-      <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-bg font-normal">
+      <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
         {eyebrow}
       </p>
       <h2 className="text-[clamp(30px,4.5vw,65px)] font-normal leading-[1.08] tracking-[0] m-0 max-sm:text-[clamp(26px,8vw,34px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
@@ -307,7 +307,7 @@ export default function Home() {
       >
         <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
           <div className="min-w-0 max-w-[680px] relative z-[2] max-md:max-w-full">
-            <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-bg font-normal">
+            <p className="text-[clamp(14px,1.4vw,21px)] leading-[1.2] tracking-[0.02em] mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
               ENERGY INTELLIGENCE
             </p>
             <h1
@@ -415,7 +415,7 @@ export default function Home() {
             <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
               {capabilities.map(([title, text], index) => (
                 <button
-                  className={`block text-left w-full border-0 bg-transparent text-zen-bg pb-[28px] mb-[10px] ${activeCapability === index ? "[&_.capability-line]:before:content-[''] [&_.capability-line]:before:block [&_.capability-line]:before:h-[2px] [&_.capability-line]:before:w-[22%] [&_.capability-line]:before:bg-[#eee]" : ""}`}
+                  className={`block text-left w-full border-0 bg-transparent text-zen-text pb-[28px] mb-[10px] ${activeCapability === index ? "[&_.capability-line]:before:content-[''] [&_.capability-line]:before:block [&_.capability-line]:before:h-[2px] [&_.capability-line]:before:w-[22%] [&_.capability-line]:before:bg-[#eee]" : ""}`}
                   key={title}
                   onClick={() => setActiveCapability(index)}
                 >
@@ -534,7 +534,7 @@ export default function Home() {
               <button
                 key={slide}
                 onClick={() => setActiveSlide(slide)}
-                className={`h-[6px] p-0 border-0 rounded-[50%] bg-zen-bg transition-all ${activeSlide === slide ? "w-[30px] rounded-[4px]" : "w-[6px]"}`}
+                className={`h-[6px] p-0 border-0 rounded-[50%] bg-zen-text transition-all ${activeSlide === slide ? "w-[30px] rounded-[4px]" : "w-[6px]"}`}
                 aria-label={`Show story ${slide + 1}`}
               />
             ))}
@@ -691,7 +691,7 @@ export default function Home() {
         <CTANetworkBackground />
 
         <div className="container relative z-[2] text-center">
-          <p className="text-[clamp(13px,1.15vw,17px)] leading-[1.2] tracking-[0.02em] mb-[clamp(18px,2.4vw,30px)] text-zen-bg font-normal">
+          <p className="text-[clamp(13px,1.15vw,17px)] leading-[1.2] tracking-[0.02em] mb-[clamp(18px,2.4vw,30px)] text-zen-text font-normal">
             YOUR ENERGY DATA ALREADY KNOWS MORE.
           </p>
           <h2
