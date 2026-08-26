@@ -14,7 +14,7 @@ export default {
         muted: 'var(--text-muted)',
         line: 'var(--line)',
         card: 'var(--card)',
-        'zen-bg': 'var(--bg)',
+        'zen-bg': 'var(--bg-gradient)',
         'zen-card': '#242424',
         header: 'var(--header)',
         'nav-surface': 'var(--nav-surface)',

@@ -32,7 +32,7 @@ export default function RootLayout({
       </head>
       <body
         className="m-0 bg-zen-bg text-white min-w-[320px] [&_a]:text-inherit [&_a]:no-underline [&_a]:[font:inherit] [&_button]:cursor-pointer [&_button]:[font:inherit]"
-        style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}
+        style={{ background: 'var(--bg-gradient)', color: 'var(--text)' }}
       >
         {children}
       </body>

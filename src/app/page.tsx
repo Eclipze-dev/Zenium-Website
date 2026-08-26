@@ -313,7 +313,7 @@ export default function Home() {
 
       {/* Hero */}
       <section
-        className="relative flex items-center min-h-[100svh] pt-[40px] pb-[60px] bg-[radial-gradient(ellipse_at_70%_45%,var(--hero-glow),transparent_40%),var(--bg)] overflow-hidden max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
+        className="relative flex items-center min-h-[100svh] pt-[40px] pb-[60px] bg-[radial-gradient(ellipse_at_70%_45%,var(--hero-glow),transparent_40%),var(--bg-gradient)] overflow-hidden max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
         aria-labelledby="hero-title"
       >
         <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
