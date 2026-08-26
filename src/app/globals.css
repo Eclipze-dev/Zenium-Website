@@ -36,8 +36,8 @@
 [data-theme="light"] {
   --bg: #F5F5F3;
   --bg-gradient: #F5F5F3;
-  --text: #1A1A1A;
-  --text-muted: rgba(26, 26, 26, 0.6);
+  --text: #152D48;
+  --text-muted: rgba(21, 45, 72, 0.6);
   --card: rgba(0, 0, 0, 0.04);
   --line: rgba(0, 0, 0, 0.1);
   --header: #FFFFFF;
@@ -52,26 +52,26 @@
   --footer-border: rgba(0, 0, 0, 0.08);
   --svg-surface-1: #FFFFFF;
   --svg-surface-2: #F0F0EE;
-  --svg-text: #1A1A1A;
-  --svg-muted: rgba(26, 26, 26, 0.6);
+  --svg-text: #152D48;
+  --svg-muted: rgba(21, 45, 72, 0.6);
   --svg-fill-muted: #999999;
   --svg-hub-fill: #FFFFFF;
   --svg-line-muted: rgba(0, 0, 0, 0.14);
   --svg-particle: rgba(0, 0, 0, 0.08);
   --hero-glow: rgba(240, 127, 37, 0.06);
-  --button-secondary-border: #1A1A1A;
-  --button-secondary-text: #1A1A1A;
+  --button-secondary-border: #152D48;
+  --button-secondary-text: #152D48;
 }
 
 /* Light mode overrides for white-based utilities */
-[data-theme="light"] .text-white { color: #1A1A1A; }
+[data-theme="light"] .text-white { color: #152D48; }
 [data-theme="light"] .bg-orange.text-white { color: #FFFFFF; }
-[data-theme="light"] .text-white\/70 { color: rgba(26, 26, 26, 0.6); }
-[data-theme="light"] .hover\:text-white:hover { color: #1A1A1A; }
-[data-theme="light"] .border-white { border-color: rgba(26, 26, 26, 0.25); }
+[data-theme="light"] .text-white\/70 { color: rgba(21, 45, 72, 0.6); }
+[data-theme="light"] .hover\:text-white:hover { color: #152D48; }
+[data-theme="light"] .border-white { border-color: rgba(21, 45, 72, 0.25); }
 [data-theme="light"] .hover\:bg-white\/10:hover { background-color: rgba(0, 0, 0, 0.05); }
 [data-theme="light"] .bg-white { background-color: #FFFFFF; }
-[data-theme="light"] .fill-white { fill: #1A1A1A; }
+[data-theme="light"] .fill-white { fill: #152D48; }
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -95,7 +95,7 @@ body {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 [data-theme="light"] .light-card-heading { color: #2d5e9f; }
-[data-theme="light"] .light-card-subtitle { color: rgba(26, 26, 26, 0.65); }
+[data-theme="light"] .light-card-subtitle { color: rgba(21, 45, 72, 0.65); }
 
 .button-primary {
   background-color: #F07F25;
