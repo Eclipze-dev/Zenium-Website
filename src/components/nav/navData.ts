@@ -53,13 +53,6 @@ export const primaryNav: NavItem[] = [
 
 export const solutionsLinks: MegaLink[] = [
   {
-    title: "AI & Analytics",
-    description:
-      "Turn complex utility data into actionable intelligence, predictive insights and better decisions.",
-    href: "#solutions",
-    icon: "sparkles",
-  },
-  {
     title: "HES",
     description:
       "Connect and collect data from smart meters and field devices in real time.",
@@ -73,6 +66,13 @@ export const solutionsLinks: MegaLink[] = [
     href: "#solutions",
     icon: "database",
   },
+  {
+    title: "AI & Analytics",
+    description:
+      "Turn complex utility data into actionable intelligence, predictive insights and better decisions.",
+    href: "#solutions",
+    icon: "sparkles",
+  },
 ];
 
 export const industryLinks: MegaLink[] = [
@@ -81,12 +81,6 @@ export const industryLinks: MegaLink[] = [
     description: "Intelligence for modern utility operations.",
     href: "#who-we-serve",
     icon: "zap",
-  },
-  {
-    title: "Enterprise",
-    description: "Connected intelligence for complex energy environments.",
-    href: "#who-we-serve",
-    icon: "building",
   },
   {
     title: "Commercial & Industrial",
@@ -116,16 +110,16 @@ export const industryLinks: MegaLink[] = [
 
 export const partnerLinks: MegaLink[] = [
   {
-    title: "Why Partner with Zenium",
-    description: "Unlock growth, innovation and customer impact together.",
+    title: "Meter Manufacturers",
+    description: "Connect meter manufacturing expertise with intelligent utility solutions.",
     href: "#partners",
-    icon: "handshake",
+    icon: "factory",
   },
   {
-    title: "Technology Partners",
-    description: "Integrate and co-innovate with the Zenium intelligence platform.",
+    title: "AMI Service Providers",
+    description: "Deliver connected metering services with the Zenium intelligence platform.",
     href: "#partners",
-    icon: "puzzle",
+    icon: "radio",
   },
   {
     title: "System Integrators",
@@ -203,11 +197,6 @@ export const companyConnect: MegaLink[] = [
 
 export const mobileSolutions = [
   {
-    title: "AI & Analytics",
-    description: "Turn complex utility data into actionable intelligence.",
-    href: "#solutions",
-  },
-  {
     title: "HES",
     description: "Connect and collect smart-meter data.",
     href: "#solutions",
@@ -215,6 +204,11 @@ export const mobileSolutions = [
   {
     title: "MDM",
     description: "Transform meter data into trusted utility information.",
+    href: "#solutions",
+  },
+  {
+    title: "AI & Analytics",
+    description: "Turn complex utility data into actionable intelligence.",
     href: "#solutions",
   },
 ];
