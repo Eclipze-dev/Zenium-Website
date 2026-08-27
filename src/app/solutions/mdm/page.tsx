@@ -6,8 +6,8 @@ export default function MdmPage() {
     <div className="bg-zen-bg min-h-screen">
       <SiteHeader />
       <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-ink">MDM</h1>
-        <p className="mt-4 text-zen-muted">
+        <h1 className="text-3xl font-semibold text-zen-text">MDM</h1>
+        <p className="mt-4 text-muted">
           Meter Data Management solution page coming soon.
         </p>
       </main>
