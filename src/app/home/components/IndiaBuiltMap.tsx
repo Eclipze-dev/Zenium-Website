@@ -125,7 +125,7 @@ export default function IndiaBuiltMap() {
   });
 
   return (
-    <div className="relative w-full max-w-[620px] overflow-hidden bg-zen-bg [aspect-ratio:620/760] max-lg:mx-auto max-md:max-w-[500px] max-sm:max-w-[390px]">
+    <div className="relative w-full max-w-[620px] overflow-hidden  [aspect-ratio:620/760] max-lg:mx-auto max-md:max-w-[500px] max-sm:max-w-[390px]">
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full block overflow-visible">
         <defs>
           <filter id="orangeGlow" x="-100%" y="-100%" width="300%" height="300%">

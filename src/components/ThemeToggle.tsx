@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { MoonIcon, SunIcon } from "@/components/icons/icons";
 
 type Theme = "dark" | "light";
 
@@ -41,7 +41,7 @@ export default function ThemeToggle() {
           theme === "dark" ? "left-[2px]" : "left-[32px]"
         }`}
       >
-        {theme === "dark" ? <Moon size={13} /> : <Sun size={13} />}
+        {theme === "dark" ? <MoonIcon width={13} height={13} /> : <SunIcon width={13} height={13} />}
       </span>
     </button>
   );

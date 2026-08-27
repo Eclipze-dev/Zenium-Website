@@ -6,22 +6,41 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'p': ['var(--font-family-p)'],
+        'p2': ['var(--font-family-p2)'],
+      },
       fontSize: {
         'caption': ['12px', { lineHeight: '1.45' }],
         'supporting': ['13px', { lineHeight: '1.45' }],
+        'body': ['14px', { lineHeight: '1.55' }],
         'base-lg': ['15px', { lineHeight: '1.55' }],
         'card': ['16px', { lineHeight: '1.3' }],
+        'quote': ['18px', { lineHeight: '1.6' }],
+        'card-title': ['20px', { lineHeight: '1.25' }],
         'subheading': ['20px', { lineHeight: '1.3' }],
         'heading-sm': ['22px', { lineHeight: '1.25' }],
+        'metric-value': ['24px', { lineHeight: '1.2' }],
+        'metric-label': ['13px', { lineHeight: '1.4' }],
         'hero': ['clamp(46px, 4vw, 60px)', { lineHeight: '1.06' }],
+        'p': ['16px', { lineHeight: '1.45', letterSpacing: '0.02em' }],
+        'p2': ['14px', { lineHeight: '1.55', letterSpacing: '0.02em' }],
         'section': ['clamp(42px, 4vw, 58px)', { lineHeight: '1.08' }],
         'display': ['clamp(48px, 4.5vw, 64px)', { lineHeight: '1.06' }],
+      },
+      letterSpacing: {
+        eyebrow: '0.02em',
+        hero: '-0.035em',
+        display: '-0.045em',
+        label: '0.12em',
+        footer: '0.14em',
       },
       colors: {
         orange: {
           DEFAULT: '#f07f25',
           dark: '#C55F0D',
         },
+        'zenbg': '#06141F',
         muted: 'var(--text-muted)',
         line: 'var(--line)',
         card: 'var(--card)',

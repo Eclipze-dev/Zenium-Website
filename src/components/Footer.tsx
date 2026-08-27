@@ -1,4 +1,7 @@
-import { ArrowRight, Linkedin } from "lucide-react";
+import {
+  ArrowRightIcon,
+  LinkedInIcon,
+} from "@/components/icons/icons";
 
 type FooterLinkItem = {
   label: string;
@@ -10,14 +13,15 @@ function FooterLink({ label, href, arrow = false }: FooterLinkItem) {
   return (
     <a
       href={href}
-      className="group/link inline-flex items-center gap-1.5 text-[13px] font-normal leading-[1.5] text-muted transition-colors duration-[200ms] hover:text-zen-text"
+      className="group/link inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted transition-colors duration-[200ms] hover:text-zen-text"
     >
       <span className="transition-colors duration-[200ms] group-hover/link:text-orange">
         {label}
       </span>
       {arrow && (
-        <ArrowRight
-          size={13}
+        <ArrowRightIcon
+          width={13}
+          height={13}
           className="shrink-0 text-orange transition-transform duration-[200ms] group-hover/link:translate-x-1"
         />
       )}
@@ -34,7 +38,7 @@ function FooterColumn({
 }) {
   return (
     <div className="min-w-0">
-      <h3 className="mb-[20px] text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
+      <h3 className="mb-[20px] text-caption font-semibold uppercase tracking-footer text-muted">
         {heading}
       </h3>
       <ul className="m-0 list-none space-y-[12px] p-0">
@@ -53,19 +57,19 @@ function FooterBottomBar() {
     <div className="container">
       <div className="border-t border-line py-[26px]">
         <div className="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-[14px]">
-          <span className="text-[12px] font-normal tracking-[0.04em] text-muted">
+          <span className="text-caption font-normal tracking-[0.04em] text-muted">
             &copy; Zenix Data Private Limited
           </span>
           <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
             <a
               href="#privacy"
-              className="text-[12px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Privacy Policy
             </a>
             <a
               href="#terms"
-              className="text-[12px] font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Terms &amp; Conditions
             </a>
@@ -128,7 +132,7 @@ const contactLinks: FooterLinkItem[] = [
   { label: "Contact Us", href: "#contact" },
   { label: "Sales Enquiry", href: "#contact" },
   { label: "Support", href: "#contact" },
-  { label: "Request a Demo", href: "#contact", arrow: true },
+  { label: "Request a Demo", href: "#contact", arrow: false },
 ];
 
 export default function Footer() {
@@ -155,26 +159,23 @@ export default function Footer() {
                 className="hidden h-9 w-auto block max-sm:h-8 theme-logo-light"
               />
             </a>
-            <p className="mt-[20px] max-w-[280px] text-[14px] font-normal leading-[1.5] text-muted">
+            <p className="mt-[20px] max-w-[280px] text-body font-normal leading-[1.5] text-muted">
               Turning connected utility data into intelligence.
             </p>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link mt-[24px] inline-flex items-center gap-1.5 text-[13px] font-normal text-muted transition-colors duration-200 hover:text-zen-text"
+              className="group/link mt-[24px] inline-flex items-center gap-1.5 text-supporting font-normal text-muted transition-colors duration-200 hover:text-zen-text"
             >
-              <Linkedin
-                size={16}
-                className="shrink-0 text-orange transition-transform duration-200 group-hover/link:translate-x-0.5"
+              <LinkedInIcon
+                width={16}
+                height={16}
+                className="shrink-0 text-orange duration-200"
               />
               <span className="transition-colors duration-200 group-hover/link:text-orange">
                 LinkedIn
               </span>
-              <ArrowRight
-                size={13}
-                className="shrink-0 text-orange transition-transform duration-200 group-hover/link:translate-x-1"
-              />
             </a>
           </div>
 
@@ -188,7 +189,7 @@ export default function Footer() {
         <div className="mt-[48px] border-t border-line pt-[36px] max-sm:mt-[36px] max-sm:pt-[28px]">
           <div className="grid grid-cols-[1fr_auto] items-start gap-[40px] max-sm:grid-cols-1 max-sm:gap-[20px]">
             <div className="min-w-0">
-              <h3 className="mb-[20px] text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
+              <h3 className="mb-[20px] text-caption font-semibold uppercase tracking-footer text-muted">
                 Contact
               </h3>
               <ul className="m-0 list-none flex flex-wrap gap-x-[40px] gap-y-[12px] p-0 max-sm:flex-col max-sm:gap-[12px]">

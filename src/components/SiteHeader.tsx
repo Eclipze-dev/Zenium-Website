@@ -2,11 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight,
   BookOpen,
   Briefcase,
   Building2,
-  ChevronDown,
   Cpu,
   Database,
   Factory,
@@ -16,7 +14,6 @@ import {
   HeartHandshake,
   Info,
   Lightbulb,
-  Menu,
   Newspaper,
   Network,
   Play,
@@ -25,10 +22,15 @@ import {
   Sparkles,
   User,
   Users,
-  X,
   Zap,
   type LucideIcon,
 } from "lucide-react";
+import {
+  ArrowRightIcon,
+  ChevronDownIcon,
+  CloseIcon,
+  MenuIcon,
+} from "@/components/icons/icons";
 import {
   companyAbout,
   companyConnect,
@@ -50,7 +52,7 @@ import {
   PartnerFlow,
   UtilityNetwork,
 } from "./nav/NetworkMotifs";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 
 const icons: Record<IconKey, LucideIcon> = {
   sparkles: Sparkles,
@@ -78,7 +80,7 @@ const icons: Record<IconKey, LucideIcon> = {
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-3 text-[12px] font-semibold uppercase tracking-[1.2px] text-orange">
+    <p className="mb-3 text-caption font-semibold uppercase tracking-[1.2px] text-orange">
       {children}
     </p>
   );
@@ -98,15 +100,16 @@ function MegaItem({ item, onNavigate }: { item: MegaLink; onNavigate: () => void
       />
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
-          <span className="text-[16px] font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
+          <span className="text-card font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
             {item.title}
           </span>
-          <ArrowRight
-            size={14}
+          <ArrowRightIcon
+            width={14}
+            height={14}
             className="translate-x-0 text-orange opacity-0 transition-all duration-[180ms] group-hover:translate-x-1 group-hover:opacity-100"
           />
         </span>
-        <span className="mt-1 block text-[13px] font-normal leading-snug text-nav-muted">
+        <span className="mt-1 block text-supporting font-normal leading-snug text-nav-muted">
           {item.description}
         </span>
       </span>
@@ -136,11 +139,11 @@ function FeatureBlock({
       {children}
       <div className="relative z-[1]">
         <Label>{label}</Label>
-        <h3 className="max-w-[18ch] text-[22px] font-semibold leading-[1.15] tracking-[-0.03em] text-white">
+        <h3 className="max-w-[18ch] text-heading-sm font-semibold leading-[1.15] tracking-[-0.03em] text-white">
           {heading}
         </h3>
         {copy && (
-          <p className="mt-3 max-w-[34ch] text-[13px] leading-relaxed text-nav-muted">
+          <p className="mt-3 max-w-[34ch] text-supporting leading-relaxed text-nav-muted">
             {copy}
           </p>
         )}
@@ -148,10 +151,10 @@ function FeatureBlock({
           <a
             href={href}
             onClick={onNavigate}
-            className="group mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-orange"
+            className="group mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange"
           >
             {cta}
-            <ArrowRight size={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
+            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
           </a>
         )}
       </div>
@@ -253,15 +256,15 @@ function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
         <InsightNetwork />
         <div className="relative z-[1]">
           <Label>Latest Insight</Label>
-          <h3 className="text-[16px] font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
+          <h3 className="text-card font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
             Turning Utility Data Into Intelligence
           </h3>
-          <p className="mt-3 text-[13px] leading-relaxed text-nav-muted">
+          <p className="mt-3 text-supporting leading-relaxed text-nav-muted">
             Explore how intelligent analytics can help utilities make faster, better decisions.
           </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-orange">
+          <span className="mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange">
             Read Insight
-            <ArrowRight size={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
+            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
           </span>
         </div>
       </a>
@@ -320,10 +323,10 @@ function DemoButton({
     <a
       href="#contact"
       onClick={onClick}
-      className={`button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-[14px] font-semibold transition-colors duration-[180ms] hover:-translate-y-0.5 ${full ? "w-full" : ""} ${className}`}
+      className={`button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms] ${full ? "w-full" : ""} ${className}`}
     >
       Request a Demo
-      <ArrowRight size={16} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
+      {/* <ArrowRightIcon width={16} height={16} className="transition-transform duration-[180ms] group-hover:translate-x-1" /> */}
     </a>
   );
 }
@@ -380,7 +383,7 @@ export default function SiteHeader() {
   return (
     <header
       ref={rootRef}
-      className="sticky top-0 z-50 border-b border-nav-line bg-header"
+      className="sticky top-0 z-50 border-b border-nav-line bg-header "
       onMouseLeave={scheduleClose}
       onMouseEnter={cancelClose}
     >
@@ -411,7 +414,7 @@ export default function SiteHeader() {
                   key={item.id}
                   href={item.href}
                   onClick={closeAll}
-                  className="px-3 py-2 text-[14px] font-medium tracking-[0.01em] text-nav-ink transition-colors duration-[180ms] hover:text-orange"
+                  className="px-3 py-2 text-body font-medium tracking-[0.01em] text-nav-ink transition-colors duration-[180ms] hover:text-orange"
                 >
                   {item.label}
                 </a>
@@ -432,13 +435,14 @@ export default function SiteHeader() {
                 onClick={() =>
                   setOpenId((current) => (current === item.id ? null : (item.id as MegaId)))
                 }
-                className={`relative flex items-center gap-1 px-3 py-2 text-[14px] font-medium tracking-[0.01em] transition-colors duration-[180ms] ${
+                className={`relative flex items-center gap-1 px-3 py-2 text-body font-medium tracking-[0.01em] transition-colors duration-[180ms] ${
                   active ? "text-orange" : "text-nav-ink hover:text-orange"
                 }`}
               >
                 {item.label}
-                <ChevronDown
-                  size={14}
+                <ChevronDownIcon
+                  width={14}
+                  height={14}
                   className={`transition-transform duration-[180ms] ${active ? "rotate-180" : ""}`}
                 />
                 <span
@@ -452,12 +456,12 @@ export default function SiteHeader() {
         </nav>
 
         <div className="justify-self-end flex items-center gap-3 max-lg:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <DemoButton />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             type="button"
             className="hidden border-0 bg-transparent text-white max-lg:block"
@@ -465,7 +469,7 @@ export default function SiteHeader() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
           >
-            {mobileOpen ? <X /> : <Menu />}
+            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
@@ -509,12 +513,12 @@ export default function SiteHeader() {
                     onClick={() =>
                       setMobileExpanded((current) => (current === item.id ? null : item.id))
                     }
-                    className={`flex w-full items-center justify-between py-4 text-left text-[15px] font-medium ${
+                    className={`flex w-full items-center justify-between py-4 text-left text-base-lg font-medium ${
                       expanded ? "text-orange" : "text-white"
                     }`}
                   >
                     {item.label}
-                    <span className="text-[16px] leading-none">{expanded ? "–" : "+"}</span>
+                    <span className="text-card leading-none">{expanded ? "–" : "+"}</span>
                   </button>
                   {expanded && (
                     <div className="pb-3">
@@ -525,8 +529,8 @@ export default function SiteHeader() {
                           onClick={closeAll}
                           className="block border-t border-nav-line py-3"
                         >
-                          <span className="block text-[14px] font-semibold text-white">{child.title}</span>
-                          <span className="mt-1 block text-[12px] text-nav-muted">{child.description}</span>
+                          <span className="block text-body font-semibold text-white">{child.title}</span>
+                          <span className="mt-1 block text-caption text-nav-muted">{child.description}</span>
                         </a>
                       ))}
                     </div>
@@ -537,7 +541,7 @@ export default function SiteHeader() {
             <a
               href="#contact"
               onClick={closeAll}
-              className="block border-b border-nav-line py-4 text-[15px] font-medium text-white"
+              className="block border-b border-nav-line py-4 text-base-lg font-medium text-white"
             >
               Contact
             </a>

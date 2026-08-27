@@ -355,6 +355,21 @@ body {
     line-height: 1.55;
   }
 
+  .bg-zenbg {
+    background-color: var(--zenbg);
+  }
+
+  .text-p {
+    font-size: var(--text-p);
+    font-family: var(--font-family-p);
+    line-height: 1.45;
+  }
+
+  .text-p2 {
+    font-size: var(--text-p2);
+    line-height: 1.55;
+  }
+
   .text-body-fluid {
     font-size: var(--text-body-fluid);
     line-height: 1.55;
