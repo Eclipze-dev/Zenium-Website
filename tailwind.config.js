@@ -23,7 +23,7 @@ export default {
         'metric-value': ['24px', { lineHeight: '1.2' }],
         'metric-label': ['13px', { lineHeight: '1.4' }],
         'hero': ['clamp(46px, 4vw, 60px)', { lineHeight: '1.06' }],
-        'p': ['36px', { lineHeight: '1.45', letterSpacing: '0.02em' }],
+        'p': ['16px', { lineHeight: '1.45', letterSpacing: '0.02em' }],
         'p2': ['14px', { lineHeight: '1.55', letterSpacing: '0.02em' }],
         'section': ['clamp(42px, 4vw, 58px)', { lineHeight: '1.08' }],
         'display': ['clamp(48px, 4.5vw, 64px)', { lineHeight: '1.06' }],
