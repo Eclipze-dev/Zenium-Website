@@ -62,13 +62,13 @@ function FooterBottomBar() {
           </span>
           <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
             <a
-              href="#privacy"
+              href="/privacy"
               className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Privacy Policy
             </a>
             <a
-              href="#terms"
+              href="/terms"
               className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Terms &amp; Conditions
@@ -95,7 +95,7 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
       { label: "Utilities", href: "/serve/utilities" },
       { label: "Commercial & Industrial", href: "/serve/commercial" },
       { label: "Smart Cities", href: "/serve/cities" },
-      { label: "Microgrids", href: "/serve/microgrids" },
+      { label: "Microgrids", href: "/serve/microgrid" },
       { label: "Prosumers", href: "/serve/prosumers" },
     ],
   },

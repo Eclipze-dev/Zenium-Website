@@ -169,7 +169,7 @@ export const companyAbout: MegaLink[] = [
   {
     title: "About Zenium",
     description: "Learn about Zenium and our vision for intelligent utilities.",
-    href: "/company/",
+    href: "/company/about",
     icon: "info",
   },
   {
