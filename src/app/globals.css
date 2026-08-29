@@ -27,14 +27,25 @@
   --text-muted: rgba(255, 255, 255, 0.68);
   --card: rgba(255, 255, 255, 0.065);
   --line: rgba(255, 255, 255, 0.16);
-  --header: #071A2E;
-  --nav-surface: #071A2E;
-  --nav-card: #15283A;
-  --nav-navy: #152D48;
-  --nav-feature-bg: rgba(21, 45, 72, 0.4);
-  --nav-ink: #E8EDF1;
-  --nav-muted: #AAB6C2;
-  --nav-line: rgba(255, 255, 255, 0.08);
+
+  /* ===== Topbar/header vars — forced to the light-theme look ===== */
+  /* --header: #071A2E; */
+  --header: #FFFFFF;
+  /* --nav-surface: #071A2E; */
+  --nav-surface: #FFFFFF;
+  /* --nav-card: #15283A; */
+  --nav-card: #F0F2F5;
+  /* --nav-navy: #152D48; */
+  --nav-navy: #EDF1F5;
+  /* --nav-feature-bg: rgba(21, 45, 72, 0.4); */
+  --nav-feature-bg: rgba(220, 230, 240, 0.5);
+  /* --nav-ink: #E8EDF1; */
+  --nav-ink: #1A2B3C;
+  /* --nav-muted: #AAB6C2; */
+  --nav-muted: #5A6B7C;
+  /* --nav-line: rgba(255, 255, 255, 0.08); */
+  --nav-line: rgba(0, 0, 0, 0.08);
+
   --hover-surface: rgba(255, 255, 255, 0.1);
   --footer-border: rgba(255, 255, 255, 0.08);
   --svg-surface-1: #15191D;
@@ -80,7 +91,7 @@
   --button-secondary-text: #152D48;
 }
 
-/* Light mode overrides for white-based utilities */
+/* Light mode overrides for white-based utilities (site-wide, unchanged) */
 [data-theme="light"] .text-white { color: #152D48; }
 [data-theme="light"] .bg-orange.text-white { color: #FFFFFF; }
 [data-theme="light"] .text-white\/70 { color: rgba(21, 45, 72, 0.6); }
@@ -90,11 +101,23 @@
 [data-theme="light"] .bg-white { background-color: #FFFFFF; }
 [data-theme="light"] .fill-white { fill: #152D48; }
 
+/* ===== Topbar-only: force the light-theme text/logo treatment ===== */
+/* These two rules replicate, scoped to <header>, what [data-theme="light"]
+   already does globally — so the header reads "light" even while the rest
+   of the site stays in dark mode. Remove if the topbar should ever follow
+   the global theme again. */
+header .text-white { color: var(--nav-ink); }
+header .theme-logo-dark { display: none; }
+header .theme-logo-light { display: block; }
+header .shadow-\[0_24px_60px_rgba\(0\,0\,0\,0\.35\)\] {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Theme-aware logo visibility */
+/* Theme-aware logo visibility (site-wide default; overridden inside header above) */
 .theme-logo-dark { display: block; }
 .theme-logo-light { display: none; }
 [data-theme="light"] .theme-logo-dark { display: none; }
@@ -104,15 +127,6 @@ body {
 [data-theme="light"] .shadow-\[0_24px_60px_rgba\(0\,0\,0\,0\.35\)\] {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
-
-/* Light mode: customer story card stays white but with subtle border */
-[data-theme="light"] .light-card {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-}
-[data-theme="light"] .light-card-heading { color: #2d5e9f; }
-[data-theme="light"] .light-card-subtitle { color: rgba(21, 45, 72, 0.65); }
 
 .button-primary {
   background-color: #F07F25;

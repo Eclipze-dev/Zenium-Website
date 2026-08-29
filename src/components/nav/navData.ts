@@ -48,7 +48,7 @@ export const primaryNav: NavItem[] = [
   { id: "partners", label: "Partners", href: "#partners", mega: true },
   { id: "resources", label: "Resources", href: "#resources", mega: true },
   { id: "company", label: "Company", href: "#company", mega: true },
-  { id: "contact", label: "Contact", href: "#contact", mega: false },
+  { id: "contact", label: "Contact", href: "/contact", mega: false },
 ];
 
 export const solutionsLinks: MegaLink[] = [
@@ -56,21 +56,21 @@ export const solutionsLinks: MegaLink[] = [
     title: "HES",
     description:
       "Connect and collect data from smart meters and field devices in real time.",
-    href: "#solutions",
+    href: "/solutions/hes",
     icon: "radio",
   },
   {
     title: "MDM",
     description:
       "Transform high-volume meter data into trusted, usable utility information.",
-    href: "#solutions",
+    href: "/solutions/mdm",
     icon: "database",
   },
   {
     title: "AI & Analytics",
     description:
       "Turn complex utility data into actionable intelligence, predictive insights and better decisions.",
-    href: "#solutions",
+    href: "/solutions/ai-analytics",
     icon: "sparkles",
   },
 ];
@@ -79,31 +79,31 @@ export const industryLinks: MegaLink[] = [
   {
     title: "Utilities",
     description: "Intelligence for modern utility operations.",
-    href: "#who-we-serve",
+    href: "/serve/utilities",
     icon: "zap",
   },
   {
     title: "Commercial & Industrial",
     description: "Data-driven energy visibility and optimisation.",
-    href: "#who-we-serve",
+    href: "/serve/commercial",
     icon: "factory",
   },
   {
     title: "Smart Cities",
     description: "Intelligent infrastructure for connected urban environments.",
-    href: "#who-we-serve",
+    href: "/serve/cities",
     icon: "globe",
   },
   {
     title: "Microgrids",
     description: "Visibility and intelligence for distributed energy systems.",
-    href: "#who-we-serve",
+    href: "/serve/microgrid",
     icon: "network",
   },
   {
     title: "Prosumers",
     description: "Insights for organisations producing and consuming energy.",
-    href: "#who-we-serve",
+    href: "/serve/prosumers",
     icon: "cpu",
   },
 ];
@@ -112,19 +112,19 @@ export const partnerLinks: MegaLink[] = [
   {
     title: "Meter Manufacturers",
     description: "Connect meter manufacturing expertise with intelligent utility solutions.",
-    href: "#partners",
+    href: "/partners/meter-manufacturers",
     icon: "factory",
   },
   {
     title: "AMI Service Providers",
     description: "Deliver connected metering services with the Zenium intelligence platform.",
-    href: "#partners",
+    href: "/partners/ami-service-providers",
     icon: "radio",
   },
   {
     title: "System Integrators",
     description: "Deliver intelligent utility solutions for your customers.",
-    href: "#partners",
+    href: "/partners/system-integrators",
     icon: "users",
   },
 ];
@@ -133,19 +133,19 @@ export const resourceLearn: MegaLink[] = [
   {
     title: "Case Studies",
     description: "Explore real-world utility transformation stories.",
-    href: "#resources",
+    href: "/resources/case-studies",
     icon: "file",
   },
   {
     title: "Brochures",
     description: "Explore Zenium capabilities and solutions.",
-    href: "#resources",
+    href: "/resources/brochures",
     icon: "book",
   },
   {
     title: "Whitepapers",
     description: "Deep insights into utility technology and analytics.",
-    href: "#resources",
+    href: "/resources/whitepapers",
     icon: "fileText",
   },
 ];
@@ -154,13 +154,13 @@ export const resourceInsights: MegaLink[] = [
   {
     title: "Blogs & Insights",
     description: "Ideas, trends and perspectives on intelligent utilities.",
-    href: "#resources",
+    href: "/resources/blogs-insights",
     icon: "lightbulb",
   },
   {
     title: "Webinars",
     description: "Expert discussions on utility data, analytics and transformation.",
-    href: "#resources",
+    href: "/resources/webinars",
     icon: "play",
   },
 ];
@@ -169,13 +169,13 @@ export const companyAbout: MegaLink[] = [
   {
     title: "About Zenium",
     description: "Learn about Zenium and our vision for intelligent utilities.",
-    href: "#company",
+    href: "/company/",
     icon: "info",
   },
   {
     title: "Leadership",
     description: "Meet the people shaping the company.",
-    href: "#company",
+    href: "/company/leadership",
     icon: "user",
   },
 ];
@@ -184,13 +184,13 @@ export const companyConnect: MegaLink[] = [
   {
     title: "Careers",
     description: "Join the team building intelligent utility technology.",
-    href: "#company",
+    href: "/company/careers",
     icon: "briefcase",
   },
   {
     title: "News & Events",
     description: "Explore the latest Zenium updates and events.",
-    href: "#company",
+    href: "/company/news",
     icon: "newspaper",
   },
 ];
@@ -199,16 +199,16 @@ export const mobileSolutions = [
   {
     title: "HES",
     description: "Connect and collect smart-meter data.",
-    href: "#solutions",
+    href: "/solutions/hes",
   },
   {
     title: "MDM",
     description: "Transform meter data into trusted utility information.",
-    href: "#solutions",
+    href: "/solutions/mdm",
   },
   {
     title: "AI & Analytics",
     description: "Turn complex utility data into actionable intelligence.",
-    href: "#solutions",
+    href: "/solutions/ai-analytics",
   },
 ];

@@ -84,55 +84,55 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
   {
     heading: "Solutions",
     links: [
-      { label: "AI & Analytics", href: "#solutions" },
-      { label: "HES", href: "#solutions" },
-      { label: "MDM", href: "#solutions" },
+      { label: "AI & Analytics", href: "/solutions/ai-analytics" },
+      { label: "HES", href: "/solutions/hes" },
+      { label: "MDM", href: "/solutions/mdm" },
     ],
   },
   {
     heading: "Who We Serve",
     links: [
-      { label: "Utilities", href: "#who-we-serve" },
-      { label: "Commercial & Industrial", href: "#who-we-serve" },
-      { label: "Smart Cities", href: "#who-we-serve" },
-      { label: "Microgrids", href: "#who-we-serve" },
-      { label: "Prosumers", href: "#who-we-serve" },
+      { label: "Utilities", href: "/serve/utilities" },
+      { label: "Commercial & Industrial", href: "/serve/commercial" },
+      { label: "Smart Cities", href: "/serve/cities" },
+      { label: "Microgrids", href: "/serve/microgrids" },
+      { label: "Prosumers", href: "/serve/prosumers" },
     ],
   },
   {
     heading: "Partners",
     links: [
-      { label: "Meter Manufacturers", href: "#partners" },
-      { label: "AMI Service Providers", href: "#partners" },
-      { label: "System Integrators", href: "#partners" },
+      { label: "Meter Manufacturers", href: "/partners/meter-manufacturers" },
+      { label: "AMI Service Providers", href: "/partners/ami-service-providers" },
+      { label: "System Integrators", href: "/partners/system-integrators" },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Case Studies", href: "#company" },
-      { label: "Brochures", href: "#company" },
-      { label: "Whitepapers", href: "#company" },
-      { label: "Blogs & Insights", href: "#company" },
-      { label: "Webinars", href: "#company" },
+      { label: "Case Studies", href: "/resources/case-studies" },
+      { label: "Brochures", href: "/resources/brochures" },
+      { label: "Whitepapers", href: "/resources/whitepapers" },
+      { label: "Blogs & Insights", href: "/resources/blogs-insights" },
+      { label: "Webinars", href: "/resources/webinars" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About Zenium", href: "#company" },
-      { label: "Leadership", href: "#company" },
-      { label: "Careers", href: "#company" },
-      { label: "News & Events", href: "#company" },
+      { label: "About Zenium", href: "/company/about" },
+      { label: "Leadership", href: "/company/leadership" },
+      { label: "Careers", href: "/company/careers" },
+      { label: "News & Events", href: "/company/news" },
     ],
   },
 ];
 
 const contactLinks: FooterLinkItem[] = [
-  { label: "Contact Us", href: "#contact" },
-  { label: "Sales Enquiry", href: "#contact" },
-  { label: "Support", href: "#contact" },
-  { label: "Request a Demo", href: "#contact", arrow: false },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Sales Enquiry", href: "/contact" },
+  { label: "Support", href: "/contact" },
+  { label: "Request a Demo", href: "/contact", arrow: false },
 ];
 
 export default function Footer() {
@@ -144,7 +144,7 @@ export default function Footer() {
           {/* Brand block */}
           <div className="min-w-0 max-lg:col-span-3 max-sm:col-span-1">
             <a
-              href="#top"
+              href="/"
               className="inline-flex items-center"
               aria-label="Zenium home"
             >

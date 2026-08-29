@@ -103,11 +103,11 @@ function MegaItem({ item, onNavigate }: { item: MegaLink; onNavigate: () => void
           <span className="text-card font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
             {item.title}
           </span>
-          <ArrowRightIcon
+          {/* <ArrowRightIcon
             width={14}
             height={14}
             className="translate-x-0 text-orange opacity-0 transition-all duration-[180ms] group-hover:translate-x-1 group-hover:opacity-100"
-          />
+          /> */}
         </span>
         <span className="mt-1 block text-supporting font-normal leading-snug text-nav-muted">
           {item.description}
@@ -151,10 +151,10 @@ function FeatureBlock({
           <a
             href={href}
             onClick={onNavigate}
-            className="group mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange"
+            className="group mt-5 inline-flex items-center gap-2 text-supporting font-semibold !text-orange"
           >
             {cta}
-            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
+            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms]" />
           </a>
         )}
       </div>
@@ -264,7 +264,7 @@ function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
           </p>
           <span className="mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange">
             Read Insight
-            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms] group-hover:translate-x-1" />
+            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms]" />
           </span>
         </div>
       </a>
@@ -321,7 +321,7 @@ function DemoButton({
 }) {
   return (
     <a
-      href="#contact"
+      href="/"
       onClick={onClick}
       className={`button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms] ${full ? "w-full" : ""} ${className}`}
     >
@@ -390,7 +390,7 @@ export default function SiteHeader() {
       <div className="relative">
       <div className="container grid h-20 grid-cols-[1fr_auto_1fr] items-center max-lg:flex max-lg:justify-between">
         <a
-          href="#top"
+          href="/"
           className="justify-self-start flex items-center"
           aria-label="Zenium home"
         >
@@ -414,7 +414,7 @@ export default function SiteHeader() {
                   key={item.id}
                   href={item.href}
                   onClick={closeAll}
-                  className="px-3 py-2 text-body font-medium tracking-[0.01em] text-nav-ink transition-colors duration-[180ms] hover:text-orange"
+                  className="px-3 py-2 text-body font-medium tracking-[0.01em] !text-nav-ink transition-colors duration-[180ms] hover:!text-orange"
                 >
                   {item.label}
                 </a>
@@ -539,7 +539,7 @@ export default function SiteHeader() {
               );
             })}
             <a
-              href="#contact"
+              href="/contact"
               onClick={closeAll}
               className="block border-b border-nav-line py-4 text-base-lg font-medium text-white"
             >

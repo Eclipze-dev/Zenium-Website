@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import HeroSection from "./components/HeroSection";
+import CTANetworkBackground from "./components/CTANetworkBackground";
 import MetricsSection from "./components/MetricsSection";
 import JourneySection from "./components/JourneySection";
 import ZeniumEdgeSection from "./components/ZeniumEdgeSection";
@@ -17,8 +18,11 @@ export default function HomePage() {
       <SiteHeader />
       <main className="overflow-x-clip">
         <HeroSection />
-        <MetricsSection />
-        <JourneySection />
+        <div className="relative overflow-hidden">
+          <CTANetworkBackground />
+          <MetricsSection />
+          <JourneySection />
+        </div>
         <ZeniumEdgeSection />
         <IndiaBuiltSection />
         <CustomerStorySection />

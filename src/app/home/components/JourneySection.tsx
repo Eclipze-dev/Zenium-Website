@@ -3,8 +3,8 @@ import SectionIntro from "./SectionIntro";
 
 export default function JourneySection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px] bg-zenbg">
-      <div className="container">
+    <section className="py-[80px] max-sm:py-[70px]">
+      <div className="container relative z-[2]">
         <SectionIntro
           centered
           eyebrow="ONE CONNECTED INTELLIGENCE JOURNEY"

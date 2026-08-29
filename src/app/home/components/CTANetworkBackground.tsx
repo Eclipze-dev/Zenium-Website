@@ -1,3 +1,7 @@
+"use client";
+
+import { useId } from "react";
+
 const nodes = [
   { x: 40, y: 30, d: 0 },
   { x: 180, y: 65, d: 1 },
@@ -69,6 +73,8 @@ const driftClasses = [
 ];
 
 export default function CTANetworkBackground() {
+  const glowId = `${useId().replace(/:/g, "")}-ctaNetGlow`;
+
   return (
     <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
       <svg
@@ -77,13 +83,13 @@ export default function CTANetworkBackground() {
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          <radialGradient id="ctaNetGlow" cx="50%" cy="50%" r="50%">
+          <radialGradient id={glowId} cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#F07F25" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#F07F25" stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        <circle cx="600" cy="300" r="350" fill="url(#ctaNetGlow)" />
+        <circle cx="600" cy="300" r="350" fill={`url(#${glowId})`} />
 
         {hexagons.map((points, i) => (
           <polygon
