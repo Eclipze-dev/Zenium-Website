@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
         <div className="min-w-0 max-w-[680px] relative z-[2] max-md:max-w-full">
           <p className="text-p tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
-            ENERGY INTELLIGENCE
+            {/* ENERGY INTELLIGENCE */}
           </p>
           <h1
             id="hero-title"
