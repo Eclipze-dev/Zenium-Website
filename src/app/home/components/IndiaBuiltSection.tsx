@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import SectionIntro from "./SectionIntro";
+import { indiaBuiltFeatures } from "./homeData";
 
 const IndiaBuiltMap = dynamic(() => import("./IndiaBuiltMap"), {
   ssr: false,
@@ -22,23 +23,7 @@ export default function IndiaBuiltSection() {
             <span className="text-orange text-h1">India</span>-built technology for modern utilities.
           </SectionIntro>
           <div className="mt-[70px]">
-            {[
-              {
-                b: "Make in India",
-                em: "Built in India. Built for India's utility ecosystem.",
-                p: "Enterprise-grade utility technology engineered, developed, and delivered from India.",
-              },
-              {
-                b: "CMMI Level 3",
-                em: "Engineering and delivery built for enterprise requirements.",
-                p: "Proven process maturity aligned with the demands of large-scale technology delivery.",
-              },
-              {
-                b: "Data & Security",
-                em: "Designed for cloud, on-premise, and hybrid utility environments.",
-                p: "Secure data management and deployment designed to meet evolving requirements.",
-              },
-            ].map((item) => (
+            {indiaBuiltFeatures.map((item) => (
               <article key={item.b} className="border-t border-line py-[24px]">
                 <b className="block text-p2">{item.b}</b>
                 <em className="block text-p3 text-orange my-2">

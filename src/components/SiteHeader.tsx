@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   Briefcase,
@@ -52,6 +52,7 @@ import {
   PartnerFlow,
   UtilityNetwork,
 } from "./nav/NetworkMotifs";
+import { cn } from "@/lib/cn";
 // import ThemeToggle from "./ThemeToggle";
 
 const icons: Record<IconKey, LucideIcon> = {
@@ -310,6 +311,17 @@ const panels: Record<MegaId, (props: { onNavigate: () => void }) => JSX.Element>
   company: CompanyPanel,
 };
 
+const mobileNavChildren: Record<
+  MegaId,
+  Array<Pick<MegaLink, "title" | "description" | "href">>
+> = {
+  solutions: mobileSolutions,
+  "who-we-serve": industryLinks,
+  partners: partnerLinks,
+  resources: [...resourceLearn, ...resourceInsights],
+  company: [...companyAbout, ...companyConnect],
+};
+
 function DemoButton({
   className = "",
   full = false,
@@ -323,7 +335,11 @@ function DemoButton({
     <a
       href="/"
       onClick={onClick}
-      className={`button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms] ${full ? "w-full" : ""} ${className}`}
+      className={cn(
+        "button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms]",
+        full && "w-full",
+        className,
+      )}
     >
       Request a Demo
       {/* <ArrowRightIcon width={16} height={16} className="transition-transform duration-[180ms] group-hover:translate-x-1" /> */}
@@ -338,21 +354,41 @@ export default function SiteHeader() {
   const rootRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number>();
 
-  const cancelClose = () => {
+  const cancelClose = useCallback(() => {
     window.clearTimeout(closeTimer.current);
-  };
+  }, []);
 
-  const scheduleClose = () => {
+  const scheduleClose = useCallback(() => {
     cancelClose();
     closeTimer.current = window.setTimeout(() => setOpenId(null), 140);
-  };
+  }, [cancelClose]);
 
-  const closeAll = () => {
+  const closeAll = useCallback(() => {
     cancelClose();
     setOpenId(null);
     setMobileOpen(false);
     setMobileExpanded(null);
-  };
+  }, [cancelClose]);
+
+  const toggleMobileOpen = useCallback(() => {
+    setMobileOpen((open) => !open);
+  }, []);
+
+  const openMegaMenu = useCallback(
+    (id: MegaId) => {
+      cancelClose();
+      setOpenId(id);
+    },
+    [cancelClose],
+  );
+
+  const toggleMegaMenu = useCallback((id: MegaId) => {
+    setOpenId((current) => (current === id ? null : id));
+  }, []);
+
+  const toggleMobileSection = useCallback((id: MegaId) => {
+    setMobileExpanded((current) => (current === id ? null : id));
+  }, []);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -369,7 +405,7 @@ export default function SiteHeader() {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("mousedown", onClick);
     };
-  }, []);
+  }, [closeAll]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -378,7 +414,10 @@ export default function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  const megaItems = primaryNav.filter((item): item is typeof item & { id: MegaId } => item.mega);
+  const megaItems = useMemo(
+    () => primaryNav.filter((item): item is typeof item & { id: MegaId } => item.mega),
+    [],
+  );
 
   return (
     <header
@@ -428,27 +467,24 @@ export default function SiteHeader() {
                 type="button"
                 aria-expanded={active}
                 aria-controls="zenium-mega-menu"
-                onMouseEnter={() => {
-                  cancelClose();
-                  setOpenId(item.id as MegaId);
-                }}
-                onClick={() =>
-                  setOpenId((current) => (current === item.id ? null : (item.id as MegaId)))
-                }
-                className={`relative flex items-center gap-1 px-3 py-2 text-body font-medium tracking-[0.01em] transition-colors duration-[180ms] ${
-                  active ? "text-orange" : "text-nav-ink hover:text-orange"
-                }`}
+                onMouseEnter={() => openMegaMenu(item.id as MegaId)}
+                onClick={() => toggleMegaMenu(item.id as MegaId)}
+                className={cn(
+                  "relative flex items-center gap-1 px-3 py-2 text-body font-medium tracking-[0.01em] transition-colors duration-[180ms]",
+                  active ? "text-orange" : "text-nav-ink hover:text-orange",
+                )}
               >
                 {item.label}
                 <ChevronDownIcon
                   width={14}
                   height={14}
-                  className={`transition-transform duration-[180ms] ${active ? "rotate-180" : ""}`}
+                  className={cn("transition-transform duration-[180ms]", active && "rotate-180")}
                 />
                 <span
-                  className={`absolute inset-x-3 -bottom-0.5 h-[2px] bg-orange transition-opacity duration-[180ms] ${
-                    active ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={cn(
+                    "absolute inset-x-3 -bottom-0.5 h-[2px] bg-orange transition-opacity duration-[180ms]",
+                    active ? "opacity-100" : "opacity-0",
+                  )}
                 />
               </button>
             );
@@ -467,7 +503,7 @@ export default function SiteHeader() {
             className="hidden border-0 bg-transparent text-white max-lg:block"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((open) => !open)}
+            onClick={toggleMobileOpen}
           >
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
@@ -494,28 +530,18 @@ export default function SiteHeader() {
           <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile navigation">
             {megaItems.map((item) => {
               const expanded = mobileExpanded === item.id;
-              const children =
-                item.id === "solutions"
-                  ? mobileSolutions
-                  : item.id === "who-we-serve"
-                    ? industryLinks
-                    : item.id === "partners"
-                      ? partnerLinks
-                      : item.id === "resources"
-                        ? [...resourceLearn, ...resourceInsights]
-                        : [...companyAbout, ...companyConnect];
+              const children = mobileNavChildren[item.id];
 
               return (
                 <div key={item.id} className="border-b border-nav-line">
                   <button
                     type="button"
                     aria-expanded={expanded}
-                    onClick={() =>
-                      setMobileExpanded((current) => (current === item.id ? null : item.id))
-                    }
-                    className={`flex w-full items-center justify-between py-4 text-left text-base-lg font-medium ${
-                      expanded ? "text-orange" : "text-white"
-                    }`}
+                    onClick={() => toggleMobileSection(item.id)}
+                    className={cn(
+                      "flex w-full items-center justify-between py-4 text-left text-base-lg font-medium",
+                      expanded ? "text-orange" : "text-white",
+                    )}
                   >
                     {item.label}
                     <span className="text-card leading-none">{expanded ? "–" : "+"}</span>

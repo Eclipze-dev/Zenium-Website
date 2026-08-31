@@ -141,3 +141,29 @@ export const heroPhrases = [
   "Understand what matters.",
   "Act with intelligence.",
 ];
+
+export const metrics = [
+  ["5 Million", "Meter-point MDM deployment"],
+  ["2 Million+", "Meters onboarded"],
+  ["1 Million", "Meter-point HES deployment"],
+  ["12 Million+", "Simulated DLMS meters tested"],
+  ["12 Cities", "Smart-streetlight implementations"],
+] as const;
+
+export const indiaBuiltFeatures = [
+  {
+    b: "Make in India",
+    em: "Built in India. Built for India's utility ecosystem.",
+    p: "Enterprise-grade utility technology engineered, developed, and delivered from India.",
+  },
+  {
+    b: "CMMI Level 3",
+    em: "Engineering and delivery built for enterprise requirements.",
+    p: "Proven process maturity aligned with the demands of large-scale technology delivery.",
+  },
+  {
+    b: "Data & Security",
+    em: "Designed for cloud, on-premise, and hybrid utility environments.",
+    p: "Secure data management and deployment designed to meet evolving requirements.",
+  },
+] as const;

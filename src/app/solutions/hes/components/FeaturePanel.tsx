@@ -1,4 +1,6 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
+import { cn } from "@/lib/cn";
+import HesPanelCard from "./HesPanelCard";
 
 export default function FeaturePanel({
   eyebrow,
@@ -33,13 +35,12 @@ export default function FeaturePanel({
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
-        <div className="rounded-[20px] border border-[#152D48] bg-[#0A1725] flex p-[30px] flex-col items-center gap-[75px] self-stretch">
+        <HesPanelCard>
           <div
-            className={`grid items-center gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] ${
-              imageSide === "left"
-                ? "xl:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]"
-                : ""
-            }`}
+            className={cn(
+              "grid w-full items-center gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]",
+              imageSide === "left" && "xl:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]",
+            )}
           >
             {imageSide === "left" ? (
               <>
@@ -53,7 +54,7 @@ export default function FeaturePanel({
               </>
             )}
           </div>
-        </div>
+        </HesPanelCard>
       </div>
     </section>
   );

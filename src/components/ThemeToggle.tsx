@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@/components/icons/icons";
+import { cn } from "@/lib/cn";
 
 type Theme = "dark" | "light";
 
@@ -16,12 +17,14 @@ export default function ThemeToggle() {
     document.documentElement.setAttribute("data-theme", stored);
   }, []);
 
-  const toggle = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("zenium-theme", next);
-    document.documentElement.setAttribute("data-theme", next);
-  };
+  const toggle = useCallback(() => {
+    setTheme((current) => {
+      const next: Theme = current === "dark" ? "light" : "dark";
+      localStorage.setItem("zenium-theme", next);
+      document.documentElement.setAttribute("data-theme", next);
+      return next;
+    });
+  }, []);
 
   if (!mounted) {
     return (
@@ -37,9 +40,10 @@ export default function ThemeToggle() {
       className="relative flex h-[28px] w-[56px] items-center rounded-full border border-line bg-card transition-colors duration-300 hover:border-orange/50"
     >
       <span
-        className={`absolute flex h-[22px] w-[22px] items-center justify-center rounded-full bg-orange text-white transition-all duration-300 ease-in-out ${
-          theme === "dark" ? "left-[2px]" : "left-[32px]"
-        }`}
+        className={cn(
+          "absolute flex h-[22px] w-[22px] items-center justify-center rounded-full bg-orange text-white transition-all duration-300 ease-in-out",
+          theme === "dark" ? "left-[2px]" : "left-[32px]",
+        )}
       >
         {theme === "dark" ? <MoonIcon width={13} height={13} /> : <SunIcon width={13} height={13} />}
       </span>

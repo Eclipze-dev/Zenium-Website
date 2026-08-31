@@ -1,10 +1,11 @@
 import Button from "@/components/Button";
+import HesPanelCard from "./HesPanelCard";
 
 export default function HesFinalCtaSection() {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
-        <div className="flex flex-col items-center gap-[75px] self-stretch rounded-[20px] border border-[#152D48] bg-[#0A1725] p-[30px]">
+        <HesPanelCard>
           <div className="grid w-full items-stretch gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,600px)] xl:gap-[50px]">
             <div className="flex flex-col items-start gap-5">
               <h2 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
@@ -27,7 +28,7 @@ export default function HesFinalCtaSection() {
               className="min-h-[260px] w-full rounded-[20px] object-cover"
             />
           </div>
-        </div>
+        </HesPanelCard>
       </div>
     </section>
   );

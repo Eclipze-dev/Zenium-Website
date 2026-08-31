@@ -1,3 +1,5 @@
+import { cn } from "@/lib/cn";
+
 export default function SectionIntro({
   eyebrow,
   children,
@@ -10,9 +12,7 @@ export default function SectionIntro({
   centered?: boolean;
 }) {
   return (
-    <header
-      className={`section-heading ${centered ? "mx-auto text-center" : ""}`}
-    >
+    <header className={cn("section-heading", centered && "mx-auto text-center")}>
       <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text">
         {eyebrow}
       </p>

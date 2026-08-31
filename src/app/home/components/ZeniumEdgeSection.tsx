@@ -1,13 +1,75 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { capabilities } from "./homeData";
 import SectionIntro from "./SectionIntro";
-// import ZeniumArchitecture from "./ZeniumArchitecture";
+import { cn } from "@/lib/cn";
+
+const CapabilityItem = memo(function CapabilityItem({
+  title,
+  text,
+  index,
+  active,
+  paused,
+  progressKey,
+  onSelect,
+  onPause,
+  onResume,
+}: {
+  title: string;
+  text: string;
+  index: number;
+  active: boolean;
+  paused: boolean;
+  progressKey: number;
+  onSelect: (index: number) => void;
+  onPause: () => void;
+  onResume: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-expanded={active}
+      onClick={() => onSelect(index)}
+      onMouseEnter={onPause}
+      onMouseLeave={onResume}
+      onFocus={onPause}
+      onBlur={onResume}
+      className={cn(
+        "capability-item block w-full border-0 bg-transparent pb-[28px] mb-[10px] text-left text-zen-text",
+        paused && "capability-paused",
+      )}
+    >
+      <span className="capability-rule relative mb-[26px] block h-px bg-line">
+        {active && <span key={progressKey} className="capability-progress" />}
+      </span>
+      <b
+        className={cn(
+          "text-p1 transition-colors duration-300",
+          active ? "text-zen-text" : "text-muted",
+        )}
+      >
+        {title}
+      </b>
+      <span
+        className={cn(
+          "capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out",
+          active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0",
+        )}
+      >
+        <span className="min-h-0 overflow-hidden text-muted text-p1">{text}</span>
+      </span>
+    </button>
+  );
+});
 
 export default function ZeniumEdgeSection() {
   const [activeCapability, setActiveCapability] = useState(0);
   const [capabilityPaused, setCapabilityPaused] = useState(false);
+
+  const pauseCarousel = useCallback(() => setCapabilityPaused(true), []);
+  const resumeCarousel = useCallback(() => setCapabilityPaused(false), []);
+  const selectCapability = useCallback((index: number) => setActiveCapability(index), []);
 
   useEffect(() => {
     if (capabilityPaused) return;
@@ -20,10 +82,7 @@ export default function ZeniumEdgeSection() {
   }, [capabilityPaused]);
 
   return (
-    <section
-      className="py-[80px] max-sm:py-[70px]"
-      id="resources"
-    >
+    <section className="py-[80px] max-sm:py-[70px]" id="resources">
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.2fr)] gap-[60px] items-start max-lg:grid-cols-1 max-lg:gap-[40px] max-sm:gap-[30px]">
         <div className="min-w-0">
           <SectionIntro
@@ -34,40 +93,22 @@ export default function ZeniumEdgeSection() {
             utilities.
           </SectionIntro>
           <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
-            {capabilities.map(([title, text], index) => {
-              const active = activeCapability === index;
-
-              return (
-                <button
-                  key={title}
-                  type="button"
-                  aria-expanded={active}
-                  onClick={() => setActiveCapability(index)}
-                  onMouseEnter={() => setCapabilityPaused(true)}
-                  onMouseLeave={() => setCapabilityPaused(false)}
-                  onFocus={() => setCapabilityPaused(true)}
-                  onBlur={() => setCapabilityPaused(false)}
-                  className={`capability-item block w-full border-0 bg-transparent pb-[28px] mb-[10px] text-left text-zen-text ${capabilityPaused ? "capability-paused" : ""}`}
-                >
-                  <span className="capability-rule relative mb-[26px] block h-px bg-line">
-                    {active && <span key={activeCapability} className="capability-progress" />}
-                  </span>
-                  <b className={`text-p1 transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
-                    {title}
-                  </b>
-                  <span className={`capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0"}`}>
-                    <span className="min-h-0 overflow-hidden text-muted text-p1">
-                      {text}
-                    </span>
-                  </span>
-                </button>
-              );
-            })}
+            {capabilities.map(([title, text], index) => (
+              <CapabilityItem
+                key={title}
+                title={title}
+                text={text}
+                index={index}
+                active={activeCapability === index}
+                paused={capabilityPaused}
+                progressKey={activeCapability}
+                onSelect={selectCapability}
+                onPause={pauseCarousel}
+                onResume={resumeCarousel}
+              />
+            ))}
           </div>
         </div>
-        {/* <div className="relative w-full min-h-[680px] border border-line rounded-[10px] bg-zen-bg overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-md:min-h-[520px] max-sm:min-h-[560px]">
-          <ZeniumArchitecture />
-        </div> */}
         <div className="sticky top-[90px] self-start w-full min-w-0 max-lg:static">
           <div className="relative w-full min-h-[620px] max-w-full rounded-[15px] border border-[#060609] bg-[#060609] overflow-hidden max-lg:min-h-[520px] max-sm:min-h-[420px]">
             <img

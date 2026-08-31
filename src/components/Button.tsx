@@ -1,9 +1,11 @@
+import { cn } from "@/lib/cn";
+
 export default function Button({
   children,
   outline = false,
   href,
   onClick,
-  className = "",
+  className,
 }: {
   children: React.ReactNode;
   outline?: boolean;
@@ -11,9 +13,11 @@ export default function Button({
   onClick?: () => void;
   className?: string;
 }) {
-  const classes = `inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 hover:-translate-y-0.5 [&>svg]:block [&>svg]:shrink-0 ${
-    outline ? "button-secondary" : "button-primary"
-  } ${className}`.trim();
+  const classes = cn(
+    "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 hover:-translate-y-0.5 [&>svg]:block [&>svg]:shrink-0",
+    outline ? "button-secondary" : "button-primary",
+    className,
+  );
 
   if (href) {
     return (

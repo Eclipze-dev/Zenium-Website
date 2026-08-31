@@ -1,10 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import SectionIntro from "./SectionIntro";
+import { cn } from "@/lib/cn";
+
+const STORY_SLIDE_COUNT = 5;
+
+const StorySlideDot = memo(function StorySlideDot({
+  slide,
+  active,
+  onSelect,
+}: {
+  slide: number;
+  active: boolean;
+  onSelect: (slide: number) => void;
+}) {
+  return (
+    <button
+      onClick={() => onSelect(slide)}
+      className={cn(
+        "h-[6px] p-0 border-0 rounded-[50%] bg-zen-text transition-all",
+        active ? "w-[30px] rounded-[4px]" : "w-[6px]",
+      )}
+      aria-label={`Show story ${slide + 1}`}
+    />
+  );
+});
 
 export default function CustomerStorySection() {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const selectSlide = useCallback((slide: number) => {
+    setActiveSlide(slide);
+  }, []);
 
   return (
     <section className="py-[80px] text-center">
@@ -40,20 +68,20 @@ export default function CustomerStorySection() {
             and focus on seamless implementation made the entire deployment much
             more efficient."
           </blockquote>
-        <div className="gap-2 flex flex-col items-center">
-        <b className="text-orange text-p2">Rajesh Kumar</b>
-          <span className="text-button text-muted light-card-subtitle">
-            Chief Technology Officer · Punjab State Power Utility
-          </span>
-        </div>
+          <div className="gap-2 flex flex-col items-center">
+            <b className="text-orange text-p2">Rajesh Kumar</b>
+            <span className="text-button text-muted light-card-subtitle">
+              Chief Technology Officer · Punjab State Power Utility
+            </span>
+          </div>
         </article>
         <div className="flex justify-center gap-[6px] mt-[28px]">
-          {[0, 1, 2, 3, 4].map((slide) => (
-            <button
+          {Array.from({ length: STORY_SLIDE_COUNT }, (_, slide) => (
+            <StorySlideDot
               key={slide}
-              onClick={() => setActiveSlide(slide)}
-              className={`h-[6px] p-0 border-0 rounded-[50%] bg-zen-text transition-all ${activeSlide === slide ? "w-[30px] rounded-[4px]" : "w-[6px]"}`}
-              aria-label={`Show story ${slide + 1}`}
+              slide={slide}
+              active={activeSlide === slide}
+              onSelect={selectSlide}
             />
           ))}
         </div>

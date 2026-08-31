@@ -1,8 +1,8 @@
 import { Radio } from "lucide-react";
-import { ArrowRightIcon } from "@/components/icons/icons";
 import { audiences } from "./homeData";
 import Button from "@/components/Button";
 import SectionIntro from "./SectionIntro";
+import { cn } from "@/lib/cn";
 
 export default function WhoWeServeSection() {
   return (
@@ -21,7 +21,6 @@ export default function WhoWeServeSection() {
           </p>
           <Button>
             <span>Explore Who We Serve</span>
-            {/* <ArrowRightIcon width={16} height={16} /> */}
           </Button>
         </div>
         <div className="min-w-0 grid grid-cols-6 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -30,11 +29,10 @@ export default function WhoWeServeSection() {
             return (
               <article
                 key={title as string}
-                className={`min-w-0 bg-box rounded-[8px] p-[35px] min-h-[230px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0 ${
-                  i < 3
-                    ? "col-span-2 max-lg:col-span-1"
-                    : "col-span-3 max-lg:col-span-1"
-                }`}
+                className={cn(
+                  "min-w-0 bg-box rounded-[8px] p-[35px] min-h-[230px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0",
+                  i < 3 ? "col-span-2 max-lg:col-span-1" : "col-span-3 max-lg:col-span-1",
+                )}
               >
                 <AudienceIcon className="text-orange w-7 h-7 mb-[20px]" />
                 <h3 className="text-h3 my-[12px] mx-0 mb-[16px]">

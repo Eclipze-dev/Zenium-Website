@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const STAGES = [
   { id: "meter", label: "ENERGY METER" },
@@ -21,6 +21,14 @@ export default function ZeniumDataFlow() {
     update();
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const handleStageEnter = useCallback((id: StageId) => {
+    setHovered(id);
+  }, []);
+
+  const handleStageLeave = useCallback(() => {
+    setHovered(null);
   }, []);
 
   const stageGlow = (id: StageId) =>
@@ -111,8 +119,8 @@ export default function ZeniumDataFlow() {
         {/* ===== ENERGY METER ===== */}
         <g
           className="energy-meter zdf-stage"
-          onMouseEnter={() => setHovered("meter")}
-          onMouseLeave={() => setHovered(null)}
+          onMouseEnter={() => handleStageEnter("meter")}
+          onMouseLeave={handleStageLeave}
           style={{ transformOrigin: "300px 140px", transition: "transform 250ms ease, filter 250ms ease" }}
         >
           {/* Concentric rings */}
@@ -147,8 +155,8 @@ export default function ZeniumDataFlow() {
         {/* ===== HES ===== */}
         <g
           className="hes zdf-stage"
-          onMouseEnter={() => setHovered("hes")}
-          onMouseLeave={() => setHovered(null)}
+          onMouseEnter={() => handleStageEnter("hes")}
+          onMouseLeave={handleStageLeave}
           style={{ transformOrigin: "300px 320px", transition: "transform 250ms ease, filter 250ms ease" }}
         >
           <circle cx="300" cy="320" r="50" fill={stageGlow("hes")} />
@@ -180,8 +188,8 @@ export default function ZeniumDataFlow() {
         {/* ===== MDMS ===== */}
         <g
           className="mdms zdf-stage"
-          onMouseEnter={() => setHovered("mdms")}
-          onMouseLeave={() => setHovered(null)}
+          onMouseEnter={() => handleStageEnter("mdms")}
+          onMouseLeave={handleStageLeave}
           style={{ transformOrigin: "300px 510px", transition: "transform 250ms ease, filter 250ms ease" }}
         >
           <circle cx="300" cy="510" r="52" fill={stageGlow("mdms")} />
@@ -211,8 +219,8 @@ export default function ZeniumDataFlow() {
         {/* ===== ANALYTICS ===== */}
         <g
           className="analytics zdf-stage"
-          onMouseEnter={() => setHovered("analytics")}
-          onMouseLeave={() => setHovered(null)}
+          onMouseEnter={() => handleStageEnter("analytics")}
+          onMouseLeave={handleStageLeave}
           style={{ transformOrigin: "300px 740px", transition: "transform 250ms ease, filter 250ms ease" }}
         >
           <circle cx="300" cy="740" r="60" fill={stageGlow("analytics")} />

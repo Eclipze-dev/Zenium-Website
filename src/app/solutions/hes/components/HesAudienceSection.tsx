@@ -1,11 +1,12 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { audiences } from "./hesData";
+import HesPanelCard from "./HesPanelCard";
 
 export default function HesAudienceSection() {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
-        <div className="flex flex-col items-center gap-[75px] self-stretch rounded-[20px] border border-[#152D48] bg-[#0A1725] p-[30px]">
+        <HesPanelCard>
           <div className="grid w-full items-center gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
             <img
               src="/image.png"
@@ -26,7 +27,7 @@ export default function HesAudienceSection() {
               </div>
             </div>
           </div>
-        </div>
+        </HesPanelCard>
       </div>
     </section>
   );
