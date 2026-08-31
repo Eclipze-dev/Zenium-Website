@@ -38,10 +38,10 @@ function FooterColumn({
 }) {
   return (
     <div className="min-w-0">
-      <h3 className="mb-[20px] text-caption font-semibold uppercase tracking-footer text-muted">
+      <h3 className="mb-[20px] text-p2">
         {heading}
       </h3>
-      <ul className="m-0 list-none space-y-[12px] p-0">
+      <ul className="m-0 list-none text-button text-muted space-y-[12px] p-0">
         {links.map((link) => (
           <li key={link.label}>
             <FooterLink {...link} />
@@ -57,19 +57,19 @@ function FooterBottomBar() {
     <div className="container">
       <div className="border-t border-line py-[26px]">
         <div className="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-[14px]">
-          <span className="text-caption font-normal tracking-[0.04em] text-muted">
+          <span className="text-sm font-normal tracking-[0.04em] text-muted">
             &copy; Zenix Data Private Limited
           </span>
           <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
             <a
               href="/privacy"
-              className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Privacy Policy
             </a>
             <a
               href="/terms"
-              className="text-caption font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
             >
               Terms &amp; Conditions
             </a>
@@ -140,8 +140,7 @@ export default function Footer() {
     <footer className="bg-zen-bg">
       {/* Navigation Area */}
       <div className="container py-[64px] max-sm:py-[44px]">
-        <div className="grid grid-cols-[1.1fr_repeat(5,minmax(0,1fr))] gap-x-[40px] gap-y-[40px] max-lg:grid-cols-[1fr_1fr_1fr] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
-          {/* Brand block */}
+        <div className="flex justify-between gap-[20px]">
           <div className="min-w-0 max-lg:col-span-3 max-sm:col-span-1">
             <a
               href="/"
@@ -159,40 +158,40 @@ export default function Footer() {
                 className="hidden h-9 w-auto block max-sm:h-8 theme-logo-light"
               />
             </a>
-            <p className="mt-[20px] max-w-[280px] text-body font-normal leading-[1.5] text-muted">
+            <p className="mt-[20px] max-w-[280px] text-button text-muted">
               Turning connected utility data into intelligence.
             </p>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link mt-[24px] inline-flex items-center gap-1.5 text-supporting font-normal text-muted transition-colors duration-200 hover:text-zen-text"
+              className="group/link mt-[24px] inline-flex items-center gap-1.5 font-normal text-muted transition-colors duration-200 hover:text-zen-text"
             >
-              <LinkedInIcon
+              {/* <LinkedInIcon
                 width={16}
                 height={16}
                 className="shrink-0 text-orange duration-200"
-              />
-              <span className="transition-colors duration-200 group-hover/link:text-orange">
+              /> */}
+              <span className="text-button transition-colors duration-200 group-hover/link:text-orange">
                 LinkedIn
               </span>
             </a>
           </div>
-
-          {/* Navigation columns */}
+          <div className="grid grid-cols-[repeat(5,minmax(0,1fr))] gap-x-[20px] gap-y-[40px] max-lg:grid-cols-[1fr_1fr_1fr] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
           {columns.map((col) => (
             <FooterColumn key={col.heading} {...col} />
           ))}
+          </div>
         </div>
 
         {/* Contact area */}
         <div className="mt-[48px] border-t border-line pt-[36px] max-sm:mt-[36px] max-sm:pt-[28px]">
           <div className="grid grid-cols-[1fr_auto] items-start gap-[40px] max-sm:grid-cols-1 max-sm:gap-[20px]">
             <div className="min-w-0">
-              <h3 className="mb-[20px] text-caption font-semibold uppercase tracking-footer text-muted">
+              <h3 className="mb-[20px] text-p2">
                 Contact
               </h3>
-              <ul className="m-0 list-none flex flex-wrap gap-x-[40px] gap-y-[12px] p-0 max-sm:flex-col max-sm:gap-[12px]">
+              <ul className="m-0 list-none text-button text-muted flex flex-wrap gap-x-[40px] gap-y-[12px] p-0 max-sm:flex-col max-sm:gap-[12px]">
                 {contactLinks.map((link) => (
                   <li key={link.label}>
                     <FooterLink {...link} />

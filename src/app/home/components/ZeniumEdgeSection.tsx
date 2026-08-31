@@ -30,7 +30,7 @@ export default function ZeniumEdgeSection() {
             eyebrow="THE ZENIUM EDGE"
             text="Zenium combines proven utility technology with an architecture designed for scale, interoperability and operational reliability."
           >
-            Engineered for the <strong>complexity</strong> of modern
+            Engineered for the{` `}<span className="text-orange text-h1">complexity</span>{` `}of modern
             utilities.
           </SectionIntro>
           <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
@@ -52,11 +52,11 @@ export default function ZeniumEdgeSection() {
                   <span className="capability-rule relative mb-[26px] block h-px bg-line">
                     {active && <span key={activeCapability} className="capability-progress" />}
                   </span>
-                  <b className={`text-base-lg transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
+                  <b className={`text-p1 transition-colors duration-300 ${active ? "text-zen-text" : "text-muted"}`}>
                     {title}
                   </b>
                   <span className={`capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0"}`}>
-                    <span className="min-h-0 overflow-hidden text-muted text-body">
+                    <span className="min-h-0 overflow-hidden text-muted text-p1">
                       {text}
                     </span>
                   </span>

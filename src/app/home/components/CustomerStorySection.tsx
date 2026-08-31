@@ -10,12 +10,12 @@ export default function CustomerStorySection() {
     <section className="py-[80px] text-center">
       <div className="container">
         <SectionIntro centered eyebrow="CUSTOMER STORY">
-          <p className="text-display-heading font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
-            Proven in the field. One of <strong>India's large-scale</strong>{" "}
+          <p className="text-h1 font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
+            Proven in the field. One of <span className="text-orange text-h1">India's large-scale</span>{" "}
             electricity deployments.
           </p>
         </SectionIntro>
-        <p className="text-muted text-body my-[20px] mb-[60px] max-sm:text-caption">
+        <p className="text-muted text-p1 my-[20px] mb-[60px] max-sm:text-caption">
           Punjab electricity deployment{" "}
           <i className="not-italic text-orange px-2 font-bold max-sm:px-[3px]">
             ·
@@ -27,23 +27,25 @@ export default function CustomerStorySection() {
           2 million+ meters onboarded
         </p>
         <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
-          <div className="text-card-title font-bold text-[#2d5e9f] tracking-[0.04em] light-card-heading">
-            PUNJAB
-            <span className="block text-[10px] text-orange tracking-[0.2em]">
-              POWER
+          <div className="text-h3 text-[#2d5e9f] light-card-heading">
+            Punjab
+            <span className="block text-button text-orange">
+              Power
             </span>
           </div>
-          <blockquote className="text-quote font-light max-w-[850px] m-0 max-sm:text-base-lg max-sm:leading-[1.5]">
+          <blockquote className="text-p1 max-w-[850px] m-0 max-sm:text-base-lg max-sm:leading-[1.5]">
             "ZENIUM has helped us modernize our utility operations with a
             technology platform that is reliable, scalable, and built around our
             real-world requirements. Their understanding of utility workflows
             and focus on seamless implementation made the entire deployment much
             more efficient."
           </blockquote>
-          <b className="text-orange text-base-lg">Rajesh Kumar</b>
-          <span className="text-body light-card-subtitle">
+        <div className="gap-2 flex flex-col items-center">
+        <b className="text-orange text-p2">Rajesh Kumar</b>
+          <span className="text-button text-muted light-card-subtitle">
             Chief Technology Officer · Punjab State Power Utility
           </span>
+        </div>
         </article>
         <div className="flex justify-center gap-[6px] mt-[28px]">
           {[0, 1, 2, 3, 4].map((slide) => (

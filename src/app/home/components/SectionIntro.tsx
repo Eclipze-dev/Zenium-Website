@@ -13,14 +13,14 @@ export default function SectionIntro({
     <header
       className={`section-heading ${centered ? "mx-auto text-center" : ""}`}
     >
-      <p className="text-p tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
+      <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text">
         {eyebrow}
       </p>
-      <h2 className="text-section-heading font-normal tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
+      <h2 className="text-h1 tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
         {children}
       </h2>
       {text && (
-        <p className="section-description text-muted text-p2 mx-auto mt-[20px]">
+        <p className="text-muted text-p1 mt-[20px]">
           {text}
         </p>
       )}

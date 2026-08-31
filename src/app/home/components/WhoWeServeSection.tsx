@@ -1,7 +1,7 @@
 import { Radio } from "lucide-react";
 import { ArrowRightIcon } from "@/components/icons/icons";
 import { audiences } from "./homeData";
-import Button from "./Button";
+import Button from "@/components/Button";
 import SectionIntro from "./SectionIntro";
 
 export default function WhoWeServeSection() {
@@ -10,12 +10,12 @@ export default function WhoWeServeSection() {
       className="py-[80px] max-sm:py-[70px] bg-zenbg"
       id="who-we-serve"
     >
-      <div className="container grid grid-cols-[340px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
+      <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
         <div className="min-w-0">
           <SectionIntro eyebrow="WHO WE SERVE">
-            <strong>Intelligence</strong> across the energy ecosystem.
+            <span className="text-orange text-h1">Intelligence</span>{` `}across the energy ecosystem.
           </SectionIntro>
-          <p className="text-muted text-body my-[20px] mb-[26px]">
+          <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Zenium's technology is designed for the evolving needs of utilities
             and the wider energy ecosystem.
           </p>
@@ -30,17 +30,17 @@ export default function WhoWeServeSection() {
             return (
               <article
                 key={title as string}
-                className={`min-w-0 bg-card rounded-[8px] p-[35px] min-h-[230px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0 ${
+                className={`min-w-0 bg-box rounded-[8px] p-[35px] min-h-[230px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0 ${
                   i < 3
                     ? "col-span-2 max-lg:col-span-1"
                     : "col-span-3 max-lg:col-span-1"
                 }`}
               >
                 <AudienceIcon className="text-orange w-7 h-7 mb-[20px]" />
-                <h3 className="text-card-title my-[12px] mx-0 mb-[16px]">
+                <h3 className="text-h3 my-[12px] mx-0 mb-[16px]">
                   {title as string}
                 </h3>
-                <p className="text-muted text-body m-0">
+                <p className="text-muted text-button m-0">
                   {text as string}
                 </p>
               </article>

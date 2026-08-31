@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "@/components/Button";
 import HeroTypewriter from "./HeroTypewriter";
 import ZeniumDataFlow from "./ZeniumDataFlow";
 
@@ -10,18 +10,17 @@ export default function HeroSection() {
     >
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
         <div className="min-w-0 max-w-[680px] relative z-[2] max-md:max-w-full">
-          <p className="text-p tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
-            ENERGY 
-            {/* INTELLIGENCE */}
+          <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
+            ENERGY INTELLIGENCE
           </p>
-          <h1
+          <p
             id="hero-title"
-            className="text-hero font-normal tracking-hero m-0 max-w-full max-sm:text-[clamp(32px,7vw,40px)]"
+            className="text-h1 m-0 max-w-full max-sm:text-[clamp(32px,7vw,40px)]"
           >
             Turn energy data into intelligence.
             <HeroTypewriter />
-          </h1>
-          <p className="text-muted text-p2 mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-body">
+          </p>
+          <p className="text-muted text-p1 mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-body">
             Building smart-grid intelligence on a trusted HES and MDM
             foundation.
           </p>

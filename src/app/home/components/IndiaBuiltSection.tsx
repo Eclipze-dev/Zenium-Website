@@ -19,7 +19,7 @@ export default function IndiaBuiltSection() {
         </div>
         <div className="min-w-0">
           <SectionIntro eyebrow="BUILT FOR INDIA. READY FOR SCALE.">
-            <strong>India</strong>-built technology for modern utilities.
+            <span className="text-orange text-h1">India</span>-built technology for modern utilities.
           </SectionIntro>
           <div className="mt-[70px]">
             {[
@@ -40,11 +40,11 @@ export default function IndiaBuiltSection() {
               },
             ].map((item) => (
               <article key={item.b} className="border-t border-line py-[24px]">
-                <b className="block text-base-lg">{item.b}</b>
-                <em className="block text-base-lg text-orange my-2 italic">
+                <b className="block text-p2">{item.b}</b>
+                <em className="block text-p3 text-orange my-2">
                   {item.em}
                 </em>
-                <p className="text-muted text-body m-0">
+                <p className="text-muted text-p1 m-0">
                   {item.p}
                 </p>
               </article>

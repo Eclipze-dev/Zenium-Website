@@ -70,7 +70,7 @@ export default function HeroTypewriter() {
 
   return (
     <strong
-      className={`block h-[1.06em] min-w-[25ch] whitespace-nowrap text-orange font-bold transition-opacity duration-500 ease-in-out max-sm:min-w-0 max-sm:text-[0.92em] ${isFading ? "opacity-40" : "opacity-100"}`}
+      className={`block text-h1 min-w-[25ch] whitespace-nowrap font-normal text-orange transition-opacity duration-500 ease-in-out max-sm:min-w-0 max-sm:text-[0.92em] ${isFading ? "opacity-40" : "opacity-100"}`}
     >
       {text}
       <span
