@@ -1,8 +1,8 @@
-import FeaturePanel from "./FeaturePanel";
+import SolutionFeaturePanel from "@/components/solutions/SolutionFeaturePanel";
 
 export default function HesOverviewSection() {
   return (
-    <FeaturePanel
+    <SolutionFeaturePanel
       eyebrow="ZENIUM HES"
       title={
         <>
@@ -18,6 +18,6 @@ export default function HesOverviewSection() {
         remotely. It keeps data, events and authorised commands moving securely
         between field infrastructure and enterprise systems.
       </p>
-    </FeaturePanel>
+    </SolutionFeaturePanel>
   );
 }

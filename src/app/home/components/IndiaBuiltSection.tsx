@@ -23,14 +23,15 @@ export default function IndiaBuiltSection() {
             <span className="text-orange text-h1">India</span>-built technology for modern utilities.
           </SectionIntro>
           <div className="mt-[70px]">
-            {indiaBuiltFeatures.map((item) => (
-              <article key={item.b} className="border-t border-line py-[24px]">
-                <b className="block text-p2">{item.b}</b>
+            {indiaBuiltFeatures.map(({ b, em, p, icon: Icon }) => (
+              <article key={b} className="border-t border-line py-[24px]">
+                <Icon className="mb-3 h-7 w-7 text-orange" strokeWidth={1.8} />
+                <b className="block text-p2">{b}</b>
                 <em className="block text-p3 text-orange my-2">
-                  {item.em}
+                  {em}
                 </em>
                 <p className="text-muted text-p1 m-0">
-                  {item.p}
+                  {p}
                 </p>
               </article>
             ))}

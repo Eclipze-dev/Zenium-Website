@@ -1,13 +1,27 @@
+import type { LucideIcon } from "lucide-react";
 import {
+  Award,
   BookOpen,
-  Cpu,
+  Brain,
+  Building2,
+  Cloud,
+  Database,
+  Factory,
   FileText,
   Gauge,
   Globe2,
+  Lamp,
+  Layers,
+  LayoutDashboard,
   Lightbulb,
   Network,
+  Puzzle,
   Radio,
+  Server,
+  ShieldCheck,
   Sparkles,
+  TestTube2,
+  Unlock,
   Zap,
 } from "lucide-react";
 
@@ -22,7 +36,7 @@ export const journey = [
     label: "MANAGE",
     title: "MDM - Meter Data Management",
     text: "Validate, manage and create a trusted foundation from high-volume meter data.",
-    icon: Network,
+    icon: Database,
   },
   {
     label: "UNDERSTAND",
@@ -34,32 +48,40 @@ export const journey = [
     label: "ACT",
     title: "Utility Intelligence",
     text: "Build toward smarter decisions, proactive operations and intelligent utility management.",
-    icon: Gauge,
+    icon: Brain,
   },
 ];
 
-export const capabilities = [
+export const capabilities: ReadonlyArray<
+  readonly [LucideIcon, string, string]
+> = [
   [
+    Unlock,
     "Open by Design",
     "Built on open technologies to support flexibility, extensibility and reduced vendor dependency.",
   ],
   [
+    Network,
     "Interoperable",
     "Designed to work across multiple HES platforms, meter makes and utility environments.",
   ],
   [
+    Cloud,
     "Cloud Flexible",
     "Supports cloud, on-premise and hybrid deployment models.",
   ],
   [
+    Layers,
     "Built to Evolve",
     "Microservices-based and containerized architecture designed for modular development and scale.",
   ],
   [
+    ShieldCheck,
     "Secure by Design",
     "Security built into the technology architecture and deployment approach.",
   ],
   [
+    LayoutDashboard,
     "Operational Visibility",
     "Customizable dashboards, widgets and visualizations help utility teams monitor what matters.",
   ],
@@ -89,20 +111,25 @@ export const audiences = [
   [
     "Prosumers",
     "Enable greater visibility and intelligence across two-way energy participation.",
-    Cpu,
+    Gauge,
   ],
-];
+] as const;
 
-export const partners = [
+export const partners: ReadonlyArray<
+  readonly [LucideIcon, string, string]
+> = [
   [
+    Factory,
     "Meter Manufacturers",
     "Connect Zenium technology with diverse metering ecosystems.",
   ],
   [
+    Building2,
     "AMI Service Providers",
     "Combine Zenium technology capabilities with AMI implementation and operational expertise.",
   ],
   [
+    Puzzle,
     "System Integrators",
     "Bring together Zenium technology, integration expertise and large-scale implementation capabilities.",
   ],
@@ -142,28 +169,33 @@ export const heroPhrases = [
   "Act with intelligence.",
 ];
 
-export const metrics = [
-  ["5 Million", "Meter-point MDM deployment"],
-  ["2 Million+", "Meters onboarded"],
-  ["1 Million", "Meter-point HES deployment"],
-  ["12 Million+", "Simulated DLMS meters tested"],
-  ["12 Cities", "Smart-streetlight implementations"],
-] as const;
+export const metrics: ReadonlyArray<
+  readonly [LucideIcon, string, string]
+> = [
+  [Gauge, "5 Million", "Meter-point MDM deployment"],
+  [Radio, "2 Million+", "Meters onboarded"],
+  [Server, "1 Million", "Meter-point HES deployment"],
+  [TestTube2, "12 Million+", "Simulated DLMS meters tested"],
+  [Lamp, "12 Cities", "Smart-streetlight implementations"],
+];
 
 export const indiaBuiltFeatures = [
   {
     b: "Make in India",
     em: "Built in India. Built for India's utility ecosystem.",
     p: "Enterprise-grade utility technology engineered, developed, and delivered from India.",
+    icon: Award,
   },
   {
     b: "CMMI Level 3",
     em: "Engineering and delivery built for enterprise requirements.",
     p: "Proven process maturity aligned with the demands of large-scale technology delivery.",
+    icon: ShieldCheck,
   },
   {
     b: "Data & Security",
     em: "Designed for cloud, on-premise, and hybrid utility environments.",
     p: "Secure data management and deployment designed to meet evolving requirements.",
+    icon: Layers,
   },
 ] as const;

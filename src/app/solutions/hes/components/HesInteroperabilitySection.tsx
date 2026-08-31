@@ -1,9 +1,9 @@
-import FeaturePanel from "./FeaturePanel";
+import SolutionFeaturePanel from "@/components/solutions/SolutionFeaturePanel";
 import { interoperabilityItems } from "./hesData";
 
 export default function HesInteroperabilitySection() {
   return (
-    <FeaturePanel
+    <SolutionFeaturePanel
       eyebrow="INTEROPERABILITY"
       imageSide="left"
       title={<>Built for mixed meter <span className="text-orange text-h1">environments</span></>}
@@ -23,6 +23,6 @@ export default function HesInteroperabilitySection() {
           <span key={item}>{item}</span>
         ))}
       </div>
-    </FeaturePanel>
+    </SolutionFeaturePanel>
   );
 }

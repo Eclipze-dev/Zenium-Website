@@ -1,23 +1,28 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
+  BellRing,
   Cable,
-  CheckCircle2,
-  CircleAlert,
   Cloud,
-  Database,
+  Download,
   Gauge,
   LockKeyhole,
-  Radio,
+  Monitor,
+  Settings,
+  Share2,
   ShieldCheck,
+  TestTube2,
+  Timer,
+  TrendingUp,
 } from "lucide-react";
 
-export const statistics = [
-  ["1M", "Meter-point HES deployment"],
-  ["12M+", "Simulated DLMS meters tested"],
-  ["Multi-vendor", "Meter interoperability"],
-  ["Under 30 seconds", "Critical tamper and alert reporting"],
-] as const;
+export const statistics: ReadonlyArray<
+  readonly [LucideIcon, string, string]
+> = [
+  [Gauge, "1M", "Meter-point HES deployment"],
+  [TestTube2, "12M+", "Simulated DLMS meters tested"],
+  [Share2, "Multi-vendor", "Meter interoperability"],
+  [Timer, "Under 30 seconds", "Critical tamper and alert reporting"],
+];
 
 export const capabilities: ReadonlyArray<
   readonly [LucideIcon, string, string, string?]
@@ -28,23 +33,23 @@ export const capabilities: ReadonlyArray<
     "Integrate different meter makes, communication technologies and deployment models through an open, interoperable Head-End System.",
   ],
   [
-    Database,
+    Download,
     "Acquire data reliably",
     "Automate interval, scheduled and on-demand meter-data collection while identifying missing reads, failed communications and other data-acquisition exceptions.",
   ],
   [
-    Radio,
+    Settings,
     "Manage meters remotely",
     "Configure devices, synchronise time, update firmware and execute authorised connect or disconnect commands from a central system. Configurable approval workflows provide additional control over sensitive operations.",
   ],
   [
-    CircleAlert,
+    BellRing,
     "Respond to events faster",
     "Bring tamper alerts, power outages, restoration events, communication failures and other critical conditions to the attention of operational teams.",
     "Zenium HES can report critical tamper and alert events in under 30 seconds, supporting faster investigation and response.",
   ],
   [
-    Activity,
+    Monitor,
     "Monitor the network",
     "Track meter connectivity, communication history, device health and data availability through operational dashboards and exception reports.",
   ],
@@ -59,7 +64,7 @@ export const deploymentFeatures: ReadonlyArray<
   readonly [LucideIcon, string, string]
 > = [
   [
-    Gauge,
+    TrendingUp,
     "Scalable",
     "Expand meter populations and data volumes without redesigning the operating model.",
   ],
@@ -74,7 +79,7 @@ export const deploymentFeatures: ReadonlyArray<
     "Deploy in cloud, on-premise or hybrid environments.",
   ],
   [
-    CheckCircle2,
+    LockKeyhole,
     "Secure",
     "Protect meter data and commands through controlled access, encryption and auditability.",
   ],

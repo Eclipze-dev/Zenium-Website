@@ -1,8 +1,8 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { cn } from "@/lib/cn";
-import HesPanelCard from "./HesPanelCard";
+import SolutionPanelCard from "./SolutionPanelCard";
 
-export default function FeaturePanel({
+export default function SolutionFeaturePanel({
   eyebrow,
   title,
   children,
@@ -35,7 +35,7 @@ export default function FeaturePanel({
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
-        <HesPanelCard>
+        <SolutionPanelCard>
           <div
             className={cn(
               "grid w-full items-center gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]",
@@ -54,7 +54,7 @@ export default function FeaturePanel({
               </>
             )}
           </div>
-        </HesPanelCard>
+        </SolutionPanelCard>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 
-export default function HesPanelCard({
+export default function SolutionPanelCard({
   children,
   className,
 }: {

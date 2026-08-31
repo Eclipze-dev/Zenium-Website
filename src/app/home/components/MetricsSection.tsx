@@ -13,7 +13,7 @@ export default function MetricsSection() {
           Built on real-world utility{` `}<span className="text-orange text-h1">experience.</span>
         </SectionIntro>
         <div className="mt-[75px] grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-2 max-md:gap-6 max-sm:grid-cols-1">
-          {metrics.map(([value, label], i) => (
+          {metrics.map(([Icon, value, label], i) => (
             <div
               key={value}
               className={cn(
@@ -21,10 +21,11 @@ export default function MetricsSection() {
                 i === 0 && "border-l-0 pl-0",
               )}
             >
-              <b className="text-h3 text-white block">
+              <Icon className="h-7 w-7 text-orange" strokeWidth={1.8} />
+              <b className="text-h3 text-white mt-5 block">
                 {value}
               </b>
-              <span className="text-p1 text-muted block mt-[14px]">
+              <span className="text-p1 text-muted mt-[14px] block">
                 {label}
               </span>
             </div>

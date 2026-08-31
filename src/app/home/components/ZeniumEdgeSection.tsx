@@ -8,6 +8,7 @@ import { cn } from "@/lib/cn";
 const CapabilityItem = memo(function CapabilityItem({
   title,
   text,
+  icon: Icon,
   index,
   active,
   paused,
@@ -18,6 +19,7 @@ const CapabilityItem = memo(function CapabilityItem({
 }: {
   title: string;
   text: string;
+  icon: (typeof capabilities)[number][0];
   index: number;
   active: boolean;
   paused: boolean;
@@ -43,14 +45,17 @@ const CapabilityItem = memo(function CapabilityItem({
       <span className="capability-rule relative mb-[26px] block h-px bg-line">
         {active && <span key={progressKey} className="capability-progress" />}
       </span>
-      <b
-        className={cn(
-          "text-p1 transition-colors duration-300",
-          active ? "text-zen-text" : "text-muted",
-        )}
-      >
-        {title}
-      </b>
+      <span className="mb-3 flex items-center gap-3">
+        <Icon className="h-6 w-6 shrink-0 text-orange" strokeWidth={1.8} />
+        <b
+          className={cn(
+            "text-p1 transition-colors duration-300",
+            active ? "text-zen-text" : "text-muted",
+          )}
+        >
+          {title}
+        </b>
+      </span>
       <span
         className={cn(
           "capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out",
@@ -93,11 +98,12 @@ export default function ZeniumEdgeSection() {
             utilities.
           </SectionIntro>
           <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
-            {capabilities.map(([title, text], index) => (
+            {capabilities.map(([Icon, title, text], index) => (
               <CapabilityItem
                 key={title}
                 title={title}
                 text={text}
+                icon={Icon}
                 index={index}
                 active={activeCapability === index}
                 paused={capabilityPaused}
