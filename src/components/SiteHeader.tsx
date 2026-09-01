@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   Briefcase,
@@ -36,7 +36,6 @@ import {
   companyConnect,
   industryLinks,
   mobileSolutions,
-  partnerLinks,
   primaryNav,
   resourceInsights,
   resourceLearn,
@@ -49,11 +48,12 @@ import {
   DataFlowGraphic,
   EcosystemGraph,
   InsightNetwork,
-  PartnerFlow,
   UtilityNetwork,
 } from "./nav/NetworkMotifs";
 import { cn } from "@/lib/cn";
 // import ThemeToggle from "./ThemeToggle";
+
+type MegaMenuId = Exclude<MegaId, "partners">;
 
 const icons: Record<IconKey, LucideIcon> = {
   sparkles: Sparkles,
@@ -211,29 +211,6 @@ function ServePanel({ onNavigate }: { onNavigate: () => void }) {
   );
 }
 
-function PartnersPanel({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <div className="grid grid-cols-1 gap-10 xl:grid-cols-[minmax(0,0.32fr)_minmax(0,0.5fr)_minmax(0,0.18fr)]">
-      <FeatureBlock
-        label="PARTNER WITH ZENIUM"
-        heading="Build the future of intelligent utilities."
-        copy="Work with Zenium to deliver connected, data-driven utility solutions."
-        href="#partners"
-        cta="Become a Partner"
-        onNavigate={onNavigate}
-      />
-      <div className="flex flex-col gap-1">
-        {partnerLinks.map((item) => (
-          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
-        ))}
-      </div>
-      <div className="flex items-center">
-        <PartnerFlow />
-      </div>
-    </div>
-  );
-}
-
 function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.32fr)_minmax(0,0.3fr)]">
@@ -303,21 +280,19 @@ function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
   );
 }
 
-const panels: Record<MegaId, (props: { onNavigate: () => void }) => JSX.Element> = {
+const panels: Record<MegaMenuId, (props: { onNavigate: () => void }) => JSX.Element> = {
   solutions: SolutionsPanel,
   "who-we-serve": ServePanel,
-  partners: PartnersPanel,
   resources: ResourcesPanel,
   company: CompanyPanel,
 };
 
 const mobileNavChildren: Record<
-  MegaId,
+  MegaMenuId,
   Array<Pick<MegaLink, "title" | "description" | "href">>
 > = {
   solutions: mobileSolutions,
   "who-we-serve": industryLinks,
-  partners: partnerLinks,
   resources: [...resourceLearn, ...resourceInsights],
   company: [...companyAbout, ...companyConnect],
 };
@@ -348,9 +323,9 @@ function DemoButton({
 }
 
 export default function SiteHeader() {
-  const [openId, setOpenId] = useState<MegaId | null>(null);
+  const [openId, setOpenId] = useState<MegaMenuId | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileExpanded, setMobileExpanded] = useState<MegaId | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<MegaMenuId | null>(null);
   const rootRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number>();
 
@@ -370,23 +345,28 @@ export default function SiteHeader() {
     setMobileExpanded(null);
   }, [cancelClose]);
 
+  const closeMegaMenu = useCallback(() => {
+    cancelClose();
+    setOpenId(null);
+  }, [cancelClose]);
+
   const toggleMobileOpen = useCallback(() => {
     setMobileOpen((open) => !open);
   }, []);
 
   const openMegaMenu = useCallback(
-    (id: MegaId) => {
+    (id: MegaMenuId) => {
       cancelClose();
       setOpenId(id);
     },
     [cancelClose],
   );
 
-  const toggleMegaMenu = useCallback((id: MegaId) => {
+  const toggleMegaMenu = useCallback((id: MegaMenuId) => {
     setOpenId((current) => (current === id ? null : id));
   }, []);
 
-  const toggleMobileSection = useCallback((id: MegaId) => {
+  const toggleMobileSection = useCallback((id: MegaMenuId) => {
     setMobileExpanded((current) => (current === id ? null : id));
   }, []);
 
@@ -414,11 +394,6 @@ export default function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  const megaItems = useMemo(
-    () => primaryNav.filter((item): item is typeof item & { id: MegaId } => item.mega),
-    [],
-  );
-
   return (
     <header
       ref={rootRef}
@@ -432,6 +407,7 @@ export default function SiteHeader() {
           href="/"
           className="justify-self-start flex items-center"
           aria-label="Zenium home"
+          onMouseEnter={closeMegaMenu}
         >
           <img
             src="/ZENIUM_light_logo.png"
@@ -452,6 +428,7 @@ export default function SiteHeader() {
                 <a
                   key={item.id}
                   href={item.href}
+                  onMouseEnter={closeMegaMenu}
                   onClick={closeAll}
                   className="px-3 py-2 text-body font-medium tracking-[0.01em] !text-nav-ink transition-colors duration-[180ms] hover:!text-orange"
                 >
@@ -467,8 +444,8 @@ export default function SiteHeader() {
                 type="button"
                 aria-expanded={active}
                 aria-controls="zenium-mega-menu"
-                onMouseEnter={() => openMegaMenu(item.id as MegaId)}
-                onClick={() => toggleMegaMenu(item.id as MegaId)}
+                onMouseEnter={() => openMegaMenu(item.id as MegaMenuId)}
+                onClick={() => toggleMegaMenu(item.id as MegaMenuId)}
                 className={cn(
                   "relative flex items-center gap-1 px-3 py-2 text-body font-medium tracking-[0.01em] transition-colors duration-[180ms]",
                   active ? "text-orange" : "text-nav-ink hover:text-orange",
@@ -491,7 +468,10 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <div className="justify-self-end flex items-center gap-3 max-lg:hidden">
+        <div
+          className="justify-self-end flex items-center gap-3 max-lg:hidden"
+          onMouseEnter={closeMegaMenu}
+        >
           {/* <ThemeToggle /> */}
           <DemoButton />
         </div>
@@ -528,16 +508,30 @@ export default function SiteHeader() {
       {mobileOpen && (
         <div className="fixed bottom-0 left-0 right-0 top-20 z-40 flex flex-col bg-header lg:hidden">
           <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile navigation">
-            {megaItems.map((item) => {
-              const expanded = mobileExpanded === item.id;
-              const children = mobileNavChildren[item.id];
+            {primaryNav.map((item) => {
+              if (!item.mega) {
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={closeAll}
+                    className="block border-b border-nav-line py-4 text-base-lg font-medium text-white"
+                  >
+                    {item.label}
+                  </a>
+                );
+              }
+
+              const id = item.id as MegaMenuId;
+              const expanded = mobileExpanded === id;
+              const children = mobileNavChildren[id];
 
               return (
-                <div key={item.id} className="border-b border-nav-line">
+                <div key={id} className="border-b border-nav-line">
                   <button
                     type="button"
                     aria-expanded={expanded}
-                    onClick={() => toggleMobileSection(item.id)}
+                    onClick={() => toggleMobileSection(id)}
                     className={cn(
                       "flex w-full items-center justify-between py-4 text-left text-base-lg font-medium",
                       expanded ? "text-orange" : "text-white",
@@ -564,13 +558,6 @@ export default function SiteHeader() {
                 </div>
               );
             })}
-            <a
-              href="/contact"
-              onClick={closeAll}
-              className="block border-b border-nav-line py-4 text-base-lg font-medium text-white"
-            >
-              Contact
-            </a>
           </nav>
           <div className="p-5">
             <DemoButton full onClick={closeAll} />

@@ -13,7 +13,7 @@ export default function SectionIntro({
 }) {
   return (
     <header className={cn("section-heading", centered && "mx-auto text-center")}>
-      <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text">
+      <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text">
         {eyebrow}
       </p>
       <h2 className="text-h1 tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">

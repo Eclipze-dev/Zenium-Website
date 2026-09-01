@@ -14,7 +14,7 @@ export default function MdmFoundationSection() {
           <span className="text-orange text-h1">measurable value</span>
         </SectionIntro>
 
-        <div className="mt-2 w-full rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
+        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
           <p className="text-p3 m-0 text-center italic text-zen-text">
             {measurableValueQuote}
           </p>

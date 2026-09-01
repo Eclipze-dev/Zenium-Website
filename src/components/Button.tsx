@@ -14,7 +14,7 @@ export default function Button({
   className?: string;
 }) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 hover:-translate-y-0.5 [&>svg]:block [&>svg]:shrink-0",
+    "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 [&>svg]:block [&>svg]:shrink-0",
     outline ? "button-secondary" : "button-primary",
     className,
   );

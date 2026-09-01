@@ -21,7 +21,7 @@ export default function MetricsSection() {
                 i === 0 && "border-l-0 pl-0",
               )}
             >
-              <Icon className="h-7 w-7 text-orange" strokeWidth={1.8} />
+              <Icon className="h-6 w-6 text-orange" strokeWidth={1.8} />
               <b className="text-h3 text-white mt-5 block">
                 {value}
               </b>

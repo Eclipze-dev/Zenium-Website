@@ -1,4 +1,9 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
+import {
+  surfaceCardClass,
+  surfaceCardMuted,
+  surfaceCardTitle,
+} from "@/lib/surfaceCard";
 import { capabilities } from "./mdmData";
 
 export default function MdmCapabilitiesSection() {
@@ -13,13 +18,17 @@ export default function MdmCapabilitiesSection() {
           {capabilities.map(([Icon, title, description, additionalDescription]) => (
             <article
               key={title}
-              className="flex h-full flex-col items-start gap-[18px] rounded-[8px] bg-box p-8 transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 xl:p-[42px]"
+              className={surfaceCardClass(
+                "flex h-full flex-col items-start gap-[18px] rounded-[8px] p-8 xl:p-[42px]",
+              )}
             >
-              <Icon className="h-7 w-7 text-orange" strokeWidth={1.8} />
-              <h3 className="text-h3 uppercase m-0">{title}</h3>
-              <p className="text-button text-muted m-0">{description}</p>
+              <Icon className="h-6 w-6 text-orange" strokeWidth={1.8} />
+              <h3 className={`text-h3 m-0 uppercase ${surfaceCardTitle}`}>{title}</h3>
+              <p className={`text-button text-muted m-0 ${surfaceCardMuted}`}>{description}</p>
               {additionalDescription && (
-                <p className="text-button text-muted m-0">{additionalDescription}</p>
+                <p className={`text-button text-muted m-0 ${surfaceCardMuted}`}>
+                  {additionalDescription}
+                </p>
               )}
             </article>
           ))}

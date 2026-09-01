@@ -13,7 +13,7 @@ export default function HesFoundationSection() {
           <span className="text-orange text-h1">energy intelligence</span>
         </SectionIntro>
 
-        <div className="mt-2 w-full rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
+        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
           <p className="text-p3 m-0 text-center italic text-zen-text">
             HES connects the infrastructure. MDM makes the data trustworthy.
             Analytics turns it into intelligence

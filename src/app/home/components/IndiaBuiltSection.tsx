@@ -25,7 +25,7 @@ export default function IndiaBuiltSection() {
           <div className="mt-[70px]">
             {indiaBuiltFeatures.map(({ b, em, p, icon: Icon }) => (
               <article key={b} className="border-t border-line py-[24px]">
-                <Icon className="mb-3 h-7 w-7 text-orange" strokeWidth={1.8} />
+                <Icon className="mb-3 h-6 w-6 text-orange" strokeWidth={1.8} />
                 <b className="block text-p2">{b}</b>
                 <em className="block text-p3 text-orange my-2">
                   {em}

@@ -1,4 +1,9 @@
 import { partners } from "./homeData";
+import {
+  surfaceCardClass,
+  surfaceCardMuted,
+  surfaceCardTitle,
+} from "@/lib/surfaceCard";
 import SectionIntro from "./SectionIntro";
 
 export default function PartnersSection() {
@@ -19,13 +24,17 @@ export default function PartnersSection() {
           {partners.map(([Icon, title, text]) => (
             <article
               key={title}
-              className="min-w-0 bg-box rounded-[8px] p-[42px] min-h-[300px] transition-all duration-250 hover:bg-hover-surface hover:-translate-y-1 max-sm:p-[28px] max-sm:min-h-0"
+              className={surfaceCardClass(
+                "min-w-0 rounded-[8px] p-[42px] min-h-[300px] max-sm:p-[28px] max-sm:min-h-0",
+              )}
             >
-              <Icon className="text-orange w-7 h-7 mb-[20px]" strokeWidth={1.8} />
-              <h3 className="text-h3 my-[12px] mx-0 mb-[16px]">
+              <Icon className="mb-[20px] h-6 w-6 text-orange" strokeWidth={1.8} />
+              <h3 className={`text-h3 my-[12px] mx-0 mb-[16px] ${surfaceCardTitle}`}>
                 {title}
               </h3>
-              <p className="text-muted text-button m-0">{text}</p>
+              <p className={`text-button text-muted m-0 ${surfaceCardMuted}`}>
+                {text}
+              </p>
             </article>
           ))}
         </div>

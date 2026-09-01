@@ -42,7 +42,7 @@ export default function MdmAudienceSection() {
             </div>
           </div>
 
-          <div className="w-full rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
+          <div className="w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
             <p className="text-p3 m-0 text-center italic text-zen-text">
               {analyticsFoundationQuote}
             </p>

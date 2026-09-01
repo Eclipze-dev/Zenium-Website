@@ -1,3 +1,4 @@
+// import AnimatedNetworkBackground from "@/components/AnimatedNetworkBackground";
 import {
   ArrowRightIcon,
   LinkedInIcon,
@@ -63,13 +64,13 @@ function FooterBottomBar() {
           <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
             <a
               href="/privacy"
-              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-orange"
             >
               Privacy Policy
             </a>
             <a
               href="/terms"
-              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-zen-text"
+              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-orange"
             >
               Terms &amp; Conditions
             </a>
@@ -137,7 +138,9 @@ const contactLinks: FooterLinkItem[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-zen-bg">
+    <footer className="relative overflow-hidden bg-zen-bg">
+      {/* <AnimatedNetworkBackground /> */}
+      <div className="relative z-10">
       {/* Navigation Area */}
       <div className="container py-[64px] max-sm:py-[44px]">
         <div className="flex justify-between gap-[20px]">
@@ -205,6 +208,7 @@ export default function Footer() {
 
       {/* Bottom Legal Bar */}
       <FooterBottomBar />
+      </div>
     </footer>
   );
 }
