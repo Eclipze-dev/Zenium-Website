@@ -37,8 +37,8 @@ import {
   industryLinks,
   mobileSolutions,
   primaryNav,
-  resourceInsights,
-  resourceLearn,
+  // resourceInsights,
+  // resourceLearn,
   solutionsLinks,
   type IconKey,
   type MegaId,
@@ -53,7 +53,7 @@ import {
 import { cn } from "@/lib/cn";
 // import ThemeToggle from "./ThemeToggle";
 
-type MegaMenuId = Exclude<MegaId, "partners">;
+type MegaMenuId = Exclude<MegaId, "partners" | "resources">;
 
 const icons: Record<IconKey, LucideIcon> = {
   sparkles: Sparkles,
@@ -211,44 +211,44 @@ function ServePanel({ onNavigate }: { onNavigate: () => void }) {
   );
 }
 
-function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.32fr)_minmax(0,0.3fr)]">
-      <div>
-        <Label>Learn</Label>
-        {resourceLearn.map((item) => (
-          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
-        ))}
-      </div>
-      <div>
-        <Label>Insights</Label>
-        {resourceInsights.map((item) => (
-          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
-        ))}
-      </div>
-      <a
-        href="#resources"
-        onClick={onNavigate}
-        className="group relative overflow-hidden rounded-[4px] border border-nav-line bg-nav-card p-6"
-      >
-        <InsightNetwork />
-        <div className="relative z-[1]">
-          <Label>Latest Insight</Label>
-          <h3 className="text-card font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
-            Turning Utility Data Into Intelligence
-          </h3>
-          <p className="mt-3 text-supporting leading-relaxed text-nav-muted">
-            Explore how intelligent analytics can help utilities make faster, better decisions.
-          </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange">
-            Read Insight
-            <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms]" />
-          </span>
-        </div>
-      </a>
-    </div>
-  );
-}
+// function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
+//   return (
+//     <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.32fr)_minmax(0,0.3fr)]">
+//       <div>
+//         <Label>Learn</Label>
+//         {resourceLearn.map((item) => (
+//           <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
+//         ))}
+//       </div>
+//       <div>
+//         <Label>Insights</Label>
+//         {resourceInsights.map((item) => (
+//           <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
+//         ))}
+//       </div>
+//       <a
+//         href="#resources"
+//         onClick={onNavigate}
+//         className="group relative overflow-hidden rounded-[4px] border border-nav-line bg-nav-card p-6"
+//       >
+//         <InsightNetwork />
+//         <div className="relative z-[1]">
+//           <Label>Latest Insight</Label>
+//           <h3 className="text-card font-semibold leading-snug text-white transition-colors duration-[180ms] group-hover:text-orange">
+//             Turning Utility Data Into Intelligence
+//           </h3>
+//           <p className="mt-3 text-supporting leading-relaxed text-nav-muted">
+//             Explore how intelligent analytics can help utilities make faster, better decisions.
+//           </p>
+//           <span className="mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange">
+//             Read Insight
+//             <ArrowRightIcon width={15} height={15} className="transition-transform duration-[180ms]" />
+//           </span>
+//         </div>
+//       </a>
+//     </div>
+//   );
+// }
 
 function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
   return (
@@ -283,7 +283,7 @@ function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
 const panels: Record<MegaMenuId, (props: { onNavigate: () => void }) => JSX.Element> = {
   solutions: SolutionsPanel,
   "who-we-serve": ServePanel,
-  resources: ResourcesPanel,
+  // resources: ResourcesPanel,
   company: CompanyPanel,
 };
 
@@ -293,7 +293,7 @@ const mobileNavChildren: Record<
 > = {
   solutions: mobileSolutions,
   "who-we-serve": industryLinks,
-  resources: [...resourceLearn, ...resourceInsights],
+  // resources: [...resourceLearn, ...resourceInsights],
   company: [...companyAbout, ...companyConnect],
 };
 

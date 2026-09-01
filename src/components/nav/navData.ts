@@ -46,7 +46,7 @@ export const primaryNav: NavItem[] = [
   { id: "solutions", label: "Solutions", href: "#solutions", mega: true },
   { id: "who-we-serve", label: "Who We Serve", href: "#who-we-serve", mega: true },
   { id: "partners", label: "Partners", href: "/partners", mega: false },
-  { id: "resources", label: "Resources", href: "#resources", mega: true },
+  // { id: "resources", label: "Resources", href: "#resources", mega: true },
   { id: "company", label: "Company", href: "#company", mega: true },
   { id: "contact", label: "Contact", href: "/contact", mega: false },
 ];
@@ -129,41 +129,41 @@ export const industryLinks: MegaLink[] = [
 //   },
 // ];
 
-export const resourceLearn: MegaLink[] = [
-  {
-    title: "Case Studies",
-    description: "Explore real-world utility transformation stories.",
-    href: "/resources/case-studies",
-    icon: "file",
-  },
-  {
-    title: "Brochures",
-    description: "Explore Zenium capabilities and solutions.",
-    href: "/resources/brochures",
-    icon: "book",
-  },
-  {
-    title: "Whitepapers",
-    description: "Deep insights into utility technology and analytics.",
-    href: "/resources/whitepapers",
-    icon: "fileText",
-  },
-];
+// export const resourceLearn: MegaLink[] = [
+//   {
+//     title: "Case Studies",
+//     description: "Explore real-world utility transformation stories.",
+//     href: "/resources/case-studies",
+//     icon: "file",
+//   },
+//   {
+//     title: "Brochures",
+//     description: "Explore Zenium capabilities and solutions.",
+//     href: "/resources/brochures",
+//     icon: "book",
+//   },
+//   {
+//     title: "Whitepapers",
+//     description: "Deep insights into utility technology and analytics.",
+//     href: "/resources/whitepapers",
+//     icon: "fileText",
+//   },
+// ];
 
-export const resourceInsights: MegaLink[] = [
-  {
-    title: "Blogs & Insights",
-    description: "Ideas, trends and perspectives on intelligent utilities.",
-    href: "/resources/blogs-insights",
-    icon: "lightbulb",
-  },
-  {
-    title: "Webinars",
-    description: "Expert discussions on utility data, analytics and transformation.",
-    href: "/resources/webinars",
-    icon: "play",
-  },
-];
+// export const resourceInsights: MegaLink[] = [
+//   {
+//     title: "Blogs & Insights",
+//     description: "Ideas, trends and perspectives on intelligent utilities.",
+//     href: "/resources/blogs-insights",
+//     icon: "lightbulb",
+//   },
+//   {
+//     title: "Webinars",
+//     description: "Expert discussions on utility data, analytics and transformation.",
+//     href: "/resources/webinars",
+//     icon: "play",
+//   },
+// ];
 
 export const companyAbout: MegaLink[] = [
   {

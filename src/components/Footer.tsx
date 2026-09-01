@@ -6,11 +6,20 @@ import {
 
 type FooterLinkItem = {
   label: string;
-  href: string;
+  href?: string;
   arrow?: boolean;
+  disabled?: boolean;
 };
 
-function FooterLink({ label, href, arrow = false }: FooterLinkItem) {
+function FooterLink({ label, href, arrow = false, disabled = false }: FooterLinkItem) {
+  if (disabled) {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted opacity-40">
+        {label}
+      </span>
+    );
+  }
+
   return (
     <a
       href={href}
@@ -85,9 +94,9 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
   {
     heading: "Solutions",
     links: [
-      { label: "AI & Analytics", href: "/solutions/ai-analytics" },
       { label: "HES", href: "/solutions/hes" },
       { label: "MDM", href: "/solutions/mdm" },
+      { label: "AI & Analytics", href: "/solutions/ai-analytics" },
     ],
   },
   {
@@ -103,21 +112,22 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
   {
     heading: "Partners",
     links: [
-      { label: "Meter Manufacturers", href: "/partners/meter-manufacturers" },
-      { label: "AMI Service Providers", href: "/partners/ami-service-providers" },
-      { label: "System Integrators", href: "/partners/system-integrators" },
+      { label: "Partners", href: "/partners" },
+      { label: "Meter Manufacturers", disabled: true },
+      { label: "AMI Service Providers", disabled: true },
+      { label: "System Integrators", disabled: true },
     ],
   },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Case Studies", href: "/resources/case-studies" },
-      { label: "Brochures", href: "/resources/brochures" },
-      { label: "Whitepapers", href: "/resources/whitepapers" },
-      { label: "Blogs & Insights", href: "/resources/blogs-insights" },
-      { label: "Webinars", href: "/resources/webinars" },
-    ],
-  },
+  // {
+  //   heading: "Resources",
+  //   links: [
+  //     { label: "Case Studies", href: "/resources/case-studies" },
+  //     { label: "Brochures", href: "/resources/brochures" },
+  //     { label: "Whitepapers", href: "/resources/whitepapers" },
+  //     { label: "Blogs & Insights", href: "/resources/blogs-insights" },
+  //     { label: "Webinars", href: "/resources/webinars" },
+  //   ],
+  // },
   {
     heading: "Company",
     links: [
@@ -180,7 +190,7 @@ export default function Footer() {
               </span>
             </a>
           </div>
-          <div className="grid grid-cols-[repeat(5,minmax(0,1fr))] gap-x-[20px] gap-y-[40px] max-lg:grid-cols-[1fr_1fr_1fr] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
+          <div className="grid grid-cols-[repeat(4,minmax(0,1fr))] gap-x-[20px] gap-y-[40px] max-lg:grid-cols-[1fr_1fr_1fr] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
           {columns.map((col) => (
             <FooterColumn key={col.heading} {...col} />
           ))}

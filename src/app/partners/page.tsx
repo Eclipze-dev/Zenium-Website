@@ -1,15 +1,23 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import PartnersConnectedSection from "./components/PartnersConnectedSection";
+import PartnersEcosystemSection from "./components/PartnersEcosystemSection";
+import PartnersFinalCtaSection from "./components/PartnersFinalCtaSection";
+import PartnersHeroSection from "./components/PartnersHeroSection";
+import PartnersStatsSection from "./components/PartnersStatsSection";
+import PartnersWhySection from "./components/PartnersWhySection";
 
 export default function PartnersPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-zen-bg min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Partners</h1>
-        <p className="mt-4 text-muted">
-          Partners page coming soon.
-        </p>
+      <main className="overflow-x-clip">
+        <PartnersHeroSection />
+        <PartnersStatsSection />
+        <PartnersWhySection />
+        <PartnersEcosystemSection />
+        <PartnersConnectedSection />
+        <PartnersFinalCtaSection />
       </main>
       <Footer />
     </div>
