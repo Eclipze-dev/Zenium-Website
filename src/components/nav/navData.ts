@@ -172,12 +172,12 @@ export const companyAbout: MegaLink[] = [
     href: "/company/about",
     icon: "info",
   },
-  {
-    title: "Leadership",
-    description: "Meet the people shaping the company.",
-    href: "/company/leadership",
-    icon: "user",
-  },
+  // {
+  //   title: "Leadership",
+  //   description: "Meet the people shaping the company.",
+  //   href: "/company/leadership",
+  //   icon: "user",
+  // },
 ];
 
 export const companyConnect: MegaLink[] = [

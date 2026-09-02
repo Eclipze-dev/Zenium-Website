@@ -10,7 +10,7 @@ export default function MdmCapabilitiesSection() {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px]">
-        <SectionIntro centered eyebrow="CORE CAPABILITIES">
+        <SectionIntro centered singleLine eyebrow="CORE CAPABILITIES">
           From raw readings to <span className="text-orange text-h1">usable information.</span>
         </SectionIntro>
 

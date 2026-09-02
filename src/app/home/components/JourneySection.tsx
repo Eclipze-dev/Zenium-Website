@@ -13,6 +13,7 @@ export default function JourneySection() {
       <div className="container relative z-[2]">
         <SectionIntro
           centered
+          singleLine
           eyebrow="ONE CONNECTED INTELLIGENCE JOURNEY"
           text="Zenium connects the utility data journey end to end — collecting data through HES, creating a trusted foundation in MDM, and building toward deeper analytics and intelligence."
         >

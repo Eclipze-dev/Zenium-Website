@@ -132,7 +132,7 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
     heading: "Company",
     links: [
       { label: "About Zenium", href: "/company/about" },
-      { label: "Leadership", href: "/company/leadership" },
+      // { label: "Leadership", href: "/company/leadership" },
       { label: "Careers", href: "/company/careers" },
       { label: "News & Events", href: "/company/news" },
     ],
