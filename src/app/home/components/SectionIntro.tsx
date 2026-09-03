@@ -6,15 +6,24 @@ export default function SectionIntro({
   text,
   centered = false,
   singleLine = false,
+  fullWidth = false,
 }: {
   eyebrow: string;
   children: React.ReactNode;
   text?: string;
   centered?: boolean;
   singleLine?: boolean;
+  /** Override section-heading max-width so text can span the full container. */
+  fullWidth?: boolean;
 }) {
   return (
-    <header className={cn("section-heading", centered && "mx-auto text-center")}>
+    <header
+      className={cn(
+        "section-heading",
+        centered && "mx-auto text-center",
+        fullWidth && "max-w-none w-full",
+      )}
+    >
       <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text">
         {eyebrow}
       </p>

@@ -9,7 +9,7 @@ export default function MdmHeroSection() {
       aria-labelledby="mdm-hero-title"
     >
       <div className="container">
-        <div className="grid items-start gap-12 xl:gap-[50px]">
+        <div className="grid items-start gap-12 xl:gap-[50px] pb-[40px]">
           <div className="flex flex-col items-center justify-center gap-5">
             <p className="text-h4 tracking-eyebrow text-zen-text">METER DATA MANAGEMENT</p>
             <h1
@@ -30,12 +30,10 @@ export default function MdmHeroSection() {
             </div>
           </div>
 
-          {/* <SolutionHeroStats items={statistics} /> */}
+
         </div>
 
-        <div className="mt-[20px] max-md:mt-[48px]">
-          <SolutionHeroStats items={statistics} variant="ruled" />
-        </div>
+        <SolutionHeroStats items={statistics} variant="ruled" />
       </div>
     </section>
   );

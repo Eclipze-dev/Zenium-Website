@@ -7,6 +7,7 @@ export default function MdmFoundationSection() {
       <div className="container flex flex-col items-center gap-5 text-center">
         <SectionIntro
           centered
+          fullWidth
           eyebrow="MEASURABLE VALUE"
           text="Zenium MDM turns fragmented readings into consistent, usable information—helping organisations reduce exceptions, strengthen billing processes and improve visibility across energy operations."
         >

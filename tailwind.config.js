@@ -49,6 +49,8 @@ export default {
         },
         'zenbg': '#06141F',
         muted: 'var(--text-muted)',
+        common: '#152D48',
+        common2: '#152D48B2',
         box: '#00000080',
         line: 'var(--line)',
         card: 'var(--card)',

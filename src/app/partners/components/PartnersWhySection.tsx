@@ -22,6 +22,15 @@ function PartnersWhyTimelineItem({
   return (
     <article data-index={index} className="relative">
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] lg:gap-x-14">
+      <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[16px] max-lg:aspect-[16/11] max-sm:aspect-[4/3]">
+          <img
+            src={step.image}
+            alt={step.imageAlt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+        
+        
         <div className="flex min-w-0 flex-col">
           <div>
             <p className="text-h4 uppercase tracking-[0.08em] text-muted">{step.label}</p>
@@ -42,14 +51,6 @@ function PartnersWhyTimelineItem({
               />
             </div>
           )}
-        </div>
-
-        <div className="relative aspect-[16/8] w-full overflow-hidden rounded-[16px] max-lg:aspect-[16/11] max-sm:aspect-[4/3]">
-          <img
-            src={step.image}
-            alt={step.imageAlt}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
         </div>
       </div>
     </article>
@@ -111,6 +112,7 @@ export default function PartnersWhySection() {
       <div className="container">
         <SectionIntro
           centered
+          fullWidth
           eyebrow="WHY ZENIUM"
           text="Successful smart-metering programmes depend on technology that works across products, providers and operating environments. Zenium combines proven HES and MDM capabilities with utility-domain knowledge gained through experience in complex, large-scale smart-metering environments."
         >

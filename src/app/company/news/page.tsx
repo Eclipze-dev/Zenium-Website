@@ -1,13 +1,13 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import NewsSection from "./components/NewsSection";
 
 export default function NewsPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">News & Events</h1>
-        <p className="mt-4 text-muted">News and events page coming soon.</p>
+      <main className="overflow-x-clip bg-[#F7F7F7]">
+        <NewsSection />
       </main>
       <Footer />
     </div>

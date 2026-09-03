@@ -1,9 +1,5 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
-import {
-  surfaceCardClass,
-  surfaceCardMuted,
-  surfaceCardTitle,
-} from "@/lib/surfaceCard";
+import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import { capabilities } from "./hesData";
 
 export default function HesCapabilitiesSection() {
@@ -16,21 +12,14 @@ export default function HesCapabilitiesSection() {
 
         <div className="grid grid-cols-3 gap-[10px]">
           {capabilities.map(([Icon, title, description, additionalDescription]) => (
-            <article
+            <SurfaceFeatureCard
               key={title}
-              className={surfaceCardClass(
-                "flex h-full flex-col items-start gap-[18px] rounded-[8px] p-8 xl:p-[42px]",
-              )}
-            >
-              <Icon className="h-6 w-6 text-orange" strokeWidth={1.8} />
-              <h3 className={`text-h3 m-0 ${surfaceCardTitle}`}>{title}</h3>
-              <p className={`text-button text-muted m-0 ${surfaceCardMuted}`}>{description}</p>
-              {additionalDescription && (
-                <p className={`text-button text-muted m-0 ${surfaceCardMuted}`}>
-                  {additionalDescription}
-                </p>
-              )}
-            </article>
+              icon={Icon}
+              title={title}
+              text={description}
+              additionalText={additionalDescription}
+              spacing="stack"
+            />
           ))}
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function PartnersFinalCtaSection() {
           Bring Zenium into your next{" "}
           <span className="text-orange text-h1">energy programme.</span>
         </h2>
-        <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-[680px]">
+        <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-auto">
           Talk to us about an upcoming bid, meter integration, system-integration 
           requirement or wider technology partnership.
         </p>

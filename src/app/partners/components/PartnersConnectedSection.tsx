@@ -7,6 +7,7 @@ export default function PartnersConnectedSection() {
       <div className="container text-center">
         <SectionIntro
           centered
+          fullWidth
           eyebrow="CONNECTED BY DESIGN"
           text="Zenium HES and MDM are designed to operate within multi-vendor environments—connecting infrastructure, managing trusted data and supporting intelligence across the energy ecosystem."
         >

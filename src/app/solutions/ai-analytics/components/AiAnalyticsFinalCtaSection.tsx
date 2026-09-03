@@ -17,7 +17,7 @@ export default function AiAnalyticsFinalCtaSection() {
           Turn utility data into better{" "}
           <span className="text-orange text-h1">utility decisions.</span>
         </h2>
-        <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-[760px]">
+        <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-auto">
           See how Zenium Analytics &amp; AI can help turn connected utility data into intelligence
           for revenue, assets and operations.
         </p>

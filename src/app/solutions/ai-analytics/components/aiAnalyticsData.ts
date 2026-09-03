@@ -26,27 +26,27 @@ export const intelligenceLayerItems: ReadonlyArray<
 > = [
   [
     LineChart,
-    "DATA INTELLIGENCE",
+    "Data Intelligence",
     "Structure and contextualise complex utility data for analysis.",
   ],
   [
     LayoutGrid,
-    "REAL-TIME VISIBILITY",
+    "Real-Time Visibility",
     "Surface network conditions, meter events and operational exceptions as data becomes available.",
   ],
   [
     Brain,
-    "PREDICTIVE ANALYTICS",
+    "Predictive Analytics",
     "Deploy in cloud, on-premise or hybrid environments.",
   ],
   [
     ShieldCheck,
-    "OPERATIONAL INTELLIGENCE",
+    "Operational Intelligence",
     "Protect meter and consumption data through encryption, access controls and security monitoring.",
   ],
   [
     Sparkles,
-    "AI-ASSISTED INTELLIGENCE",
+    "AI-Assisted Intelligence",
     "Apply analytics and AI to identify risk, prioritise attention and support better-informed decisions.",
   ],
 ];

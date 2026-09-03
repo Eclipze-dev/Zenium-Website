@@ -13,7 +13,7 @@ export default function SolutionFeatureGrid({
     <div
       className={cn(
         "grid md:grid-cols-2 xl:grid-cols-4",
-        !bare && "rounded-[10px] border border-line bg-box p-[20px]",
+        !bare && "rounded-[10px] border-line bg-box p-[20px]",
       )}
     >
       {items.map(([Icon, title, description]) => (

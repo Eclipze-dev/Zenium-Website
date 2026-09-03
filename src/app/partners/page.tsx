@@ -4,7 +4,6 @@ import PartnersConnectedSection from "./components/PartnersConnectedSection";
 import PartnersEcosystemSection from "./components/PartnersEcosystemSection";
 import PartnersFinalCtaSection from "./components/PartnersFinalCtaSection";
 import PartnersHeroSection from "./components/PartnersHeroSection";
-import PartnersStatsSection from "./components/PartnersStatsSection";
 import PartnersWhySection from "./components/PartnersWhySection";
 
 export default function PartnersPage() {
@@ -13,7 +12,6 @@ export default function PartnersPage() {
       <SiteHeader />
       <main className="overflow-x-clip">
         <PartnersHeroSection />
-        <PartnersStatsSection />
         <PartnersWhySection />
         <PartnersEcosystemSection />
         <PartnersConnectedSection />

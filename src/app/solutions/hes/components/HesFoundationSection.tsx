@@ -7,6 +7,7 @@ export default function HesFoundationSection() {
         <SectionIntro
           centered
           singleLine
+          fullWidth
           eyebrow="THE INTELLIGENCE FOUNDATION"
           text="Zenium HES does more than collect meter readings. It creates the connected foundation required for trusted meter-data management, operational analytics and intelligent energy applications."
         >

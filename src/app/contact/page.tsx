@@ -1,13 +1,13 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import ContactSection from "./components/ContactSection";
 
 export default function ContactPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-zen-bg min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Contact</h1>
-        <p className="mt-4 text-muted">Contact page coming soon.</p>
+      <main className="">
+        <ContactSection />
       </main>
       <Footer />
     </div>

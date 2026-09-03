@@ -1,11 +1,9 @@
 import Button from "@/components/Button";
-import SolutionHeroStats from "@/components/solutions/SolutionHeroStats";
-import { statistics } from "./aiAnalyticsData";
 
 export default function AiAnalyticsHeroSection() {
   return (
     <section
-      className="relative overflow-hidden pb-[50px] pt-[50px] max-md:pt-24 max-md:pb-[70px]"
+      className="relative overflow-hidden pb-[80px] pt-[50px] max-md:pt-24 max-md:pb-[70px]"
       aria-labelledby="ai-analytics-hero-title"
     >
       <div className="container">
@@ -19,7 +17,7 @@ export default function AiAnalyticsHeroSection() {
               Turn utility data into{" "}
               <span className="text-orange text-h1">actionable intelligence.</span>
             </h1>
-            <p className="max-w-[920px] text-p1 text-muted">
+            <p className="max-w-auto text-p1 text-muted">
               Transform meter, consumer, asset and network data into intelligence that helps
               utilities identify losses, protect revenue, understand asset health and make better
               operational decisions. Built on Zenium&apos;s HES and MDM foundation, Analytics &amp; AI
