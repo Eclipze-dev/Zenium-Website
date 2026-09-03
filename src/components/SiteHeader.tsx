@@ -308,7 +308,7 @@ function DemoButton({
 }) {
   return (
     <a
-      href="/"
+      href="/contact"
       onClick={onClick}
       className={cn(
         "button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms]",

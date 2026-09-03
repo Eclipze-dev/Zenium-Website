@@ -30,7 +30,7 @@ export default function BlogArticle() {
             <img
               src={blogPost.image}
               alt={blogPost.imageAlt}
-              className="aspect-[16/9] h-auto w-full object-cover"
+              className="aspect-[21/9] h-auto w-full object-cover"
             />
           </div>
 

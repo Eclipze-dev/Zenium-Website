@@ -20,10 +20,17 @@ export default function NewsSection() {
     if (activeFilter === "all") return newsItems;
     return newsItems.filter((item) => item.category === activeFilter);
   }, [activeFilter]);
+  
+  const isFeatured = (item?: (typeof newsItems)[number]) =>
+    !!item && item.label.toUpperCase().includes("FEATURED");
 
-  const featured = filteredItems[0];
-  const side = filteredItems[1];
-  const remaining = filteredItems.slice(2);
+  const showFeaturedLayout = isFeatured(filteredItems[0]);
+
+  const featured = showFeaturedLayout ? filteredItems[0] : undefined;
+  const side = showFeaturedLayout ? filteredItems[1] : undefined;
+  const remaining = showFeaturedLayout
+    ? filteredItems.slice(2)
+    : filteredItems;
 
   const updateIndicator = () => {
     const tab = tabRefs.current[activeFilter];

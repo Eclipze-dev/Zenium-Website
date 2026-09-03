@@ -25,7 +25,7 @@ export default function HeroSection() {
             foundation.
           </p>
           <div className="flex flex-wrap gap-[10px] mt-[clamp(18px,2.5vw,30px)]">
-            <Button>Request a Demo</Button>
+            <Button href="/contact">Request a Demo</Button>
             <Button outline>Explore Zenium</Button>
           </div>
         </div>
