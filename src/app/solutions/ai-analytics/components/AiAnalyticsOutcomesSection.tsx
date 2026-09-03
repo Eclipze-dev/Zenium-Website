@@ -7,7 +7,7 @@ export default function AiAnalyticsOutcomesSection() {
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
         <div className="flex flex-col gap-[50px] rounded-[10px] border border-line bg-[#0A1725] p-[40px] max-sm:p-[24px]">
-          <SectionIntro centered eyebrow="OUTCOMES">
+          <SectionIntro centered fullWidth eyebrow="OUTCOMES">
             Better intelligence. Better decisions.{" "}
             <span className="text-orange text-h1">
               Better utility performance.

@@ -10,7 +10,7 @@ export default function AiAnalyticsUtilityAnalyticsSection() {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px]">
-        <SectionIntro centered eyebrow="UTILITY ANALYTICS">
+        <SectionIntro centered singleLine eyebrow="UTILITY ANALYTICS">
           Intelligence across the{" "}
           <span className="text-orange text-h1">utility value chain.</span>
         </SectionIntro>

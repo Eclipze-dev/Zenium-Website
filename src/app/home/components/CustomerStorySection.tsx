@@ -37,7 +37,7 @@ export default function CustomerStorySection() {
   return (
     <section className="py-[80px] text-center">
       <div className="container">
-        <SectionIntro centered eyebrow="CUSTOMER STORY">
+        <SectionIntro centered fullWidth eyebrow="CUSTOMER STORY">
           <p className="text-h1 font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
             Proven in the field. One of <span className="text-orange text-h1">India's large-scale</span>{" "}
             electricity deployments.
