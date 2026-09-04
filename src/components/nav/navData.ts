@@ -44,7 +44,7 @@ export type MegaLink = {
 
 export const primaryNav: NavItem[] = [
   { id: "solutions", label: "Solutions", href: "#solutions", mega: true },
-  { id: "who-we-serve", label: "Who We Serve", href: "#who-we-serve", mega: true },
+  { id: "who-we-serve", label: "Who We Serve", href: "/serve", mega: true },
   { id: "partners", label: "Partners", href: "/partners", mega: false },
   // { id: "resources", label: "Resources", href: "#resources", mega: true },
   { id: "company", label: "Company", href: "#company", mega: true },

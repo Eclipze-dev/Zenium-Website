@@ -1,15 +1,16 @@
-import SiteHeader from "@/components/SiteHeader";
-import Footer from "@/components/Footer";
+import {
+  ServeAudienceCapabilitiesSection,
+  ServeAudienceCtaSection,
+  ServeAudienceOverviewSection,
+} from "../components/ServeAudienceSections";
+import { microgridContent } from "../components/serveData";
 
 export default function MicrogridPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
-      <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Microgrids</h1>
-        <p className="mt-4 text-muted">Microgrids page coming soon.</p>
-      </main>
-      <Footer />
-    </div>
+    <>
+      <ServeAudienceOverviewSection content={microgridContent} />
+      <ServeAudienceCapabilitiesSection content={microgridContent} />
+      <ServeAudienceCtaSection content={microgridContent} />
+    </>
   );
 }

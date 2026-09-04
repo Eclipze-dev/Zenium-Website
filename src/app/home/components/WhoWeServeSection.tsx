@@ -18,7 +18,7 @@ export default function WhoWeServeSection() {
             Zenium&apos;s technology is designed for the evolving needs of utilities
             and the wider energy ecosystem.
           </p>
-          <Button>
+          <Button href="/serve">
             <span>Explore Who We Serve</span>
           </Button>
         </div>

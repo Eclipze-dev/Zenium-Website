@@ -1,15 +1,19 @@
-import SiteHeader from "@/components/SiteHeader";
-import Footer from "@/components/Footer";
+import {
+  ServeAudienceCapabilitiesSection,
+  ServeAudienceCtaSection,
+  ServeAudienceOverviewSection,
+} from "../components/ServeAudienceSections";
+import { prosumersContent } from "../components/serveData";
 
 export default function ProsumersPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
-      <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Prosumers</h1>
-        <p className="mt-4 text-muted">Prosumers page coming soon.</p>
-      </main>
-      <Footer />
-    </div>
+    <>
+      <ServeAudienceOverviewSection content={prosumersContent} />
+      <ServeAudienceCapabilitiesSection
+        content={prosumersContent}
+        layout="wide-bottom"
+      />
+      <ServeAudienceCtaSection content={prosumersContent} />
+    </>
   );
 }
