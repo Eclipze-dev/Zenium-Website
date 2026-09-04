@@ -83,16 +83,16 @@ export const industryLinks: MegaLink[] = [
     icon: "zap",
   },
   {
-    title: "Commercial & Industrial",
-    description: "Data-driven energy visibility and optimisation.",
-    href: "/serve/commercial",
-    icon: "factory",
-  },
-  {
     title: "Smart Cities",
     description: "Intelligent infrastructure for connected urban environments.",
     href: "/serve/cities",
     icon: "globe",
+  },
+  {
+    title: "Commercial & Industrial",
+    description: "Data-driven energy visibility and optimisation.",
+    href: "/serve/commercial",
+    icon: "factory",
   },
   {
     title: "Microgrids",

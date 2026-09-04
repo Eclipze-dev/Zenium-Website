@@ -1,5 +1,13 @@
 import type { LucideIcon } from "lucide-react";
-import { Award, Gauge, Layers, TestTube2 } from "lucide-react";
+import {
+  Award,
+  Gauge,
+  Layers,
+  Puzzle,
+  Radio,
+  ShieldCheck,
+  TestTube2,
+} from "lucide-react";
 
 export const statistics: ReadonlyArray<readonly [LucideIcon, string, string]> = [
   [Gauge, "5M", "Smart meter legacy deployments"],
@@ -13,6 +21,7 @@ export const whySteps = [
     label: "CONNECT",
     title: "Built on utility experience",
     text: "Our technology and product knowledge were developed through years of work in utility transformation and advanced metering.",
+    icon: Radio,
     image: "/image.png",
     imageAlt: "Utility network infrastructure at dusk",
   },
@@ -20,6 +29,7 @@ export const whySteps = [
     label: "INTEGRATE",
     title: "Open by design",
     text: "Integrate different meter makes, HES platforms, communication technologies and utility applications through standards-based interfaces.",
+    icon: Puzzle,
     image: "/image.png",
     imageAlt: "Connected energy network integration",
   },
@@ -27,6 +37,7 @@ export const whySteps = [
     label: "SCALE",
     title: "Ready to scale",
     text: "Support growing meter populations and data volumes through flexible cloud, on-premise or hybrid deployment.",
+    icon: Layers,
     image: "/image.png",
     imageAlt: "Scalable utility data platform",
   },
@@ -34,6 +45,7 @@ export const whySteps = [
     label: "OPERATE",
     title: "Structured for quality",
     text: "CMMI Level 3 certified processes provide a disciplined foundation for product development, integration and delivery.",
+    icon: ShieldCheck,
     image: "/image.png",
     imageAlt: "Quality-driven utility operations",
   },

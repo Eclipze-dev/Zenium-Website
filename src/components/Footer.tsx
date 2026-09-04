@@ -103,8 +103,8 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
     heading: "Who We Serve",
     links: [
       { label: "Utilities", href: "/serve/utilities" },
-      { label: "Commercial & Industrial", href: "/serve/commercial" },
       { label: "Smart Cities", href: "/serve/cities" },
+      { label: "Commercial & Industrial", href: "/serve/commercial" },
       { label: "Microgrids", href: "/serve/microgrid" },
       { label: "Prosumers", href: "/serve/prosumers" },
     ],

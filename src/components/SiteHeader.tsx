@@ -198,7 +198,7 @@ function ServePanel({ onNavigate }: { onNavigate: () => void }) {
       />
       <div>
         <Label>Industries</Label>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+        <div className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-x-4 gap-y-1">
           {industryLinks.map((item) => (
             <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
           ))}
