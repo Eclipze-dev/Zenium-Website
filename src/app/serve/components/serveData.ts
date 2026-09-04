@@ -84,18 +84,21 @@ export const utilitiesContent = {
       text: "Connect and manage large-scale smart metering infrastructure with secure, interoperable device communication.",
       cta: "Explore HES",
       href: "/solutions/hes",
+      variant: "text" as const,
     },
     {
       title: "Meter Data Management (MDM)",
       text: "Transform high-volume meter data into validated, trusted information for billing, operations and enterprise systems.",
       cta: "Explore MDM",
       href: "/solutions/mdm",
+      variant: "text" as const,
     },
     {
       title: "Analytics & AI",
       text: "Turn meter, network and operational data into insights for revenue protection, asset health, network visibility and predictive decision-making.",
       cta: "Explore Analytics & AI",
       href: "/solutions/ai-analytics",
+      variant: "text" as const,
     },
   ],
   priorities: [
@@ -137,6 +140,7 @@ export const utilitiesContent = {
       "As utilities progress from smart meter deployment towards AMI 2.0, Zenium provides the interoperable data and intelligence foundation needed to move from connectivity to increasingly intelligent utility operations.",
     cta: "Talk to our team",
     href: "/contact",
+    variant: "default" as const,
   },
 };
 
@@ -373,6 +377,7 @@ export const prosumersContent: ServeAudienceContent = {
         label: "Explore Analytics & AI",
         href: "/solutions/ai-analytics",
         outline: true,
+        variant: "default",
       },
       { label: "Talk to our team", href: "/contact", outline: false },
     ],

@@ -18,7 +18,7 @@ export type ServeAudienceContent = {
     title: string;
     accent: string;
     description: string;
-    actions: { label: string; href: string; outline: boolean }[];
+    actions: { label: string; href: string; outline: boolean; variant?: "default" | "text" }[];
   };
 };
 
@@ -140,6 +140,7 @@ export function ServeAudienceCtaSection({
               key={action.label}
               href={action.href}
               outline={action.outline}
+              variant={action.variant}
             >
               {action.label}
             </Button>

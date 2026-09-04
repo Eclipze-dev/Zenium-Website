@@ -17,7 +17,7 @@ export function UtilitiesSolutionsSection() {
             <article key={item.title} className="flex flex-col items-start gap-4">
               <h3 className="m-0 text-p2 font-normal text-zen-text">{item.title}</h3>
               <p className="m-0 text-p1 text-muted">{item.text}</p>
-              <Button href={item.href} variant="text">
+              <Button href={item.href} variant={item.variant}>
                 {item.cta}
               </Button>
             </article>
@@ -84,7 +84,9 @@ export function UtilitiesAmiNextSection() {
           </h2>
           <p className="mt-[20px] text-p1 text-muted">{amiNext.description}</p>
           <div className="mt-[32px]">
-            <Button href={amiNext.href}>{amiNext.cta}</Button>
+            <Button href={amiNext.href} variant={amiNext.variant}>
+              {amiNext.cta}
+            </Button>
           </div>
         </div>
       </div>
