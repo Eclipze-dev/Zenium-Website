@@ -1,6 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
-import { audiences } from "./hesData";
+import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
+import { audiences } from "./hesData";
 
 export default function HesAudienceSection() {
   return (
@@ -8,11 +9,15 @@ export default function HesAudienceSection() {
       <div className="container">
         <SolutionPanelCard>
           <div className="grid w-full items-center gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
-            <img
-              src="/image.png"
-              alt="Connected energy infrastructure"
-              className="h-full max-h-[540px] w-full rounded-[20px] object-cover"
-            />
+            <div className="relative h-full max-h-[540px] min-h-[280px] w-full overflow-hidden rounded-[20px]">
+              <OptimizedImage
+                src="/image.png"
+                alt="Connected energy infrastructure"
+                fill
+                sizes="(max-width: 1280px) 100vw, 600px"
+                className="object-cover"
+              />
+            </div>
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="WHO IT IS FOR">
                 Built for the{` `}<span className="text-orange text-h1">AMI ecosystem</span>

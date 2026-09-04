@@ -1,8 +1,9 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
+import OptimizedImage from "@/components/OptimizedImage";
 import { cn } from "@/lib/cn";
 import SolutionPanelCard from "./SolutionPanelCard";
 
-export default function SolutionFeaturePanel({
+const SolutionFeaturePanel = ({
   eyebrow,
   title,
   children,
@@ -16,7 +17,7 @@ export default function SolutionFeaturePanel({
   imageSide?: "left" | "right";
   image?: string;
   imageAlt?: string;
-}) {
+}) => {
   const content = (
     <div className="flex min-w-0 flex-col gap-5">
       <SectionIntro eyebrow={eyebrow}>{title}</SectionIntro>
@@ -25,11 +26,15 @@ export default function SolutionFeaturePanel({
   );
 
   const visual = (
-    <img
-      src={image}
-      alt={imageAlt}
-      className="h-full min-h-[280px] w-full rounded-[8px] object-fill max-md:min-h-[220px]"
-    />
+    <div className="relative h-full min-h-[280px] w-full overflow-hidden rounded-[8px] max-md:min-h-[220px]">
+      <OptimizedImage
+        src={image}
+        alt={imageAlt}
+        fill
+        sizes="(max-width: 1280px) 100vw, 640px"
+        className="object-cover"
+      />
+    </div>
   );
 
   return (
@@ -58,4 +63,6 @@ export default function SolutionFeaturePanel({
       </div>
     </section>
   );
-}
+};
+
+export default SolutionFeaturePanel;

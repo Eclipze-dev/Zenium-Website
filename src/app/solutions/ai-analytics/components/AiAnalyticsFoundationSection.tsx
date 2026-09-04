@@ -1,14 +1,18 @@
-export default function AiAnalyticsFoundationSection() {
+import OptimizedImage from "@/components/OptimizedImage";
+
+const AiAnalyticsFoundationSection = () => {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container">
         <div className="flex flex-row justify-between w-full items-center gap-10 ">
-          <div className="w-[40%]">
-          <img
-            src="/image.png"
-            alt="Connected utility network infrastructure"
-            className="h-full min-h-[280px] w-full rounded-[8px] object-cover max-md:min-h-[220px]"
-          />
+          <div className="relative w-[40%] min-h-[280px] overflow-hidden rounded-[8px] max-md:min-h-[220px]">
+            <OptimizedImage
+              src="/image.png"
+              alt="Connected utility network infrastructure"
+              fill
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-cover"
+            />
           </div>
 
           <div className="flex min-w-0 flex-col gap-5 w-[60%]">
@@ -37,4 +41,6 @@ export default function AiAnalyticsFoundationSection() {
       </div>
     </section>
   );
-}
+};
+
+export default AiAnalyticsFoundationSection;

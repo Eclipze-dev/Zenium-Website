@@ -1,9 +1,10 @@
 import Button from "@/components/Button";
+import OptimizedImage from "@/components/OptimizedImage";
 import { ArrowRightIcon } from "@/components/icons/icons";
 import { cn } from "@/lib/cn";
 import { blogPost } from "./blogData";
 
-export default function BlogArticle() {
+const BlogArticle = () => {
   return (
     <section className="pb-[64px] pt-[50px] max-md:pb-[48px] max-md:pt-24">
       <div className="container">
@@ -26,11 +27,14 @@ export default function BlogArticle() {
             {blogPost.intro}
           </p>
 
-          <div className="mt-[50px] overflow-hidden rounded-[16px] bg-[#EEF1F4] max-sm:mt-[28px]">
-            <img
+          <div className="relative mt-[50px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#EEF1F4] max-sm:mt-[28px]">
+            <OptimizedImage
               src={blogPost.image}
               alt={blogPost.imageAlt}
-              className="aspect-[21/9] h-auto w-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 1280px) 100vw, 1100px"
+              className="object-cover"
             />
           </div>
 
@@ -99,4 +103,6 @@ export default function BlogArticle() {
       </div>
     </section>
   );
-}
+};
+
+export default BlogArticle;

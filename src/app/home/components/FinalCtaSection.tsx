@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@/components/icons/icons";
 import CTANetworkBackground from "./CTANetworkBackground";
+import Button from "@/components/Button";
 
 export default function FinalCtaSection() {
   return (
@@ -24,13 +25,7 @@ export default function FinalCtaSection() {
           Turn connected utility data into trusted information, deeper insight and smarter decisions.
         </p>
         <div className="mt-[40px] flex justify-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-[4px] border px-[18px] py-[11px] text-button transition-all duration-200"
-          >
-            Request a Demo
-            {/* <ArrowRightIcon width={18} height={18} className="transition-transform duration-200 group-hover:translate-x-1" /> */}
-          </a>
+          <Button href="/contact">Request a Demo</Button>
         </div>
       </div>
     </section>

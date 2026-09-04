@@ -1,15 +1,19 @@
+import OptimizedImage from "@/components/OptimizedImage";
 import ServeAudienceTabs from "./ServeAudienceTabs";
 import { serveIntro, type ServeAudienceId } from "./serveData";
 
-export default function ServeHeroSection({
+const ServeHeroSection = ({
   active,
   image,
   imageAlt,
+  beforeImage,
 }: {
   active: ServeAudienceId;
   image: string;
   imageAlt: string;
-}) {
+  /** Renders after tabs and before the hero image (utilities overview only). */
+  beforeImage?: React.ReactNode;
+}) => {
   return (
     <section
       className="relative overflow-hidden pb-[40px] pt-[50px] max-md:pt-24 max-sm:pb-[28px]"
@@ -33,15 +37,30 @@ export default function ServeHeroSection({
         </header>
 
         <ServeAudienceTabs active={active} />
+      </div>
 
-        <div className="mt-[40px] overflow-hidden rounded-[16px] bg-[#0A1725] max-sm:mt-[28px]">
-          <img
+      {beforeImage}
+
+      <div className="container">
+        <div
+          className={
+            beforeImage
+              ? "relative aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-md:aspect-[16/9]"
+              : "relative mt-[40px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-md:aspect-[16/9] max-sm:mt-[28px]"
+          }
+        >
+          <OptimizedImage
             src={image}
             alt={imageAlt}
-            className="aspect-[21/9] h-auto w-full object-cover max-md:aspect-[16/9]"
+            fill
+            priority
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover"
           />
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default ServeHeroSection;

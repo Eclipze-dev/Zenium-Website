@@ -23,7 +23,7 @@ export default function MdmHeroSection() {
               Zenium Meter Data Management System brings meter data together, improves its quality and prepares it for billing, operations and analytics—creating one trusted data foundation across the energy ecosystem.
             </p>
             <div className="flex flex-wrap gap-[10px] pt-2.5">
-              <Button href="/contact">Request a demo</Button>
+              <Button href="/contact">Request a Demo</Button>
               <Button href="/solutions/hes" outline>
                 Explore HES
               </Button>

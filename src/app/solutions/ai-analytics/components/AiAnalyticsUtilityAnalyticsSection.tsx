@@ -1,4 +1,5 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
+import OptimizedImage from "@/components/OptimizedImage";
 import {
   surfaceCardClass,
   surfaceCardMuted,
@@ -6,7 +7,7 @@ import {
 } from "@/lib/surfaceCard";
 import { utilityAnalyticsItems } from "./aiAnalyticsData";
 
-export default function AiAnalyticsUtilityAnalyticsSection() {
+const AiAnalyticsUtilityAnalyticsSection = () => {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px]">
@@ -23,11 +24,13 @@ export default function AiAnalyticsUtilityAnalyticsSection() {
                 "flex h-full flex-col items-stretch gap-[18px] rounded-[8px] p-6 xl:p-8",
               )}
             >
-              <div className="overflow-hidden rounded-[8px] bg-white">
-                <img
+              <div className="relative h-[240px] overflow-hidden rounded-[8px] bg-white">
+                <OptimizedImage
                   src={item.image}
                   alt={item.imageAlt}
-                  className="h-[240px] w-full object-contain"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-contain"
                 />
               </div>
               <h3 className={`text-h3 m-0 ${surfaceCardTitle}`}>{item.title}</h3>
@@ -45,4 +48,6 @@ export default function AiAnalyticsUtilityAnalyticsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default AiAnalyticsUtilityAnalyticsSection;

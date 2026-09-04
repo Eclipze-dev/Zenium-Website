@@ -1,3 +1,4 @@
+import OptimizedImage from "@/components/OptimizedImage";
 import { ArrowRightIcon } from "@/components/icons/icons";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
@@ -12,7 +13,7 @@ export type NewsCardProps = {
   className?: string;
 };
 
-export default function NewsCard({
+const NewsCard = ({
   label,
   title,
   description,
@@ -20,7 +21,7 @@ export default function NewsCard({
   cta,
   href,
   className,
-}: NewsCardProps) {
+}: NewsCardProps) => {
   return (
     <article
       className={cn(
@@ -28,33 +29,39 @@ export default function NewsCard({
         className,
       )}
     >
-      <div className="h-[318px] shrink-0 overflow-hidden rounded-[10px] bg-[#EEF1F4] max-sm:h-[160px]">
-        <img
+      <div className="relative h-[318px] shrink-0 overflow-hidden rounded-[10px] bg-[#EEF1F4] max-sm:h-[160px]">
+        <OptimizedImage
           src={image}
           alt=""
-          className="h-full w-full object-cover transition-transform duration-500 ease-out"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 ease-out"
         />
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col pt-5">
-        <span className="text-p2 font-normal uppercase text-black">
-          {label}
-        </span>
+        <span className="text-p2 font-normal uppercase text-black">{label}</span>
 
-        <h3 className="m-0 mt-4 text-h4 font-semibold text-black">
-          {title}
-        </h3>
+        <h3 className="m-0 mt-4 text-h4 font-semibold text-black">{title}</h3>
 
         <p className="m-0 mt-5 line-clamp-4 text-p3 font-normal text-black">
           {description}
         </p>
 
-        
-          <Link href={href} className="mt-auto inline-flex items-center gap-1.5 pt-5 text-body font-medium !text-orange transition-colors duration-200">
-            {cta}
-            <ArrowRightIcon width={16} height={16} className="transition-transform duration-200" />
-          </Link>
+        <Link
+          href={href}
+          className="mt-auto inline-flex items-center gap-1.5 pt-5 text-body font-medium !text-orange transition-colors duration-200"
+        >
+          {cta}
+          <ArrowRightIcon
+            width={16}
+            height={16}
+            className="transition-transform duration-200"
+          />
+        </Link>
       </div>
     </article>
   );
-}
+};
+
+export default NewsCard;

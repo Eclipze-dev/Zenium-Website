@@ -31,6 +31,7 @@ import {
   CloseIcon,
   MenuIcon,
 } from "@/components/icons/icons";
+import OptimizedImage from "@/components/OptimizedImage";
 import {
   companyAbout,
   companyConnect,
@@ -409,14 +410,20 @@ export default function SiteHeader() {
           aria-label="Zenium home"
           onMouseEnter={closeMegaMenu}
         >
-          <img
+          <OptimizedImage
             src="/ZENIUM_light_logo.png"
             alt="Zenium"
+            width={140}
+            height={36}
+            priority
             className="h-9 w-auto block max-sm:h-7 theme-logo-dark"
           />
-          <img
+          <OptimizedImage
             src="/ZENIUM_dark_logo.png"
             alt="Zenium"
+            width={140}
+            height={36}
+            priority
             className="hidden h-9 w-auto block max-sm:h-7 theme-logo-light"
           />
         </a>

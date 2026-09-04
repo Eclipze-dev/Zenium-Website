@@ -49,7 +49,7 @@ export default function InsightsResourcesSection() {
           ))}
         </div>
         <div className="mt-[50px]">
-          <Button outline>
+          <Button outline href="/company/news">
             <span className="text-button">Explore All Resources</span>
           </Button>
         </div>

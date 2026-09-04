@@ -31,6 +31,7 @@ export default {
         'h1': ['48px', { lineHeight: '58px',fontWeight: '400' }],
         'h2': ['48px', { lineHeight: '48px',fontWeight: '700' }],
         'h3': ['24px', { lineHeight: '28px',fontWeight: '400' }],
+        'h5': ['32px'],
         'h4': ['20px', { lineHeight: 'auto',textTransform: 'uppercase' }],
         'section': ['clamp(42px, 4vw, 58px)', { lineHeight: '1.08' }],
         'display': ['clamp(48px, 4.5vw, 64px)', { lineHeight: '1.06' }],

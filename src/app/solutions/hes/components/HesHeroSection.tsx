@@ -25,7 +25,7 @@ export default function HesHeroSection() {
               remote operations and providing visibility across the metering network.
             </p>
             <div className="flex flex-wrap gap-[10px] pt-2.5">
-              <Button href="/contact">Request a demo</Button>
+              <Button href="/contact">Request a Demo</Button>
               <Button href="/solutions/mdm" outline>
                 Explore Zenium MDM
               </Button>

@@ -28,7 +28,7 @@ export function ServeAudienceOverviewSection({
   content: ServeAudienceContent;
 }) {
   return (
-    <section className="pb-[40px] pt-[40px] max-sm:pb-[28px] max-sm:pt-[28px]">
+    <section className="py-[40px] max-sm:py-[28px]">
       <div className="container">
         <SectionIntro eyebrow={content.eyebrow} fullWidth>
           {content.title}{" "}
@@ -61,10 +61,10 @@ export function ServeAudienceCapabilitiesSection({
 
   return (
     <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container flex flex-col gap-[30px]">
-        <h2 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
+      <div className="container flex flex-col gap-[50px]">
+        <h2 className="text-h5 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
           {content.capabilitiesTitle}{" "}
-          <span className="text-h1 text-orange">
+          <span className="text-h5 text-orange">
             {content.capabilitiesAccent}
           </span>
         </h2>
@@ -127,9 +127,9 @@ export function ServeAudienceCtaSection({
   return (
     <section className="pb-[80px] pt-[20px] max-sm:pb-[70px]">
       <div className="container">
-        <h2 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
+        <h2 className="text-h5 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
           {cta.title}{" "}
-          <span className="text-h1 text-orange">{cta.accent}</span>
+          <span className="text-h5 text-orange">{cta.accent}</span>
         </h2>
         <p className="mt-[10px] mb-[50px] max-w-auto text-p1 text-muted">
           {cta.description}

@@ -3,6 +3,7 @@ import {
   ArrowRightIcon,
   LinkedInIcon,
 } from "@/components/icons/icons";
+import OptimizedImage from "@/components/OptimizedImage";
 
 type FooterLinkItem = {
   label: string;
@@ -160,14 +161,18 @@ export default function Footer() {
               className="inline-flex items-center"
               aria-label="Zenium home"
             >
-              <img
+              <OptimizedImage
                 src="/ZENIUM_light_logo.png"
                 alt="Zenium"
+                width={140}
+                height={36}
                 className="h-9 w-auto block max-sm:h-8 theme-logo-dark"
               />
-              <img
+              <OptimizedImage
                 src="/ZENIUM_dark_logo.png"
                 alt="Zenium"
+                width={140}
+                height={36}
                 className="hidden h-9 w-auto block max-sm:h-8 theme-logo-light"
               />
             </a>

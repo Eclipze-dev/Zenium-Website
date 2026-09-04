@@ -1,6 +1,4 @@
-import UtilitiesOverviewSection, {
-  UtilitiesJourneySection,
-} from "./components/UtilitiesContentSections";
+import { UtilitiesJourneySection } from "./components/UtilitiesContentSections";
 import {
   UtilitiesAmiNextSection,
   UtilitiesPrioritiesSection,
@@ -10,7 +8,6 @@ import {
 export default function UtilitiesPage() {
   return (
     <>
-      <UtilitiesOverviewSection />
       <UtilitiesJourneySection />
       <UtilitiesSolutionsSection />
       <UtilitiesPrioritiesSection />

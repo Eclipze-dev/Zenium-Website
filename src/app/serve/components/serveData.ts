@@ -191,14 +191,14 @@ export const citiesContent: ServeAudienceContent = {
     description:
       "Depending on the connected infrastructure environment, Zenium's HES and MDM capabilities provide the foundation for device and data management, while Analytics & AI turns that data into operational intelligence.",
     actions: [
-      { label: "Explore HES", href: "/solutions/hes", outline: false },
+      { label: "Explore HES", href: "/solutions/hes", outline: true },
       { label: "Explore MDM", href: "/solutions/mdm", outline: true },
       {
         label: "Explore Analytics & AI",
         href: "/solutions/ai-analytics",
         outline: true,
       },
-      { label: "Talk to our team", href: "/contact", outline: true },
+      { label: "Talk to our team", href: "/contact", outline: false },
     ],
   },
 };
@@ -257,9 +257,9 @@ export const commercialContent: ServeAudienceContent = {
       {
         label: "Explore Analytics & AI",
         href: "/solutions/ai-analytics",
-        outline: false,
+        outline: true,
       },
-      { label: "Talk to our team", href: "/contact", outline: true },
+      { label: "Talk to our team", href: "/contact", outline: false },
     ],
   },
 };
@@ -318,9 +318,9 @@ export const microgridContent: ServeAudienceContent = {
       {
         label: "Explore Analytics & AI",
         href: "/solutions/ai-analytics",
-        outline: false,
+        outline: true,
       },
-      { label: "Talk to our team", href: "/contact", outline: true },
+      { label: "Talk to our team", href: "/contact", outline: false },
     ],
   },
 };
@@ -372,24 +372,26 @@ export const prosumersContent: ServeAudienceContent = {
       {
         label: "Explore Analytics & AI",
         href: "/solutions/ai-analytics",
-        outline: false,
+        outline: true,
       },
-      { label: "Talk to our team", href: "/contact", outline: true },
+      { label: "Talk to our team", href: "/contact", outline: false },
     ],
   },
 };
 
-export function getServeAudienceIdFromPath(
+export const getServeAudienceIdFromPath = (
   pathname: string,
-): ServeAudienceId | null {
+): ServeAudienceId | null => {
   const match = serveAudiences.find((audience) => pathname === audience.href);
   return match?.id ?? null;
-}
+};
 
-export function getServeHeroMedia(audienceId: ServeAudienceId): {
+export const getServeHeroMedia = (
+  audienceId: ServeAudienceId,
+): {
   image: string;
   imageAlt: string;
-} {
+} => {
   const mediaByAudience: Record<
     ServeAudienceId,
     { image: string; imageAlt: string }
@@ -417,4 +419,4 @@ export function getServeHeroMedia(audienceId: ServeAudienceId): {
   };
 
   return mediaByAudience[audienceId];
-}
+};

@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { serveAudiences, type ServeAudienceId } from "./serveData";
 
-export default function ServeAudienceTabs({
+const ServeAudienceTabs = ({
   active,
 }: {
   active: ServeAudienceId;
-}) {
+}) => {
   const tablistRef = useRef<HTMLElement>(null);
   const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
-  const updateIndicator = () => {
+  const updateIndicator = useCallback(() => {
     const tab = tabRefs.current[active];
     const list = tablistRef.current;
     if (!tab || !list) return;
@@ -24,16 +24,16 @@ export default function ServeAudienceTabs({
       left: tabRect.left - listRect.left + list.scrollLeft,
       width: tabRect.width,
     });
-  };
+  }, [active]);
 
   useLayoutEffect(() => {
     updateIndicator();
-  }, [active]);
+  }, [updateIndicator]);
 
   useEffect(() => {
     window.addEventListener("resize", updateIndicator);
     return () => window.removeEventListener("resize", updateIndicator);
-  }, [active]);
+  }, [updateIndicator]);
 
   return (
     <nav
@@ -69,4 +69,6 @@ export default function ServeAudienceTabs({
       />
     </nav>
   );
-}
+};
+
+export default ServeAudienceTabs;

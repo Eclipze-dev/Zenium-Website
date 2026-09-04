@@ -1,9 +1,10 @@
 "use client";
 
 import { memo, useCallback, useEffect, useState } from "react";
+import OptimizedImage from "@/components/OptimizedImage";
+import { cn } from "@/lib/cn";
 import { capabilities } from "./homeData";
 import SectionIntro from "./SectionIntro";
-import { cn } from "@/lib/cn";
 
 const CapabilityItem = memo(function CapabilityItem({
   title,
@@ -117,10 +118,12 @@ export default function ZeniumEdgeSection() {
         </div>
         <div className="sticky top-[90px] self-start w-full min-w-0 max-lg:static">
           <div className="relative w-full min-h-[620px] max-w-full rounded-[15px] border border-[#060609] bg-[#060609] overflow-hidden max-lg:min-h-[520px] max-sm:min-h-[420px]">
-            <img
+            <OptimizedImage
               src="/aqwe.png"
               alt="Zenium platform architecture diagram"
-              className="absolute inset-0 object-contain w-full h-full"
+              fill
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-contain"
             />
           </div>
         </div>
