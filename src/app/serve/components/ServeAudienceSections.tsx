@@ -32,7 +32,7 @@ export function ServeAudienceOverviewSection({
       <div className="container">
         <SectionIntro eyebrow={content.eyebrow} fullWidth>
           {content.title}{" "}
-          <span className="text-orange text-h1">{content.accent}</span>
+          <span className="text-orange text-h2 shimmer-text">{content.accent}</span>
         </SectionIntro>
         <p className="my-[20px] max-w-auto text-p1 text-muted">
           {content.description}

@@ -10,7 +10,7 @@ import SectionIntro from "./SectionIntro";
 export default function InsightsResourcesSection() {
   return (
     <section
-      className="py-[80px] text-center max-sm:py-[70px] bg-zenbg"
+      className="py-[80px] text-center max-sm:py-[70px]"
       id="company"
     >
       <div className="container">
@@ -19,7 +19,7 @@ export default function InsightsResourcesSection() {
           eyebrow="INSIGHTS & RESOURCES"
           text="Explore ideas, experiences and perspectives shaping the future of smarter, more connected utilities."
         >
-          Thinking beyond the <span className="text-orange text-h1">meter.</span>
+          Thinking beyond the <span className="text-orange text-h2 shimmer-text">meter.</span>
         </SectionIntro>
         <div className="mt-[75px] grid grid-cols-3 gap-[10px] text-left max-md:grid-cols-2 max-sm:grid-cols-1">
           {resources.map(({ type, title, text, cta, icon, action }) => (

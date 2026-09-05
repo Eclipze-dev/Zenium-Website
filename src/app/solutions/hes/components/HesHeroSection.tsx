@@ -17,7 +17,7 @@ export default function HesHeroSection() {
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               Connect every{" "}
-              <span className="text-orange text-h1">meter.</span>
+              <span className="text-orange text-h2 shimmer-text">meter.</span>
             </h1>
             <p className="max-w-full text-p1 text-muted text-center">
               Zenium Head-End System connects smart meters and communication networks

@@ -13,7 +13,7 @@ const AiAnalyticsUtilityAnalyticsSection = () => {
       <div className="container flex flex-col gap-[50px]">
         <SectionIntro centered singleLine eyebrow="UTILITY ANALYTICS">
           Intelligence across the{" "}
-          <span className="text-orange text-h1">utility value chain.</span>
+          <span className="text-orange text-h2 shimmer-text">utility value chain.</span>
         </SectionIntro>
 
         <div className="grid grid-cols-1 gap-[10px] md:grid-cols-2 xl:grid-cols-3">

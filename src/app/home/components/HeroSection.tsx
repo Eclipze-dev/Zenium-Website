@@ -1,15 +1,33 @@
 import Button from "@/components/Button";
+import OptimizedImage from "@/components/OptimizedImage";
 import HeroTypewriter from "./HeroTypewriter";
-import ZeniumDataFlow from "./ZeniumDataFlow";
+import HeroStats from "./HeroStats";
+import { metrics } from "./homeData";
+import SectionIntro from "./SectionIntro";
 
 export default function HeroSection() {
   return (
     <section
-      className="relative flex items-center min-h-[100svh] pt-0 pb-[80px] bg-[radial-gradient(ellipse_at_70%_45%,var(--hero-glow),transparent_40%),var(--bg-gradient)] overflow-hidden max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
+      className="relative flex items-center min-h-[100svh] overflow-hidden pt-0 pb-[80px] max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
       aria-labelledby="hero-title"
     >
-      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-[clamp(20px,4vw,60px)] items-center max-lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] max-lg:gap-[30px] max-md:grid-cols-1 max-md:gap-[40px]">
-        <div className="min-w-0 max-w-[680px] relative z-[2] max-md:max-w-full">
+      <OptimizedImage
+        src="/zenium-cover.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        aria-hidden
+      />
+      {/* Readability scrim over the photo */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+      />
+
+      <div className="container relative z-[2]">
+        <div className="min-w-0 max-w-[680px]">
           <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
             ENERGY INTELLIGENCE
           </p>
@@ -29,14 +47,10 @@ export default function HeroSection() {
             <Button outline>Explore Zenium</Button>
           </div>
         </div>
-
-        {/* Hero Data Flow Graphic */}
-        <div
-          className="relative w-full min-w-0 flex items-center justify-center max-md:max-w-[460px] max-md:mx-auto"
-          aria-label="Zenium intelligence pipeline animation"
-        >
-          <ZeniumDataFlow />
+        <div className="mt-[75px]">
+          <HeroStats items={metrics} />
         </div>
+        <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto max-sm:text-body mt-[20px]">Built on real-world utility experience.</div>
       </div>
     </section>
   );

@@ -36,7 +36,7 @@ export default function AboutLeadershipSection() {
             className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
           >
             {aboutLeadership.title}{" "}
-            <span className="text-h1 text-orange">{aboutLeadership.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{aboutLeadership.accent}</span>
           </h2>
           <p className="m-0 mt-[30px] max-w-auto text-p1 text-muted">
             {aboutLeadership.description}

@@ -6,7 +6,7 @@ export default function HesInteroperabilitySection() {
     <SolutionFeaturePanel
       eyebrow="INTEROPERABILITY"
       imageSide="left"
-      title={<>Built for mixed meter <span className="text-orange text-h1">environments</span></>}
+      title={<>Built for mixed meter <span className="text-orange text-h2 shimmer-text">environments</span></>}
     >
       <p>
         Zenium HES is designed to work across multi-vendor smart-meter environments,

@@ -14,7 +14,7 @@ export default function MdmArchitectureSection() {
           text="Built on a microservices-based, containerised architecture, Zenium MDM can be deployed in cloud, on-premise or hybrid environments. The platform supports growing meter populations and historical data volumes, while high availability and disaster recovery help protect business-critical operations."
         >
           Open, scalable and{" "}
-          <span className="text-orange text-h1">deployment-flexible</span>
+          <span className="text-orange text-h2 shimmer-text">deployment-flexible</span>
         </SectionIntro>
 
         <SolutionFeatureGrid items={deploymentFeatures} />

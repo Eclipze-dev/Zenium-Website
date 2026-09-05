@@ -15,7 +15,7 @@ export default function MdmFinalCtaSection() {
           className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
         >
           Build on data you can{" "}
-          <span className="text-orange text-h1">trust.</span>
+          <span className="text-orange text-h2 shimmer-text">trust.</span>
         </h2>
         <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-[680px]">
           Discover how Zenium MDM can strengthen your meter-data operations.

@@ -48,7 +48,7 @@ export default function AboutFaqSection() {
           className="text-h1 m-0 max-w-auto max-sm:text-[clamp(28px,7vw,36px)]"
         >
           {aboutFaq.title}{" "}
-          <span className="text-h1 text-orange">{aboutFaq.accent}</span>
+          <span className="text-h2 shimmer-text text-orange">{aboutFaq.accent}</span>
         </h2>
 
         <div

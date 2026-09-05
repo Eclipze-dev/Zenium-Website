@@ -14,21 +14,26 @@ import FinalCtaSection from "./components/FinalCtaSection";
 
 export default function HomePage() {
   return (
-    <div id="top" className="bg-zen-bg">
+    <div id="top" className="bg-bg1">
       <SiteHeader />
       <main className="overflow-x-clip">
         <HeroSection />
-        <div className="relative overflow-hidden">
-          <CTANetworkBackground />
-          <MetricsSection />
+        <div className="bg-bg2">
+          {/* <MetricsSection /> */}
           <JourneySection />
         </div>
         <ZeniumEdgeSection />
-        <IndiaBuiltSection />
+        <div className="bg-bg2">
+          <IndiaBuiltSection/>
+        </div>
         <CustomerStorySection />
-        <WhoWeServeSection />
+        <div className="bg-bg2">
+          <WhoWeServeSection />
+        </div>
         <PartnersSection />
-        <InsightsResourcesSection />
+        <div className="bg-bg2">
+          <InsightsResourcesSection />
+        </div>
         <FinalCtaSection />
         <Footer />
       </main>

@@ -16,7 +16,7 @@ export default function AiAnalyticsIntelligenceLayerSection() {
           text="Zenium brings together meter, consumer, asset, network and operational data into a structured intelligence layer designed for analysis, prediction and decision support."
         >
           One intelligence layer for connected{" "}
-          <span className="text-orange text-h1">utility operations.</span>
+          <span className="text-orange text-h2 shimmer-text">utility operations.</span>
         </SectionIntro>
 
         <div className="flex flex-col gap-[10px]">

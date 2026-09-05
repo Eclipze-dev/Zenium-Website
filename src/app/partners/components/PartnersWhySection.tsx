@@ -9,7 +9,7 @@ export default function PartnersWhySection() {
         <div className="min-w-0">
           <SectionIntro eyebrow="WHY ZENIUM">
             Proven technology.{" "}
-            <span className="text-orange text-h1">Practical partnership.</span>
+            <span className="text-orange text-h2 shimmer-text">Practical partnership.</span>
           </SectionIntro>
           <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Successful smart-metering programmes depend on technology that

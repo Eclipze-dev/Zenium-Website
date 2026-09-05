@@ -12,7 +12,7 @@ export default function MdmFoundationSection() {
           text="Zenium MDM turns fragmented readings into consistent, usable information—helping organisations reduce exceptions, strengthen billing processes and improve visibility across energy operations."
         >
           From trusted data to{" "}
-          <span className="text-orange text-h1">measurable value</span>
+          <span className="text-orange text-h2 shimmer-text">measurable value</span>
         </SectionIntro>
 
         <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">

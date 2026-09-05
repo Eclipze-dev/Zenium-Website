@@ -46,7 +46,7 @@ export default function ContactSection() {
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {contactIntro.title}{" "}
-            <span className="text-h1 text-orange">{contactIntro.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{contactIntro.accent}</span>
           </h1>
           <p className="text-muted text-p1 mx-auto mt-[20px] max-w-auto">
             {contactIntro.description}

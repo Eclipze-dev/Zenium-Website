@@ -6,7 +6,7 @@ export default function NewsPage() {
   return (
     <div id="top" className="min-h-screen">
       <SiteHeader />
-      <main className="overflow-x-clip bg-[#F7F7F7]">
+      <main className="overflow-x-clip bg-w2">
         <NewsSection />
       </main>
       <Footer />

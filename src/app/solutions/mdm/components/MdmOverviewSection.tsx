@@ -7,7 +7,7 @@ export default function MdmOverviewSection() {
       title={
         <>
             Trusted data for {" "}
-          <p className="inline text-orange text-h1">energy operations.</p>
+          <p className="inline text-orange text-h2 shimmer-text">energy operations.</p>
         </>
       }
     >

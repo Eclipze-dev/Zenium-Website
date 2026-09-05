@@ -6,7 +6,7 @@ import CareersOpportunitiesSection from "./components/CareersOpportunitiesSectio
 
 export default function CareersPage() {
   return (
-    <div id="top" className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-bg1 min-h-screen">
       <SiteHeader />
       <main className="overflow-x-clip">
         <CareersHeroSection />

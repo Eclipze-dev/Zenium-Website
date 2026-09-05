@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function TurningUtilityDataPage() {
   return (
-    <div id="top" className="min-h-screen bg-[#F7F7F7]">
+    <div id="top" className="min-h-screen bg-w2">
       <SiteHeader />
-      <main className="overflow-x-clip bg-[#F7F7F7]">
+      <main className="overflow-x-clip bg-w2">
         <BlogArticle />
         <LatestInsightsSection />
       </main>

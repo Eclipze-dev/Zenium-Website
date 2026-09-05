@@ -14,7 +14,7 @@ export default function AboutDirectionSection() {
             className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
           >
             {aboutDirection.title}{" "}
-            <span className="text-h1 text-orange">{aboutDirection.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{aboutDirection.accent}</span>
           </h2>
 
           <div className="mt-[20px] flex flex-col gap-[20px]">

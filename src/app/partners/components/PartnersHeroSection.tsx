@@ -16,7 +16,7 @@ export default function PartnersHeroSection() {
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             Build stronger{" "}
-            <span className="text-orange text-h1">energy solutions</span> together.
+            <span className="text-orange text-h2 shimmer-text">energy solutions</span> together.
           </h1>
           <p className="max-w-auto text-p1 text-muted">
             Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter 

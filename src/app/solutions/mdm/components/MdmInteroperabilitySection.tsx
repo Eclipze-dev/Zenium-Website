@@ -14,7 +14,7 @@ export default function MdmInteroperabilitySection() {
       title={
         <>
           Trusted data wherever it is{" "}
-          <span className="text-orange text-h1">needed</span>
+          <span className="text-orange text-h2 shimmer-text">needed</span>
         </>
       }
     >

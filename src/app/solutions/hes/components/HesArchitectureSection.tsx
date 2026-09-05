@@ -14,7 +14,7 @@ export default function HesArchitectureSection() {
           text="Built on a microservices-based, containerised architecture, Zenium HES can be deployed in cloud, on-premise or hybrid environments. Its distributed architecture supports growing meter populations and data volumes, while high availability, load balancing, failover and disaster recovery help maintain continuous operations."
         >
           Open, scalable and{" "}
-          <span className="text-orange text-h1">deployment-flexible</span>
+          <span className="text-orange text-h2 shimmer-text">deployment-flexible</span>
         </SectionIntro>
 
         <SolutionFeatureGrid items={deploymentFeatures} />

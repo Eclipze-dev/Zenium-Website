@@ -1,10 +1,12 @@
 "use client";
 
-import { memo, useCallback, useEffect, useState } from "react";
-import OptimizedImage from "@/components/OptimizedImage";
+import { memo, useCallback, useEffect, useId, useState } from "react";
 import { cn } from "@/lib/cn";
 import { capabilities } from "./homeData";
 import SectionIntro from "./SectionIntro";
+import ZeniumDataFlow, { type StageId } from "./ZeniumDataFlow";
+
+const STAGE_CYCLE: StageId[] = ["meter", "hes", "mdms", "analytics"];
 
 const CapabilityItem = memo(function CapabilityItem({
   title,
@@ -60,7 +62,9 @@ const CapabilityItem = memo(function CapabilityItem({
       <span
         className={cn(
           "capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out",
-          active ? "grid-rows-[1fr] opacity-100 mt-[9px]" : "grid-rows-[0fr] opacity-0",
+          active
+            ? "grid-rows-[1fr] opacity-100 mt-[9px]"
+            : "grid-rows-[0fr] opacity-0",
         )}
       >
         <span className="min-h-0 overflow-hidden text-muted text-p1">{text}</span>
@@ -75,7 +79,10 @@ export default function ZeniumEdgeSection() {
 
   const pauseCarousel = useCallback(() => setCapabilityPaused(true), []);
   const resumeCarousel = useCallback(() => setCapabilityPaused(false), []);
-  const selectCapability = useCallback((index: number) => setActiveCapability(index), []);
+  const selectCapability = useCallback(
+    (index: number) => setActiveCapability(index),
+    [],
+  );
 
   useEffect(() => {
     if (capabilityPaused) return;
@@ -87,16 +94,19 @@ export default function ZeniumEdgeSection() {
     return () => window.clearInterval(timer);
   }, [capabilityPaused]);
 
+  const activeStage = STAGE_CYCLE[activeCapability % STAGE_CYCLE.length];
+
   return (
     <section className="py-[80px] max-sm:py-[70px]" id="resources">
-      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.2fr)] gap-[60px] items-start max-lg:grid-cols-1 max-lg:gap-[40px] max-sm:gap-[30px]">
+      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.05fr)] gap-[60px] items-stretch max-lg:grid-cols-1 max-lg:gap-[40px] max-sm:gap-[30px]">
         <div className="min-w-0">
           <SectionIntro
             eyebrow="THE ZENIUM EDGE"
             text="Zenium combines proven utility technology with an architecture designed for scale, interoperability and operational reliability."
           >
-            Engineered for the{` `}<span className="text-orange text-h1">complexity</span>{` `}of modern
-            utilities.
+            Engineered for the{` `}
+            <span className="text-orange text-h2 shimmer-text">complexity</span>
+            {` `}of modern utilities.
           </SectionIntro>
           <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
             {capabilities.map(([Icon, title, text], index) => (
@@ -116,16 +126,13 @@ export default function ZeniumEdgeSection() {
             ))}
           </div>
         </div>
-        <div className="sticky top-[90px] self-start w-full min-w-0 max-lg:static">
-          <div className="relative w-full min-h-[620px] max-w-full rounded-[15px] border border-[#060609] bg-[#060609] overflow-hidden max-lg:min-h-[520px] max-sm:min-h-[420px]">
-            <OptimizedImage
-              src="/aqwe.png"
-              alt="Zenium platform architecture diagram"
-              fill
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-contain"
-            />
-          </div>
+
+        <div className="flex h-full min-h-0 w-full items-center justify-center max-lg:min-h-[520px] max-sm:min-h-[420px] max-sm:max-w-[460px] max-sm:mx-auto">
+          <ZeniumDataFlow
+            fit
+            activeStage={activeStage}
+            className="h-full w-full"
+          />
         </div>
       </div>
     </section>

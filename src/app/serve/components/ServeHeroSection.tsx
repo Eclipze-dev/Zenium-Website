@@ -29,7 +29,7 @@ const ServeHeroSection = ({
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {serveIntro.title}{" "}
-            <span className="text-h1 text-orange">{serveIntro.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{serveIntro.accent}</span>
           </h1>
           <p className="mt-[20px] max-w-auto text-p1 text-muted">
             {serveIntro.description}

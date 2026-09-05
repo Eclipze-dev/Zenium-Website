@@ -7,7 +7,7 @@ export default function HesOverviewSection() {
       title={
         <>
           The connection layer for{" "}
-          <p className="inline text-orange text-h1">smart metering.</p>
+          <p className="inline text-orange text-h2 shimmer-text">smart metering.</p>
         </>
       }
     >

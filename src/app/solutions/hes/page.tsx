@@ -11,7 +11,7 @@ import HesFinalCtaSection from "./components/HesFinalCtaSection";
 
 export default function HesPage() {
   return (
-    <div id="top" className="bg-zen-bg">
+    <div id="top" className="bg-bg1">
       <SiteHeader />
       <main className="overflow-x-clip">
         <HesHeroSection />

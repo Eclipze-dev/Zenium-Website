@@ -9,7 +9,7 @@ export default function AiAnalyticsMaturitySection() {
       <div className="container grid grid-cols-1 items-start gap-[60px] xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] max-lg:gap-[40px]">
         <SectionIntro eyebrow="INTELLIGENCE MATURITY">
           From knowing what happened to{" "}
-          <span className="text-orange text-h1">knowing what happens next.</span>
+          <span className="text-orange text-h2 shimmer-text">knowing what happens next.</span>
         </SectionIntro>
 
         <div className="flex flex-col gap-[50px]">

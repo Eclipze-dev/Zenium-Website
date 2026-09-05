@@ -11,7 +11,7 @@ const IndiaBuiltMap = dynamic(() => import("./IndiaBuiltMap"), {
 
 export default function IndiaBuiltSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px] bg-zenbg">
+    <section className="py-[80px] max-sm:py-[70px]">
       <div className="container grid grid-cols-[minmax(360px,1fr)_minmax(0,1fr)] gap-[55px] items-center max-lg:grid-cols-1">
         <div className="min-h-[540px] relative grid place-items-center max-lg:min-h-[440px] max-sm:min-h-[280px]">
           <Suspense fallback={null}>
@@ -20,7 +20,7 @@ export default function IndiaBuiltSection() {
         </div>
         <div className="min-w-0">
           <SectionIntro eyebrow="BUILT FOR INDIA. READY FOR SCALE.">
-            <span className="text-orange text-h1">India</span>-built technology for modern utilities.
+            <span className="text-orange text-h2 shimmer-text">India</span>-built technology for modern utilities.
           </SectionIntro>
           <div className="mt-[70px]">
             {indiaBuiltFeatures.map(({ b, em, p, icon: Icon }) => (

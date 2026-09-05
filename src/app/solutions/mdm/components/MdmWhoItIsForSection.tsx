@@ -21,7 +21,7 @@ export default function MdmWhoItIsForSection() {
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="WHO IT IS FOR">
                 Built for a wider{" "}
-                <span className="text-orange text-h1">energy ecosystem</span>
+                <span className="text-orange text-h2 shimmer-text">energy ecosystem</span>
               </SectionIntro>
               <div className="flex flex-col gap-[30px]">
                 {whoItIsFor.map(([title, description]) => (

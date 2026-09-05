@@ -41,7 +41,7 @@ export function UtilitiesPrioritiesSection() {
           {utilitiesContent.priorities.map((card) => (
             <SolutionPanelCard
               key={card.label}
-              className="!items-start !gap-[24px] p-[36px] bg-common max-sm:p-[28px]"
+              className="!items-start !gap-[24px] p-[36px] bg-box max-sm:p-[28px]"
             >
               <p className="m-0 text-button uppercase text-muted">
                 {card.label}

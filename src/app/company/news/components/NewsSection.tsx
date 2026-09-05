@@ -68,7 +68,7 @@ export default function NewsSection() {
             className="text-h1 m-0 text-common max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {newsIntro.title}{" "}
-            <span className="text-h1 text-orange">{newsIntro.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{newsIntro.accent}</span>
           </h1>
           <p className="mt-[20px] max-w-auto text-p1 text-common2">
             {newsIntro.description}

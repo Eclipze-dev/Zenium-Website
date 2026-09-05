@@ -15,7 +15,7 @@ export default function AboutIntroSection() {
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               {aboutIntro.title}{" "}
-              <span className="text-h1 text-orange">{aboutIntro.accent}</span>
+              <span className="text-h2 shimmer-text text-orange">{aboutIntro.accent}</span>
             </h1>
             <div className="mt-[20px] flex flex-col gap-[20px]">
               {aboutIntro.paragraphs.map((paragraph) => (

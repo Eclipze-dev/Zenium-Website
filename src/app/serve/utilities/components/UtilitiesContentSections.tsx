@@ -12,7 +12,7 @@ export default function UtilitiesOverviewSection() {
           fullWidth
         >
           {utilitiesContent.title}{" "}
-          <span className="text-orange text-h1 !mt-[10px]">{utilitiesContent.accent}</span>
+          <span className="text-orange text-h2 shimmer-text !mt-[10px]">{utilitiesContent.accent}</span>
         </SectionIntro>
       </div>
     </section>

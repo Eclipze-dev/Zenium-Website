@@ -21,7 +21,7 @@ export default function AboutExperienceSection() {
                 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
               >
                 {aboutExperience.title}{" "}
-                <span className="text-h1 text-orange">
+                <span className="text-h2 shimmer-text text-orange">
                   {aboutExperience.accent}
                 </span>
               </h2>

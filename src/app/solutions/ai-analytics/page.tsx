@@ -10,7 +10,7 @@ import AiAnalyticsUtilityAnalyticsSection from "./components/AiAnalyticsUtilityA
 
 export default function AiAnalyticsPage() {
   return (
-    <div id="top" className="bg-zen-bg">
+    <div id="top" className="bg-bg1">
       <SiteHeader />
       <main className="overflow-x-clip">
         <AiAnalyticsHeroSection />

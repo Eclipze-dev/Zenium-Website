@@ -22,7 +22,7 @@ export default function MdmAudienceSection() {
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="ENERGY ANALYTICS">
                 The foundation for{" "}
-                <span className="text-orange text-h1">energy analytics</span>
+                <span className="text-orange text-h2 shimmer-text">energy analytics</span>
               </SectionIntro>
 
               <p className="text-p1 text-muted m-0">

@@ -18,7 +18,7 @@ const AiAnalyticsFoundationSection = () => {
           <div className="flex min-w-0 flex-col gap-5 w-[60%]">
             <h2 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
               Built on a Trusted Utility{" "}
-              <span className="text-orange text-h1">Data Foundation</span>
+              <span className="text-orange text-h2 shimmer-text">Data Foundation</span>
             </h2>
 
             <div className="text-p1 text-muted [&>p+p]:mt-5">

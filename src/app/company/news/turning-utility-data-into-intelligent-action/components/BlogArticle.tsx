@@ -20,7 +20,7 @@ const BlogArticle = () => {
 
           <h1 className="text-h1 m-0 mt-[20px] text-common max-sm:mt-[22px] max-sm:text-[clamp(32px,7vw,40px)]">
             {blogPost.title}{" "}
-            <span className="text-h1 text-orange">{blogPost.accent}</span>
+            <span className="text-h2 shimmer-text text-orange">{blogPost.accent}</span>
           </h1>
 
           <p className="mt-[20px] text-p1 leading-relaxed text-common2">

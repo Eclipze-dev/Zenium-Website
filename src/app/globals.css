@@ -292,8 +292,13 @@ body {
   fill: var(--svg-text);
 }
 
-.zdf-stage:hover {
-  transform: scale(1.03);
+.zdf-stage:hover,
+.zdf-stage-active {
+  transform: scale(1.04);
+}
+
+.zdf-stage-active .zdf-label {
+  fill: #F07F25;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -408,4 +413,14 @@ body {
 body {
   font-size: var(--text-body);
   line-height: 1.55;
+}
+
+
+.shimmer-text {
+  background: linear-gradient(90deg, #F07F25 0%, #f5b86e 40%, #F07F25 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
 }

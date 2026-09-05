@@ -12,7 +12,7 @@ export default function AboutDecisionsSection() {
           className="text-h1 m-0 max-w-[16ch] max-sm:text-[clamp(28px,7vw,36px)]"
         >
           {aboutDecisions.title}{" "}
-          <span className="text-h1 text-orange">{aboutDecisions.accent}</span>
+          <span className="text-h2 shimmer-text text-orange">{aboutDecisions.accent}</span>
         </h2>
 
         <div className="flex flex-col gap-[30px]">

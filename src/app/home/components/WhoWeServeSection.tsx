@@ -6,13 +6,13 @@ import SectionIntro from "./SectionIntro";
 export default function WhoWeServeSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px] bg-zenbg"
+      className="py-[80px] max-sm:py-[70px]"
       id="who-we-serve"
     >
       <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
         <div className="min-w-0">
           <SectionIntro eyebrow="WHO WE SERVE">
-            <span className="text-orange text-h1">Intelligence</span>{` `}across the energy ecosystem.
+            <span className="text-orange text-h2 shimmer-text">Intelligence</span>{` `}across the energy ecosystem.
           </SectionIntro>
           <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Zenium&apos;s technology is designed for the evolving needs of utilities

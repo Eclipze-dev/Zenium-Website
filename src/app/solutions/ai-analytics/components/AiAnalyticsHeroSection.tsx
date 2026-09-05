@@ -15,7 +15,7 @@ export default function AiAnalyticsHeroSection() {
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               Turn utility data into{" "}
-              <span className="text-orange text-h1">actionable intelligence.</span>
+              <span className="text-orange text-h2 shimmer-text">actionable intelligence.</span>
             </h1>
             <p className="max-w-auto text-p1 text-muted">
               Transform meter, consumer, asset and network data into intelligence that helps
