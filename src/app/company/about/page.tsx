@@ -6,6 +6,7 @@ import AboutExperienceSection from "./components/AboutExperienceSection";
 import AboutFaqSection from "./components/AboutFaqSection";
 import AboutFinalCtaSection from "./components/AboutFinalCtaSection";
 import AboutIntroSection from "./components/AboutIntroSection";
+import AboutLeadershipSection from "./components/AboutLeadershipSection";
 
 export default function AboutPage() {
   return (
@@ -16,6 +17,7 @@ export default function AboutPage() {
         <AboutDecisionsSection />
         <AboutExperienceSection />
         <AboutDirectionSection />
+        <AboutLeadershipSection />
         <AboutFaqSection />
         <AboutFinalCtaSection />
       </main>

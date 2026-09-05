@@ -58,10 +58,7 @@ export const aboutDirection = {
 export type AboutLeader = {
   name: string;
   title: string;
-  bio: string;
-  linkedin: string;
-  /** Optional headshot under /public; initials shown when omitted. */
-  image?: string;
+  image: string;
 };
 
 export const aboutLeadership = {
@@ -73,26 +70,22 @@ export const aboutLeadership = {
     {
       name: "JH",
       title: "Executive Director",
-      bio: "JH brings extensive experience across the energy and utilities sector, with a strong focus on business strategy, operational excellence and long-term growth. He works closely with customers and partners to drive innovation and build sustainable value across the utility ecosystem.",
-      linkedin: "https://www.linkedin.com",
+      image: "/img.png",
     },
     {
       name: "Ramana Elchuri",
       title: "Chief Revenue Officer",
-      bio: "Ramana leads Zenium's revenue and growth strategy, bringing deep experience in enterprise technology, customer engagement and strategic partnerships. He focuses on expanding Zenium's market presence and helping utilities adopt solutions that deliver measurable business and operational value.",
-      linkedin: "https://www.linkedin.com",
+      image: "/img.png",
     },
     {
       name: "Sreeju K B",
       title: "Chief Product Officer",
-      bio: "Sreeju leads product strategy and development at Zenium, with a focus on HES, MDM, analytics and AI-enabled utility solutions. He works across technology, design and business teams to build scalable products that address evolving utility requirements and support the transition towards AMI 2.0.",
-      linkedin: "https://www.linkedin.com",
+      image: "/img.png",
     },
     {
       name: "Satyadip Das",
       title: "Chief Technology Officer",
-      bio: "Satyadip leads Zenium's technology and engineering strategy, focusing on secure, scalable and resilient platforms for the utility sector. His work spans architecture, engineering excellence, product innovation and emerging technologies that enable reliable, future-ready utility operations.",
-      linkedin: "https://www.linkedin.com",
+      image: "/img.png",
     },
   ] satisfies AboutLeader[],
 };
