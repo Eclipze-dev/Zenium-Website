@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import Button from "@/components/Button";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";

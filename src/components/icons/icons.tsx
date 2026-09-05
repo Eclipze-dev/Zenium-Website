@@ -238,3 +238,6 @@ export const SunIcon: React.FC<IconsProps> = ({
     <path d="m19.07 4.93-1.41 1.41" />
   </svg>
 );
+
+export * from "./lucideIcons";
+export type { LucideIcon } from "./lucideIcons";

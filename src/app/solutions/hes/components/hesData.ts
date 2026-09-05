@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import {
   BellRing,
   Cable,
@@ -13,7 +13,7 @@ import {
   TestTube2,
   Timer,
   TrendingUp,
-} from "lucide-react";
+} from "@/components/icons/lucideIcons";
 
 export const statistics: ReadonlyArray<
   readonly [LucideIcon, string, string]

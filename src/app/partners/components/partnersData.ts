@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import {
   Award,
   Gauge,
@@ -7,7 +7,7 @@ import {
   Radio,
   ShieldCheck,
   TestTube2,
-} from "lucide-react";
+} from "@/components/icons/lucideIcons";
 
 export const statistics: ReadonlyArray<readonly [LucideIcon, string, string]> = [
   [Gauge, "5M", "Smart meter legacy deployments"],

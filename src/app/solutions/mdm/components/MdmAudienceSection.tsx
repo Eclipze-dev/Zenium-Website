@@ -1,4 +1,4 @@
-import { CircleCheck } from "lucide-react";
+import { CircleCheck } from "@/components/icons/lucideIcons";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";

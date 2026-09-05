@@ -24,7 +24,7 @@ import {
   Users,
   Zap,
   type LucideIcon,
-} from "lucide-react";
+} from "@/components/icons/lucideIcons";
 import {
   ArrowRightIcon,
   ChevronDownIcon,

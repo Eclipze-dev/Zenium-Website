@@ -1,4 +1,4 @@
-import { CircleCheck } from "lucide-react";
+import { CircleCheck } from "@/components/icons/lucideIcons";
 import { aboutDirection } from "./aboutData";
 
 export default function AboutDirectionSection() {

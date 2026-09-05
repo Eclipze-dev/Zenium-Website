@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Check } from "lucide-react";
+import { Check } from "@/components/icons/lucideIcons";
 import { cn } from "@/lib/cn";
 import { interestOptions } from "./contactData";
 

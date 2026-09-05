@@ -6,7 +6,7 @@ import {
   Lock,
   Puzzle,
   ShieldCheck,
-} from 'lucide-react';
+} from "@/components/icons/lucideIcons";
 
 type CapabilityNode = {
   label: string;

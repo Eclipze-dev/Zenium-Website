@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import {
   BadgeCheck,
   BellRing,
@@ -18,7 +18,7 @@ import {
   Headphones,
   LockKeyhole,
   Monitor,
-} from "lucide-react";
+} from "@/components/icons/lucideIcons";
 
 export const statistics: ReadonlyArray<
   readonly [LucideIcon, string, string]

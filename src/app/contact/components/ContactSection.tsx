@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "@/components/icons/lucideIcons";
 import ContactForm from "./ContactForm";
 import {
   contactChannels,

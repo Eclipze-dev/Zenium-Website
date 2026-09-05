@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail } from "@/components/icons/lucideIcons";
 import Button from "@/components/Button";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { careersCvCta } from "./careersData";

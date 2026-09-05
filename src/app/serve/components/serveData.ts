@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import {
   Activity,
   BarChart3,
@@ -15,7 +15,7 @@ import {
   ShieldCheck,
   Sparkles,
   Zap,
-} from "lucide-react";
+} from "@/components/icons/lucideIcons";
 import type { ServeAudienceContent } from "./ServeAudienceSections";
 
 export type ServeAudienceId =

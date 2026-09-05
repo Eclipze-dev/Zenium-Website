@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "@/components/icons/lucideIcons";
 import { cn } from "@/lib/cn";
 import {
   surfaceCardClass,
