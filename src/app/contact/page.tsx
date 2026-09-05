@@ -4,7 +4,7 @@ import ContactSection from "./components/ContactSection";
 
 export default function ContactPage() {
   return (
-    <div id="top" className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-bg1 min-h-screen">
       <SiteHeader />
       <main className="">
         <ContactSection />
