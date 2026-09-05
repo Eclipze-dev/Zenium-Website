@@ -1,13 +1,17 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import CareersCvCtaSection from "./components/CareersCvCtaSection";
+import CareersHeroSection from "./components/CareersHeroSection";
+import CareersOpportunitiesSection from "./components/CareersOpportunitiesSection";
 
 export default function CareersPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-zen-bg min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Careers</h1>
-        <p className="mt-4 text-muted">Careers page coming soon.</p>
+      <main className="overflow-x-clip">
+        <CareersHeroSection />
+        <CareersOpportunitiesSection />
+        <CareersCvCtaSection />
       </main>
       <Footer />
     </div>

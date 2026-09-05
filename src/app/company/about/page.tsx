@@ -1,13 +1,25 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import AboutDecisionsSection from "./components/AboutDecisionsSection";
+import AboutDirectionSection from "./components/AboutDirectionSection";
+import AboutExperienceSection from "./components/AboutExperienceSection";
+import AboutFaqSection from "./components/AboutFaqSection";
+import AboutFinalCtaSection from "./components/AboutFinalCtaSection";
+import AboutIntroSection from "./components/AboutIntroSection";
+import AboutLeadershipSection from "./components/AboutLeadershipSection";
 
 export default function AboutPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="bg-zen-bg min-h-screen">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">About Zenium</h1>
-        <p className="mt-4 text-muted">About page coming soon.</p>
+      <main className="overflow-x-clip">
+        <AboutIntroSection />
+        <AboutDecisionsSection />
+        <AboutExperienceSection />
+        <AboutDirectionSection />
+        <AboutLeadershipSection />
+        <AboutFaqSection />
+        <AboutFinalCtaSection />
       </main>
       <Footer />
     </div>
