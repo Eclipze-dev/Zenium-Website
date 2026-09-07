@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
+import SectionBadge from "@/components/SectionBadge";
 import NewsCard from "./NewsCard";
 import {
   newsFilters,
@@ -9,6 +10,7 @@ import {
   newsItems,
   type NewsFilterId,
 } from "./newsData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function NewsSection() {
   const [activeFilter, setActiveFilter] = useState<NewsFilterId>("all");
@@ -60,15 +62,15 @@ export default function NewsSection() {
     >
       <div className="container">
         <header className="max-w-auto">
-          <p className="mb-[clamp(12px,1.5vw,16px)] text-h4 text-common">
+          <SectionBadge className="mb-[clamp(12px,1.5vw,16px)]">
             {newsIntro.eyebrow}
-          </p>
+          </SectionBadge>
           <h1
             id="news-title"
             className="text-h1 m-0 text-common max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {newsIntro.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{newsIntro.accent}</span>
+            <ShimmerText>{newsIntro.accent}</ShimmerText>
           </h1>
           <p className="mt-[20px] max-w-auto text-p1 text-common2">
             {newsIntro.description}

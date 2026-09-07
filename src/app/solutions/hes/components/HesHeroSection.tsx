@@ -1,6 +1,8 @@
 import Button from "@/components/Button";
+import SectionBadge from "@/components/SectionBadge";
 import SolutionHeroStats from "@/components/solutions/SolutionHeroStats";
 import { statistics } from "./hesData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function HesHeroSection() {
   return (
@@ -11,13 +13,13 @@ export default function HesHeroSection() {
       <div className="container">
         <div className="grid items-start gap-12 xl:gap-[50px] pb-[40px]">
           <div className="flex flex-col items-center justify-center gap-5">
-            <p className="text-h4 tracking-eyebrow text-zen-text">HEAD-END SYSTEM</p>
+            <SectionBadge>HEAD-END SYSTEM</SectionBadge>
             <h1
               id="hes-hero-title"
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               Connect every{" "}
-              <span className="text-orange text-h2 shimmer-text">meter.</span>
+              <ShimmerText>meter.</ShimmerText>
             </h1>
             <p className="max-w-full text-p1 text-muted text-center">
               Zenium Head-End System connects smart meters and communication networks

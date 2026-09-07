@@ -1,5 +1,6 @@
 import CareersEmptyIllustration from "./CareersEmptyIllustration";
 import { careersOpportunities } from "./careersData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function CareersOpportunitiesSection() {
   return (
@@ -16,9 +17,9 @@ export default function CareersOpportunitiesSection() {
           className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
         >
           {careersOpportunities.title}{" "}
-          <span className="text-h2 shimmer-text text-orange">
+          <ShimmerText>
             {careersOpportunities.accent}
-          </span>
+          </ShimmerText>
         </h2>
         <p className="m-0 mt-[20px] text-p1 text-muted">
           {careersOpportunities.description}

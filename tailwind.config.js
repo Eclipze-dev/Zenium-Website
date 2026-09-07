@@ -225,6 +225,14 @@ export default {
           '0%,100%': { opacity: '0.08', transform: 'translate(0,0)' },
           '50%': { opacity: '0.15', transform: 'translate(4px,-6px)' },
         },
+        'partners-marquee-rtl': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.25' },
+        },
       },
       animation: {
         'caret-blink': 'caret-blink 1.1s ease-in-out infinite',
@@ -283,6 +291,8 @@ export default {
         'cta-net-drift-2': 'cta-net-drift-2 9s ease-in-out infinite',
         'cta-net-drift-3': 'cta-net-drift-3 8s ease-in-out infinite',
         'cta-net-particle': 'cta-net-particle 6s ease-in-out infinite',
+        'partners-marquee-rtl': 'partners-marquee-rtl 30s linear infinite',
+        blink: 'blink 1.8s ease-in-out infinite',
       },
     },
   },

@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import PartnersAlliancesSection from "./components/PartnersAlliancesSection";
 import PartnersConnectedSection from "./components/PartnersConnectedSection";
 import PartnersEcosystemSection from "./components/PartnersEcosystemSection";
 import PartnersFinalCtaSection from "./components/PartnersFinalCtaSection";
@@ -12,6 +13,7 @@ export default function PartnersPage() {
       <SiteHeader />
       <main className="overflow-x-clip">
         <PartnersHeroSection />
+        <PartnersAlliancesSection />
         <PartnersWhySection />
         <PartnersEcosystemSection />
         <PartnersConnectedSection />

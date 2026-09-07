@@ -1,13 +1,14 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import { capabilities } from "./hesData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function HesCapabilitiesSection() {
   return (
     <section className="py-[80px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px]">
         <SectionIntro centered eyebrow="CORE CAPABILITIES">
-          Connect, collect and <span className="text-orange text-h2 shimmer-text">control.</span>
+          Connect, collect and <ShimmerText>control.</ShimmerText>
         </SectionIntro>
 
         <div className="grid grid-cols-3 gap-[10px]">

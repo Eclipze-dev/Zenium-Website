@@ -1,5 +1,7 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import SectionBadge from "@/components/SectionBadge";
 import { careersHero } from "./careersData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function CareersHeroSection() {
   return (
@@ -9,15 +11,15 @@ export default function CareersHeroSection() {
     >
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] items-stretch gap-[60px] max-lg:grid-cols-1 max-lg:gap-[40px]">
         <div className="min-w-0">
-          <p className="mb-[10px] text-h4 tracking-eyebrow text-zen-text">
+          <SectionBadge className="mb-[10px]">
             {careersHero.eyebrow}
-          </p>
+          </SectionBadge>
           <h1
             id="careers-hero-title"
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {careersHero.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{careersHero.accent}</span>
+            <ShimmerText>{careersHero.accent}</ShimmerText>
           </h1>
           <p className="mt-[20px] max-w-auto text-p1 text-muted">
             {careersHero.description}

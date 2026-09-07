@@ -136,16 +136,17 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
       // { label: "Leadership", href: "/company/leadership" },
       { label: "Careers", href: "/company/careers" },
       { label: "News & Events", href: "/company/news" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
 ];
 
-const contactLinks: FooterLinkItem[] = [
-  { label: "Contact Us", href: "/contact" },
-  { label: "Sales Enquiry", href: "/contact" },
-  { label: "Support", href: "/contact" },
-  { label: "Request a Demo", href: "/contact", arrow: false },
-];
+// const contactLinks: FooterLinkItem[] = [
+//   { label: "Contact Us", href: "/contact" },
+//   { label: "Sales Enquiry", href: "/contact" },
+//   { label: "Support", href: "/contact" },
+//   { label: "Request a Demo", href: "/contact", arrow: false },
+// ];
 
 export default function Footer() {
   return (
@@ -203,7 +204,7 @@ export default function Footer() {
         </div>
 
         {/* Contact area */}
-        <div className="mt-[48px] border-t border-line pt-[36px] max-sm:mt-[36px] max-sm:pt-[28px]">
+        {/* <div className="mt-[48px] border-t border-line pt-[36px] max-sm:mt-[36px] max-sm:pt-[28px]">
           <div className="grid grid-cols-[1fr_auto] items-start gap-[40px] max-sm:grid-cols-1 max-sm:gap-[20px]">
             <div className="min-w-0">
               <h3 className="mb-[20px] text-p2">
@@ -218,7 +219,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Legal Bar */}

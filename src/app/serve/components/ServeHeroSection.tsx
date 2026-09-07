@@ -1,6 +1,8 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import SectionBadge from "@/components/SectionBadge";
 import ServeAudienceTabs from "./ServeAudienceTabs";
 import { serveIntro, type ServeAudienceId } from "./serveData";
+import ShimmerText from "@/components/ShimmerText";
 
 const ServeHeroSection = ({
   active,
@@ -21,15 +23,13 @@ const ServeHeroSection = ({
     >
       <div className="container">
         <header className="max-w-auto">
-          <p className="mb-[10px] text-h4 text-zen-text">
-            {serveIntro.eyebrow}
-          </p>
+          <SectionBadge className="mb-[10px]">{serveIntro.eyebrow}</SectionBadge>
           <h1
             id="serve-hero-title"
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {serveIntro.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{serveIntro.accent}</span>
+            <ShimmerText>{serveIntro.accent}</ShimmerText>
           </h1>
           <p className="mt-[20px] max-w-auto text-p1 text-muted">
             {serveIntro.description}

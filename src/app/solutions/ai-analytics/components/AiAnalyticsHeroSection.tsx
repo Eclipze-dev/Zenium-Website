@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import SectionBadge from "@/components/SectionBadge";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AiAnalyticsHeroSection() {
   return (
@@ -9,13 +11,13 @@ export default function AiAnalyticsHeroSection() {
       <div className="container">
         <div className="grid items-start gap-12 xl:gap-[50px]">
           <div className="flex flex-col items-center justify-center gap-5 text-center">
-            <p className="text-h4 tracking-eyebrow text-zen-text">ANALYTICS &amp; AI</p>
+            <SectionBadge>ANALYTICS & AI</SectionBadge>
             <h1
               id="ai-analytics-hero-title"
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               Turn utility data into{" "}
-              <span className="text-orange text-h2 shimmer-text">actionable intelligence.</span>
+              <ShimmerText>actionable intelligence.</ShimmerText>
             </h1>
             <p className="max-w-auto text-p1 text-muted">
               Transform meter, consumer, asset and network data into intelligence that helps

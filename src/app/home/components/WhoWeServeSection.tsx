@@ -2,6 +2,7 @@ import { audiences } from "./homeData";
 import Button from "@/components/Button";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import SectionIntro from "./SectionIntro";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function WhoWeServeSection() {
   return (
@@ -11,8 +12,8 @@ export default function WhoWeServeSection() {
     >
       <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
         <div className="min-w-0">
-          <SectionIntro eyebrow="WHO WE SERVE">
-            <span className="text-orange text-h2 shimmer-text">Intelligence</span>{` `}across the energy ecosystem.
+          <SectionIntro eyebrow="WHO WE SERVE" badge>
+            <ShimmerText>Intelligence</ShimmerText>{` `}across the energy ecosystem.
           </SectionIntro>
           <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Zenium&apos;s technology is designed for the evolving needs of utilities

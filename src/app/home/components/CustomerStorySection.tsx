@@ -1,6 +1,7 @@
 "use client";
 
 import { memo, useCallback, useState } from "react";
+import ShimmerText from "@/components/ShimmerText";
 import SectionIntro from "./SectionIntro";
 import { cn } from "@/lib/cn";
 
@@ -39,7 +40,7 @@ export default function CustomerStorySection() {
       <div className="container">
         <SectionIntro centered fullWidth eyebrow="CUSTOMER STORY">
           <p className="text-h1 font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
-            Proven in the field. One of <span className="text-orange text-h2 shimmer-text">India's large-scale</span>{" "}
+            Proven in the field. One of <ShimmerText>India's large-scale</ShimmerText>{" "}
             electricity deployments.
           </p>
         </SectionIntro>

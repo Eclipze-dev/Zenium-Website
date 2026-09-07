@@ -1,5 +1,6 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
 import Button from "@/components/Button";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function PartnersFinalCtaSection() {
   return (
@@ -15,7 +16,7 @@ export default function PartnersFinalCtaSection() {
           className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
         >
           Bring Zenium into your next{" "}
-          <span className="text-orange text-h2 shimmer-text">energy programme.</span>
+          <ShimmerText>energy programme.</ShimmerText>
         </h2>
         <p className="text-muted text-intro mx-auto mt-[clamp(18px,2vw,26px)] max-w-auto">
           Talk to us about an upcoming bid, meter integration, system-integration 

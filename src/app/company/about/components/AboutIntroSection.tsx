@@ -1,5 +1,7 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import SectionBadge from "@/components/SectionBadge";
 import { aboutIntro } from "./aboutData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutIntroSection() {
   return (
@@ -10,12 +12,13 @@ export default function AboutIntroSection() {
       <div className="container">
         <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] items-center gap-[60px] pb-[50px] max-lg:grid-cols-1 max-lg:gap-[40px] max-sm:pb-[70px]">
           <div className="min-w-0">
+            <SectionBadge className="mb-[clamp(12px,1.5vw,20px)]">ABOUT</SectionBadge>
             <h1
               id="about-intro-title"
               className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
             >
               {aboutIntro.title}{" "}
-              <span className="text-h2 shimmer-text text-orange">{aboutIntro.accent}</span>
+              <ShimmerText>{aboutIntro.accent}</ShimmerText>
             </h1>
             <div className="mt-[20px] flex flex-col gap-[20px]">
               {aboutIntro.paragraphs.map((paragraph) => (

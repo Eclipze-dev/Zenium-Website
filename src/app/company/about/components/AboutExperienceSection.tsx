@@ -1,6 +1,7 @@
 import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { aboutExperience } from "./aboutData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutExperienceSection() {
   return (
@@ -21,9 +22,9 @@ export default function AboutExperienceSection() {
                 className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
               >
                 {aboutExperience.title}{" "}
-                <span className="text-h2 shimmer-text text-orange">
+                <ShimmerText>
                   {aboutExperience.accent}
-                </span>
+                </ShimmerText>
               </h2>
               <div className="mt-[28px] flex flex-col gap-[20px]">
                 {aboutExperience.paragraphs.map((paragraph) => (

@@ -1,12 +1,33 @@
 "use client";
 
-import { memo, useCallback, useEffect, useId, useState } from "react";
+import { memo, useCallback, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { capabilities } from "./homeData";
+import ShimmerText from "@/components/ShimmerText";
 import SectionIntro from "./SectionIntro";
 import ZeniumDataFlow, { type StageId } from "./ZeniumDataFlow";
 
 const STAGE_CYCLE: StageId[] = ["meter", "hes", "mdms", "analytics"];
+
+function AccordionToggleIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5 shrink-0 text-muted"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <path d="M5 12h14" />
+      {!open && <path d="M12 5v14" />}
+    </svg>
+  );
+}
 
 const CapabilityItem = memo(function CapabilityItem({
   title,
@@ -19,6 +40,7 @@ const CapabilityItem = memo(function CapabilityItem({
   onSelect,
   onPause,
   onResume,
+  onCycleComplete,
 }: {
   title: string;
   text: string;
@@ -30,6 +52,7 @@ const CapabilityItem = memo(function CapabilityItem({
   onSelect: (index: number) => void;
   onPause: () => void;
   onResume: () => void;
+  onCycleComplete: (index: number) => void;
 }) {
   return (
     <button
@@ -46,22 +69,29 @@ const CapabilityItem = memo(function CapabilityItem({
       )}
     >
       <span className="capability-rule relative mb-[26px] block h-px bg-line">
-        {active && <span key={progressKey} className="capability-progress" />}
+        {active && (
+          <span
+            key={progressKey}
+            className="capability-progress"
+            onAnimationEnd={() => onCycleComplete(index)}
+          />
+        )}
       </span>
-      <span className="mb-3 flex items-center gap-3">
+      <span className="mb-3 flex w-full items-center gap-3">
         <Icon className="h-6 w-6 shrink-0 text-orange" strokeWidth={1.8} />
         <b
           className={cn(
-            "text-p1 transition-colors duration-300",
+            "min-w-0 flex-1 text-p1 transition-colors duration-200",
             active ? "text-zen-text" : "text-muted",
           )}
         >
           {title}
         </b>
+        <AccordionToggleIcon open={active} />
       </span>
       <span
         className={cn(
-          "capability-copy grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out",
+          "capability-copy grid transition-[grid-template-rows,opacity,margin] duration-200 ease-out",
           active
             ? "grid-rows-[1fr] opacity-100 mt-[9px]"
             : "grid-rows-[0fr] opacity-0",
@@ -76,23 +106,27 @@ const CapabilityItem = memo(function CapabilityItem({
 export default function ZeniumEdgeSection() {
   const [activeCapability, setActiveCapability] = useState(0);
   const [capabilityPaused, setCapabilityPaused] = useState(false);
+  const pausedRef = useRef(false);
 
-  const pauseCarousel = useCallback(() => setCapabilityPaused(true), []);
-  const resumeCarousel = useCallback(() => setCapabilityPaused(false), []);
-  const selectCapability = useCallback(
-    (index: number) => setActiveCapability(index),
-    [],
-  );
+  const pauseCarousel = useCallback(() => {
+    pausedRef.current = true;
+    setCapabilityPaused(true);
+  }, []);
+  const resumeCarousel = useCallback(() => {
+    pausedRef.current = false;
+    setCapabilityPaused(false);
+  }, []);
+  const selectCapability = useCallback((index: number) => {
+    setActiveCapability(index);
+  }, []);
 
-  useEffect(() => {
-    if (capabilityPaused) return;
-
-    const timer = window.setInterval(() => {
-      setActiveCapability((current) => (current + 1) % capabilities.length);
-    }, 5000);
-
-    return () => window.clearInterval(timer);
-  }, [capabilityPaused]);
+  const advanceCapability = useCallback((index: number) => {
+    if (pausedRef.current) return;
+    setActiveCapability((current) => {
+      if (current !== index) return current;
+      return (current + 1) % capabilities.length;
+    });
+  }, []);
 
   const activeStage = STAGE_CYCLE[activeCapability % STAGE_CYCLE.length];
 
@@ -105,7 +139,7 @@ export default function ZeniumEdgeSection() {
             text="Zenium combines proven utility technology with an architecture designed for scale, interoperability and operational reliability."
           >
             Engineered for the{` `}
-            <span className="text-orange text-h2 shimmer-text">complexity</span>
+            <ShimmerText>complexity</ShimmerText>
             {` `}of modern utilities.
           </SectionIntro>
           <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
@@ -122,6 +156,7 @@ export default function ZeniumEdgeSection() {
                 onSelect={selectCapability}
                 onPause={pauseCarousel}
                 onResume={resumeCarousel}
+                onCycleComplete={advanceCapability}
               />
             ))}
           </div>

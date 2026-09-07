@@ -1,3 +1,4 @@
+import SectionBadge from "@/components/SectionBadge";
 import { cn } from "@/lib/cn";
 
 export default function SectionIntro({
@@ -7,6 +8,7 @@ export default function SectionIntro({
   centered = false,
   singleLine = false,
   fullWidth = false,
+  badge = false,
 }: {
   eyebrow: string;
   children: React.ReactNode;
@@ -15,6 +17,8 @@ export default function SectionIntro({
   singleLine?: boolean;
   /** Override section-heading max-width so text can span the full container. */
   fullWidth?: boolean;
+  /** Use SectionBadge for the eyebrow (home Who We Serve); default keeps text style. */
+  badge?: boolean;
 }) {
   return (
     <header
@@ -24,9 +28,13 @@ export default function SectionIntro({
         fullWidth && "max-w-none w-full",
       )}
     >
-      <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text">
-        {eyebrow}
-      </p>
+      {badge ? (
+        <SectionBadge className="mb-[clamp(12px,1.5vw,10px)]">{eyebrow}</SectionBadge>
+      ) : (
+        <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text">
+          {eyebrow}
+        </p>
+      )}
       <h2
         className={cn(
           "tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",

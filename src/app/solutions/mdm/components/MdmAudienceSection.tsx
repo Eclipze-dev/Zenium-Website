@@ -3,6 +3,7 @@ import SectionIntro from "@/app/home/components/SectionIntro";
 import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { analyticsApplications, analyticsFoundationQuote } from "./mdmData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmAudienceSection() {
   return (
@@ -22,7 +23,7 @@ export default function MdmAudienceSection() {
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="ENERGY ANALYTICS">
                 The foundation for{" "}
-                <span className="text-orange text-h2 shimmer-text">energy analytics</span>
+                <ShimmerText>energy analytics</ShimmerText>
               </SectionIntro>
 
               <p className="text-p1 text-muted m-0">

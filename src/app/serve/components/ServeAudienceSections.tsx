@@ -2,6 +2,7 @@ import type { LucideIcon } from "@/components/icons/lucideIcons";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import Button from "@/components/Button";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
+import ShimmerText from "@/components/ShimmerText";
 
 export type ServeAudienceContent = {
   eyebrow: string;
@@ -32,7 +33,7 @@ export function ServeAudienceOverviewSection({
       <div className="container">
         <SectionIntro eyebrow={content.eyebrow} fullWidth>
           {content.title}{" "}
-          <span className="text-orange text-h2 shimmer-text">{content.accent}</span>
+          <ShimmerText>{content.accent}</ShimmerText>
         </SectionIntro>
         <p className="my-[20px] max-w-auto text-p1 text-muted">
           {content.description}

@@ -5,6 +5,7 @@ import {
   integrationFooter,
   integrationTags,
 } from "./mdmData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmInteroperabilitySection() {
   return (
@@ -14,7 +15,7 @@ export default function MdmInteroperabilitySection() {
       title={
         <>
           Trusted data wherever it is{" "}
-          <span className="text-orange text-h2 shimmer-text">needed</span>
+          <ShimmerText>needed</ShimmerText>
         </>
       }
     >

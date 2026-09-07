@@ -1,4 +1,5 @@
 import SolutionFeaturePanel from "@/components/solutions/SolutionFeaturePanel";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function HesOverviewSection() {
   return (
@@ -7,7 +8,7 @@ export default function HesOverviewSection() {
       title={
         <>
           The connection layer for{" "}
-          <p className="inline text-orange text-h2 shimmer-text">smart metering.</p>
+          <ShimmerText as="p">smart metering.</ShimmerText>
         </>
       }
     >

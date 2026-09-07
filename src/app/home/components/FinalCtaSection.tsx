@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "@/components/icons/icons";
 import CTANetworkBackground from "./CTANetworkBackground";
 import Button from "@/components/Button";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function FinalCtaSection() {
   return (
@@ -19,7 +20,7 @@ export default function FinalCtaSection() {
           id="final-cta-title"
           className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
         >
-          Put it to work with <p className="inline text-orange text-h2 shimmer-text">Zenium.</p>
+          Put it to work with <ShimmerText as="p">Zenium.</ShimmerText>
         </h2>
         <p className="text-muted text-intro max-w-[680px] mx-auto mt-[clamp(18px,2vw,26px)]">
           Turn connected utility data into trusted information, deeper insight and smarter decisions.

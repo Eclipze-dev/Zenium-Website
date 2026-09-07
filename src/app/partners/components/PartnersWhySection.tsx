@@ -1,6 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import { whySteps } from "./partnersData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function PartnersWhySection() {
   return (
@@ -9,7 +10,7 @@ export default function PartnersWhySection() {
         <div className="min-w-0">
           <SectionIntro eyebrow="WHY ZENIUM">
             Proven technology.{" "}
-            <span className="text-orange text-h2 shimmer-text">Practical partnership.</span>
+            <ShimmerText>Practical partnership.</ShimmerText>
           </SectionIntro>
           <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Successful smart-metering programmes depend on technology that

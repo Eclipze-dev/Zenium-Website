@@ -1,6 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SolutionFeatureGrid from "@/components/solutions/SolutionFeatureGrid";
 import { utilitiesContent } from "../../components/serveData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function UtilitiesOverviewSection() {
   return (
@@ -12,7 +13,7 @@ export default function UtilitiesOverviewSection() {
           fullWidth
         >
           {utilitiesContent.title}{" "}
-          <span className="text-orange text-h2 shimmer-text !mt-[10px]">{utilitiesContent.accent}</span>
+          <ShimmerText className="!mt-[10px]">{utilitiesContent.accent}</ShimmerText>
         </SectionIntro>
       </div>
     </section>

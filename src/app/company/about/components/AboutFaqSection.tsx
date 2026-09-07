@@ -3,6 +3,7 @@
 import { useId, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { aboutFaq } from "./aboutData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutFaqSection() {
   const baseId = useId();
@@ -48,7 +49,7 @@ export default function AboutFaqSection() {
           className="text-h1 m-0 max-w-auto max-sm:text-[clamp(28px,7vw,36px)]"
         >
           {aboutFaq.title}{" "}
-          <span className="text-h2 shimmer-text text-orange">{aboutFaq.accent}</span>
+          <ShimmerText>{aboutFaq.accent}</ShimmerText>
         </h2>
 
         <div

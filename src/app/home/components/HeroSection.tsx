@@ -1,9 +1,9 @@
 import Button from "@/components/Button";
 import OptimizedImage from "@/components/OptimizedImage";
+import SectionBadge from "@/components/SectionBadge";
 import HeroTypewriter from "./HeroTypewriter";
 import HeroStats from "./HeroStats";
 import { metrics } from "./homeData";
-import SectionIntro from "./SectionIntro";
 
 export default function HeroSection() {
   return (
@@ -28,9 +28,9 @@ export default function HeroSection() {
 
       <div className="container relative z-[2]">
         <div className="min-w-0 max-w-[680px]">
-          <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,20px)] text-zen-text font-normal">
+          <SectionBadge className="mb-[clamp(12px,1.5vw,20px)]">
             ENERGY INTELLIGENCE
-          </p>
+          </SectionBadge>
           <p
             id="hero-title"
             className="text-h1 m-0 max-w-full max-sm:text-[clamp(32px,7vw,40px)]"
@@ -50,7 +50,9 @@ export default function HeroSection() {
         <div className="mt-[75px]">
           <HeroStats items={metrics} />
         </div>
-        <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto max-sm:text-body mt-[20px]">Built on real-world utility experience.</div>
+        <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto max-sm:text-body mt-[20px]">
+          Built on real-world utility experience.
+        </div>
       </div>
     </section>
   );

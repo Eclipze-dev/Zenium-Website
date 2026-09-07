@@ -159,7 +159,7 @@ body {
   width: 100%;
   transform-origin: left center;
   background: var(--text);
-  animation: capability-progress-fill 5s linear forwards;
+  animation: capability-progress-fill 4.5s linear forwards;
 }
 
 .capability-paused .capability-progress {
@@ -415,6 +415,11 @@ body {
   line-height: 1.55;
 }
 
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
 
 .shimmer-text {
   background: linear-gradient(90deg, #F07F25 0%, #f5b86e 40%, #F07F25 80%);

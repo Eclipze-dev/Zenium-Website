@@ -6,6 +6,7 @@ import { resources } from "./homeData";
 import Button from "@/components/Button";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import SectionIntro from "./SectionIntro";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function InsightsResourcesSection() {
   return (
@@ -19,7 +20,7 @@ export default function InsightsResourcesSection() {
           eyebrow="INSIGHTS & RESOURCES"
           text="Explore ideas, experiences and perspectives shaping the future of smarter, more connected utilities."
         >
-          Thinking beyond the <span className="text-orange text-h2 shimmer-text">meter.</span>
+          Thinking beyond the <ShimmerText>meter.</ShimmerText>
         </SectionIntro>
         <div className="mt-[75px] grid grid-cols-3 gap-[10px] text-left max-md:grid-cols-2 max-sm:grid-cols-1">
           {resources.map(({ type, title, text, cta, icon, action }) => (

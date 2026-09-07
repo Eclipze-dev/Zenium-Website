@@ -24,9 +24,9 @@ export const statistics: ReadonlyArray<
   readonly [LucideIcon, string, string]
 > = [
   [Gauge, "5M", "Meter-point MDM deployment"],
-  [Radio, "More than 2M", "Meters onboarded"],
   [Network, "Multi-HES", "Platform interoperability"],
-  [LayoutDashboard, "One trusted view", "Across meter data and operations"],
+  [Radio, "Prepaid billing", "Integrated revenue operations"],
+  [LayoutDashboard, "Consumer mobile app", "Connected consumer services"],
 ];
 
 export const capabilities: ReadonlyArray<
@@ -39,28 +39,28 @@ export const capabilities: ReadonlyArray<
   ],
   [
     BadgeCheck,
-    "Improve data quality",
-    "Apply configurable Validation, Estimation and Editing rules to identify missing or invalid readings, resolve exceptions and maintain a complete record of every change.",
+    "Power prepaid operations",
+    "Support prepaid metering with balance visibility, recharge and payment integration, consumption tracking, low-balance alerts and configurable tariff processing.",
   ],
   [
     Receipt,
-    "Prepare data for billing",
-    "Transform validated readings into billing-ready information through consumption aggregation, time-of-use calculations and billing-determinant processing.",
+    "Deliver a connected consumer mobile app",
+    "Give consumers access to consumption information, billing and payment details, prepaid balances, recharge options, alerts and service requests through the Zenium consumer mobile app.",
   ],
   [
     Sun,
-    "Support different energy models",
-    "Manage data for prepaid, post-paid and net-metering arrangements, including imported and exported energy, multiple meters and time-of-use tariffs.",
+    "Validate and complete meter data",
+    "Apply configurable Validation, Estimation and Editing rules to identify missing or invalid readings, resolve exceptions and create complete, billing-ready meter data.",
   ],
   [
     BellRing,
-    "Make exceptions actionable",
-    "Identify VEE failures, missing reads, threshold exceptions and unusual consumption patterns. Generate service orders where operational follow-up is required.",
+    "Prepare data for billing",
+    "Transform validated readings through consumption aggregation, time-of-use calculations and billing-determinant processing, with support for post-paid and net-metering models.",
   ],
   [
     History,
-    "Maintain complete traceability",
-    "Track how data was received, validated, estimated, edited and distributed through data lineage, role-based access and audit trails.",
+    "Make exceptions actionable",
+    "Identify VEE failures, missing reads, threshold exceptions and unusual consumption patterns, and generate service orders when operational follow-up is required.",
   ],
 ];
 
@@ -100,7 +100,7 @@ export const operationalTeams: ReadonlyArray<
   [
     CircleDollarSign,
     "Revenue teams",
-    "Track billing readiness, VEE status, consumption exceptions and revenue indicators.",
+    "Track billing readiness, prepaid operations, consumption exceptions and revenue indicators.",
   ],
   [
     BarChart3,
@@ -110,7 +110,7 @@ export const operationalTeams: ReadonlyArray<
   [
     Headphones,
     "Customer-service teams",
-    "Access consumption history, meter status, prepaid information and service activity.",
+    "Access consumption history, meter status, prepaid balances, recharge information, alerts and service activity.",
   ],
 ];
 
@@ -139,8 +139,8 @@ export const measurableValueQuote =
 export const connectedOperationsItems = [
   "Billing and revenue-management systems",
   "CIS and CRM platforms",
-  "Prepayment applications",
-  "Consumer portals",
+  "Prepayment, recharge and payment applications",
+  "Consumer mobile applications and web portals",
   "Workforce and field-service systems",
   "Outage and network-management systems",
   "Analytics platforms",

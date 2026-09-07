@@ -93,3 +93,38 @@ export const connectedByDesignTags = [
   "JSON",
   "IEC 61968",
 ] as const;
+
+/**
+ * Alliance logos for the Partners & Alliances marquee.
+ * Files live in /public/partners/logos — update `src` when adding new logos.
+ */
+export type AllianceLogo = {
+  name: string;
+  src?: string;
+  width?: number;
+  height?: number;
+};
+
+export const allianceLogos: AllianceLogo[] = [
+  { name: "AWS", src: "/partners/logos/aws.png", width: 90, height: 40 },
+  {
+    name: "Google Cloud",
+    src: "/partners/logos/google-cloud.png",
+    width: 56,
+    height: 40,
+  },
+  {
+    name: "Avon Meters",
+    src: "/partners/logos/avon.png",
+    width: 160,
+    height: 40,
+  },
+  {
+    name: "ZenMeter",
+    src: "/partners/logos/zenmeter.png",
+    width: 140,
+    height: 44,
+  },
+  { name: "HPL", src: "/partners/logos/hpl.png", width: 90, height: 36 },
+];
+

@@ -2,6 +2,7 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import ShimmerText from "@/components/ShimmerText";
 import SectionIntro from "./SectionIntro";
 import { indiaBuiltFeatures } from "./homeData";
 
@@ -20,7 +21,7 @@ export default function IndiaBuiltSection() {
         </div>
         <div className="min-w-0">
           <SectionIntro eyebrow="BUILT FOR INDIA. READY FOR SCALE.">
-            <span className="text-orange text-h2 shimmer-text">India</span>-built technology for modern utilities.
+            <ShimmerText>India</ShimmerText>-built technology for modern utilities.
           </SectionIntro>
           <div className="mt-[70px]">
             {indiaBuiltFeatures.map(({ b, em, p, icon: Icon }) => (

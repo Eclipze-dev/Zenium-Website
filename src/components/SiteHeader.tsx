@@ -44,6 +44,7 @@ import {
   type IconKey,
   type MegaId,
   type MegaLink,
+  type NavItem,
 } from "./nav/navData";
 import {
   DataFlowGraphic,
@@ -52,9 +53,27 @@ import {
   UtilityNetwork,
 } from "./nav/NetworkMotifs";
 import { cn } from "@/lib/cn";
+import { usePathname } from "next/navigation";
 // import ThemeToggle from "./ThemeToggle";
 
 type MegaMenuId = Exclude<MegaId, "partners" | "resources">;
+
+function isNavSectionActive(id: NavItem["id"], pathname: string): boolean {
+  switch (id) {
+    case "solutions":
+      return pathname.startsWith("/solutions");
+    case "who-we-serve":
+      return pathname.startsWith("/serve");
+    case "partners":
+      return pathname === "/partners" || pathname.startsWith("/partners/");
+    case "company":
+      return pathname.startsWith("/company");
+    case "contact":
+      return pathname === "/contact" || pathname.startsWith("/contact/");
+    default:
+      return false;
+  }
+}
 
 const icons: Record<IconKey, LucideIcon> = {
   sparkles: Sparkles,
@@ -324,6 +343,7 @@ function DemoButton({
 }
 
 export default function SiteHeader() {
+  const pathname = usePathname() || "/";
   const [openId, setOpenId] = useState<MegaMenuId | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<MegaMenuId | null>(null);
@@ -430,6 +450,8 @@ export default function SiteHeader() {
 
         <nav className="flex items-center gap-1 max-lg:hidden" aria-label="Main navigation">
           {primaryNav.map((item) => {
+            const routeActive = isNavSectionActive(item.id, pathname);
+
             if (!item.mega) {
               return (
                 <a
@@ -437,37 +459,47 @@ export default function SiteHeader() {
                   href={item.href}
                   onMouseEnter={closeMegaMenu}
                   onClick={closeAll}
-                  className="px-3 py-2 text-body font-medium tracking-[0.01em] !text-nav-ink transition-colors duration-[180ms] hover:!text-orange"
+                  aria-current={routeActive ? "page" : undefined}
+                  className={cn(
+                    "px-3 py-2 text-body tracking-[0.01em] transition-colors duration-[180ms]",
+                    routeActive
+                      ? "font-bold !text-orange"
+                      : "font-medium !text-nav-ink hover:!text-orange",
+                  )}
                 >
                   {item.label}
                 </a>
               );
             }
 
-            const active = openId === item.id;
+            const menuOpen = openId === item.id;
+            const highlighted = routeActive || menuOpen;
             return (
               <button
                 key={item.id}
                 type="button"
-                aria-expanded={active}
+                aria-expanded={menuOpen}
                 aria-controls="zenium-mega-menu"
+                aria-current={routeActive ? "true" : undefined}
                 onMouseEnter={() => openMegaMenu(item.id as MegaMenuId)}
                 onClick={() => toggleMegaMenu(item.id as MegaMenuId)}
                 className={cn(
-                  "relative flex items-center gap-1 px-3 py-2 text-body font-medium tracking-[0.01em] transition-colors duration-[180ms]",
-                  active ? "text-orange" : "text-nav-ink hover:text-orange",
+                  "relative flex items-center gap-1 px-3 py-2 text-body tracking-[0.01em] transition-colors duration-[180ms]",
+                  highlighted
+                    ? "font-bold text-orange"
+                    : "font-medium text-nav-ink hover:text-orange",
                 )}
               >
                 {item.label}
                 <ChevronDownIcon
                   width={14}
                   height={14}
-                  className={cn("transition-transform duration-[180ms]", active && "rotate-180")}
+                  className={cn("transition-transform duration-[180ms]", menuOpen && "rotate-180")}
                 />
                 <span
                   className={cn(
                     "absolute inset-x-3 -bottom-0.5 h-[2px] bg-orange transition-opacity duration-[180ms]",
-                    active ? "opacity-100" : "opacity-0",
+                    menuOpen ? "opacity-100" : "opacity-0",
                   )}
                 />
               </button>
@@ -516,13 +548,21 @@ export default function SiteHeader() {
         <div className="fixed bottom-0 left-0 right-0 top-20 z-40 flex flex-col bg-header lg:hidden">
           <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile navigation">
             {primaryNav.map((item) => {
+              const routeActive = isNavSectionActive(item.id, pathname);
+
               if (!item.mega) {
                 return (
                   <a
                     key={item.id}
                     href={item.href}
                     onClick={closeAll}
-                    className="block border-b border-nav-line py-4 text-base-lg font-medium text-white"
+                    aria-current={routeActive ? "page" : undefined}
+                    className={cn(
+                      "block border-b border-nav-line py-4 text-base-lg",
+                      routeActive
+                        ? "font-bold text-orange"
+                        : "font-medium text-white",
+                    )}
                   >
                     {item.label}
                   </a>
@@ -532,16 +572,20 @@ export default function SiteHeader() {
               const id = item.id as MegaMenuId;
               const expanded = mobileExpanded === id;
               const children = mobileNavChildren[id];
+              const highlighted = routeActive || expanded;
 
               return (
                 <div key={id} className="border-b border-nav-line">
                   <button
                     type="button"
                     aria-expanded={expanded}
+                    aria-current={routeActive ? "true" : undefined}
                     onClick={() => toggleMobileSection(id)}
                     className={cn(
-                      "flex w-full items-center justify-between py-4 text-left text-base-lg font-medium",
-                      expanded ? "text-orange" : "text-white",
+                      "flex w-full items-center justify-between py-4 text-left text-base-lg",
+                      highlighted
+                        ? "font-bold text-orange"
+                        : "font-medium text-white",
                     )}
                   >
                     {item.label}

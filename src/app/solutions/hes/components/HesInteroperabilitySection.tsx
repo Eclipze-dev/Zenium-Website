@@ -1,12 +1,13 @@
 import SolutionFeaturePanel from "@/components/solutions/SolutionFeaturePanel";
 import { interoperabilityItems } from "./hesData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function HesInteroperabilitySection() {
   return (
     <SolutionFeaturePanel
       eyebrow="INTEROPERABILITY"
       imageSide="left"
-      title={<>Built for mixed meter <span className="text-orange text-h2 shimmer-text">environments</span></>}
+      title={<>Built for mixed meter <ShimmerText>environments</ShimmerText></>}
     >
       <p>
         Zenium HES is designed to work across multi-vendor smart-meter environments,

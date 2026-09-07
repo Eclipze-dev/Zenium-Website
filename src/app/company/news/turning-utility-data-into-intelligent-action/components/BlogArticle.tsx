@@ -1,8 +1,10 @@
 import Button from "@/components/Button";
 import OptimizedImage from "@/components/OptimizedImage";
+import SectionBadge from "@/components/SectionBadge";
 import { ArrowRightIcon } from "@/components/icons/icons";
 import { cn } from "@/lib/cn";
 import { blogPost } from "./blogData";
+import ShimmerText from "@/components/ShimmerText";
 
 const BlogArticle = () => {
   return (
@@ -10,9 +12,7 @@ const BlogArticle = () => {
       <div className="container">
         <div className="mx-auto max-w-auto">
           <div className="flex items-start justify-between gap-6">
-            <p className="m-0 text-h4 text-common">
-              {blogPost.eyebrow}
-            </p>
+            <SectionBadge>{blogPost.eyebrow}</SectionBadge>
             <Button href="/company/news" className="shrink-0 px-[16px] py-[8px]">
               Back
             </Button>
@@ -20,7 +20,7 @@ const BlogArticle = () => {
 
           <h1 className="text-h1 m-0 mt-[20px] text-common max-sm:mt-[22px] max-sm:text-[clamp(32px,7vw,40px)]">
             {blogPost.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{blogPost.accent}</span>
+            <ShimmerText>{blogPost.accent}</ShimmerText>
           </h1>
 
           <p className="mt-[20px] text-p1 leading-relaxed text-common2">

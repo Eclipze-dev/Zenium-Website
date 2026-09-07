@@ -1,24 +1,26 @@
 import Button from "@/components/Button";
+import SectionBadge from "@/components/SectionBadge";
 import SolutionHeroStats from "@/components/solutions/SolutionHeroStats";
 import { statistics } from "./partnersData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function PartnersHeroSection() {
   return (
     <section
-      className="relative overflow-hidden pb-[80px] pt-[50px] max-md:pt-24"
+      className="relative overflow-hidden pb-[40px] pt-[50px] max-md:pt-24"
       aria-labelledby="partners-hero-title"
     >
       <div className="container">
         <div className="flex flex-col items-center justify-center gap-5 text-center pb-[40px]">
-          <p className="text-h4 tracking-eyebrow text-zen-text">PARTNERS</p>
+          <SectionBadge>PARTNERS</SectionBadge>
           <h1
             id="partners-hero-title"
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             Build stronger{" "}
-            <span className="text-orange text-h2 shimmer-text">energy solutions</span> together.
+            <ShimmerText>energy solutions</ShimmerText> together.
           </h1>
-          <p className="max-w-auto text-p1 text-muted">
+          <p className="max-w-[1250px] text-p1 text-muted">
             Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter 
             infrastructure, manage trusted data and support the evolution towards AMI 2.0.
           </p>
@@ -29,7 +31,12 @@ export default function PartnersHeroSection() {
             </Button>
           </div>
         </div>
-        <SolutionHeroStats items={statistics} variant="ruled" />
+        <SolutionHeroStats
+          items={statistics}
+          variant="ruled"
+          className="!py-4 !px-8"
+          // valueClassName="!whitespace-normal"
+        />
       </div>
     </section>
   );

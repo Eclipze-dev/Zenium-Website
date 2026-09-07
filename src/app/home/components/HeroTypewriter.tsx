@@ -72,13 +72,13 @@ export default function HeroTypewriter() {
   return (
     <strong
       className={cn(
-        "block text-h2 min-w-[25ch] whitespace-nowrap shimmer-text transition-opacity duration-500 ease-in-out max-sm:min-w-0 max-sm:text-[0.92em]",
+        "block text-h2 min-w-[25ch] whitespace-nowrap text-orange transition-opacity duration-500 ease-in-out max-sm:min-w-0 max-sm:text-[0.92em]",
         isFading ? "opacity-40" : "opacity-100",
       )}
     >
       {text}
       <span
-        className="inline-block w-[0.05em] bg-orange ml-[0.04em] animate-caret-flow"
+        className="inline-block w-[0.05em] ml-[0.04em] animate-caret-flow"
         aria-hidden="true"
       >
         &nbsp;

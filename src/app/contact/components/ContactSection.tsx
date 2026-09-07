@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "@/components/icons/lucideIcons";
+import SectionBadge from "@/components/SectionBadge";
 import ContactForm from "./ContactForm";
 import {
   contactChannels,
@@ -6,6 +7,7 @@ import {
   officeAddress,
   type ContactLine,
 } from "./contactData";
+import ShimmerText from "@/components/ShimmerText";
 
 function SidebarMotif() {
   return (
@@ -38,15 +40,15 @@ export default function ContactSection() {
     >
       <div className="container">
         <header className="mx-auto mb-[48px] max-w-auto text-center max-sm:mb-[36px]">
-          <p className="text-h4 mb-[clamp(12px,1.5vw,16px)] text-zen-text">
+          <SectionBadge className="mx-auto mb-[clamp(12px,1.5vw,16px)]">
             {contactIntro.eyebrow}
-          </p>
+          </SectionBadge>
           <h1
             id="contact-title"
             className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
           >
             {contactIntro.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{contactIntro.accent}</span>
+            <ShimmerText>{contactIntro.accent}</ShimmerText>
           </h1>
           <p className="text-muted text-p1 mx-auto mt-[20px] max-w-auto">
             {contactIntro.description}

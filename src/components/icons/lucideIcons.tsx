@@ -383,6 +383,13 @@ export const MapPin = createIcon(
   </>,
 );
 
+export const Minus = createIcon(
+  "Minus",
+  <>
+    <path d="M5 12h14" />
+  </>,
+);
+
 export const Monitor = createIcon(
   "Monitor",
   <>
@@ -424,6 +431,14 @@ export const Play = createIcon(
   "Play",
   <>
     <polygon points="6 3 20 12 6 21 6 3" />
+  </>,
+);
+
+export const Plus = createIcon(
+  "Plus",
+  <>
+    <path d="M5 12h14" />
+    <path d="M12 5v14" />
   </>,
 );
 

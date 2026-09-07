@@ -1,5 +1,6 @@
 import { CircleCheck } from "@/components/icons/lucideIcons";
 import { aboutDirection } from "./aboutData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutDirectionSection() {
   return (
@@ -14,7 +15,7 @@ export default function AboutDirectionSection() {
             className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
           >
             {aboutDirection.title}{" "}
-            <span className="text-h2 shimmer-text text-orange">{aboutDirection.accent}</span>
+            <ShimmerText>{aboutDirection.accent}</ShimmerText>
           </h2>
 
           <div className="mt-[20px] flex flex-col gap-[20px]">

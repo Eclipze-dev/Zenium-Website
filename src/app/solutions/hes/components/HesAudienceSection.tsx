@@ -2,6 +2,7 @@ import SectionIntro from "@/app/home/components/SectionIntro";
 import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { audiences } from "./hesData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function HesAudienceSection() {
   return (
@@ -20,7 +21,7 @@ export default function HesAudienceSection() {
             </div>
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="WHO IT IS FOR">
-                Built for the{` `}<span className="text-orange text-h2 shimmer-text">AMI ecosystem</span>
+                Built for the{` `}<ShimmerText>AMI ecosystem</ShimmerText>
               </SectionIntro>
               <div className="flex flex-col gap-[30px]">
                 {audiences.map(([title, description]) => (

@@ -1,6 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SolutionFeatureGrid from "@/components/solutions/SolutionFeatureGrid";
 import { operationalTeams } from "./mdmData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmOperationalVisibilitySection() {
   return (
@@ -12,7 +13,7 @@ export default function MdmOperationalVisibilitySection() {
           text="Configurable dashboards, widgets and reports allow different teams to see the information relevant to their work."
         >
           Clear information for{" "}
-          <span className="text-orange text-h2 shimmer-text">every team</span>
+          <ShimmerText>every team</ShimmerText>
         </SectionIntro>
 
         <SolutionFeatureGrid items={operationalTeams} />

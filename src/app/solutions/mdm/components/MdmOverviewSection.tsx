@@ -1,4 +1,5 @@
 import SolutionFeaturePanel from "@/components/solutions/SolutionFeaturePanel";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmOverviewSection() {
   return (
@@ -7,7 +8,7 @@ export default function MdmOverviewSection() {
       title={
         <>
             Trusted data for {" "}
-          <p className="inline text-orange text-h2 shimmer-text">energy operations.</p>
+          <ShimmerText as="p">energy operations.</ShimmerText>
         </>
       }
     >

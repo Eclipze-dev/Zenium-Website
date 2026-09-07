@@ -1,6 +1,7 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
 import Button from "@/components/Button";
 import { aboutFinalCta } from "./aboutData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutFinalCtaSection() {
   return (
@@ -16,7 +17,7 @@ export default function AboutFinalCtaSection() {
           className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
         >
           {aboutFinalCta.title}{" "}
-          <span className="text-h2 shimmer-text text-orange">{aboutFinalCta.accent}</span>
+          <ShimmerText>{aboutFinalCta.accent}</ShimmerText>
         </h2>
         <p className="text-muted text-p1 mx-auto mt-[clamp(18px,2vw,26px)] max-w-auto">
           {aboutFinalCta.description}

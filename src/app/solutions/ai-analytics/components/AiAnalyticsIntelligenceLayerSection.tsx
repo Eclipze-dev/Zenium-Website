@@ -1,6 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import { intelligenceLayerItems } from "./aiAnalyticsData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function AiAnalyticsIntelligenceLayerSection() {
   const topRow = intelligenceLayerItems.slice(0, 3);
@@ -16,7 +17,7 @@ export default function AiAnalyticsIntelligenceLayerSection() {
           text="Zenium brings together meter, consumer, asset, network and operational data into a structured intelligence layer designed for analysis, prediction and decision support."
         >
           One intelligence layer for connected{" "}
-          <span className="text-orange text-h2 shimmer-text">utility operations.</span>
+          <ShimmerText>utility operations.</ShimmerText>
         </SectionIntro>
 
         <div className="flex flex-col gap-[10px]">
