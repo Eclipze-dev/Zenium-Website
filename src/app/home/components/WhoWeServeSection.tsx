@@ -12,7 +12,7 @@ export default function WhoWeServeSection() {
     >
       <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
         <div className="min-w-0">
-          <SectionIntro eyebrow="WHO WE SERVE" badge>
+          <SectionIntro eyebrow="WHO WE SERVE">
             <ShimmerText>Intelligence</ShimmerText>{` `}across the energy ecosystem.
           </SectionIntro>
           <p className="text-muted text-p1 my-[20px] mb-[26px]">

@@ -1,5 +1,5 @@
 export const contactIntro = {
-  eyebrow: "CONTACT US",
+  eyebrow: "CONTACT",
   title: "Let's start a",
   accent: "conversation",
   description:

@@ -136,7 +136,7 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
       // { label: "Leadership", href: "/company/leadership" },
       { label: "Careers", href: "/company/careers" },
       { label: "News & Events", href: "/company/news" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];

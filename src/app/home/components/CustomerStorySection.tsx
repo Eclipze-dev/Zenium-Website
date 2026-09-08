@@ -56,12 +56,17 @@ export default function CustomerStorySection() {
           2 million+ meters onboarded
         </p>
         <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
-          <div className="text-h3 text-[#2d5e9f] light-card-heading">
+        {/* <div className="text-h3 text-[#2d5e9f] light-card-heading">
             Punjab
             <span className="block text-button text-orange">
               Power
             </span>
-          </div>
+          </div> */}
+          <img
+            src="/PSPCL.png"
+            alt="Punjab State Power Corporation Ltd."
+            className="h-[48px] w-auto opacity-70 transition-opacity duration-300 hover:opacity-100 max-sm:h-[36px]"
+          />
           <blockquote className="text-p1 max-w-[850px] m-0 max-sm:text-base-lg max-sm:leading-[1.5]">
             "ZENIUM has helped us modernize our utility operations with a
             technology platform that is reliable, scalable, and built around our
