@@ -1,13 +1,13 @@
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import PrivacyPolicyContent from "./components/PrivacyPolicyContent";
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-zen-bg min-h-screen">
+    <div id="top" className="min-h-screen bg-w2">
       <SiteHeader />
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold text-zen-text">Privacy Policy</h1>
-        <p className="mt-4 text-muted">Privacy policy page coming soon.</p>
+      <main className="overflow-x-clip bg-w2">
+        <PrivacyPolicyContent />
       </main>
       <Footer />
     </div>

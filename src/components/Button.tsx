@@ -8,6 +8,7 @@ export default function Button({
   onClick,
   className,
   variant = "default",
+  showArrow = true,
 }: {
   children: React.ReactNode;
   outline?: boolean;
@@ -16,6 +17,8 @@ export default function Button({
   className?: string;
   /** News-style orange text + arrow. Default keeps the filled/outline button. */
   variant?: "default" | "text";
+  /** Only applies to variant="text". Defaults to true. */
+  showArrow?: boolean;
 }) {
   if (variant === "text") {
     const textClasses = cn(
@@ -26,11 +29,13 @@ export default function Button({
     const content = (
       <>
         {children}
-        <ArrowRightIcon
-          width={16}
-          height={16}
-          className="transition-transform duration-200"
-        />
+        {showArrow ? (
+          <ArrowRightIcon
+            width={16}
+            height={16}
+            className="transition-transform duration-200"
+          />
+        ) : null}
       </>
     );
 

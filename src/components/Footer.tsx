@@ -3,6 +3,7 @@ import {
   ArrowRightIcon,
   LinkedInIcon,
 } from "@/components/icons/icons";
+import CookieSettingsLink from "@/components/cookie-consent/CookieSettingsLink";
 import OptimizedImage from "@/components/OptimizedImage";
 
 type FooterLinkItem = {
@@ -71,16 +72,17 @@ function FooterBottomBar() {
           <span className="text-sm font-normal tracking-[0.04em] text-muted">
             &copy; Zenix Data Private Limited
           </span>
-          <div className="flex items-center gap-[28px] max-sm:gap-[20px]">
+          <div className="flex items-center gap-[28px] max-sm:flex-wrap max-sm:gap-[20px]">
+            <CookieSettingsLink />
             <a
               href="/privacy"
-              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-orange"
+              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange"
             >
               Privacy Policy
             </a>
             <a
               href="/terms"
-              className="text-sm font-normal tracking-[0.04em] text-muted transition-colors duration-200 hover:text-orange"
+              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange"
             >
               Terms &amp; Conditions
             </a>

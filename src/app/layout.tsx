@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import CookieConsentRoot from '@/components/cookie-consent/CookieConsentRoot';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
@@ -34,7 +35,7 @@ export default function RootLayout({
         className="m-0 bg-zen-bg text-white min-w-[320px] [&_a]:text-inherit [&_a]:no-underline [&_a]:[font:inherit] [&_button]:cursor-pointer [&_button]:[font:inherit]"
         style={{ background: 'var(--bg-gradient)', color: 'var(--text)' }}
       >
-        {children}
+        <CookieConsentRoot>{children}</CookieConsentRoot>
       </body>
     </html>
   );

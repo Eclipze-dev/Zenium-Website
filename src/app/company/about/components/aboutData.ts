@@ -59,7 +59,13 @@ export type AboutLeader = {
   name: string;
   title: string;
   image: string;
+  bio: string[];
 };
+
+const leadershipPlaceholderBio = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt culpa qui officia deserunt mollit anim id est laborum.",
+  "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor, lorem vitae ullamcorper consequat, justo sapien consectetur lectus, vitae tincidunt neque augue sed ipsum. Praesent blandit, nibh at interdum posuere, libero augue facilisis sem, vel malesuada urna justo vitae erat.",
+];
 
 export const aboutLeadership = {
   title: "Our",
@@ -71,21 +77,28 @@ export const aboutLeadership = {
       name: "JH",
       title: "Executive Director",
       image: "/img.png",
+      bio: leadershipPlaceholderBio,
     },
     {
       name: "Ramana Elchuri",
       title: "Chief Revenue Officer",
       image: "/img.png",
+      bio: leadershipPlaceholderBio,
     },
     {
       name: "Sreeju K B",
       title: "Chief Product Officer",
       image: "/img.png",
+      bio: [
+        "Sreeju K B is a product and technology leader with over two decades of experience in smart metering, smart grids and energy data platforms. For more than 14 years he has worked on Head End Systems (HES) and Meter Data Management (MDM), designing and scaling platforms that manage millions of smart meters and petabytes of energy data.",
+        "His experience covers the full product lifecycle — strategy and customer needs through architecture, development, deployment and growth, across large-scale smart metering programmes and data-driven grid operations. As Chief Product Officer, Sreeju drives Zenium's product strategy and technology direction, building intelligent, scalable platforms and energy analytics that help utilities operate more efficiently and advance towards smarter, more connected energy networks.",
+      ],
     },
     {
       name: "Satyadip Das",
       title: "Chief Technology Officer",
       image: "/img.png",
+      bio: leadershipPlaceholderBio,
     },
   ] satisfies AboutLeader[],
 };

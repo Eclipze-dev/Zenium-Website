@@ -37,6 +37,7 @@ const ServeAudienceTabs = ({
 
   return (
     <nav
+      id="serve-audience-tabs"
       ref={tablistRef}
       className="relative mt-[50px] flex border-b border-line max-sm:overflow-x-auto max-sm:[-ms-overflow-style:none] max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden"
       aria-label="Who we serve audiences"
