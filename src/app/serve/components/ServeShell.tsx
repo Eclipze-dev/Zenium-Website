@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import UtilitiesOverviewSection from "../utilities/components/UtilitiesContentSections";
 import { ServeAudienceOverviewSection } from "./ServeAudienceSections";
@@ -38,17 +38,14 @@ export default function ServeShell({
   const media = getServeHeroMedia(active);
   const prevPathnameRef = useRef<string | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const prevPathname = prevPathnameRef.current;
-    const html = document.documentElement;
-    const previous = html.style.scrollBehavior;
-    html.style.scrollBehavior = "auto";
 
     if (prevPathname === null) {
       // Fresh visit to Who We Serve — start at the top of the page.
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "auto" });
     } else if (prevPathname !== pathname) {
-      // Switching audience tabs — keep filters locked below the sticky header.
+      // Switching audience tabs — smoothly lock filters below the sticky header.
       const tabs = document.getElementById("serve-audience-tabs");
       const header = document.querySelector("header");
       if (tabs) {
@@ -59,12 +56,11 @@ export default function ServeShell({
           window.scrollY -
           headerHeight -
           TABS_GAP;
-        window.scrollTo(0, Math.max(0, top));
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
       }
     }
 
     prevPathnameRef.current = pathname;
-    html.style.scrollBehavior = previous;
   }, [pathname]);
 
   return (
