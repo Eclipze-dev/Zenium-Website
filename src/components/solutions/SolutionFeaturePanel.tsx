@@ -1,7 +1,7 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
-import OptimizedImage from "@/components/OptimizedImage";
 import { cn } from "@/lib/cn";
 import SolutionPanelCard from "./SolutionPanelCard";
+import SolutionPanelImage from "./SolutionPanelImage";
 
 const SolutionFeaturePanel = ({
   eyebrow,
@@ -10,6 +10,7 @@ const SolutionFeaturePanel = ({
   imageSide = "right",
   image = "/image.png",
   imageAlt = "Connected energy network",
+  bounded = false,
 }: {
   eyebrow: string;
   title: React.ReactNode;
@@ -17,34 +18,37 @@ const SolutionFeaturePanel = ({
   imageSide?: "left" | "right";
   image?: string;
   imageAlt?: string;
+  /** When true, show the full image in an inset frame instead of cover-fill. */
+  bounded?: boolean;
 }) => {
   const content = (
-    <div className="flex min-w-0 flex-col gap-5">
+    <div className="flex min-w-0 flex-col gap-5 max-sm:gap-4">
       <SectionIntro eyebrow={eyebrow}>{title}</SectionIntro>
-      <div className="text-p1 text-muted [&>p+p]:mt-5">{children}</div>
+      <div className="text-p1 text-muted [&>p+p]:mt-5 max-sm:text-[14px] max-sm:leading-[1.5] max-sm:[&>p+p]:mt-4">
+        {children}
+      </div>
     </div>
   );
 
   const visual = (
-    <div className="relative h-full min-h-[280px] w-full overflow-hidden rounded-[8px] max-md:min-h-[220px]">
-      <OptimizedImage
-        src={image}
-        alt={imageAlt}
-        fill
-        sizes="(max-width: 1280px) 100vw, 640px"
-        className="object-cover"
-      />
-    </div>
+    <SolutionPanelImage
+      src={image}
+      alt={imageAlt}
+      bounded={bounded}
+      sizes="(max-width: 1280px) 100vw, 640px"
+    />
   );
 
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <SolutionPanelCard>
           <div
             className={cn(
-              "grid w-full items-center gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]",
-              imageSide === "left" && "xl:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]",
+              "grid w-full gap-10 max-lg:gap-8 max-sm:gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]",
+              bounded ? "items-center" : "items-stretch",
+              imageSide === "left" &&
+                "xl:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]",
             )}
           >
             {imageSide === "left" ? (

@@ -9,7 +9,7 @@ import IndiaBuiltSection from "./components/IndiaBuiltSection";
 import CustomerStorySection from "./components/CustomerStorySection";
 import WhoWeServeSection from "./components/WhoWeServeSection";
 import PartnersSection from "./components/PartnersSection";
-import InsightsResourcesSection from "./components/InsightsResourcesSection";
+// import InsightsResourcesSection from "./components/InsightsResourcesSection";
 import FinalCtaSection from "./components/FinalCtaSection";
 
 export default function HomePage() {
@@ -32,7 +32,7 @@ export default function HomePage() {
         </div>
         <PartnersSection />
         <div className="bg-bg2">
-          <InsightsResourcesSection />
+          {/* <InsightsResourcesSection /> */}
         </div>
         <FinalCtaSection />
         <Footer />

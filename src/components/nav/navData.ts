@@ -181,18 +181,18 @@ export const companyAbout: MegaLink[] = [
 ];
 
 export const companyConnect: MegaLink[] = [
-  {
-    title: "Careers",
-    description: "Join the team building intelligent utility technology.",
-    href: "/company/careers",
-    icon: "briefcase",
-  },
-  {
-    title: "News & Events",
-    description: "Explore the latest Zenium updates and events.",
-    href: "/company/news",
-    icon: "newspaper",
-  },
+  // {
+  //   title: "Careers",
+  //   description: "Join the team building intelligent utility technology.",
+  //   href: "/company/careers",
+  //   icon: "briefcase",
+  // },
+  // {
+  //   title: "News & Events",
+  //   description: "Explore the latest Zenium updates and events.",
+  //   href: "/company/news",
+  //   icon: "newspaper",
+  // },
 ];
 
 export const mobileSolutions = [

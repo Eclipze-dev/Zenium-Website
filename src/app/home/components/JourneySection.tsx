@@ -5,7 +5,7 @@ import ShimmerText from "@/components/ShimmerText";
 
 export default function JourneySection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container relative z-[2]">
         <SectionIntro
           centered
@@ -16,7 +16,7 @@ export default function JourneySection() {
         >
           From meter to insight. From insight to{` `}<ShimmerText>action.</ShimmerText>
         </SectionIntro>
-        <div className="mt-[75px] grid grid-cols-4 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
+        <div className="mt-[75px] grid grid-cols-4 gap-[10px] max-lg:mt-[40px] max-lg:grid-cols-2 max-sm:grid-cols-1">
           {journey.map(({ label, title, text, icon }) => (
             <SurfaceFeatureCard
               key={label}
@@ -24,7 +24,7 @@ export default function JourneySection() {
               label={label}
               title={title}
               text={text}
-              className="min-h-[280px] max-sm:min-h-0"
+              className="min-h-[280px] max-lg:min-h-[240px] max-sm:min-h-0"
             />
           ))}
         </div>

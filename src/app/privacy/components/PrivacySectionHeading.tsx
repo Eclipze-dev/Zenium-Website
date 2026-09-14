@@ -19,7 +19,10 @@ export default function PrivacySectionHeading({
   textClassName,
 }: PrivacySectionHeadingProps) {
   return (
-    <h2 id={id} className={cn("m-0 text-common", className)}>
+    <h2
+      id={id}
+      className={cn("m-0 text-common", className)}
+    >
       {title}{" "}
       <ShimmerText textClassName={textClassName}>{accent}</ShimmerText>
     </h2>

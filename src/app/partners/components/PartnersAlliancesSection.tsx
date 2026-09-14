@@ -8,7 +8,7 @@ const marqueeLogos = [...allianceLogos, ...allianceLogos];
 export default function PartnersAlliancesSection() {
   return (
     <section
-      className="overflow-hidden container pt-[0px] pb-[80px] max-sm:py-[70px]"
+      className="overflow-hidden container pt-[0px] pb-[80px] max-lg:pb-[48px] max-sm:py-[70px]"
       aria-labelledby="partners-alliances-title"
     >
       <h2
@@ -21,7 +21,7 @@ export default function PartnersAlliancesSection() {
       <div className="relative mt-[50px] w-full overflow-hidden max-sm:mt-[40px]">
         <div
           className={cn(
-            "flex w-max items-center gap-[125px] px-[36px] will-change-transform",
+            "flex w-max items-center gap-[125px] px-[36px] will-change-transform max-lg:gap-[80px]",
             "animate-partners-marquee-rtl motion-reduce:animate-none",
             "hover:[animation-play-state:paused]",
           )}

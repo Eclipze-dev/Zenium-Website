@@ -5,14 +5,14 @@ import ShimmerText from "@/components/ShimmerText";
 export default function AboutDirectionSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-direction-title"
     >
       <div className="container">
         <div className="max-w-auto">
           <h2
             id="about-direction-title"
-            className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
+            className="text-h1 m-0"
           >
             {aboutDirection.title}{" "}
             <ShimmerText>{aboutDirection.accent}</ShimmerText>
@@ -39,7 +39,7 @@ export default function AboutDirectionSection() {
             ))}
           </ul>
 
-          <p className="mt-[20px] m-0 max-w-[1110px] rounded-[8px] bg-orange px-[28px] py-[22px] text-p1 italic text-white max-sm:px-[20px] max-sm:py-[18px]">
+          <p className="mt-[20px] m-0 max-w-[1110px] rounded-[8px] bg-orange px-[28px] max-lg:px-6 py-[22px] text-p1 italic text-white max-sm:px-[20px] max-sm:py-[18px]">
             {aboutDirection.callout}
           </p>
         </div>

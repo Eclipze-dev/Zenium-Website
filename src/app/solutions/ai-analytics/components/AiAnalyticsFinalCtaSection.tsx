@@ -5,7 +5,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function AiAnalyticsFinalCtaSection() {
   return (
     <section
-      className="relative overflow-hidden bg-box py-[80px] max-sm:py-[80px]"
+      className="relative overflow-hidden bg-box py-[80px] max-lg:py-[48px] max-sm:py-[80px]"
       aria-labelledby="ai-analytics-final-cta-title"
     >
       <CTANetworkBackground />
@@ -13,7 +13,7 @@ export default function AiAnalyticsFinalCtaSection() {
       <div className="container relative z-[2] text-center">
         <h2
           id="ai-analytics-final-cta-title"
-          className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
+          className="text-h1 m-0"
         >
           Turn utility data into better{" "}
           <ShimmerText>utility decisions.</ShimmerText>
@@ -22,7 +22,7 @@ export default function AiAnalyticsFinalCtaSection() {
           See how Zenium Analytics &amp; AI can help turn connected utility data into intelligence
           for revenue, assets and operations.
         </p>
-        <div className="mt-[40px] flex flex-wrap justify-center gap-[10px]">
+        <div className="mt-[40px] max-lg:mt-[32px] flex flex-wrap justify-center gap-[10px]">
           <Button href="/contact">Request a Demo</Button>
         </div>
       </div>

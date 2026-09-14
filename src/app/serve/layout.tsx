@@ -10,7 +10,7 @@ export default function ServeLayout({
   return (
     <div id="top" className="bg-bg1 min-h-screen">
       <SiteHeader />
-      <main className="overflow-x-clip">
+      <main>
         <ServeShell>{children}</ServeShell>
       </main>
       <Footer />

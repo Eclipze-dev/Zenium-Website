@@ -7,6 +7,9 @@ export default function HesInteroperabilitySection() {
     <SolutionFeaturePanel
       eyebrow="INTEROPERABILITY"
       imageSide="left"
+      image="/solutions/hes-interoperability.png"
+      imageAlt="HES interoperability"
+      bounded
       title={<>Built for mixed meter <ShimmerText>environments</ShimmerText></>}
     >
       <p>
@@ -19,7 +22,7 @@ export default function HesInteroperabilitySection() {
         standards-based integration with MDM, billing and other authorised utility
         systems.
       </p>
-      <div className="flex flex-wrap mt-[20px] gap-x-7 gap-y-2 text-button text-orange">
+      <div className="mt-[20px] flex flex-wrap gap-x-7 gap-y-2 text-button text-orange max-sm:gap-x-4 max-sm:gap-y-1.5 max-sm:text-[12px]">
         {interoperabilityItems.map((item) => (
           <span key={item}>{item}</span>
         ))}

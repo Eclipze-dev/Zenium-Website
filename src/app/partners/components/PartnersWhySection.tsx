@@ -5,8 +5,8 @@ import ShimmerText from "@/components/ShimmerText";
 
 export default function PartnersWhySection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px] bg-zenbg" id="why-zenium">
-      <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px] bg-zenbg" id="why-zenium">
+      <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-xl:grid-cols-1 max-xl:gap-[40px] max-lg:grid-cols-1 max-lg:gap-[36px]">
         <div className="min-w-0">
           <SectionIntro eyebrow="WHY ZENIUM">
             Proven technology.{" "}
@@ -29,7 +29,7 @@ export default function PartnersWhySection() {
               label={label}
               title={title}
               text={text}
-              className="min-h-[260px] p-[35px] max-sm:min-h-0"
+              className="min-h-[260px] p-[35px] max-lg:min-h-0 max-lg:p-[28px] max-sm:min-h-0"
             />
           ))}
         </div>

@@ -16,7 +16,7 @@ type FooterLinkItem = {
 function FooterLink({ label, href, arrow = false, disabled = false }: FooterLinkItem) {
   if (disabled) {
     return (
-      <span className="inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted opacity-40">
+      <span className="inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted opacity-40 max-lg:text-caption max-lg:leading-[1.45] max-sm:text-[12px]">
         {label}
       </span>
     );
@@ -25,7 +25,7 @@ function FooterLink({ label, href, arrow = false, disabled = false }: FooterLink
   return (
     <a
       href={href}
-      className="group/link inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted transition-colors duration-[200ms] hover:text-zen-text"
+      className="group/link inline-flex items-center gap-1.5 text-supporting font-normal leading-[1.5] text-muted transition-colors duration-[200ms] hover:text-zen-text max-lg:text-caption max-lg:leading-[1.45] max-sm:text-[12px]"
     >
       <span className="transition-colors duration-[200ms] group-hover/link:text-orange">
         {label}
@@ -34,7 +34,7 @@ function FooterLink({ label, href, arrow = false, disabled = false }: FooterLink
         <ArrowRightIcon
           width={13}
           height={13}
-          className="shrink-0 text-orange transition-transform duration-[200ms] group-hover/link:translate-x-1"
+          className="shrink-0 text-orange transition-transform duration-[200ms] group-hover/link:translate-x-1 max-lg:h-3 max-lg:w-3"
         />
       )}
     </a>
@@ -50,10 +50,10 @@ function FooterColumn({
 }) {
   return (
     <div className="min-w-0">
-      <h3 className="mb-[20px] text-p2">
+      <h3 className="mb-[20px] text-p2 max-lg:mb-[12px] max-lg:text-[13px] max-lg:leading-[1.35] max-lg:font-bold max-sm:mb-[10px] max-sm:text-[12px]">
         {heading}
       </h3>
-      <ul className="m-0 list-none text-button text-muted space-y-[12px] p-0">
+      <ul className="m-0 list-none text-button text-muted space-y-[12px] p-0 max-lg:space-y-[8px] max-sm:space-y-[8px]">
         {links.map((link) => (
           <li key={link.label}>
             <FooterLink {...link} />
@@ -67,22 +67,22 @@ function FooterColumn({
 function FooterBottomBar() {
   return (
     <div className="container">
-      <div className="border-t border-line py-[26px]">
+      <div className="border-t border-line py-[26px] max-lg:py-[20px] max-sm:py-[18px]">
         <div className="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-[14px]">
-          <span className="text-sm font-normal tracking-[0.04em] text-muted">
+          <span className="text-sm font-normal tracking-[0.04em] text-muted max-lg:text-caption max-sm:text-[11px]">
             &copy; Zenix Data Private Limited
           </span>
-          <div className="flex items-center gap-[28px] max-sm:flex-wrap max-sm:gap-[20px]">
+          <div className="flex items-center gap-[28px] max-lg:gap-[20px] max-sm:flex-wrap max-sm:gap-[16px]">
             <CookieSettingsLink />
             <a
               href="/privacy"
-              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange"
+              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange max-lg:text-caption max-sm:text-[11px]"
             >
               Privacy Policy
             </a>
             <a
               href="/terms"
-              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange"
+              className="text-sm font-normal tracking-[0.04em] text-zen-text transition-colors duration-200 hover:text-orange max-lg:text-caption max-sm:text-[11px]"
             >
               Terms &amp; Conditions
             </a>
@@ -136,8 +136,8 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
     links: [
       { label: "About Zenium", href: "/company/about" },
       // { label: "Leadership", href: "/company/leadership" },
-      { label: "Careers", href: "/company/careers" },
-      { label: "News & Events", href: "/company/news" },
+      // { label: "Careers", href: "/company/careers" },
+      // { label: "News & Events", href: "/company/news" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -156,9 +156,9 @@ export default function Footer() {
       {/* <AnimatedNetworkBackground /> */}
       <div className="relative z-10">
       {/* Navigation Area */}
-      <div className="container py-[64px] max-sm:py-[44px]">
-        <div className="flex justify-between gap-[20px]">
-          <div className="min-w-0 max-lg:col-span-3 max-sm:col-span-1">
+      <div className="container py-[64px] max-lg:py-[40px] max-sm:py-[44px]">
+        <div className="flex justify-between gap-[40px] max-xl:flex-col max-xl:gap-[40px]">
+          <div className="min-w-0 shrink-0">
             <a
               href="/"
               className="inline-flex items-center"
@@ -179,26 +179,11 @@ export default function Footer() {
                 className="hidden h-9 w-auto block max-sm:h-8 theme-logo-light"
               />
             </a>
-            <p className="mt-[20px] max-w-[280px] text-button text-muted">
+            <p className="mt-[20px] max-w-[280px] text-button text-muted max-lg:mt-[14px] max-lg:text-[13px] max-lg:leading-[1.45] max-sm:mt-[12px] max-sm:text-[12px] max-sm:leading-[1.45]">
               Turning connected utility data into intelligence.
             </p>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/link mt-[24px] inline-flex items-center gap-1.5 font-normal text-muted transition-colors duration-200 hover:text-zen-text"
-            >
-              {/* <LinkedInIcon
-                width={16}
-                height={16}
-                className="shrink-0 text-orange duration-200"
-              /> */}
-              <span className="text-button transition-colors duration-200 group-hover/link:text-orange">
-                LinkedIn
-              </span>
-            </a>
           </div>
-          <div className="grid grid-cols-[repeat(4,minmax(0,1fr))] gap-x-[20px] gap-y-[40px] max-lg:grid-cols-[1fr_1fr_1fr] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
+          <div className="grid min-w-0 flex-1 grid-cols-4 gap-x-[20px] gap-y-[40px] max-lg:gap-x-[12px] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
           {columns.map((col) => (
             <FooterColumn key={col.heading} {...col} />
           ))}

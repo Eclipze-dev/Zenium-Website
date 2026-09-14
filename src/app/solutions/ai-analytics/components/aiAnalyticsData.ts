@@ -56,14 +56,14 @@ export const utilityAnalyticsItems = [
     title: "Meter Data Intelligence",
     description:
       "Turn high-volume smart meter data into trusted, contextualised intelligence for billing, operations and analysis.",
-    image: "/meter-data-intelligence.png",
+    image: "/solutions/meter-data-intelligence.png",
     imageAlt: "Meter data intelligence illustration",
   },
   {
     title: "Grid & Network Analytics",
     description:
       "Analyse network conditions, consumption patterns and events to identify losses, anomalies and areas requiring attention.",
-    image: "/grid-network-analytics.png",
+    image: "/solutions/grid-network-analytics.png",
     imageAlt: "Grid and network analytics illustration",
   },
   {
@@ -72,28 +72,28 @@ export const utilityAnalyticsItems = [
       "Understand asset health, loading and performance using meter, network and available asset data. Identify emerging risks and help prioritise maintenance before issues escalate.",
     additionalDescription:
       "The supporting transformer-health material includes loading, thermal stress, voltage imbalance and power-quality indicators as inputs for assessing asset condition and prioritising intervention.",
-    image: "/asset-intelligence.png",
+    image: "/solutions/asset-intelligence.png",
     imageAlt: "Asset intelligence illustration",
   },
   {
     title: "Revenue Assurance & Protection",
     description:
       "Analyse consumption, meter events and network context to identify revenue leakage, billing exceptions, non-technical losses and potential theft — helping utilities strengthen revenue assurance and focus revenue protection efforts.",
-    image: "/revenue-assurance-protection.png",
+    image: "/solutions/revenue-assurance-protection.png",
     imageAlt: "Revenue assurance illustration",
   },
   {
     title: "Theft & Anomaly Detection",
     description:
       "Detect suspicious consumption patterns, meter tampering and anomalies to help identify higher-risk cases for investigation.",
-    image: "/theft-anomaly-detection.png",
+    image: "/solutions/theft-anomaly-detection.png",
     imageAlt: "Theft and anomaly detection illustration",
   },
   {
     title: "Operational Intelligence",
     description:
       "Bring utility data and analytical insights together to help teams identify priorities, investigate exceptions and make better-informed operational decisions.",
-    image: "/operational-intelligence.png",
+    image: "/solutions/operational-intelligence.png",
     imageAlt: "Operational intelligence illustration",
   },
 ] as const;

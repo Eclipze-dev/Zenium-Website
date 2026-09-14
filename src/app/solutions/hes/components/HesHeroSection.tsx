@@ -7,7 +7,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function HesHeroSection() {
   return (
     <section
-      className="relative overflow-hidden pb-[80px] pt-[50px] max-md:pt-24 max-md:pb-[70px]"
+      className="relative overflow-hidden pb-[80px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pt-24 max-md:pb-[70px]"
       aria-labelledby="hes-hero-title"
     >
       <div className="container">
@@ -16,7 +16,7 @@ export default function HesHeroSection() {
             <SectionBadge>HEAD-END SYSTEM</SectionBadge>
             <h1
               id="hes-hero-title"
-              className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
+              className="text-h1 m-0"
             >
               Connect every{" "}
               <ShimmerText>meter.</ShimmerText>

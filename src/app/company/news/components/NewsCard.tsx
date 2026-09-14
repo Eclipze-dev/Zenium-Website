@@ -29,7 +29,7 @@ const NewsCard = ({
         className,
       )}
     >
-      <div className="relative h-[318px] shrink-0 overflow-hidden rounded-[10px] bg-[#EEF1F4] max-sm:h-[160px]">
+      <div className="relative h-[318px] max-lg:h-[220px] shrink-0 overflow-hidden rounded-[10px] bg-[#EEF1F4] max-sm:h-[160px]">
         <OptimizedImage
           src={image}
           alt=""
@@ -42,7 +42,7 @@ const NewsCard = ({
       <div className="flex min-h-0 flex-1 flex-col pt-5">
         <span className="text-p2 font-normal uppercase text-black">{label}</span>
 
-        <h3 className="m-0 mt-4 text-h4 font-semibold text-black">{title}</h3>
+        <h3 className="m-0 mt-4 text-card-title font-semibold text-black">{title}</h3>
 
         <p className="m-0 mt-5 line-clamp-4 text-p3 font-normal text-black">
           {description}

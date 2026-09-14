@@ -5,9 +5,9 @@ import { utilitiesContent } from "../../components/serveData";
 
 export function UtilitiesSolutionsSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-[60px] items-start max-lg:grid-cols-1 max-lg:gap-[40px]">
-        <h2 className="text-h5 m-0 max-w-auto max-sm:text-[clamp(28px,7vw,36px)]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-[60px] items-start max-lg:grid-cols-1 max-lg:gap-[36px]">
+        <h2 className="text-h5 m-0 max-w-auto">
           Technology for the complete{" "}
           <span className="text-h5 text-orange">utility data journey.</span>
         </h2>
@@ -30,18 +30,18 @@ export function UtilitiesSolutionsSection() {
 
 export function UtilitiesPrioritiesSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container flex flex-col gap-[50px]">
-        <h2 className="text-h5 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container flex flex-col gap-[50px] max-lg:gap-[36px]">
+        <h2 className="text-h5 m-0">
           Built for different{" "}
           <span className="text-h5 text-orange">utility priorities.</span>
         </h2>
 
-        <div className="grid grid-cols-2 gap-[50px] max-lg:grid-cols-1">
+        <div className="grid grid-cols-2 gap-[50px] max-lg:grid-cols-1 max-lg:gap-[36px]">
           {utilitiesContent.priorities.map((card) => (
             <SolutionPanelCard
               key={card.label}
-              className="!items-start !gap-[24px] p-[36px] bg-box max-sm:p-[28px]"
+              className="!items-start !gap-[24px] p-[36px] bg-box max-lg:p-[28px] max-sm:p-[28px]"
             >
               <p className="m-0 text-button uppercase text-muted">
                 {card.label}
@@ -75,10 +75,10 @@ export function UtilitiesAmiNextSection() {
   const { amiNext } = utilitiesContent;
 
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <div className="max-w-auto">
-          <h2 className="text-h5 m-0 max-sm:text-[clamp(28px,7vw,36px)]">
+          <h2 className="text-h5 m-0">
             {amiNext.title}{" "}
             <span className="text-h5 text-orange">{amiNext.accent}</span>
           </h2>

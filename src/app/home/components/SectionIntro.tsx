@@ -29,23 +29,29 @@ export default function SectionIntro({
       )}
     >
       {badge ? (
-        <SectionBadge className="mb-[clamp(12px,1.5vw,10px)]">{eyebrow}</SectionBadge>
+        <SectionBadge className="mb-[clamp(12px,1.5vw,10px)] max-sm:mb-[10px]">
+          {eyebrow}
+        </SectionBadge>
       ) : (
-        <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text">
+        <p className="text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text max-sm:mb-[10px]">
           {eyebrow}
         </p>
       )}
       <h2
         className={cn(
-          "tracking-[0] m-0 max-sm:text-[clamp(28px,7vw,36px)] [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",
+          "tracking-[0] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",
           singleLine
-            ? "text-[clamp(24px,3.2vw,40px)] whitespace-nowrap max-sm:whitespace-normal"
+            ? "text-[clamp(24px,3.2vw,40px)] whitespace-nowrap max-lg:whitespace-normal max-lg:text-h1"
             : "text-h1",
         )}
       >
         {children}
       </h2>
-      {text && <p className="text-muted text-p1 mt-[20px]">{text}</p>}
+      {text && (
+        <p className="text-muted text-p1 mt-[20px] max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
+          {text}
+        </p>
+      )}
     </header>
   );
 }

@@ -3,7 +3,7 @@ import ShimmerText from "@/components/ShimmerText";
 
 export default function HesFoundationSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container flex flex-col items-center gap-5 text-center">
         <SectionIntro
           centered
@@ -16,7 +16,7 @@ export default function HesFoundationSection() {
           <ShimmerText>energy intelligence</ShimmerText>
         </SectionIntro>
 
-        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
+        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px] max-lg:px-6">
           <p className="text-p3 m-0 text-center italic text-zen-text">
             HES connects the infrastructure. MDM makes the data trustworthy.
             Analytics turns it into intelligence

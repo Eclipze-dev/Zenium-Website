@@ -6,19 +6,19 @@ export default function AiAnalyticsMaturitySection() {
   const [descriptive, predictive, prescriptive] = maturitySteps;
 
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container grid grid-cols-1 items-start gap-[60px] xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] max-lg:gap-[40px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container grid grid-cols-1 items-start gap-[60px] xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] max-lg:gap-[36px]">
         <SectionIntro eyebrow="INTELLIGENCE MATURITY">
           From knowing what happened to{" "}
           <ShimmerText>knowing what happens next.</ShimmerText>
         </SectionIntro>
 
-        <div className="flex flex-col gap-[50px]">
+        <div className="flex flex-col md:gap-[30px] lg:gap-[50px] max-lg:gap-[36px]">
           <div className="flex flex-col">
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {descriptive.label}
             </p>
-            <div className="mt-[10px] flex flex-col gap-[10px]">
+            <div className="lg:mt-[10px] md:mt-[5px] flex flex-col md:gap-[5px] lg:gap-[10px]">
               <h3 className="text-p2 m-0 text-zen-text">{descriptive.title}</h3>
               <p className="m-0 text-p1 text-muted">{descriptive.text}</p>
             </div>
@@ -28,20 +28,20 @@ export default function AiAnalyticsMaturitySection() {
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {predictive.label}
             </p>
-            <div className="mt-[10px] flex flex-col gap-[20px]">
-              <div className="flex flex-col gap-[10px]">
+            <div className="lg:mt-[10px] md:mt-[5px] flex flex-col gap-[10px]">
+              <div className="flex flex-col md:gap-[5px] lg:gap-[10px]">
                 <h3 className="text-p2 m-0 text-zen-text">{predictive.title}</h3>
                 <p className="m-0 text-p1 text-muted">{predictive.text}</p>
               </div>
 
               {predictive.insight && (
                 <>
-                  <div className="flex flex-col gap-[10px]">
+                  <div className="flex flex-col md:gap-[5px] lg:gap-[10px]">
                     <p className="text-p2 m-0 text-zen-text">{predictive.insight.heading}</p>
                     <p className="m-0 text-p1 text-muted">{predictive.insight.body}</p>
                   </div>
 
-                  <div className="flex flex-col gap-[10px]">
+                  <div className="flex flex-col md:gap-[5px] lg:gap-[10px]">
                     <p className="text-p2 m-0 text-zen-text">
                       {predictive.insight.recommendation} →
                     </p>
@@ -56,7 +56,7 @@ export default function AiAnalyticsMaturitySection() {
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {prescriptive.label}
             </p>
-            <div className="mt-[10px] flex flex-col gap-[10px]">
+            <div className="lg:mt-[10px] md:mt-[5px] flex flex-col md:gap-[5px] lg:gap-[10px]">
               <h3 className="text-p2 m-0 text-zen-text">{prescriptive.title}</h3>
               <p className="m-0 text-p1 text-muted">{prescriptive.text}</p>
             </div>

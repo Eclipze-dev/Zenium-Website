@@ -5,7 +5,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function CareersOpportunitiesSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="careers-opportunities-title"
     >
       <div className="container flex flex-col">
@@ -14,7 +14,7 @@ export default function CareersOpportunitiesSection() {
         </p>
         <h2
           id="careers-opportunities-title"
-          className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
+          className="text-h1 m-0"
         >
           {careersOpportunities.title}{" "}
           <ShimmerText>
@@ -25,7 +25,7 @@ export default function CareersOpportunitiesSection() {
           {careersOpportunities.description}
         </p>
 
-        <div className="mt-[100px] w-full max-w-auto">
+        <div className="mt-[100px] max-lg:mt-[64px] w-full max-w-auto">
           <CareersEmptyIllustration />
         </div>
 

@@ -2,10 +2,24 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { aboutLeadership, type AboutLeader } from "./aboutData";
 import ShimmerText from "@/components/ShimmerText";
 
+function renderBioParagraph(paragraph: string) {
+  const parts = paragraph.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={part} className="font-semibold">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 function LeadershipPortrait({ leader }: { leader: AboutLeader }) {
   return (
-    <article className="mx-auto flex w-full max-w-[900px] overflow-hidden rounded-[16px] bg-white max-md:flex-col">
-      <div className="flex w-[30%] shrink-0 flex-col self-stretch max-md:w-full">
+    <article className="mx-auto flex w-full max-w-[900px] overflow-hidden rounded-[16px] bg-white max-lg:flex-col max-md:flex-col">
+      <div className="flex w-[30%] max-lg:w-full shrink-0 flex-col self-stretch max-md:w-full">
         <div className="relative min-h-[220px] flex-1 overflow-hidden bg-[#EEF1F4] max-md:aspect-[4/3] max-md:min-h-0 max-md:flex-none">
           {leader.image ? (
             <OptimizedImage
@@ -25,10 +39,10 @@ function LeadershipPortrait({ leader }: { leader: AboutLeader }) {
         </div>
       </div>
 
-      <div className="flex w-[70%] flex-1 flex-col justify-center gap-[16px] px-8 py-12 max-md:px-6 max-md:py-6">
+      <div className="flex w-[70%] max-lg:w-full flex-1 flex-col justify-center gap-[16px] px-8 py-12 max-lg:px-6 max-lg:py-8 max-md:px-6 max-md:py-6">
         {leader.bio.map((paragraph) => (
           <p key={paragraph.slice(0, 48)} className="m-0 text-p1 text-common">
-            {paragraph}
+            {renderBioParagraph(paragraph)}
           </p>
         ))}
       </div>
@@ -39,14 +53,14 @@ function LeadershipPortrait({ leader }: { leader: AboutLeader }) {
 export default function AboutLeadershipSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-leadership-title"
     >
       <div className="container">
         <header className="max-w-auto text-center">
           <h2
             id="about-leadership-title"
-            className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,36px)]"
+            className="text-h1 m-0"
           >
             {aboutLeadership.title}{" "}
             <ShimmerText>{aboutLeadership.accent}</ShimmerText>
@@ -56,7 +70,7 @@ export default function AboutLeadershipSection() {
           </p>
         </header>
 
-        <div className="mt-[50px] flex flex-col gap-[50px]">
+        <div className="mt-[50px] flex flex-col gap-[50px] max-lg:gap-[36px]">
           {aboutLeadership.leaders.map((leader) => (
             <LeadershipPortrait key={leader.name} leader={leader} />
           ))}

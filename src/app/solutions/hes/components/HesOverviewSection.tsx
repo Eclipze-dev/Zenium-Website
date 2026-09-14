@@ -5,6 +5,8 @@ export default function HesOverviewSection() {
   return (
     <SolutionFeaturePanel
       eyebrow="ZENIUM HES"
+      image="/solutions/zenium-hes.png"
+      imageAlt="Zenium HES"
       title={
         <>
           The connection layer for{" "}

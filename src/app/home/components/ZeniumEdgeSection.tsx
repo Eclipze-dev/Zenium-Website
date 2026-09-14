@@ -131,8 +131,8 @@ export default function ZeniumEdgeSection() {
   const activeStage = STAGE_CYCLE[activeCapability % STAGE_CYCLE.length];
 
   return (
-    <section className="py-[80px] max-sm:py-[70px]" id="resources">
-      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.05fr)] gap-[60px] items-stretch max-lg:grid-cols-1 max-lg:gap-[40px] max-sm:gap-[30px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]" id="resources">
+      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.05fr)] gap-[60px] items-stretch max-xl:grid-cols-1 max-xl:gap-[40px] max-sm:gap-[30px]">
         <div className="min-w-0">
           <SectionIntro
             eyebrow="THE ZENIUM EDGE"
@@ -142,7 +142,7 @@ export default function ZeniumEdgeSection() {
             <ShimmerText>complexity</ShimmerText>
             {` `}of modern utilities.
           </SectionIntro>
-          <div className="mt-[80px] max-md:mt-[60px] max-sm:mt-[50px]">
+          <div className="mt-[80px] max-lg:mt-[40px] max-md:mt-[40px] max-sm:mt-[36px]">
             {capabilities.map(([Icon, title, text], index) => (
               <CapabilityItem
                 key={title}
@@ -162,7 +162,7 @@ export default function ZeniumEdgeSection() {
           </div>
         </div>
 
-        <div className="flex h-full min-h-0 w-full items-center justify-center max-lg:min-h-[520px] max-sm:min-h-[420px] max-sm:max-w-[460px] max-sm:mx-auto">
+        <div className="flex h-full min-h-0 w-full items-center justify-center max-xl:min-h-[480px] max-lg:min-h-[420px] max-sm:min-h-[280px] max-sm:max-w-[460px] max-sm:mx-auto">
           <ZeniumDataFlow
             fit
             activeStage={activeStage}

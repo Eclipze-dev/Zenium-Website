@@ -28,13 +28,10 @@ import {
 import {
   ArrowRightIcon,
   ChevronDownIcon,
-  CloseIcon,
-  MenuIcon,
 } from "@/components/icons/icons";
 import OptimizedImage from "@/components/OptimizedImage";
 import {
   companyAbout,
-  companyConnect,
   industryLinks,
   mobileSolutions,
   primaryNav,
@@ -121,7 +118,7 @@ function MegaItem({ item, onNavigate }: { item: MegaLink; onNavigate: () => void
       />
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
-          <span className="text-card font-semibold leading-tight text-white transition-colors duration-[180ms] group-hover:text-orange">
+          <span className="text-card font-semibold leading-tight text-nav-ink transition-colors duration-[180ms] group-hover:text-orange">
             {item.title}
           </span>
           {/* <ArrowRightIcon
@@ -160,7 +157,7 @@ function FeatureBlock({
       {children}
       <div className="relative z-[1]">
         <Label>{label}</Label>
-        <h3 className="max-w-[18ch] text-heading-sm font-semibold leading-[1.15] tracking-[-0.03em] text-white">
+        <h3 className="max-w-[18ch] text-heading-sm font-semibold leading-[1.15] tracking-[-0.03em] text-nav-ink max-lg:text-card-title">
           {heading}
         </h3>
         {copy && (
@@ -191,8 +188,8 @@ function SolutionsPanel({ onNavigate }: { onNavigate: () => void }) {
         heading="Turn utility data into intelligent action."
         copy="Connect utility data, analytics and intelligence in one platform."
         href="#solutions"
-        cta="Explore the Platform"
-        onNavigate={onNavigate}
+        // cta="Explore the Platform"
+        // onNavigate={onNavigate}
       >
         <UtilityNetwork />
       </FeatureBlock>
@@ -272,30 +269,26 @@ function ServePanel({ onNavigate }: { onNavigate: () => void }) {
 
 function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.34fr)_minmax(0,0.32fr)]">
-      <div>
-        <Label>About</Label>
-        {companyAbout.map((item) => (
-          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
-        ))}
-      </div>
-      <div>
-        <Label>Connect</Label>
-        {companyConnect.map((item) => (
-          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)]">
       <FeatureBlock
         label="THE ZENIUM VISION"
         heading="Intelligence for a more connected utility future."
         href="#company"
-        cta="Discover Zenium"
-        onNavigate={onNavigate}
+        // cta="Discover Zenium"
+        // onNavigate={onNavigate}
       >
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24">
           <DataFlowGraphic />
         </div>
       </FeatureBlock>
+      <div>
+        <Label>About</Label>
+        <div className="flex flex-col gap-1">
+          {companyAbout.map((item) => (
+            <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -314,7 +307,7 @@ const mobileNavChildren: Record<
   solutions: mobileSolutions,
   "who-we-serve": industryLinks,
   // resources: [...resourceLearn, ...resourceInsights],
-  company: [...companyAbout, ...companyConnect],
+  company: companyAbout,
 };
 
 function DemoButton({
@@ -332,6 +325,8 @@ function DemoButton({
       onClick={onClick}
       className={cn(
         "button-primary group inline-flex h-10 items-center justify-center gap-2 rounded-[4px] border px-4 text-body font-semibold transition-colors duration-[180ms]",
+        "max-lg:h-9 max-lg:gap-1.5 max-lg:px-3 max-lg:text-[13px]",
+        "max-sm:h-11 max-sm:px-4 max-sm:text-[13px]",
         full && "w-full",
         className,
       )}
@@ -346,6 +341,8 @@ export default function SiteHeader() {
   const pathname = usePathname() || "/";
   const [openId, setOpenId] = useState<MegaMenuId | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileDrawerMounted, setMobileDrawerMounted] = useState(false);
+  const [mobileDrawerEntered, setMobileDrawerEntered] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<MegaMenuId | null>(null);
   const rootRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number>();
@@ -415,15 +412,30 @@ export default function SiteHeader() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      setMobileDrawerMounted(true);
+      const id = window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => setMobileDrawerEntered(true));
+      });
+      return () => window.cancelAnimationFrame(id);
+    }
+
+    setMobileDrawerEntered(false);
+    setMobileExpanded(null);
+    const timeout = window.setTimeout(() => setMobileDrawerMounted(false), 320);
+    return () => window.clearTimeout(timeout);
+  }, [mobileOpen]);
+
   return (
     <header
       ref={rootRef}
-      className="sticky top-0 z-50 border-b border-nav-line bg-header "
+      className="sticky top-0 z-50 border-b border-nav-line bg-header"
       onMouseLeave={scheduleClose}
       onMouseEnter={cancelClose}
     >
       <div className="relative">
-      <div className="container grid h-20 grid-cols-[1fr_auto_1fr] items-center max-lg:flex max-lg:justify-between">
+      <div className="container grid h-20 grid-cols-[1fr_auto_1fr] items-center max-lg:flex max-lg:h-16 max-lg:justify-between">
         <a
           href="/"
           className="justify-self-start flex items-center"
@@ -436,7 +448,7 @@ export default function SiteHeader() {
             width={140}
             height={36}
             priority
-            className="h-9 w-auto block max-sm:h-7 theme-logo-dark"
+            className="h-9 w-auto block max-lg:h-8 max-sm:h-7 theme-logo-dark"
           />
           <OptimizedImage
             src="/ZENIUM_dark_logo.png"
@@ -444,7 +456,7 @@ export default function SiteHeader() {
             width={140}
             height={36}
             priority
-            className="hidden h-9 w-auto block max-sm:h-7 theme-logo-light"
+            className="hidden h-[32px] w-auto block max-lg:h-[30px] max-sm:h-7 theme-logo-light"
           />
         </a>
 
@@ -517,14 +529,34 @@ export default function SiteHeader() {
 
         <div className="flex items-center gap-2 lg:hidden">
           {/* <ThemeToggle /> */}
+          <DemoButton className="hidden h-9 px-3 text-caption max-lg:inline-flex max-sm:hidden" />
           <button
             type="button"
-            className="hidden border-0 bg-transparent text-white max-lg:block"
+            className="inline-flex h-10 w-10 items-center justify-center border-0 bg-transparent text-nav-ink"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
             onClick={toggleMobileOpen}
           >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+            <span className="relative block h-[18px] w-[22px]" aria-hidden>
+              <span
+                className={cn(
+                  "absolute left-0 h-[2px] w-full rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                  mobileOpen ? "top-[8px] rotate-45" : "top-0 rotate-0",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[8px] h-[2px] w-full rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                  mobileOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 h-[2px] w-full rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                  mobileOpen ? "top-[8px] -rotate-45" : "top-[16px] rotate-0",
+                )}
+              />
+            </span>
           </button>
         </div>
       </div>
@@ -544,9 +576,17 @@ export default function SiteHeader() {
         </div>
       )}
 
-      {mobileOpen && (
-        <div className="fixed bottom-0 left-0 right-0 top-20 z-40 flex flex-col bg-header lg:hidden">
-          <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile navigation">
+      {mobileDrawerMounted && (
+        <div
+          className={cn(
+            "fixed bottom-0 left-0 right-0 top-20 z-40 flex flex-col bg-header max-lg:top-16 lg:hidden",
+            "transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+            mobileDrawerEntered
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-2 opacity-0 pointer-events-none",
+          )}
+        >
+          <nav className="flex-1 overflow-y-auto px-5 py-4 max-lg:px-6 max-lg:py-3" aria-label="Mobile navigation">
             {primaryNav.map((item) => {
               const routeActive = isNavSectionActive(item.id, pathname);
 
@@ -558,10 +598,10 @@ export default function SiteHeader() {
                     onClick={closeAll}
                     aria-current={routeActive ? "page" : undefined}
                     className={cn(
-                      "block border-b border-nav-line py-4 text-base-lg",
+                      "block border-b border-nav-line py-4 text-base-lg max-lg:py-3.5 max-lg:text-body",
                       routeActive
-                        ? "font-bold text-orange"
-                        : "font-medium text-white",
+                        ? "font-bold !text-orange"
+                        : "font-medium !text-nav-ink",
                     )}
                   >
                     {item.label}
@@ -582,35 +622,60 @@ export default function SiteHeader() {
                     aria-current={routeActive ? "true" : undefined}
                     onClick={() => toggleMobileSection(id)}
                     className={cn(
-                      "flex w-full items-center justify-between py-4 text-left text-base-lg",
+                      "flex w-full items-center justify-between py-4 text-left text-base-lg max-lg:py-3.5 max-lg:text-body",
                       highlighted
-                        ? "font-bold text-orange"
-                        : "font-medium text-white",
+                        ? "font-bold !text-orange"
+                        : "font-medium !text-nav-ink",
                     )}
                   >
                     {item.label}
-                    <span className="text-card leading-none">{expanded ? "–" : "+"}</span>
+                    <span
+                      className={cn(
+                        "text-[18px] leading-none !text-nav-muted transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                        expanded && "rotate-45",
+                      )}
+                      aria-hidden
+                    >
+                      +
+                    </span>
                   </button>
-                  {expanded && (
-                    <div className="pb-3">
-                      {children.map((child) => (
-                        <a
-                          key={child.title}
-                          href={child.href}
-                          onClick={closeAll}
-                          className="block border-t border-nav-line py-3"
-                        >
-                          <span className="block text-body font-semibold text-white">{child.title}</span>
-                          <span className="mt-1 block text-caption text-nav-muted">{child.description}</span>
-                        </a>
-                      ))}
+                  <div
+                    className={cn(
+                      "grid transition-[grid-template-rows] duration-[380ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+                      expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                    )}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div
+                        className={cn(
+                          "pb-3 transition-opacity duration-300 ease-out",
+                          expanded ? "opacity-100" : "opacity-0",
+                        )}
+                      >
+                        {children.map((child) => (
+                          <a
+                            key={child.title}
+                            href={child.href}
+                            onClick={closeAll}
+                            className="block border-t border-nav-line py-3"
+                          >
+                            <span className="block text-body font-semibold !text-nav-ink">
+                              {child.title}
+                            </span>
+                            <span className="mt-1 block text-caption !text-nav-muted">
+                              {child.description}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}
           </nav>
-          <div className="p-5">
+          {/* Bottom CTA: phones only — tablet already has Request a Demo in the top bar */}
+          <div className="hidden border-t border-nav-line p-5 max-sm:block">
             <DemoButton full onClick={closeAll} />
           </div>
         </div>

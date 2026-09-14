@@ -8,8 +8,8 @@ export default function AiAnalyticsIntelligenceLayerSection() {
   const bottomRow = intelligenceLayerItems.slice(3);
 
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container flex flex-col gap-[50px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container flex flex-col gap-[50px] max-lg:gap-[36px]">
         <SectionIntro
           centered
           fullWidth
@@ -21,7 +21,8 @@ export default function AiAnalyticsIntelligenceLayerSection() {
         </SectionIntro>
 
         <div className="flex flex-col gap-[10px]">
-          <div className="grid grid-cols-1 gap-[10px] md:grid-cols-3">
+          {/* Desktop: 3 + 2 */}
+          <div className="hidden gap-[10px] lg:grid lg:grid-cols-3">
             {topRow.map(([Icon, title, description]) => (
               <SurfaceFeatureCard
                 key={title}
@@ -32,8 +33,7 @@ export default function AiAnalyticsIntelligenceLayerSection() {
               />
             ))}
           </div>
-
-          <div className="grid grid-cols-1 gap-[10px] md:grid-cols-2">
+          <div className="hidden gap-[10px] lg:grid lg:grid-cols-2">
             {bottomRow.map(([Icon, title, description]) => (
               <SurfaceFeatureCard
                 key={title}
@@ -41,6 +41,38 @@ export default function AiAnalyticsIntelligenceLayerSection() {
                 title={title}
                 text={description}
                 spacing="stack"
+              />
+            ))}
+          </div>
+
+          {/* Tablet only: 2 × 2 × 1 (last card full width) */}
+          <div className="hidden max-lg:grid max-sm:hidden grid-cols-2 gap-[10px]">
+            {intelligenceLayerItems.map(([Icon, title, description], index) => (
+              <SurfaceFeatureCard
+                key={`tablet-${title}`}
+                icon={Icon}
+                title={title}
+                text={description}
+                spacing="stack"
+                className={
+                  index === intelligenceLayerItems.length - 1
+                    ? "col-span-2"
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+
+          {/* Mobile only: one column for all cards */}
+          <div className="grid grid-cols-1 gap-[10px] sm:hidden">
+            {intelligenceLayerItems.map(([Icon, title, description]) => (
+              <SurfaceFeatureCard
+                key={`mobile-${title}`}
+                icon={Icon}
+                title={title}
+                text={description}
+                spacing="stack"
+                className="min-h-0"
               />
             ))}
           </div>

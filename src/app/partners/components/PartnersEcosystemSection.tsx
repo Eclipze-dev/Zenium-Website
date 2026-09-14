@@ -7,9 +7,9 @@ import {
 
 export default function PartnersEcosystemSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container grid grid-cols-1 gap-[50px] xl:grid-cols-2">
-        <SolutionPanelCard className="items-stretch !gap-0 p-[42px] max-sm:p-[28px] bg-[#0D2B4B]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container grid grid-cols-1 gap-[50px] max-lg:gap-[36px] xl:grid-cols-2">
+        <SolutionPanelCard className="items-stretch !gap-0 p-[42px] max-lg:p-[32px] max-sm:p-[28px] bg-[#0D2B4B]">
           <p className="text-button uppercase tracking-[0.08em] text-muted">
             WHO WE PARTNER WITH
           </p>
@@ -27,7 +27,7 @@ export default function PartnersEcosystemSection() {
           </div>
         </SolutionPanelCard>
 
-        <SolutionPanelCard className="h-full items-stretch !gap-0 p-[42px] max-sm:p-[28px] bg-[#0D2B4B]">
+        <SolutionPanelCard className="h-full items-stretch !gap-0 p-[42px] max-lg:p-[32px] max-sm:p-[28px] bg-[#0D2B4B]">
           <p className="text-button uppercase tracking-[0.08em] text-muted">FOR AMISPS</p>
           <h3 className="text-h3 m-0 mt-4 text-zen-text">
             From technical evaluation to{" "}
@@ -42,10 +42,22 @@ export default function PartnersEcosystemSection() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-full bg-white px-6 py-4 text-center max-sm:px-4">
+          {/* Desktop/tablet: single pill line */}
+          <div className="mt-10 hidden rounded-full bg-white px-6 py-4 text-center sm:block">
             <p className="m-0 text-button italic text-[#152D48]">
               {amispSupportTags.join(" · ")}
             </p>
+          </div>
+          {/* Mobile only: wrap as chips so the pill doesn't break */}
+          <div className="mt-8 flex flex-wrap gap-2 sm:hidden">
+            {amispSupportTags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-white px-3 py-1.5 text-[12px] italic leading-[1.35] text-[#152D48]"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </SolutionPanelCard>
       </div>

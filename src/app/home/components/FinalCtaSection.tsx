@@ -7,7 +7,7 @@ export default function FinalCtaSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-[80px] max-sm:py-[80px] bg-box"
+      className="relative overflow-hidden py-[80px] max-lg:py-[48px] max-sm:py-[80px] bg-box"
       aria-labelledby="final-cta-title"
     >
       <CTANetworkBackground />
@@ -18,15 +18,15 @@ export default function FinalCtaSection() {
         </p>
         <h2
           id="final-cta-title"
-          className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
+          className="text-h1 m-0"
         >
           Put it to work with <ShimmerText as="p">Zenium.</ShimmerText>
         </h2>
-        <p className="text-muted text-intro max-w-[680px] mx-auto mt-[clamp(18px,2vw,26px)]">
+        <p className="text-muted text-intro max-w-[680px] mx-auto mt-[clamp(18px,2vw,26px)] max-sm:text-[14px] max-sm:leading-[1.5]">
           Turn connected utility data into trusted information, deeper insight and smarter decisions.
         </p>
-        <div className="mt-[40px] flex justify-center">
-          <Button href="/contact">Request a Demo</Button>
+        <div className="mt-[40px] flex justify-center max-lg:mt-[32px] max-sm:mt-[28px]">
+          <Button href="/contact" className="max-sm:w-full">Request a Demo</Button>
         </div>
       </div>
     </section>

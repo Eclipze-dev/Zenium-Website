@@ -67,8 +67,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8 [color-scheme:light]">
-      <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8 max-lg:gap-6 [color-scheme:light]">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 max-lg:gap-x-6 max-lg:gap-y-6">
         <Field
           label="First Name"
           name="firstName"
@@ -109,10 +109,10 @@ export default function ContactForm() {
       </div>
 
       <fieldset className="m-0 min-w-0 border-0 p-0">
-        <legend className="mb-4 text-body font-medium text-[#152D48]">
+        <legend className="mb-4 text-body font-medium text-[#152D48] max-lg:mb-3">
           I&apos;m interested in
         </legend>
-        <div className="flex flex-wrap gap-x-7 gap-y-3">
+        <div className="flex flex-wrap gap-x-7 gap-y-3 max-lg:grid max-lg:grid-cols-4 max-lg:gap-x-6 max-lg:gap-y-3 max-sm:flex max-sm:flex-wrap max-sm:gap-x-7">
           {interestOptions.map((option, index) => (
             <label
               key={option}
@@ -149,11 +149,11 @@ export default function ContactForm() {
       <div>
         <button
           type="submit"
-          className="button-primary inline-flex items-center justify-center rounded-[4px] border px-[22px] py-[11px] text-button transition-all duration-200"
+          className="button-primary inline-flex items-center justify-center rounded-[4px] border px-[22px] py-[11px] text-button transition-all duration-200 max-lg:w-auto max-lg:px-[16px] max-lg:py-[9px] max-lg:text-[13px] max-lg:leading-[18px] max-sm:w-full max-sm:px-[14px] max-sm:py-[10px] max-sm:text-[12px]"
         >
           Send Message
         </button>
-        <p className="mt-4 text-supporting text-[#8A97A5]">
+        <p className="mt-4 text-supporting text-[#8A97A5] max-lg:mt-3">
           By submitting this form, you agree to Zenium&apos;s{" "}
           <a
             href="/privacy"

@@ -10,7 +10,7 @@ export default function SolutionPanelCard({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-[75px] self-stretch rounded-[20px] border border-[#152D48] bg-[#0A1725] p-[30px]",
+        "flex flex-col items-center gap-[75px] self-stretch rounded-[20px] border border-[#152D48] bg-[#0A1725] p-[30px] max-lg:gap-[36px] max-lg:p-[24px] max-sm:gap-[28px] max-sm:rounded-[16px] max-sm:p-[18px]",
         className,
       )}
     >

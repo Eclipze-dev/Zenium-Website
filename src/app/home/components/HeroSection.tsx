@@ -8,7 +8,7 @@ import { metrics } from "./homeData";
 export default function HeroSection() {
   return (
     <section
-      className="relative flex items-center min-h-[100svh] overflow-hidden pt-0 pb-[80px] max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
+      className="relative flex items-center min-h-[100svh] overflow-hidden pt-0 pb-[80px] max-lg:min-h-0 max-lg:pt-[48px] max-lg:pb-[48px] max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
       aria-labelledby="hero-title"
     >
       <OptimizedImage
@@ -22,7 +22,7 @@ export default function HeroSection() {
       />
       {/* Readability scrim over the photo */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 md:!bg-black/50 lg:!bg-black/0"
         aria-hidden
       />
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
           </SectionBadge>
           <p
             id="hero-title"
-            className="text-h1 m-0 max-w-full max-sm:text-[clamp(32px,7vw,40px)]"
+            className="text-h1 m-0 max-w-full"
           >
             Turn energy data into intelligence.
             <HeroTypewriter />
@@ -44,13 +44,13 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-[10px] mt-[clamp(18px,2.5vw,30px)]">
             <Button href="/contact">Request a Demo</Button>
-            <Button outline>Explore Zenium</Button>
+            <Button outline href="/solutions/hes">Explore Zenium</Button>
           </div>
         </div>
-        <div className="mt-[75px]">
+        <div className="mt-[75px] max-lg:mt-[40px] max-sm:mt-[40px]">
           <HeroStats items={metrics} />
         </div>
-        <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto max-sm:text-body mt-[20px]">
+        <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto mt-[20px] max-lg:text-[13px] max-lg:leading-[1.4] max-lg:tracking-[0.06em] max-sm:text-caption max-sm:tracking-[0.05em]">
           Built on real-world utility experience.
         </div>
       </div>

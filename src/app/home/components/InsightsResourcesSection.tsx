@@ -11,7 +11,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function InsightsResourcesSection() {
   return (
     <section
-      className="py-[80px] text-center max-sm:py-[70px]"
+      className="py-[80px] text-center max-lg:py-[48px] max-sm:py-[70px]"
       id="company"
     >
       <div className="container">
@@ -22,7 +22,7 @@ export default function InsightsResourcesSection() {
         >
           Thinking beyond the <ShimmerText>meter.</ShimmerText>
         </SectionIntro>
-        <div className="mt-[75px] grid grid-cols-3 gap-[10px] text-left max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div className="mt-[75px] grid grid-cols-3 gap-[10px] text-left max-lg:mt-[40px] max-md:grid-cols-2 max-sm:grid-cols-1">
           {resources.map(({ type, title, text, cta, icon, action }) => (
             <SurfaceFeatureCard
               key={title}

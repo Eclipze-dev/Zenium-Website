@@ -7,7 +7,7 @@ export const aboutIntro = {
     "Zenium is supported by Greater Pacific Capital, an established private equity firm with a strong focus on investing in India and supporting the growth of Indian businesses.",
     "As utilities move towards AMI 2.0, Zenium is helping organisations evolve beyond basic meter connectivity towards more intelligent, flexible and data-driven operations.",
   ],
-  image: "/news/news-turning-utility-data.png",
+  image: "/about/about-1.png",
   imageAlt:
     "Utility transmission towers with connected smart-grid data network",
 };
@@ -31,7 +31,7 @@ export const aboutExperience = {
     "Our experience across HES, MDM and large-scale metering programmes enables us to understand these requirements and develop technology grounded in the realities of utility operations.",
     "Zenium supports utilities and organisations across the wider ecosystem, including C&I businesses, smart cities, microgrids and prosumers.",
   ],
-  image: "/news/news-turning-utility-data.png",
+  image: "/about/about-2.png",
   imageAlt:
     "Utility transmission towers with connected smart-grid data network",
 };
@@ -74,10 +74,13 @@ export const aboutLeadership = {
     "Zenium's leadership team brings together experience in utility technology, product development, engineering, partnerships and business growth.",
   leaders: [
     {
-      name: "JH",
+      name: "Jean-Hervé Jenn",
       title: "Executive Director",
       image: "/img.png",
-      bio: leadershipPlaceholderBio,
+      bio: [
+        "Prior to joining Zenium, Chairman of **Future Analytica**, an AI/ML platform since 2023, CEO of **Inatech**, a Glencore company, a Trading and Risk Management software platform for the Energy industry since 2012, EMEA President of **Teleperformance**, managing 32,000 people over 25 countries, President of **Convergys** International covering Convergys' Billing and customer care divisions, Executive Director at **Goldman-Sachs**, and Head of the European Information, Telecommunication and Entertainment practice for **KPMG** and co-founder of KPMG Ventures.",
+        "Earned master's degrees in science from ESTP in Paris and in management from the University of California at Los Angeles. Also completed the Executive Management Program at INSEAD, France. Member of the Institute of Chartered Accountants of England and trade representative to the Financial Services Authority. Dual French/American citizen.",
+      ],
     },
     {
       name: "Ramana Elchuri",

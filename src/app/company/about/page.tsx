@@ -17,7 +17,7 @@ export default function AboutPage() {
         <AboutDecisionsSection />
         <AboutExperienceSection />
         <AboutDirectionSection />
-        <AboutLeadershipSection />
+        {/* <AboutLeadershipSection /> */}
         <AboutFaqSection />
         <AboutFinalCtaSection />
       </main>

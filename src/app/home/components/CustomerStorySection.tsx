@@ -36,7 +36,7 @@ export default function CustomerStorySection() {
   }, []);
 
   return (
-    <section className="py-[80px] text-center">
+    <section className="py-[80px] max-lg:py-[48px] text-center">
       <div className="container">
         <SectionIntro centered fullWidth eyebrow="CUSTOMER STORY">
           <p className="text-h1 font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
@@ -44,18 +44,18 @@ export default function CustomerStorySection() {
             electricity deployments.
           </p>
         </SectionIntro>
-        <p className="text-muted text-p1 my-[20px] mb-[60px] max-sm:text-caption">
-          Punjab electricity deployment{" "}
-          <i className="not-italic text-orange px-2 font-bold max-sm:px-[3px]">
+        <p className="text-muted text-p1 my-[20px] mb-[60px] max-lg:mb-[32px] max-sm:mb-[32px] max-sm:flex max-sm:flex-col max-sm:gap-1.5 max-sm:text-caption">
+          <span>Punjab electricity deployment</span>
+          <i className="not-italic text-orange px-2 font-bold max-sm:hidden">
             ·
-          </i>{" "}
-          5 million meter-point MDM{" "}
-          <i className="not-italic text-orange px-2 font-bold max-sm:px-[3px]">
+          </i>
+          <span>5 million meter-point MDM</span>
+          <i className="not-italic text-orange px-2 font-bold max-sm:hidden">
             ·
-          </i>{" "}
-          2 million+ meters onboarded
+          </i>
+          <span>2 million+ meters onboarded</span>
         </p>
-        <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
+        <article className="max-w-[995px] mx-auto bg-card rounded-[8px] border border-line text-zen-text p-[45px_60px] flex flex-col items-center gap-6 max-lg:p-[36px_32px] max-md:p-[32px_24px] max-sm:p-[28px_20px] light-card">
         {/* <div className="text-h3 text-[#2d5e9f] light-card-heading">
             Punjab
             <span className="block text-button text-orange">
@@ -81,7 +81,7 @@ export default function CustomerStorySection() {
             </span>
           </div>
         </article>
-        <div className="flex justify-center gap-[6px] mt-[28px]">
+        {/* <div className="flex justify-center gap-[6px] mt-[28px]">
           {Array.from({ length: STORY_SLIDE_COUNT }, (_, slide) => (
             <StorySlideDot
               key={slide}
@@ -90,7 +90,7 @@ export default function CustomerStorySection() {
               onSelect={selectSlide}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

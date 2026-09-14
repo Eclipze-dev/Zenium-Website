@@ -16,6 +16,12 @@ export default function AboutFaqSection() {
     if (!list) return;
 
     const measure = () => {
+      // On mobile, skip reserved height — short answers leave a large empty gap.
+      if (window.matchMedia("(max-width: 639px)").matches) {
+        setListMinHeight(undefined);
+        return;
+      }
+
       const rows = Array.from(
         list.querySelectorAll<HTMLElement>("[data-faq-row]"),
       );
@@ -40,13 +46,13 @@ export default function AboutFaqSection() {
 
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-faq-title"
     >
       <div className="container grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start gap-[60px] max-lg:grid-cols-1 max-lg:gap-[36px]">
         <h2
           id="about-faq-title"
-          className="text-h1 m-0 max-w-auto max-sm:text-[clamp(28px,7vw,36px)]"
+          className="text-h1 m-0 max-w-auto"
         >
           {aboutFaq.title}{" "}
           <ShimmerText>{aboutFaq.accent}</ShimmerText>

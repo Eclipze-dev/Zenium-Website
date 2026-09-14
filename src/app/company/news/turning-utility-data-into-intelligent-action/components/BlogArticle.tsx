@@ -8,26 +8,26 @@ import ShimmerText from "@/components/ShimmerText";
 
 const BlogArticle = () => {
   return (
-    <section className="pb-[64px] pt-[50px] max-md:pb-[48px] max-md:pt-24">
+    <section className="pb-[64px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pb-[48px] max-md:pt-24">
       <div className="container">
         <div className="mx-auto max-w-auto">
-          <div className="flex items-start justify-between gap-6">
+          <div className="flex items-start justify-between gap-6 max-sm:flex-col max-sm:gap-3">
             <SectionBadge>{blogPost.eyebrow}</SectionBadge>
-            <Button href="/company/news" className="shrink-0 px-[16px] py-[8px]">
+            <Button href="/company/news" className="shrink-0 px-[16px] py-[8px] max-sm:w-full">
               Back
             </Button>
           </div>
 
-          <h1 className="text-h1 m-0 mt-[20px] text-common max-sm:mt-[22px] max-sm:text-[clamp(32px,7vw,40px)]">
+          <h1 className="text-h1 m-0 mt-[20px] text-common max-sm:mt-[22px]">
             {blogPost.title}{" "}
             <ShimmerText>{blogPost.accent}</ShimmerText>
           </h1>
 
-          <p className="mt-[20px] text-p1 leading-relaxed text-common2">
+          <p className="mt-[20px] text-p1 leading-relaxed text-common2 max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
             {blogPost.intro}
           </p>
 
-          <div className="relative mt-[50px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#EEF1F4] max-sm:mt-[28px]">
+          <div className="relative mt-[50px] max-lg:mt-[32px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#EEF1F4] max-sm:mt-[28px] max-sm:aspect-[16/9]">
             <OptimizedImage
               src={blogPost.image}
               alt={blogPost.imageAlt}

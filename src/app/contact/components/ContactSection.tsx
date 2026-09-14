@@ -35,17 +35,17 @@ function ChannelIcon({ type }: { type: ContactLine["type"] }) {
 export default function ContactSection() {
   return (
     <section
-      className="relative overflow-hidden pb-[80px] pt-[50px] max-md:pb-[70px] max-md:pt-24"
+      className="relative overflow-hidden pb-[80px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pb-[70px] max-md:pt-24"
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <header className="mx-auto mb-[48px] max-w-auto text-center max-sm:mb-[36px]">
+        <header className="mx-auto mb-[48px] max-lg:mb-[36px] max-w-auto text-center max-sm:mb-[36px]">
           <SectionBadge className="mx-auto mb-[clamp(12px,1.5vw,16px)]">
             {contactIntro.eyebrow}
           </SectionBadge>
           <h1
             id="contact-title"
-            className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
+            className="text-h1 m-0"
           >
             {contactIntro.title}{" "}
             <ShimmerText>{contactIntro.accent}</ShimmerText>
@@ -59,7 +59,7 @@ export default function ContactSection() {
           <div className="grid gap-3 lg:grid-cols-[minmax(260px,1fr)_minmax(0,2fr)] lg:gap-4">
             <aside className="relative overflow-hidden rounded-[16px] bg-common px-8 py-10 text-[#FFFFFF] max-sm:px-6 max-sm:py-8 lg:min-h-[560px] lg:px-10 lg:py-12">
               <SidebarMotif />
-              <div className="relative z-[1] flex flex-col gap-[70px]">
+              <div className="relative z-[1] flex flex-col gap-[70px] max-lg:gap-[48px]">
                 {contactChannels.map((channel) => (
                   <div key={channel.title}>
                     <h2 className="m-0 text-h3 font-semibold mb-[20px] text-[#FFFFFF]">
@@ -106,7 +106,7 @@ export default function ContactSection() {
               </div>
             </aside>
 
-            <div className="rounded-[16px] bg-white px-8 py-10 max-sm:px-6 max-sm:py-8 lg:px-12 lg:py-12">
+            <div className="rounded-[16px] bg-white px-8 py-10 max-lg:px-6 max-lg:py-8 max-sm:px-6 max-sm:py-8 lg:px-12 lg:py-12">
               <ContactForm />
             </div>
           </div>

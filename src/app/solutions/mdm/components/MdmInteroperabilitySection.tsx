@@ -10,8 +10,11 @@ import ShimmerText from "@/components/ShimmerText";
 export default function MdmInteroperabilitySection() {
   return (
     <SolutionFeaturePanel
+      bounded
       eyebrow="CONNECTED OPERATIONS"
       imageSide="left"
+      image="/solutions/mdm-connected-operations.png"
+      imageAlt="MDM connected operations"
       title={
         <>
           Trusted data wherever it is{" "}
@@ -37,13 +40,13 @@ export default function MdmInteroperabilitySection() {
         ))}
       </ul>
 
-      <div className="mt-[20px] flex flex-col gap-2">
-        <div className="flex flex-wrap gap-x-7 gap-y-2 text-button text-orange">
+        <div className="mt-[20px] flex flex-col gap-2">
+        <div className="flex flex-wrap gap-x-7 gap-y-2 text-button text-orange max-sm:gap-x-4 max-sm:gap-y-1.5 max-sm:text-[12px]">
           {integrationTags.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </div>
-        <p className="text-button text-orange m-0">{integrationFooter}</p>
+        <p className="text-button text-orange m-0 max-sm:text-[12px]">{integrationFooter}</p>
       </div>
     </SolutionFeaturePanel>
   );

@@ -6,29 +6,35 @@ import PrivacyCheckList from "./PrivacyCheckList";
 import PrivacySectionHeading from "./PrivacySectionHeading";
 import { privacyIntro, privacyMeta, privacySections } from "./privacyData";
 
-function linkifyWebsite(text: string) {
-  const marker = "www.zenium.ai";
-  if (!text.includes(marker)) return text;
-
-  const [before, after] = text.split(marker);
-  return (
-    <>
-      {before}
-      <a
-        href="https://www.zenium.ai"
-        className="!underline underline-offset-2 transition-colors duration-200 hover:!underline hover:text-orange"
-      >
-        {marker}
-      </a>
-      {after}
-    </>
-  );
+function renderRichText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|www\.zenium\.ai)/g);
+  return parts.map((part, index) => {
+    if (part === "www.zenium.ai") {
+      return (
+        <a
+          key={`${part}-${index}`}
+          href="https://www.zenium.ai"
+          className="transition-colors duration-200 !text-common !font-bold hover:!underline hover:text-orange"
+        >
+          {part}
+        </a>
+      );
+    }
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={`${part}-${index}`} className="font-bold text-common">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
 }
 
 export default function PrivacyPolicyContent() {
   return (
     <section
-      className="bg-w2 pt-[50px] pb-[80px] max-md:pt-24"
+      className="bg-w2 pt-[50px] pb-[80px] max-lg:pt-[40px] max-lg:pb-[48px] max-md:pt-24"
       aria-labelledby="privacy-policy-title"
     >
       <div className="container">
@@ -51,12 +57,12 @@ export default function PrivacyPolicyContent() {
                 key={paragraph.slice(0, 48)}
                 className="m-0 text-p1 text-common2"
               >
-                {linkifyWebsite(paragraph)}
+                {renderRichText(paragraph)}
               </p>
             ))}
           </div>
 
-          <div className="mt-[50px] flex flex-col gap-[50px]">
+          <div className="mt-[50px] flex flex-col gap-[50px] max-lg:gap-[36px]">
             {privacySections.map((section) => {
               if (section.type === "list") {
                 return (
@@ -76,7 +82,10 @@ export default function PrivacyPolicyContent() {
                           <p className="m-0 text-p1 text-common2">
                             You can change or withdraw your cookie consent at
                             any time through{" "}
-                            <CookieSettingsLink className="inline p-0 text-p1 font-medium tracking-normal !text-common2 !underline underline-offset-2 transition-colors duration-200 hover:!underline hover:!text-orange" />
+                            <CookieSettingsLink
+                              variant="inline"
+                              className="inline p-0"
+                            />
                             .
                           </p>
                           {section.footer ? (

@@ -1,25 +1,21 @@
 import { CircleCheck } from "@/components/icons/lucideIcons";
 import SectionIntro from "@/app/home/components/SectionIntro";
-import OptimizedImage from "@/components/OptimizedImage";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
+import SolutionPanelImage from "@/components/solutions/SolutionPanelImage";
 import { analyticsApplications, analyticsFoundationQuote } from "./mdmData";
 import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmAudienceSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <SolutionPanelCard className="gap-[40px]">
-          <div className="grid w-full items-center gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
-            <div className="relative h-full max-h-[540px] min-h-[280px] w-full overflow-hidden rounded-[20px]">
-              <OptimizedImage
-                src="/image.png"
-                alt="Connected energy infrastructure"
-                fill
-                sizes="(max-width: 1280px) 100vw, 600px"
-                className="object-cover"
-              />
-            </div>
+          <div className="grid w-full items-stretch gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
+            <SolutionPanelImage
+              src="/solutions/mdm-energy-analytics.png"
+              alt="MDM energy analytics"
+              sizes="(max-width: 1280px) 100vw, 600px"
+            />
             <div className="flex min-w-0 flex-col gap-5">
               <SectionIntro eyebrow="ENERGY ANALYTICS">
                 The foundation for{" "}
@@ -27,8 +23,8 @@ export default function MdmAudienceSection() {
               </SectionIntro>
 
               <p className="text-p1 text-muted m-0">
-                Once meter data is validated and organised, it can support a wider
-                range of operational and business intelligence.
+                Once meter data is validated and organised, it can support a
+                wider range of operational and business intelligence.
               </p>
 
               <h3 className="text-p2 m-0 text-white/70">Analytics Applications</h3>

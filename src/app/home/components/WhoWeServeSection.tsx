@@ -7,23 +7,23 @@ import ShimmerText from "@/components/ShimmerText";
 export default function WhoWeServeSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       id="who-we-serve"
     >
-      <div className="container grid grid-cols-[450px_1fr] gap-[60px] items-center max-lg:grid-cols-1 max-lg:gap-[40px]">
+      <div className="container grid grid-cols-[minmax(280px,380px)_1fr] gap-[60px] items-center max-xl:grid-cols-1 max-xl:gap-[40px]">
         <div className="min-w-0">
           <SectionIntro eyebrow="WHO WE SERVE">
             <ShimmerText>Intelligence</ShimmerText>{` `}across the energy ecosystem.
           </SectionIntro>
-          <p className="text-muted text-p1 my-[20px] mb-[26px]">
+          <p className="text-muted text-p1 my-[20px] mb-[26px] max-sm:my-[14px] max-sm:mb-[20px] max-sm:text-[14px] max-sm:leading-[1.5]">
             Zenium&apos;s technology is designed for the evolving needs of utilities
             and the wider energy ecosystem.
           </p>
-          <Button href="/serve/utilities">
+          <Button href="/serve/utilities" className="max-sm:w-full">
             <span>Explore Who We Serve</span>
           </Button>
         </div>
-        <div className="min-w-0 grid grid-cols-6 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
+        <div className="min-w-0 grid grid-cols-6 gap-[10px] max-xl:grid-cols-2 max-sm:grid-cols-1">
           {audiences.map(([title, text, Icon], i) => (
             <SurfaceFeatureCard
               key={title}
@@ -32,8 +32,8 @@ export default function WhoWeServeSection() {
               text={text}
               className={
                 i < 3
-                  ? "col-span-2 min-h-[230px] p-[35px] max-lg:col-span-1 max-sm:min-h-0"
-                  : "col-span-3 min-h-[230px] p-[35px] max-lg:col-span-1 max-sm:min-h-0"
+                  ? "col-span-2 min-h-[230px] p-[35px] max-xl:col-span-1 max-xl:min-h-[200px] max-lg:p-[28px] max-sm:min-h-0"
+                  : "col-span-3 min-h-[230px] p-[35px] max-xl:col-span-1 max-xl:min-h-[200px] max-lg:p-[28px] max-sm:min-h-0"
               }
             />
           ))}

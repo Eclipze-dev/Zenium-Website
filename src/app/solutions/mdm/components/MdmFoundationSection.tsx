@@ -4,7 +4,7 @@ import ShimmerText from "@/components/ShimmerText";
 
 export default function MdmFoundationSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container flex flex-col items-center gap-5 text-center">
         <SectionIntro
           centered

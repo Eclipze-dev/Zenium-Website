@@ -10,8 +10,8 @@ import ShimmerText from "@/components/ShimmerText";
 
 const AiAnalyticsUtilityAnalyticsSection = () => {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container flex flex-col gap-[50px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container flex flex-col gap-[50px] max-lg:gap-[36px]">
         <SectionIntro centered singleLine eyebrow="UTILITY ANALYTICS">
           Intelligence across the{" "}
           <ShimmerText>utility value chain.</ShimmerText>
@@ -25,13 +25,13 @@ const AiAnalyticsUtilityAnalyticsSection = () => {
                 "flex h-full flex-col items-stretch gap-[18px] rounded-[8px] p-6 xl:p-8",
               )}
             >
-              <div className="relative h-[240px] overflow-hidden rounded-[8px] bg-white">
+              <div className="relative h-[240px] max-lg:h-[200px] overflow-hidden rounded-[16px] bg-white">
                 <OptimizedImage
                   src={item.image}
                   alt={item.imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-contain"
+                  className="rounded-[16px] object-contain"
                 />
               </div>
               <h3 className={`text-h3 m-0 ${surfaceCardTitle}`}>{item.title}</h3>

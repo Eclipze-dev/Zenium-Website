@@ -31,15 +31,28 @@ const ServeAudienceTabs = ({
   }, [updateIndicator]);
 
   useEffect(() => {
+    const tab = tabRefs.current[active];
+    tab?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [active]);
+
+  useEffect(() => {
+    const list = tablistRef.current;
     window.addEventListener("resize", updateIndicator);
-    return () => window.removeEventListener("resize", updateIndicator);
+    list?.addEventListener("scroll", updateIndicator, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateIndicator);
+      list?.removeEventListener("scroll", updateIndicator);
+    };
   }, [updateIndicator]);
 
   return (
     <nav
-      id="serve-audience-tabs"
       ref={tablistRef}
-      className="relative mt-[50px] flex border-b border-line max-sm:overflow-x-auto max-sm:[-ms-overflow-style:none] max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden"
+      className="relative flex border-b border-line justify-between lg:gap-[0px] bg-bg1 max-lg:overflow-x-auto max-lg:[-ms-overflow-style:none] max-lg:[scrollbar-width:none] max-lg:[&::-webkit-scrollbar]:hidden max-sm:overflow-x-auto max-sm:[-ms-overflow-style:none] max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden"
       aria-label="Who we serve audiences"
     >
       {serveAudiences.map((audience) => {
@@ -55,7 +68,7 @@ const ServeAudienceTabs = ({
             prefetch
             scroll={false}
             className={cn(
-              "relative flex-1 shrink-0 pb-3 text-center text-button !font-normal transition-colors duration-200 max-sm:flex-none max-sm:px-4",
+              "relative flex-1 shrink-0 pb-3 text-center text-button !font-normal transition-colors duration-200 max-lg:flex-none max-lg:px-3 max-sm:flex-none max-sm:px-4",
               isActive ? "!text-orange" : "text-muted hover:!text-orange",
             )}
           >

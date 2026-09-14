@@ -39,14 +39,18 @@ export default function SurfaceFeatureCard({
   return (
     <article
       className={surfaceCardClass(
-        "min-w-0 rounded-[8px] p-[42px] max-sm:p-[28px]",
-        isStack && "flex h-full flex-col items-start gap-[18px] p-8 xl:p-[42px]",
+        "min-w-0 rounded-[8px] p-[42px] max-lg:p-[32px] max-sm:p-[22px]",
+        isStack &&
+          "flex h-full flex-col items-start gap-[18px] p-8 max-sm:gap-[14px] max-sm:p-[22px] xl:p-[42px]",
         className,
       )}
     >
       {Icon && (
         <Icon
-          className={cn("h-6 w-6 shrink-0 text-orange", !isStack && "mb-[20px]")}
+          className={cn(
+            "h-6 w-6 shrink-0 text-orange max-sm:h-5 max-sm:w-5",
+            !isStack && "mb-[20px] max-sm:mb-[14px]",
+          )}
           strokeWidth={1.8}
         />
       )}
@@ -54,9 +58,9 @@ export default function SurfaceFeatureCard({
       {label && (
         <span
           className={cn(
-            "block text-button uppercase",
+            "block text-button uppercase max-sm:text-[12px]",
             labelTone === "orange"
-              ? "pb-4 text-orange"
+              ? "pb-4 text-orange max-sm:pb-3"
               : cn("text-muted", surfaceCardLabel),
           )}
         >
@@ -66,8 +70,8 @@ export default function SurfaceFeatureCard({
 
       <h3
         className={cn(
-          "text-h3 mx-0",
-          isStack ? "m-0" : "my-[12px] mb-[16px]",
+          "text-h3 mx-0 max-lg:text-[20px] max-lg:leading-[1.25] max-sm:text-[18px] max-sm:leading-[1.25]",
+          isStack ? "m-0" : "my-[12px] mb-[16px] max-sm:my-[10px] max-sm:mb-[12px]",
           surfaceCardTitle,
         )}
       >
@@ -77,7 +81,7 @@ export default function SurfaceFeatureCard({
       {text && (
         <p
           className={cn(
-            "text-button m-0 text-muted",
+            "text-button m-0 text-muted max-sm:text-[13px] max-sm:leading-[1.45]",
             surfaceCardMuted,
             children && "flex-1",
           )}
@@ -87,7 +91,12 @@ export default function SurfaceFeatureCard({
       )}
 
       {additionalText && (
-        <p className={cn("text-button m-0 text-muted", surfaceCardMuted)}>
+        <p
+          className={cn(
+            "text-button m-0 text-muted max-sm:text-[13px] max-sm:leading-[1.45]",
+            surfaceCardMuted,
+          )}
+        >
           {additionalText}
         </p>
       )}

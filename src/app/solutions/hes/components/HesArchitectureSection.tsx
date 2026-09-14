@@ -5,8 +5,8 @@ import ShimmerText from "@/components/ShimmerText";
 
 export default function HesArchitectureSection() {
   return (
-    <section className="py-[80px] max-sm:py-[70px]">
-      <div className="container flex flex-col gap-[50px]">
+    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+      <div className="container flex flex-col gap-[50px] max-lg:gap-[36px]">
         <SectionIntro
           centered
           singleLine

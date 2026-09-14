@@ -8,13 +8,13 @@ const latestInsights = newsItems
 export default function LatestInsightsSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[60px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[60px]"
       aria-labelledby="latest-insights-title"
     >
       <div className="container">
         <h2
           id="latest-insights-title"
-          className="m-0 text-[clamp(28px,3.2vw,40px)] font-normal uppercase tracking-eyebrow text-[#152D48]"
+          className="m-0 text-h1 uppercase tracking-eyebrow text-[#152D48]"
         >
           LATEST INSIGHTS
         </h2>

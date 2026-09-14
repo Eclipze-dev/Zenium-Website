@@ -5,6 +5,8 @@ export default function MdmOverviewSection() {
   return (
     <SolutionFeaturePanel
       eyebrow="ZENIUM MDM"
+      image="/solutions/zenium-mdm.png"
+      imageAlt="Zenium MDM"
       title={
         <>
             Trusted data for {" "}

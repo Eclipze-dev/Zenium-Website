@@ -38,10 +38,10 @@ export default function SolutionHeroStats({
     const columns = fitContent
       ? isFive
         ? "grid-cols-[repeat(4,max-content)_minmax(0,1fr)] max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
-        : "grid-cols-[repeat(3,max-content)_minmax(0,1fr)] max-lg:grid-cols-2 max-sm:grid-cols-1"
+        : "grid-cols-[repeat(3,max-content)_minmax(0,1fr)] max-lg:grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1"
       : isFive
         ? "grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
-        : "grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1";
+        : "grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1";
 
     return (
       <div
@@ -59,7 +59,7 @@ export default function SolutionHeroStats({
             <div
               key={`ruled-${value}`}
               className={cn(
-                fitContent && !isLast ? "w-max" : "min-w-0",
+                fitContent && !isLast ? "w-max max-lg:w-auto" : "min-w-0",
                 itemClassName,
                 i > 0 && "border-l border-line",
                 isFive
@@ -68,21 +68,21 @@ export default function SolutionHeroStats({
                       "max-md:[&:nth-child(odd)]:border-l-0 max-md:[&:nth-child(n+3)]:border-t max-md:[&:nth-child(n+3)]:border-line",
                     ]
                   : [
-                      "max-lg:[&:nth-child(odd)]:border-l-0 max-lg:[&:nth-child(n+3)]:border-t max-lg:[&:nth-child(n+3)]:border-line",
+                      "max-md:[&:nth-child(odd)]:border-l-0 max-md:[&:nth-child(n+3)]:border-t max-md:[&:nth-child(n+3)]:border-line",
                     ],
                 "max-sm:border-l-0 max-sm:border-t max-sm:pt-5 max-sm:first:border-t-0 max-sm:first:pt-3",
-                fitContent && "max-lg:w-auto max-sm:w-auto",
+                fitContent && "max-sm:w-auto",
               )}
             >
               <span
                 className={cn(
-                  "block text-center text-h5 !font-normal text-zen-text whitespace-nowrap",
+                  "block text-center text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
                   valueClassName,
                 )}
               >
                 {value}
               </span>
-              <p className="mt-[14px] text-center text-button text-muted">
+              <p className="mt-[14px] text-center text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
                 {description}
               </p>
             </div>

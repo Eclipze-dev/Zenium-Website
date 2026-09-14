@@ -4,13 +4,13 @@ import ShimmerText from "@/components/ShimmerText";
 export default function AboutDecisionsSection() {
   return (
     <section
-      className="py-[80px] max-sm:py-[70px]"
+      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-decisions-title"
     >
       <div className="container grid grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-start gap-[110px] max-lg:grid-cols-1 max-lg:gap-[28px]">
         <h2
           id="about-decisions-title"
-          className="text-h1 m-0 max-w-[16ch] max-sm:text-[clamp(28px,7vw,36px)]"
+          className="text-h1 m-0 max-w-[16ch]"
         >
           {aboutDecisions.title}{" "}
           <ShimmerText>{aboutDecisions.accent}</ShimmerText>

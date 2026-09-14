@@ -27,16 +27,16 @@ export const contactChannels: {
     title: "General enquiries",
     items: [
       { type: "email", value: "info@zenium.ai", href: "mailto:info@zenium.ai" },
-      { type: "phone", value: "+91 9840 000 000", href: "tel:+919840000000" },
+      { type: "phone", value: "+91 9880 106 140", href: "tel:+919880106140" },
     ],
   },
-  {
-    title: "Sales and partnerships",
-    items: [
-      { type: "email", value: "sales@zenium.ai", href: "mailto:sales@zenium.ai" },
-      { type: "phone", value: "+91 9840 000 000", href: "tel:+919840000000" },
-    ],
-  },
+  // {
+  //   title: "Sales and partnerships",
+  //   items: [
+  //     { type: "email", value: "sales@zenium.ai", href: "mailto:sales@zenium.ai" },
+  //     { type: "phone", value: "+91 9880 106 140", href: "tel:+919880106140" },
+  //   ],
+  // },
 ];
 
 export const officeAddress = {

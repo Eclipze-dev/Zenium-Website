@@ -1,11 +1,11 @@
 export const privacyMeta = {
-  lastUpdated: "9/9/2026",
+  lastUpdated: "9 September 2026",
   title: "Privacy",
   accent: "Policy",
 };
 
 export const privacyIntro = [
-  'Zenix Data Private Limited, operating under the brand name Zenium (“Zenium”, “we”, “us” or “our”), respects your privacy.',
+  '**Zenix Data Private Limited**, operating under the brand name Zenium (“Zenium”, “we”, “us” or “our”), respects your privacy.',
   "This Privacy Policy explains how we collect and use information when you visit www.zenium.ai, submit an enquiry or otherwise contact us through the website.",
 ] as const;
 

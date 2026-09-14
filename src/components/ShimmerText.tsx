@@ -24,6 +24,7 @@ export default function ShimmerText({
       className={cn(
         "text-orange",
         textClassName,
+        "max-lg:text-[1em] max-lg:leading-[inherit]",
         Tag === "p" && "inline",
         className,
       )}

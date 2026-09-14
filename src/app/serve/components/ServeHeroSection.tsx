@@ -1,52 +1,45 @@
 import OptimizedImage from "@/components/OptimizedImage";
 import SectionBadge from "@/components/SectionBadge";
-import ServeAudienceTabs from "./ServeAudienceTabs";
-import { serveIntro, type ServeAudienceId } from "./serveData";
+import { serveIntro } from "./serveData";
 import ShimmerText from "@/components/ShimmerText";
 
-const ServeHeroSection = ({
-  active,
+export function ServeHeroIntro() {
+  return (
+    <header className="container max-w-auto pt-[50px] max-lg:pt-[40px] max-md:pt-24">
+      <SectionBadge className="mb-[10px]">{serveIntro.eyebrow}</SectionBadge>
+      <h1
+        id="serve-hero-title"
+        className="text-h1 m-0"
+      >
+        {serveIntro.title}{" "}
+        <ShimmerText>{serveIntro.accent}</ShimmerText>
+      </h1>
+      <p className="mt-[20px] max-w-auto text-p1 text-muted max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
+        {serveIntro.description}
+      </p>
+    </header>
+  );
+}
+
+export function ServeHeroMedia({
   image,
   imageAlt,
   beforeImage,
 }: {
-  active: ServeAudienceId;
   image: string;
   imageAlt: string;
-  /** Renders after tabs and before the hero image (utilities overview only). */
   beforeImage?: React.ReactNode;
-}) => {
+}) {
   return (
-    <section
-      className="relative overflow-hidden pb-[40px] pt-[50px] max-md:pt-24 max-sm:pb-[28px]"
-      aria-labelledby="serve-hero-title"
-    >
-      <div className="container">
-        <header className="max-w-auto">
-          <SectionBadge className="mb-[10px]">{serveIntro.eyebrow}</SectionBadge>
-          <h1
-            id="serve-hero-title"
-            className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
-          >
-            {serveIntro.title}{" "}
-            <ShimmerText>{serveIntro.accent}</ShimmerText>
-          </h1>
-          <p className="mt-[20px] max-w-auto text-p1 text-muted">
-            {serveIntro.description}
-          </p>
-        </header>
-
-        <ServeAudienceTabs active={active} />
-      </div>
-
+    <div className="pb-[40px] max-lg:pb-[32px] max-sm:pb-[28px]">
       {beforeImage}
 
       <div className="container">
         <div
           className={
             beforeImage
-              ? "relative aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-md:aspect-[16/9]"
-              : "relative mt-[40px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-md:aspect-[16/9] max-sm:mt-[28px]"
+              ? "relative aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-md:aspect-[16/9] max-sm:aspect-[4/3]"
+              : "relative mt-[40px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#0A1725] max-lg:mt-[32px] max-md:aspect-[16/9] max-sm:mt-[28px] max-sm:aspect-[4/3]"
           }
         >
           <OptimizedImage
@@ -59,8 +52,6 @@ const ServeHeroSection = ({
           />
         </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default ServeHeroSection;
+}

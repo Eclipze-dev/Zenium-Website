@@ -6,17 +6,17 @@ import ShimmerText from "@/components/ShimmerText";
 export default function CareersHeroSection() {
   return (
     <section
-      className="relative overflow-hidden pt-[50px] pb-[80px] max-md:pt-24 max-sm:pb-[70px]"
+      className="relative overflow-hidden pt-[50px] pb-[80px] max-lg:pt-[40px] max-lg:pb-[48px] max-md:pt-24 max-sm:pb-[70px]"
       aria-labelledby="careers-hero-title"
     >
-      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] items-stretch gap-[60px] max-lg:grid-cols-1 max-lg:gap-[40px]">
+      <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] items-stretch gap-[60px] max-lg:grid-cols-1 max-lg:gap-[36px]">
         <div className="min-w-0">
           <SectionBadge className="mb-[10px]">
             {careersHero.eyebrow}
           </SectionBadge>
           <h1
             id="careers-hero-title"
-            className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
+            className="text-h1 m-0"
           >
             {careersHero.title}{" "}
             <ShimmerText>{careersHero.accent}</ShimmerText>

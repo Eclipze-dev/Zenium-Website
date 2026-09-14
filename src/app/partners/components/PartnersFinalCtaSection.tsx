@@ -5,7 +5,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function PartnersFinalCtaSection() {
   return (
     <section
-      className="relative overflow-hidden bg-box py-[80px] max-sm:py-[80px]"
+      className="relative overflow-hidden bg-box py-[80px] max-lg:py-[48px] max-sm:py-[80px]"
       aria-labelledby="partners-final-cta-title"
     >
       <CTANetworkBackground />
@@ -13,7 +13,7 @@ export default function PartnersFinalCtaSection() {
       <div className="container relative z-[2] text-center">
         <h2
           id="partners-final-cta-title"
-          className="text-h1 m-0 max-sm:text-[clamp(28px,7vw,42px)]"
+          className="text-h1 m-0"
         >
           Bring Zenium into your next{" "}
           <ShimmerText>energy programme.</ShimmerText>

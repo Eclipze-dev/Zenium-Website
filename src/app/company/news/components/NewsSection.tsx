@@ -57,7 +57,7 @@ export default function NewsSection() {
 
   return (
     <section
-      className="pb-[80px] pt-[50px] max-md:pb-[70px] max-md:pt-24"
+      className="pb-[80px] pt-[50px] max-lg:pt-[40px] max-lg:pb-[48px] max-md:pb-[70px] max-md:pt-24"
       aria-labelledby="news-title"
     >
       <div className="container">
@@ -67,7 +67,7 @@ export default function NewsSection() {
           </SectionBadge>
           <h1
             id="news-title"
-            className="text-h1 m-0 text-common max-sm:text-[clamp(32px,7vw,40px)]"
+            className="text-h1 m-0 text-common"
           >
             {newsIntro.title}{" "}
             <ShimmerText>{newsIntro.accent}</ShimmerText>
@@ -96,7 +96,7 @@ export default function NewsSection() {
                 aria-selected={isActive}
                 onClick={() => setActiveFilter(filter.id)}
                 className={cn(
-                  "relative shrink-0 border-0 bg-transparent px-[40px] pb-3 text-button transition-colors duration-200",
+                  "relative shrink-0 border-0 bg-transparent px-[40px] max-lg:px-6 pb-3 text-button transition-colors duration-200",
                   isActive
                     ? "text-common"
                     : "text-[#8A97A5] hover:text-common",

@@ -5,7 +5,7 @@ import ShimmerText from "@/components/ShimmerText";
 export default function AiAnalyticsHeroSection() {
   return (
     <section
-      className="relative overflow-hidden pb-[80px] pt-[50px] max-md:pt-24 max-md:pb-[70px]"
+      className="relative overflow-hidden pb-[80px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pt-24 max-md:pb-[70px]"
       aria-labelledby="ai-analytics-hero-title"
     >
       <div className="container">
@@ -14,7 +14,7 @@ export default function AiAnalyticsHeroSection() {
             <SectionBadge>ANALYTICS & AI</SectionBadge>
             <h1
               id="ai-analytics-hero-title"
-              className="text-h1 m-0 max-sm:text-[clamp(32px,7vw,40px)]"
+              className="text-h1 m-0"
             >
               Turn utility data into{" "}
               <ShimmerText>actionable intelligence.</ShimmerText>

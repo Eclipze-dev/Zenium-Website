@@ -56,6 +56,10 @@ export default function Button({
 
   const classes = cn(
     "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 [&>svg]:block [&>svg]:shrink-0",
+    // Tablet
+    "max-lg:gap-[5px] max-lg:px-[11px] max-lg:py-[7px] max-lg:text-[13px] max-lg:leading-[18px]",
+    // Mobile
+    "max-sm:gap-[4px] max-sm:px-[12px] max-sm:py-[8px] max-sm:text-[12px] max-sm:leading-[16px]",
     outline ? "button-secondary" : "button-primary",
     className,
   );
