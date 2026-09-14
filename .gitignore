@@ -29,3 +29,6 @@ build
 
 # TypeScript cache
 tsconfig.tsbuildinfo
+# Editor / AI scaffolding (not needed in production)
+.bolt
+.cursor
