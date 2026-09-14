@@ -59,7 +59,7 @@ export default function ContactSection() {
           <div className="grid gap-3 lg:grid-cols-[minmax(260px,1fr)_minmax(0,2fr)] lg:gap-4">
             <aside className="relative overflow-hidden rounded-[16px] bg-common px-8 py-10 text-[#FFFFFF] max-sm:px-6 max-sm:py-8 lg:min-h-[560px] lg:px-10 lg:py-12">
               <SidebarMotif />
-              <div className="relative z-[1] flex flex-col gap-[70px] max-lg:gap-[48px]">
+              <div className="relative z-[1] flex flex-col gap-[50px] max-lg:gap-[48px]">
                 {contactChannels.map((channel) => (
                   <div key={channel.title}>
                     <h2 className="m-0 text-h3 font-semibold mb-[20px] text-[#FFFFFF]">
