@@ -6,7 +6,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: 'Zenium Website Implementation',
+  title: 'Zenium',
   description: 'Energy intelligence, built for scale.',
 };
 
