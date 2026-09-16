@@ -145,3 +145,31 @@ export const outcomes: ReadonlyArray<readonly [LucideIcon, string, string]> = [
     "Focus investigation and field activity on the issues that require attention most.",
   ],
 ];
+
+export const aiAnalyticsFaq = [
+  {
+    question: "What is meter data intelligence in Zenium Analytics & AI?",
+    answer:
+      "Turn high-volume smart meter data into trusted, contextualised intelligence for billing, operations and analysis.",
+  },
+  {
+    question: "What does grid and network analytics cover?",
+    answer:
+      "Analyse network conditions, consumption patterns and events to identify losses, anomalies and areas requiring attention.",
+  },
+  {
+    question: "How does Zenium support asset intelligence?",
+    answer:
+      "Understand asset health, loading and performance using meter, network and available asset data. Identify emerging risks and help prioritise maintenance before issues escalate.",
+  },
+  {
+    question: "How does Analytics & AI help with revenue assurance?",
+    answer:
+      "Analyse consumption, meter events and network context to identify revenue leakage, billing exceptions, non-technical losses and potential theft — helping utilities strengthen revenue assurance and focus revenue protection efforts.",
+  },
+  {
+    question: "How does Zenium detect theft and anomalies?",
+    answer:
+      "Detect suspicious consumption patterns, meter tampering and anomalies to help identify higher-risk cases for investigation.",
+  },
+] as const;

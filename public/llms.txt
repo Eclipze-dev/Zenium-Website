@@ -1,0 +1,38 @@
+# Zenium
+
+Zenium is a utility intelligence company helping utilities and the wider energy ecosystem turn metering and operational data into actionable intelligence. The platform is built on a trusted Head-End System (HES) and Meter Data Management (MDM) foundation, with Analytics & AI for utility operations.
+
+Website: https://www.zenium.ai
+
+## Head-End System (HES)
+
+Zenium Head-End System connects smart meters and communication networks to utility operations — automating data acquisition, enabling secure remote operations and providing visibility across the metering network.
+
+- Page: https://www.zenium.ai/solutions/hes
+
+## Meter Data Management (MDM)
+
+Zenium Meter Data Management System transforms meter data into trusted information for billing, prepaid operations and consumer services.
+
+- Page: https://www.zenium.ai/solutions/mdm
+
+## Analytics & AI
+
+Zenium Analytics & AI turns meter, consumer, asset and network data into intelligence that helps utilities identify losses, protect revenue, understand asset health and make operational decisions. It is built on Zenium's HES and MDM foundation.
+
+- Page: https://www.zenium.ai/solutions/ai-analytics
+
+## Who we serve
+
+- Utilities: https://www.zenium.ai/serve/utilities
+- Smart cities: https://www.zenium.ai/serve/cities
+- Commercial & industrial: https://www.zenium.ai/serve/commercial
+- Microgrids: https://www.zenium.ai/serve/microgrid
+- Prosumers: https://www.zenium.ai/serve/prosumers
+
+## Company
+
+- About: https://www.zenium.ai/company/about
+- Partners: https://www.zenium.ai/partners
+- Contact: https://www.zenium.ai/contact
+- News: https://www.zenium.ai/company/news

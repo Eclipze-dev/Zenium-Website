@@ -5,8 +5,8 @@ export default function HesOverviewSection() {
   return (
     <SolutionFeaturePanel
       eyebrow="ZENIUM HES"
-      image="/solutions/zenium-hes.png"
-      imageAlt="Zenium HES"
+      image="/solutions/zenium-hes.webp"
+      imageAlt="Zenium Head-End System connecting smart meters"
       title={
         <>
           The connection layer for{" "}

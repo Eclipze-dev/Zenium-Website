@@ -13,7 +13,13 @@ export default function AboutExperienceSection() {
         <SolutionPanelCard className="!items-stretch !gap-0 p-[40px] max-lg:p-[32px] max-sm:p-[24px]">
           <div className="grid w-full grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center gap-[75px] max-lg:grid-cols-1 max-lg:gap-[32px]">
             <div className="relative w-full h-[400px] max-lg:h-[280px] max-sm:h-[220px] overflow-hidden rounded-[12px] bg-[#0A1725]">
-              <img src={aboutExperience.image} alt={aboutExperience.imageAlt} className="w-full h-full object-cover" />
+              <OptimizedImage
+                src={aboutExperience.image}
+                alt={aboutExperience.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
             <div className="min-w-0">

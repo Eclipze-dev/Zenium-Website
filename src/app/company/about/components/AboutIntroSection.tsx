@@ -30,7 +30,14 @@ export default function AboutIntroSection() {
           </div>
 
           <div className="relative w-full h-[400px] max-lg:h-[320px] max-sm:h-[220px] overflow-hidden rounded-[16px] bg-[#0A1725]">
-            <img src={aboutIntro.image} alt={aboutIntro.imageAlt} className="w-full h-full object-cover" />
+            <OptimizedImage
+              src={aboutIntro.image}
+              alt={aboutIntro.imageAlt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
 

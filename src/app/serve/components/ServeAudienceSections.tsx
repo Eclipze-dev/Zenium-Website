@@ -31,7 +31,12 @@ export function ServeAudienceOverviewSection({
   return (
     <section className="py-[40px] max-lg:py-[32px] max-sm:py-[28px]">
       <div className="container">
-        <SectionIntro eyebrow={content.eyebrow} fullWidth>
+        <SectionIntro
+          eyebrow={content.eyebrow}
+          fullWidth
+          heading="h1"
+          headingId="serve-hero-title"
+        >
           {content.title}{" "}
           <ShimmerText>{content.accent}</ShimmerText>
         </SectionIntro>

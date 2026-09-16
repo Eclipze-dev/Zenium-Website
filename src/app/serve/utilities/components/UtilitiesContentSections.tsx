@@ -11,6 +11,8 @@ export default function UtilitiesOverviewSection() {
           eyebrow={utilitiesContent.eyebrow}
           text={utilitiesContent.description}
           fullWidth
+          heading="h1"
+          headingId="serve-hero-title"
         >
           {utilitiesContent.title}{" "}
           <ShimmerText className="!mt-[10px]">{utilitiesContent.accent}</ShimmerText>

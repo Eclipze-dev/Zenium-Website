@@ -9,6 +9,8 @@ export default function SectionIntro({
   singleLine = false,
   fullWidth = false,
   badge = false,
+  heading = "h2",
+  headingId,
 }: {
   eyebrow: string;
   children: React.ReactNode;
@@ -19,6 +21,8 @@ export default function SectionIntro({
   fullWidth?: boolean;
   /** Use SectionBadge for the eyebrow (home Who We Serve); default keeps text style. */
   badge?: boolean;
+  heading?: "h1" | "h2";
+  headingId?: string;
 }) {
   return (
     <header
@@ -37,16 +41,30 @@ export default function SectionIntro({
           {eyebrow}
         </p>
       )}
-      <h2
-        className={cn(
-          "tracking-[0] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",
-          singleLine
-            ? "text-[clamp(24px,3.2vw,40px)] whitespace-nowrap max-lg:whitespace-normal max-lg:text-h1"
-            : "text-h1",
-        )}
-      >
-        {children}
-      </h2>
+      {heading === "h1" ? (
+        <h1
+          id={headingId}
+          className={cn(
+            "tracking-[0] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",
+            singleLine
+              ? "text-[clamp(24px,3.2vw,40px)] whitespace-nowrap max-lg:whitespace-normal max-lg:text-h1"
+              : "text-h1",
+          )}
+        >
+          {children}
+        </h1>
+      ) : (
+        <h2
+          className={cn(
+            "tracking-[0] m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold",
+            singleLine
+              ? "text-[clamp(24px,3.2vw,40px)] whitespace-nowrap max-lg:whitespace-normal max-lg:text-h1"
+              : "text-h1",
+          )}
+        >
+          {children}
+        </h2>
+      )}
       {text && (
         <p className="text-muted text-p1 mt-[20px] max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
           {text}

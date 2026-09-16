@@ -7,13 +7,13 @@ export function ServeHeroIntro() {
   return (
     <header className="container max-w-auto pt-[50px] max-lg:pt-[40px] max-md:pt-24">
       <SectionBadge className="mb-[10px]">{serveIntro.eyebrow}</SectionBadge>
-      <h1
-        id="serve-hero-title"
+      <p
+        id="serve-hero-intro"
         className="text-h1 m-0"
       >
         {serveIntro.title}{" "}
         <ShimmerText>{serveIntro.accent}</ShimmerText>
-      </h1>
+      </p>
       <p className="mt-[20px] max-w-auto text-p1 text-muted max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
         {serveIntro.description}
       </p>

@@ -137,6 +137,33 @@ export const whoItIsFor = [
 export const measurableValueQuote =
   "HES connects the infrastructure; MDM makes the data trustworthy; Analytics turns it into intelligence.";
 
+export const mdmFaq = [
+  {
+    question: "How does Zenium MDM bring meter data together?",
+    answer:
+      "Manage interval readings, consumption data, load profiles, meter events and historical information within a central, scalable meter-data repository.",
+  },
+  {
+    question: "Does Zenium MDM support prepaid operations?",
+    answer:
+      "Support prepaid metering with balance visibility, recharge and payment integration, consumption tracking, low-balance alerts and configurable tariff processing.",
+  },
+  {
+    question: "How does Zenium MDM validate meter data?",
+    answer:
+      "Apply configurable Validation, Estimation and Editing rules to identify missing or invalid readings, resolve exceptions and create complete, billing-ready meter data.",
+  },
+  {
+    question: "How does Zenium MDM prepare data for billing?",
+    answer:
+      "Transform validated readings through consumption aggregation, time-of-use calculations and billing-determinant processing, with support for post-paid and net-metering models.",
+  },
+  {
+    question: "Where can Zenium MDM be deployed?",
+    answer: "Deploy in cloud, on-premise or hybrid environments.",
+  },
+] as const;
+
 export const connectedOperationsItems = [
   "Billing and revenue-management systems",
   "CIS and CRM platforms",

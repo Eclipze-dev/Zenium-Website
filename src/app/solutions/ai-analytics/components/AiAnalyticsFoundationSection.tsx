@@ -1,5 +1,6 @@
 import OptimizedImage from "@/components/OptimizedImage";
 import ShimmerText from "@/components/ShimmerText";
+import { ContentLink } from "@/components/seo/ContentLink";
 
 const AiAnalyticsFoundationSection = () => {
   return (
@@ -39,7 +40,9 @@ const AiAnalyticsFoundationSection = () => {
                 Intelligence starts with trusted data.
               </p>
               <p>
-                Zenium combines utility-domain expertise with HES, MDM and analytics capabilities
+                Zenium combines utility-domain expertise with{" "}
+                <ContentLink href="/solutions/hes">HES</ContentLink>,{" "}
+                <ContentLink href="/solutions/mdm">MDM</ContentLink> and analytics capabilities
                 to build intelligence from the data source upwards — connecting meter and
                 consumption information with consumer, asset and network context.
               </p>

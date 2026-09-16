@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { pageSeo } from "@/lib/seo/pages";
 import HeroSection from "./components/HeroSection";
 import CTANetworkBackground from "./components/CTANetworkBackground";
 import MetricsSection from "./components/MetricsSection";
@@ -12,6 +15,8 @@ import PartnersSection from "./components/PartnersSection";
 // import InsightsResourcesSection from "./components/InsightsResourcesSection";
 import FinalCtaSection from "./components/FinalCtaSection";
 
+export const metadata: Metadata = buildPageMetadata(pageSeo.home);
+
 export default function HomePage() {
   return (
     <div id="top" className="bg-bg1">
@@ -19,7 +24,7 @@ export default function HomePage() {
       <main className="overflow-x-clip">
         <HeroSection />
         <div className="bg-bg2">
-          {/* <MetricsSection /> */}
+          <MetricsSection />
           <JourneySection />
         </div>
         <ZeniumEdgeSection />

@@ -13,12 +13,11 @@ export default function HeroSection() {
     >
       <OptimizedImage
         src="/zenium-cover.webp"
-        alt=""
+        alt="Connected utility infrastructure for Zenium energy intelligence"
         fill
         priority
         sizes="100vw"
         className="object-cover object-center"
-        aria-hidden
       />
       {/* Readability scrim over the photo */}
       <div
@@ -31,13 +30,13 @@ export default function HeroSection() {
           <SectionBadge className="mb-[clamp(12px,1.5vw,20px)]">
             ENERGY INTELLIGENCE
           </SectionBadge>
-          <p
+          <h1
             id="hero-title"
             className="text-h1 m-0 max-w-full"
           >
             Turn energy data into intelligence.
             <HeroTypewriter />
-          </p>
+          </h1>
           <p className="text-muted text-p1 mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-body">
             Building smart-grid intelligence on a trusted HES and MDM
             foundation.

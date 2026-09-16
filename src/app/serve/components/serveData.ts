@@ -425,3 +425,53 @@ export const getServeHeroMedia = (
 
   return mediaByAudience[audienceId];
 };
+
+export const utilitiesFaq = [
+  {
+    question: "How does Zenium support electricity, gas and water utilities?",
+    answer: utilitiesContent.description,
+  },
+  {
+    question: "What does Zenium HES provide for utilities?",
+    answer: utilitiesContent.solutions[0].text,
+  },
+  {
+    question: "What does Zenium MDM provide for utilities?",
+    answer: utilitiesContent.solutions[1].text,
+  },
+  {
+    question: "What does Analytics & AI provide for utilities?",
+    answer: utilitiesContent.solutions[2].text,
+  },
+  {
+    question: "How does Zenium support the next phase of AMI?",
+    answer: utilitiesContent.amiNext.description,
+  },
+] as const;
+
+function capabilityFaqs(
+  prefix: string,
+  capabilities: ReadonlyArray<readonly [LucideIcon, string, string]>,
+) {
+  return capabilities.slice(0, 6).map(([, title, text]) => ({
+    question: `${prefix} ${title.toLowerCase()}?`,
+    answer: text,
+  }));
+}
+
+export const citiesFaq = capabilityFaqs(
+  "How does Zenium help with",
+  citiesContent.capabilities,
+);
+export const commercialFaq = capabilityFaqs(
+  "How does Zenium help with",
+  commercialContent.capabilities,
+);
+export const microgridFaq = capabilityFaqs(
+  "How does Zenium help with",
+  microgridContent.capabilities,
+);
+export const prosumersFaq = capabilityFaqs(
+  "How does Zenium help with",
+  prosumersContent.capabilities,
+);

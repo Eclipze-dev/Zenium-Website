@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { pageSeo } from "@/lib/seo/pages";
+
+export const metadata: Metadata = buildPageMetadata(pageSeo.resourcesWebinars);
 
 export default function WebinarsPage() {
   return (

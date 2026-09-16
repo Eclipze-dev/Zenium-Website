@@ -3,6 +3,7 @@
 import { memo, useCallback, useState } from "react";
 import ShimmerText from "@/components/ShimmerText";
 import SectionIntro from "./SectionIntro";
+import OptimizedImage from "@/components/OptimizedImage";
 import { cn } from "@/lib/cn";
 
 const STORY_SLIDE_COUNT = 5;
@@ -62,9 +63,11 @@ export default function CustomerStorySection() {
               Power
             </span>
           </div> */}
-          <img
+          <OptimizedImage
             src="/PSPCL.png"
             alt="Punjab State Power Corporation Ltd."
+            width={160}
+            height={48}
             className="h-[48px] w-auto opacity-70 transition-opacity duration-300 hover:opacity-100 max-sm:h-[36px]"
           />
           <blockquote className="text-p1 max-w-[850px] m-0 max-sm:text-base-lg max-sm:leading-[1.5]">

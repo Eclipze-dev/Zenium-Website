@@ -8,8 +8,8 @@ export default function MetricsSection() {
     <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]" id="solutions">
       <div className="container relative z-[2]">
         <SectionIntro centered eyebrow="PROVEN AT UTILITY SCALE">
-          Built on real-world utility{` `}
-          <ShimmerText>experience.</ShimmerText>
+          Zenium by the{" "}
+          <ShimmerText>Numbers</ShimmerText>
         </SectionIntro>
         <div className="mt-[75px] max-lg:mt-[40px]">
           <SolutionHeroStats items={metrics} variant="ruled" />

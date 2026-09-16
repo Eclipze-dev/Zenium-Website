@@ -1,5 +1,6 @@
 import SectionIntro from "@/app/home/components/SectionIntro";
 import ShimmerText from "@/components/ShimmerText";
+import { ContentLink } from "@/components/seo/ContentLink";
 
 export default function HesFoundationSection() {
   return (
@@ -10,11 +11,20 @@ export default function HesFoundationSection() {
           singleLine
           fullWidth
           eyebrow="THE INTELLIGENCE FOUNDATION"
-          text="Zenium HES does more than collect meter readings. It creates the connected foundation required for trusted meter-data management, operational analytics and intelligent energy applications."
         >
           From connected meters to{" "}
           <ShimmerText>energy intelligence</ShimmerText>
         </SectionIntro>
+        <p className="text-muted text-p1 max-sm:text-[14px] max-sm:leading-[1.5]">
+          Zenium HES does more than collect meter readings. It creates the
+          connected foundation required for trusted{" "}
+          <ContentLink href="/solutions/mdm">meter-data management</ContentLink>
+          ,{" "}
+          <ContentLink href="/solutions/ai-analytics">
+            operational analytics
+          </ContentLink>{" "}
+          and intelligent energy applications.
+        </p>
 
         <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px] max-lg:px-6">
           <p className="text-p3 m-0 text-center italic text-zen-text">

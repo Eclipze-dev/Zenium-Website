@@ -107,3 +107,30 @@ export const audiences = [
     "Connect smart-meter infrastructure with MDM, billing and wider utility systems.",
   ],
 ] as const;
+
+export const hesFaq = [
+  {
+    question: "How does Zenium HES connect across meter environments?",
+    answer:
+      "Integrate different meter makes, communication technologies and deployment models through an open, interoperable Head-End System.",
+  },
+  {
+    question: "How does Zenium HES acquire meter data?",
+    answer:
+      "Automate interval, scheduled and on-demand meter-data collection while identifying missing reads, failed communications and other data-acquisition exceptions.",
+  },
+  {
+    question: "Can Zenium HES manage meters remotely?",
+    answer:
+      "Configure devices, synchronise time, update firmware and execute authorised connect or disconnect commands from a central system. Configurable approval workflows provide additional control over sensitive operations.",
+  },
+  {
+    question: "How does Zenium HES help teams respond to events?",
+    answer:
+      "Bring tamper alerts, power outages, restoration events, communication failures and other critical conditions to the attention of operational teams. Zenium HES can report critical tamper and alert events in under 30 seconds, supporting faster investigation and response.",
+  },
+  {
+    question: "Where can Zenium HES be deployed?",
+    answer: "Deploy in cloud, on-premise or hybrid environments.",
+  },
+] as const;

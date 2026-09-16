@@ -32,7 +32,7 @@ const NewsCard = ({
       <div className="relative h-[318px] max-lg:h-[220px] shrink-0 overflow-hidden rounded-[10px] bg-[#EEF1F4] max-sm:h-[160px]">
         <OptimizedImage
           src={image}
-          alt=""
+          alt={title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 ease-out"

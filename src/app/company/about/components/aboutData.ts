@@ -7,7 +7,7 @@ export const aboutIntro = {
     "With investment from Greater Pacific Capital, an established private equity firm focused on India and the growth of Indian businesses, Zenium is building on this foundation to expand the role of analytics and AI across utility operations.",
     "As utilities move towards AMI 2.0, Zenium is helping them evolve beyond basic meter connectivity towards more intelligent, flexible and data-driven operations.",
   ],
-  image: "/about/about-1.png",
+  image: "/about/about-1.webp",
   imageAlt:
     "Utility transmission towers with connected smart-grid data network",
 };
@@ -31,7 +31,7 @@ export const aboutExperience = {
     "Our experience across HES, MDM and large-scale metering programmes enables us to understand these requirements and develop technology grounded in the realities of utility operations.",
     "Zenium supports utilities and organisations across the wider ecosystem, including C&I businesses, smart cities, microgrids and prosumers.",
   ],
-  image: "/about/about-2.png",
+  image: "/about/about-2.webp",
   imageAlt:
     "Utility transmission towers with connected smart-grid data network",
 };
