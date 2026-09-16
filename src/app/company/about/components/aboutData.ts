@@ -2,10 +2,10 @@ export const aboutIntro = {
   title: "About",
   accent: "Zenium",
   paragraphs: [
-    "Zenium is a utility intelligence company helping utilities and the wider ecosystem turn metering and operational data into intelligence.",
-    "Our HES and MDM technology originated within Enzen, an established energy and utilities specialist and an early contributor to smart-metering transformation. Today, the technology, domain knowledge and experienced product team continue within Zenium as an independent company.",
-    "Zenium is supported by Greater Pacific Capital, an established private equity firm with a strong focus on investing in India and supporting the growth of Indian businesses.",
-    "As utilities move towards AMI 2.0, Zenium is helping organisations evolve beyond basic meter connectivity towards more intelligent, flexible and data-driven operations.",
+    "Zenium is a utility intelligence company helping utilities and the wider energy ecosystem turn metering and operational data into actionable intelligence.",
+    "Our team brings deep utility-domain knowledge and extensive experience in complex, large-scale smart-metering programmes. Our proven HES and MDM platforms connect multi-vendor meter environments, create trusted data and support critical operations across billing, prepaid services and consumer engagement.",
+    "With investment from Greater Pacific Capital, an established private equity firm focused on India and the growth of Indian businesses, Zenium is building on this foundation to expand the role of analytics and AI across utility operations.",
+    "As utilities move towards AMI 2.0, Zenium is helping them evolve beyond basic meter connectivity towards more intelligent, flexible and data-driven operations.",
   ],
   image: "/about/about-1.png",
   imageAlt:
@@ -130,11 +130,11 @@ export const aboutFaq = {
       answer:
         "Zenium's experience is rooted in electricity metering. Its technology direction extends to the evolving data and operational requirements of electricity, water and gas utilities.",
     },
-    {
-      question: "What is Zenium's connection to Enzen?",
-      answer:
-        "Zenium's HES and MDM technology originated within Enzen's energy and utilities business. The technology, domain knowledge and experienced product team now continue within Zenium as an independent company.",
-    },
+    // {
+    //   question: "What is Zenium's connection to Enzen?",
+    //   answer:
+    //     "Zenium's HES and MDM technology originated within Enzen's energy and utilities business. The technology, domain knowledge and experienced product team now continue within Zenium as an independent company.",
+    // },
   ],
 };
 

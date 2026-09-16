@@ -2,8 +2,7 @@
 
 import { memo, useEffect, useMemo, useState } from 'react';
 import { geoMercator, geoContains, geoPath } from 'd3-geo';
-import { feature } from 'topojson-client';
-import world from 'world-atlas/countries-50m.json';
+import indiaLand from './data/india-land.json';
 import { cn } from '@/lib/cn';
 
 const ORANGE = '#F07F25';
@@ -55,31 +54,20 @@ const networkPoints: ReadonlyArray<readonly [number, number]> = [
 ];
 
 function getIndiaFeature() {
-  const worldObj = world as unknown as { objects: { countries: unknown } };
-  const countries = feature(world as never, worldObj.objects.countries as never) as unknown as {
-    features: { properties: { name?: string; NAME?: string } }[];
+  return indiaLand as {
+    type: 'Feature';
+    properties: { name?: string };
+    geometry: { type: string; coordinates: unknown };
   };
-
-  return countries.features.find(
-    (d) => d.properties.name === 'India' || d.properties.NAME === 'India',
-  );
 }
 
 function buildMapGeometry() {
   const indiaFeature = getIndiaFeature();
-  if (!indiaFeature) {
-    return {
-      indiaPath: '',
-      dots: [] as Array<{ x: number; y: number; key: string }>,
-      projectedHubs: [] as Hub[],
-      routeSegments: [] as RouteSegment[],
-    };
-  }
 
   const projection = geoMercator().fitExtent(
     [
       [40, 20],
-      [580, 700],
+      [580, 720],
     ],
     indiaFeature as never,
   );
@@ -87,7 +75,7 @@ function buildMapGeometry() {
   const indiaPath = geoPath(projection)(indiaFeature as never) ?? '';
 
   const dots: Array<{ x: number; y: number; key: string }> = [];
-  for (let lat = 6; lat <= 38; lat += 0.52) {
+  for (let lat = 6; lat <= 37.5; lat += 0.52) {
     for (let lon = 67; lon <= 98; lon += 0.52) {
       const point: [number, number] = [lon, lat];
       if (geoContains(indiaFeature as never, point)) {

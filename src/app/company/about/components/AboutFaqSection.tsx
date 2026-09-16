@@ -46,7 +46,7 @@ export default function AboutFaqSection() {
 
   return (
     <section
-      className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
+      className="pt-[80px] pb-[50px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-faq-title"
     >
       <div className="container grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start gap-[60px] max-lg:grid-cols-1 max-lg:gap-[36px]">

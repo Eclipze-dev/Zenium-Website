@@ -26,11 +26,13 @@ export default function HomePage() {
         <div className="bg-bg2">
           <IndiaBuiltSection/>
         </div>
-        <CustomerStorySection />
-        <div className="bg-bg2">
+        {/* <CustomerStorySection /> */}
+        <div className="bg-bg1">
           <WhoWeServeSection />
         </div>
-        <PartnersSection />
+        <div className="bg-bg2">
+          <PartnersSection />
+        </div>
         <div className="bg-bg2">
           {/* <InsightsResourcesSection /> */}
         </div>

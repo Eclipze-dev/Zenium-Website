@@ -9,6 +9,14 @@ export default function SolutionHeroStats({
   boxClassName = "p-10",
   itemClassName = "px-5 py-3",
   fitContent = false,
+  desktopRows = "1",
+  /**
+   * Space between the top and bottom rows when `desktopRows="3-2"`.
+   * Pass any Tailwind gap class, e.g. `gap-y-4`, `gap-y-[20px]`.
+   */
+  rowGapClassName = "gap-y-4",
+  /** Extra classes for bottom-row cells when `desktopRows="3-2"` (e.g. `!py-6`). */
+  bottomItemClassName,
   valueClassName,
 }: {
   items: ReadonlyArray<readonly [LucideIcon, string, string]>;
@@ -30,11 +38,86 @@ export default function SolutionHeroStats({
    * their text; the last column takes the remaining space and corrects itself.
    */
   fitContent?: boolean;
+  /**
+   * Desktop row pattern for five-item ruled strips.
+   * `"3-2"` places three stats on the first row and two on the second.
+   */
+  desktopRows?: "1" | "3-2";
+  /**
+   * Space between the top and bottom rows when `desktopRows="3-2"`.
+   * Pass any Tailwind gap class, e.g. `gap-y-4`, `gap-y-[20px]`.
+   */
+  rowGapClassName?: string;
+  /** Extra classes for bottom-row cells when `desktopRows="3-2"` (e.g. `!py-6`). */
+  bottomItemClassName?: string;
   /** Override value text styles (e.g. size or whitespace) per page. */
   valueClassName?: string;
 }) {
   if (variant === "ruled") {
     const isFive = items.length === 5;
+    const isThreeTwo = isFive && desktopRows === "3-2";
+
+    const renderValue = (value: string, description: string) => (
+      <>
+        <span
+          className={cn(
+            "block text-center text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
+            valueClassName,
+          )}
+        >
+          {value}
+        </span>
+        <p className="mt-[14px] text-center text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
+          {description}
+        </p>
+      </>
+    );
+
+    if (isThreeTwo) {
+      const topItems = items.slice(0, 3);
+      const bottomItems = items.slice(3);
+
+      const renderRow = (
+        rowItems: typeof items,
+        cols: string,
+        extraItemClassName?: string,
+      ) => (
+        <div className={cn("grid", cols)}>
+          {rowItems.map(([, value, description], i) => (
+            <div
+              key={`ruled-${value}`}
+              className={cn(
+                "min-w-0",
+                itemClassName,
+                extraItemClassName,
+                i > 0 && "border-l border-line",
+                "max-sm:border-l-0",
+                i > 0 && "max-sm:border-t max-sm:border-line",
+                "max-sm:pt-5 max-sm:first:border-t-0 max-sm:first:pt-3",
+              )}
+            >
+              {renderValue(value, description)}
+            </div>
+          ))}
+        </div>
+      );
+
+      return (
+        <div
+          className={cn(
+            "flex flex-col border border-box bg-box rounded-[16px]",
+            rowGapClassName,
+            boxClassName,
+            className,
+          )}
+        >
+          {renderRow(topItems, "grid-cols-3 max-sm:grid-cols-1")}
+          <div className="border-t border-line" aria-hidden="true" />
+          {renderRow(bottomItems, "grid-cols-2 max-sm:grid-cols-1", bottomItemClassName)}
+        </div>
+      );
+    }
+
     const columns = fitContent
       ? isFive
         ? "grid-cols-[repeat(4,max-content)_minmax(0,1fr)] max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
@@ -70,21 +153,11 @@ export default function SolutionHeroStats({
                   : [
                       "max-md:[&:nth-child(odd)]:border-l-0 max-md:[&:nth-child(n+3)]:border-t max-md:[&:nth-child(n+3)]:border-line",
                     ],
-                "max-sm:border-l-0 max-sm:border-t max-sm:pt-5 max-sm:first:border-t-0 max-sm:first:pt-3",
+                "max-sm:border-l-0 max-sm:border-t max-sm:first:border-t-0 max-sm:pt-5 max-sm:first:pt-3",
                 fitContent && "max-sm:w-auto",
               )}
             >
-              <span
-                className={cn(
-                  "block text-center text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
-                  valueClassName,
-                )}
-              >
-                {value}
-              </span>
-              <p className="mt-[14px] text-center text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
-                {description}
-              </p>
+              {renderValue(value, description)}
             </div>
           );
         })}

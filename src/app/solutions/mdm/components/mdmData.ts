@@ -24,8 +24,9 @@ export const statistics: ReadonlyArray<
   readonly [LucideIcon, string, string]
 > = [
   [Gauge, "5M", "Meter-point MDM deployment"],
-  [Network, "Multi-HES", "Platform interoperability"],
+  [Network, "Multi-HES Compliant", "Platform interoperability"],
   [Radio, "Prepaid billing", "Integrated revenue operations"],
+  [LayoutDashboard, "Billing & CIS agnostic", "Flexible integration across utility platforms "],
   [LayoutDashboard, "Consumer mobile app", "Connected consumer services"],
 ];
 

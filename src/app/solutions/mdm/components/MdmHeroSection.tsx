@@ -38,9 +38,11 @@ export default function MdmHeroSection() {
         <SolutionHeroStats
           items={statistics}
           variant="ruled"
-          fitContent
+          desktopRows="3-2"
+          rowGapClassName="lg:gap-y-6 gap-y-4"
           boxClassName="p-10 max-lg:p-4"
           itemClassName="px-10 py-3 max-lg:px-2 max-lg:py-2"
+          // bottomItemClassName="!py-6 max-lg:!py-4"
         />
       </div>
     </section>
