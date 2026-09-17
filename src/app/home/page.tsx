@@ -4,12 +4,12 @@ import Footer from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
 import { pageSeo } from "@/lib/seo/pages";
 import HeroSection from "./components/HeroSection";
-import CTANetworkBackground from "./components/CTANetworkBackground";
-import MetricsSection from "./components/MetricsSection";
+// import CTANetworkBackground from "./components/CTANetworkBackground";
+// import MetricsSection from "./components/MetricsSection";
 import JourneySection from "./components/JourneySection";
 import ZeniumEdgeSection from "./components/ZeniumEdgeSection";
 import IndiaBuiltSection from "./components/IndiaBuiltSection";
-import CustomerStorySection from "./components/CustomerStorySection";
+// import CustomerStorySection from "./components/CustomerStorySection";
 import WhoWeServeSection from "./components/WhoWeServeSection";
 import PartnersSection from "./components/PartnersSection";
 // import InsightsResourcesSection from "./components/InsightsResourcesSection";
@@ -24,7 +24,7 @@ export default function HomePage() {
       <main className="overflow-x-clip">
         <HeroSection />
         <div className="bg-bg2">
-          <MetricsSection />
+          {/* <MetricsSection /> */}
           <JourneySection />
         </div>
         <ZeniumEdgeSection />
