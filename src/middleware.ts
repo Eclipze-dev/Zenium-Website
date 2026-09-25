@@ -1,3 +1,4 @@
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { APEX_HOST, SITE_HOST } from "@/lib/seo/site";
@@ -10,12 +11,12 @@ function isLocalHost(host: string) {
   );
 }
 
-export function middleware(request: NextRequest) {
+function canonicalizeHost(request: NextRequest) {
   const hostHeader = request.headers.get("host") ?? "";
   const host = hostHeader.split(":")[0]?.toLowerCase() ?? "";
 
   if (!host || isLocalHost(host)) {
-    return NextResponse.next();
+    return null;
   }
 
   const shouldCanonicalizeApex = host === APEX_HOST;
@@ -23,7 +24,7 @@ export function middleware(request: NextRequest) {
     process.env.VERCEL_ENV === "production" && host.endsWith(".vercel.app");
 
   if (!shouldCanonicalizeApex && !shouldCanonicalizeVercel) {
-    return NextResponse.next();
+    return null;
   }
 
   const url = request.nextUrl.clone();
@@ -32,6 +33,37 @@ export function middleware(request: NextRequest) {
   url.port = "";
 
   return NextResponse.redirect(url, 301);
+}
+
+export async function middleware(request: NextRequest) {
+  const canonical = canonicalizeHost(request);
+  if (canonical) return canonical;
+
+  const { pathname } = request.nextUrl;
+  const isAdminUi =
+    pathname.startsWith("/admin") && pathname !== "/admin/login";
+  const isAdminApi = pathname.startsWith("/api/admin");
+
+  if (isAdminUi || isAdminApi) {
+    const token = await getToken({
+      req: request,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
+
+    if (!token) {
+      if (isAdminApi) {
+        return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+      }
+
+      const url = request.nextUrl.clone();
+      url.pathname = "/admin/login";
+      url.search = "";
+      url.searchParams.set("callbackUrl", pathname);
+      return NextResponse.redirect(url);
+    }
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {

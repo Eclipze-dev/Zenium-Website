@@ -7,10 +7,19 @@ import { prosumersContent, prosumersFaq } from "../components/serveData";
 import FaqSection from "@/components/seo/FaqSection";
 import { PageJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { resolvePageSeo } from "@/lib/cms/content";
 import { breadcrumbTrails, faqPageSchema } from "@/lib/seo/jsonld";
-import { pageSeo } from "@/lib/seo/pages";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.serveProsumers);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.serveProsumers,
+    slugFromPath(pageSeo.serveProsumers.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function ProsumersPage() {
   return (

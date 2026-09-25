@@ -56,10 +56,15 @@ Open a Bitbucket pull request into `main`. After merge, update production only w
 3. Keep Hostinger environment variables:
 
 ```
+MS_GRAPH_TENANT_ID
+MS_GRAPH_CLIENT_ID
+MS_GRAPH_CLIENT_SECRET
+MAIL_FROM=noreply@zenium.ai
+MAIL_SENDER=noreply@zenium.ai
+MAIL_INTERNAL_TO=info@zenium.ai
+MAIL_BCC=
 SMTP_HOST
 SMTP_PORT=25
-MAIL_FROM=noreply@zenium.ai
-MAIL_INTERNAL_TO=info@zenium.ai
 ```
 
 Hostinger build / start:

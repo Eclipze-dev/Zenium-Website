@@ -143,6 +143,12 @@ export function faqPageSchema(items: readonly FaqItem[]) {
 }
 
 export const solutionSchemas = {
+  ami: softwareProductSchemas({
+    name: "Zenium Advanced Metering Infrastructure (AMI)",
+    description: pageSeo.ami.description,
+    path: pageSeo.ami.path,
+    image: DEFAULT_OG_IMAGE,
+  }),
   hes: softwareProductSchemas({
     name: "Zenium Head-End System (HES)",
     description: pageSeo.hes.description,
@@ -150,13 +156,13 @@ export const solutionSchemas = {
     image: "/solutions/zenium-hes.webp",
   }),
   mdm: softwareProductSchemas({
-    name: "Zenium Meter Data Management System",
+    name: "Zenium Meter Data Management System (MDMS)",
     description: pageSeo.mdm.description,
     path: pageSeo.mdm.path,
     image: "/solutions/zenium-mdm.webp",
   }),
   aiAnalytics: softwareProductSchemas({
-    name: "Zenium Analytics & AI",
+    name: "Zenium Energy Management & Analytics",
     description: pageSeo.aiAnalytics.description,
     path: pageSeo.aiAnalytics.path,
     image: DEFAULT_OG_IMAGE,
@@ -164,17 +170,42 @@ export const solutionSchemas = {
 };
 
 export const breadcrumbTrails = {
+  ami: [
+    { name: "Home", path: "/" },
+    { name: "Advanced Metering Infrastructure (AMI)", path: pageSeo.ami.path },
+  ],
   hes: [
     { name: "Home", path: "/" },
-    { name: "Head-End System", path: "/solutions/hes" },
+    { name: "Head-End System (HES)", path: pageSeo.hes.path },
   ],
   mdm: [
     { name: "Home", path: "/" },
-    { name: "Meter Data Management", path: "/solutions/mdm" },
+    {
+      name: "Meter Data Management System (MDMS)",
+      path: pageSeo.mdm.path,
+    },
   ],
   aiAnalytics: [
     { name: "Home", path: "/" },
-    { name: "Analytics & AI", path: "/solutions/ai-analytics" },
+    { name: "Energy Management & Analytics", path: pageSeo.aiAnalytics.path },
+  ],
+  smartMeterGuide: [
+    { name: "Home", path: "/" },
+    {
+      name: "How to Read a Smart Meter Display",
+      path: pageSeo.smartMeterGuide.path,
+    },
+  ],
+  wattsToKwhCalculator: [
+    { name: "Home", path: "/" },
+    {
+      name: "Watts to kWh Calculator",
+      path: pageSeo.wattsToKwhCalculator.path,
+    },
+  ],
+  blogs: [
+    { name: "Home", path: "/" },
+    { name: "Blogs & Insights", path: pageSeo.resourcesBlogs.path },
   ],
   serveUtilities: [
     { name: "Home", path: "/" },

@@ -79,7 +79,6 @@ export default function ContactForm() {
 
   function updateField(name: keyof ContactFormPayload, value: string) {
     setValues((current) => ({ ...current, [name]: value }));
-    if (name === "phone") return;
 
     const field = name as ContactFieldName;
     setErrors((current) => {
@@ -197,13 +196,14 @@ export default function ContactForm() {
           onChange={(value) => updateField("company", value)}
         />
         <Field
-          label="Phone number (optional)"
+          label="Phone number"
           name="phone"
           type="tel"
           placeholder="Enter the phone number"
           autoComplete="tel"
           className="sm:col-span-2"
           value={values.phone}
+          error={errors.phone}
           onChange={(value) => updateField("phone", value)}
         />
       </div>

@@ -43,7 +43,7 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-[10px] mt-[clamp(18px,2.5vw,30px)]">
             <Button href="/contact">Request a Demo</Button>
-            <Button outline href="/solutions/hes">Explore Zenium</Button>
+            <Button outline href="/solutions/head-end-system-hes">Explore Zenium</Button>
           </div>
         </div>
         <div className="mt-[75px] max-lg:mt-[40px] max-sm:mt-[40px]">

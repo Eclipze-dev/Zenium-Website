@@ -3,13 +3,22 @@ import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { PageJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { resolvePageSeo } from "@/lib/cms/content";
 import { breadcrumbTrails } from "@/lib/seo/jsonld";
-import { pageSeo } from "@/lib/seo/pages";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import CareersCvCtaSection from "./components/CareersCvCtaSection";
 import CareersHeroSection from "./components/CareersHeroSection";
 import CareersOpportunitiesSection from "./components/CareersOpportunitiesSection";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.careers);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.careers,
+    slugFromPath(pageSeo.careers.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function CareersPage() {
   return (

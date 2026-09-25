@@ -10,6 +10,7 @@ import {
   Factory,
   File,
   FileText,
+  Gauge,
   Globe2,
   HeartHandshake,
   Info,
@@ -35,8 +36,8 @@ import {
   industryLinks,
   mobileSolutions,
   primaryNav,
-  // resourceInsights,
-  // resourceLearn,
+  resourceInsights,
+  resourceLearn,
   solutionsLinks,
   type IconKey,
   type MegaId,
@@ -51,9 +52,10 @@ import {
 } from "./nav/NetworkMotifs";
 import { cn } from "@/lib/cn";
 import { usePathname } from "next/navigation";
+import { BLOG_INDEX_PATH } from "@/lib/seo/paths";
 // import ThemeToggle from "./ThemeToggle";
 
-type MegaMenuId = Exclude<MegaId, "partners" | "resources">;
+type MegaMenuId = Exclude<MegaId, "partners">;
 
 function isNavSectionActive(id: NavItem["id"], pathname: string): boolean {
   switch (id) {
@@ -63,6 +65,12 @@ function isNavSectionActive(id: NavItem["id"], pathname: string): boolean {
       return pathname.startsWith("/serve");
     case "partners":
       return pathname === "/partners" || pathname.startsWith("/partners/");
+    case "resources":
+      return (
+        pathname.startsWith("/resources") ||
+        pathname.startsWith("/guides") ||
+        pathname.startsWith("/tools")
+      );
     case "company":
       return pathname.startsWith("/company");
     case "contact":
@@ -94,6 +102,7 @@ const icons: Record<IconKey, LucideIcon> = {
   user: User,
   briefcase: Briefcase,
   newspaper: Newspaper,
+  gauge: Gauge,
 };
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -267,6 +276,50 @@ function ServePanel({ onNavigate }: { onNavigate: () => void }) {
 //   );
 // }
 
+function ResourcesPanel({ onNavigate }: { onNavigate: () => void }) {
+  return (
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.32fr)_minmax(0,0.3fr)]">
+      <div>
+        <Label>Tools & Guides</Label>
+        {resourceLearn.map((item) => (
+          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
+        ))}
+      </div>
+      <div>
+        <Label>Insights</Label>
+        {resourceInsights.map((item) => (
+          <MegaItem key={item.title} item={item} onNavigate={onNavigate} />
+        ))}
+      </div>
+      <a
+        href={BLOG_INDEX_PATH}
+        onClick={onNavigate}
+        className="group relative overflow-hidden rounded-[4px] border border-nav-line bg-nav-card p-6"
+      >
+        <InsightNetwork />
+        <div className="relative z-[1]">
+          <Label>Latest Insight</Label>
+          <h3 className="text-card font-semibold leading-snug text-nav-ink transition-colors duration-[180ms] group-hover:text-orange">
+            Blogs & Insights
+          </h3>
+          <p className="mt-3 text-supporting leading-relaxed text-nav-muted">
+            Perspectives on Advanced Metering Infrastructure (AMI), Head-End
+            System (HES) and Meter Data Management System (MDMS).
+          </p>
+          <span className="mt-5 inline-flex items-center gap-2 text-supporting font-semibold text-orange">
+            Explore insights
+            <ArrowRightIcon
+              width={15}
+              height={15}
+              className="transition-transform duration-[180ms]"
+            />
+          </span>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)]">
@@ -296,7 +349,7 @@ function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
 const panels: Record<MegaMenuId, (props: { onNavigate: () => void }) => JSX.Element> = {
   solutions: SolutionsPanel,
   "who-we-serve": ServePanel,
-  // resources: ResourcesPanel,
+  resources: ResourcesPanel,
   company: CompanyPanel,
 };
 
@@ -306,7 +359,7 @@ const mobileNavChildren: Record<
 > = {
   solutions: mobileSolutions,
   "who-we-serve": industryLinks,
-  // resources: [...resourceLearn, ...resourceInsights],
+  resources: [...resourceLearn, ...resourceInsights],
   company: companyAbout,
 };
 

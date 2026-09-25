@@ -5,6 +5,12 @@ import {
 } from "@/components/icons/icons";
 import CookieSettingsLink from "@/components/cookie-consent/CookieSettingsLink";
 import OptimizedImage from "@/components/OptimizedImage";
+import {
+  SOLUTION_PATHS,
+  GUIDE_PATH,
+  CALCULATOR_PATH,
+  BLOG_INDEX_PATH,
+} from "@/lib/seo/paths";
 
 type FooterLinkItem = {
   label: string;
@@ -97,9 +103,22 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
   {
     heading: "Solutions",
     links: [
-      { label: "HES", href: "/solutions/hes" },
-      { label: "MDM", href: "/solutions/mdm" },
-      { label: "AI & Analytics", href: "/solutions/ai-analytics" },
+      {
+        label: "Advanced Metering Infrastructure (AMI)",
+        href: SOLUTION_PATHS.ami,
+      },
+      {
+        label: "Head-End System (HES)",
+        href: SOLUTION_PATHS.hes,
+      },
+      {
+        label: "Meter Data Management System (MDMS)",
+        href: SOLUTION_PATHS.mdms,
+      },
+      {
+        label: "Energy Management & Analytics",
+        href: SOLUTION_PATHS.analytics,
+      },
     ],
   },
   {
@@ -121,23 +140,20 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
       { label: "System Integrators", disabled: true },
     ],
   },
-  // {
-  //   heading: "Resources",
-  //   links: [
-  //     { label: "Case Studies", href: "/resources/case-studies" },
-  //     { label: "Brochures", href: "/resources/brochures" },
-  //     { label: "Whitepapers", href: "/resources/whitepapers" },
-  //     { label: "Blogs & Insights", href: "/resources/blogs-insights" },
-  //     { label: "Webinars", href: "/resources/webinars" },
-  //   ],
-  // },
+  {
+    heading: "Resources",
+    links: [
+      { label: "Blogs & Insights", href: BLOG_INDEX_PATH },
+      { label: "Smart Meter Display Guide", href: GUIDE_PATH },
+      { label: "Watts to kWh Calculator", href: CALCULATOR_PATH },
+    ],
+  },
   {
     heading: "Company",
     links: [
       { label: "About Zenium", href: "/company/about" },
-      // { label: "Leadership", href: "/company/leadership" },
-      // { label: "Careers", href: "/company/careers" },
-      // { label: "News & Events", href: "/company/news" },
+      { label: "Careers", href: "/company/careers" },
+      { label: "News & Events", href: "/company/news" },
       { label: "Contact", href: "/contact" },
     ],
   },

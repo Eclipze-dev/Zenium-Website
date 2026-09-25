@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import CookieBanner from "./CookieBanner";
 import CookiePreferencesPanel from "./CookiePreferencesPanel";
 import ConsentAwareAnalytics from "./ConsentAwareAnalytics";
@@ -10,12 +11,19 @@ export default function CookieConsentRoot({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith("/admin");
+
   return (
     <CookieConsentProvider>
       {children}
-      <CookieBanner />
-      <CookiePreferencesPanel />
-      <ConsentAwareAnalytics />
+      {!isAdmin ? (
+        <>
+          <CookieBanner />
+          <CookiePreferencesPanel />
+          <ConsentAwareAnalytics />
+        </>
+      ) : null}
     </CookieConsentProvider>
   );
 }

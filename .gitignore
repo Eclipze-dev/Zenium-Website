@@ -23,6 +23,10 @@ dist-ssr
 *.sw?
 .env
 
+# Uploaded CMS media (keep the folder, ignore files)
+public/uploads/*
+!public/uploads/.gitkeep
+
 # Next.js build output
 .next
 out

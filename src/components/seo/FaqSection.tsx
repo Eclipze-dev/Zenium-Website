@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useLayoutEffect, useRef, useState } from "react";
+import { useId, useState } from "react";
 import { cn } from "@/lib/cn";
 import ShimmerText from "@/components/ShimmerText";
 import type { FaqItem } from "@/lib/seo/jsonld";
@@ -17,41 +17,7 @@ export default function FaqSection({
   titleId?: string;
 }) {
   const baseId = useId();
-  const listRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState(0);
-  const [listMinHeight, setListMinHeight] = useState<number>();
-
-  useLayoutEffect(() => {
-    const list = listRef.current;
-    if (!list) return;
-
-    const measure = () => {
-      if (window.matchMedia("(max-width: 639px)").matches) {
-        setListMinHeight(undefined);
-        return;
-      }
-
-      const rows = Array.from(
-        list.querySelectorAll<HTMLElement>("[data-faq-row]"),
-      );
-      const answers = Array.from(
-        list.querySelectorAll<HTMLElement>("[data-faq-answer]"),
-      );
-
-      const rowsHeight = rows.reduce((sum, row) => sum + row.offsetHeight, 0);
-      const maxAnswerHeight = answers.reduce(
-        (max, answer) => Math.max(max, answer.scrollHeight),
-        0,
-      );
-
-      const borders = rows.length;
-      setListMinHeight(rowsHeight + maxAnswerHeight + borders);
-    };
-
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [items]);
 
   return (
     <section
@@ -64,11 +30,7 @@ export default function FaqSection({
           <ShimmerText>{accent}</ShimmerText>
         </h2>
 
-        <div
-          ref={listRef}
-          className="min-w-0 border-t border-[#152D48] [overflow-anchor:none]"
-          style={listMinHeight ? { minHeight: listMinHeight } : undefined}
-        >
+        <div className="min-w-0 border-t border-[#152D48] [overflow-anchor:none]">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `${baseId}-panel-${index}`;
@@ -98,10 +60,8 @@ export default function FaqSection({
                     <span className="absolute h-[2px] w-[14px] rounded-full bg-current" />
                     <span
                       className={cn(
-                        "absolute h-[14px] w-[2px] rounded-full bg-current",
-                        isOpen
-                          ? "rotate-90"
-                          : "rotate-0 transition-transform duration-300 ease-out",
+                        "absolute h-[14px] w-[2px] rounded-full bg-current transition-transform duration-300 ease-out",
+                        isOpen ? "rotate-90" : "rotate-0",
                       )}
                     />
                   </span>
@@ -114,18 +74,16 @@ export default function FaqSection({
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  className="grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
-                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  aria-hidden={!isOpen}
+                  className={cn(
+                    "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                  )}
                 >
                   <div className="min-h-0 overflow-hidden">
                     <p
                       data-faq-answer
-                      className={cn(
-                        "m-0 pb-[20px] pl-10 text-p1 text-muted transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
-                        isOpen
-                          ? "translate-y-0 opacity-100"
-                          : "-translate-y-1 opacity-0",
-                      )}
+                      className="m-0 pb-[20px] pl-10 text-p1 text-muted"
                     >
                       {item.answer}
                     </p>

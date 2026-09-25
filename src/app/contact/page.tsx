@@ -2,10 +2,19 @@ import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
-import { pageSeo } from "@/lib/seo/pages";
+import { resolvePageSeo } from "@/lib/cms/content";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import ContactSection from "./components/ContactSection";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.contact);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.contact,
+    slugFromPath(pageSeo.contact.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function ContactPage() {
   return (

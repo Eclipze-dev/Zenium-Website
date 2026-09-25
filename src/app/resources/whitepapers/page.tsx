@@ -2,9 +2,18 @@ import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
-import { pageSeo } from "@/lib/seo/pages";
+import { resolvePageSeo } from "@/lib/cms/content";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.resourcesWhitepapers);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.resourcesWhitepapers,
+    slugFromPath(pageSeo.resourcesWhitepapers.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function WhitepapersPage() {
   return (

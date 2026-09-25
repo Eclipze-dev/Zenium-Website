@@ -3,11 +3,20 @@ import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { PageJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { resolvePageSeo } from "@/lib/cms/content";
 import { breadcrumbTrails } from "@/lib/seo/jsonld";
-import { pageSeo } from "@/lib/seo/pages";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import TermsContent from "./components/TermsContent";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.terms);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.terms,
+    slugFromPath(pageSeo.terms.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function TermsPage() {
   return (

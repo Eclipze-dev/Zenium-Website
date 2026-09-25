@@ -83,21 +83,21 @@ export const utilitiesContent = {
       title: "Head-End System (HES)",
       text: "Connect and manage large-scale smart metering infrastructure with secure, interoperable device communication.",
       cta: "Explore HES",
-      href: "/solutions/hes",
+      href: "/solutions/head-end-system-hes",
       variant: "text" as const,
     },
     {
       title: "Meter Data Management (MDM)",
       text: "Transform high-volume meter data into validated, trusted information for billing, operations and enterprise systems.",
       cta: "Explore MDM",
-      href: "/solutions/mdm",
+      href: "/solutions/meter-data-management-system-mdms",
       variant: "text" as const,
     },
     {
       title: "Analytics & AI",
       text: "Turn meter, network and operational data into insights for revenue protection, asset health, network visibility and predictive decision-making.",
       cta: "Explore Analytics & AI",
-      href: "/solutions/ai-analytics",
+      href: "/solutions/energy-management-analytics",
       variant: "text" as const,
     },
   ],
@@ -195,11 +195,11 @@ export const citiesContent: ServeAudienceContent = {
     description:
       "Depending on the connected infrastructure environment, Zenium's HES and MDM capabilities provide the foundation for device and data management, while Analytics & AI turns that data into operational intelligence.",
     actions: [
-      { label: "Explore HES", href: "/solutions/hes", outline: true },
-      { label: "Explore MDM", href: "/solutions/mdm", outline: true },
+      { label: "Explore HES", href: "/solutions/head-end-system-hes", outline: true },
+      { label: "Explore MDM", href: "/solutions/meter-data-management-system-mdms", outline: true },
       {
         label: "Explore Analytics & AI",
-        href: "/solutions/ai-analytics",
+        href: "/solutions/energy-management-analytics",
         outline: true,
       },
       { label: "Talk to our team", href: "/contact", outline: false },
@@ -260,7 +260,7 @@ export const commercialContent: ServeAudienceContent = {
     actions: [
       {
         label: "Explore Analytics & AI",
-        href: "/solutions/ai-analytics",
+        href: "/solutions/energy-management-analytics",
         outline: true,
       },
       { label: "Talk to our team", href: "/contact", outline: false },
@@ -321,7 +321,7 @@ export const microgridContent: ServeAudienceContent = {
     actions: [
       {
         label: "Explore Analytics & AI",
-        href: "/solutions/ai-analytics",
+        href: "/solutions/energy-management-analytics",
         outline: true,
       },
       { label: "Talk to our team", href: "/contact", outline: false },
@@ -375,7 +375,7 @@ export const prosumersContent: ServeAudienceContent = {
     actions: [
       {
         label: "Explore Analytics & AI",
-        href: "/solutions/ai-analytics",
+        href: "/solutions/energy-management-analytics",
         outline: true,
         variant: "default",
       },

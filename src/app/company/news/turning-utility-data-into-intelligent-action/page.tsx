@@ -5,11 +5,20 @@ import BlogArticle from "./components/BlogArticle";
 import LatestInsightsSection from "./components/LatestInsightsSection";
 import { PageJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
+import { resolvePageSeo } from "@/lib/cms/content";
 import { articleSchema, breadcrumbTrails } from "@/lib/seo/jsonld";
-import { pageSeo } from "@/lib/seo/pages";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import { blogPost } from "./components/blogData";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.newsArticle);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.newsArticle,
+    slugFromPath(pageSeo.newsArticle.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function TurningUtilityDataPage() {
   return (

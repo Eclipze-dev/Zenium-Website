@@ -1,3 +1,10 @@
+import {
+  SOLUTION_PATHS,
+  GUIDE_PATH,
+  CALCULATOR_PATH,
+  BLOG_INDEX_PATH,
+} from "@/lib/seo/paths";
+
 export type MegaId =
   | "solutions"
   | "who-we-serve"
@@ -26,7 +33,8 @@ export type IconKey =
   | "info"
   | "user"
   | "briefcase"
-  | "newspaper";
+  | "newspaper"
+  | "gauge";
 
 export type NavItem = {
   id: MegaId | "contact";
@@ -46,31 +54,38 @@ export const primaryNav: NavItem[] = [
   { id: "solutions", label: "Solutions", href: "#solutions", mega: true },
   { id: "who-we-serve", label: "Who We Serve", href: "/serve", mega: true },
   { id: "partners", label: "Partners", href: "/partners", mega: false },
-  // { id: "resources", label: "Resources", href: "#resources", mega: true },
+  { id: "resources", label: "Resources", href: "#resources", mega: true },
   { id: "company", label: "Company", href: "#company", mega: true },
   { id: "contact", label: "Contact", href: "/contact", mega: false },
 ];
 
 export const solutionsLinks: MegaLink[] = [
   {
-    title: "HES",
+    title: "Advanced Metering Infrastructure (AMI)",
+    description:
+      "Hardware-agnostic AMI software for smart grid distribution utilities.",
+    href: SOLUTION_PATHS.ami,
+    icon: "network",
+  },
+  {
+    title: "Head-End System (HES)",
     description:
       "Connect and collect data from smart meters and field devices in real time.",
-    href: "/solutions/hes",
+    href: SOLUTION_PATHS.hes,
     icon: "radio",
   },
   {
-    title: "MDM",
+    title: "Meter Data Management System (MDMS)",
     description:
       "Transform high-volume meter data into trusted, usable utility information.",
-    href: "/solutions/mdm",
+    href: SOLUTION_PATHS.mdms,
     icon: "database",
   },
   {
-    title: "AI & Analytics",
+    title: "Energy Management & Analytics",
     description:
-      "Turn complex utility data into actionable intelligence, predictive insights and better decisions.",
-    href: "/solutions/ai-analytics",
+      "Transformer load profiling, loss analytics and smart grid intelligence.",
+    href: SOLUTION_PATHS.analytics,
     icon: "sparkles",
   },
 ];
@@ -108,62 +123,29 @@ export const industryLinks: MegaLink[] = [
   },
 ];
 
-// export const partnerLinks: MegaLink[] = [
-//   {
-//     title: "Meter Manufacturers",
-//     description: "Connect meter manufacturing expertise with intelligent utility solutions.",
-//     href: "/partners/meter-manufacturers",
-//     icon: "factory",
-//   },
-//   {
-//     title: "AMI Service Providers",
-//     description: "Deliver connected metering services with the Zenium intelligence platform.",
-//     href: "/partners/ami-service-providers",
-//     icon: "radio",
-//   },
-//   {
-//     title: "System Integrators",
-//     description: "Deliver intelligent utility solutions for your customers.",
-//     href: "/partners/system-integrators",
-//     icon: "users",
-//   },
-// ];
+export const resourceLearn: MegaLink[] = [
+  {
+    title: "How to Read a Smart Meter Display",
+    description: "Understand common smart meter display codes and readings.",
+    href: GUIDE_PATH,
+    icon: "book",
+  },
+  {
+    title: "Watts to kWh Calculator",
+    description: "Convert power and usage time into kilowatt-hours and units.",
+    href: CALCULATOR_PATH,
+    icon: "gauge",
+  },
+];
 
-// export const resourceLearn: MegaLink[] = [
-//   {
-//     title: "Case Studies",
-//     description: "Explore real-world utility transformation stories.",
-//     href: "/resources/case-studies",
-//     icon: "file",
-//   },
-//   {
-//     title: "Brochures",
-//     description: "Explore Zenium capabilities and solutions.",
-//     href: "/resources/brochures",
-//     icon: "book",
-//   },
-//   {
-//     title: "Whitepapers",
-//     description: "Deep insights into utility technology and analytics.",
-//     href: "/resources/whitepapers",
-//     icon: "fileText",
-//   },
-// ];
-
-// export const resourceInsights: MegaLink[] = [
-//   {
-//     title: "Blogs & Insights",
-//     description: "Ideas, trends and perspectives on intelligent utilities.",
-//     href: "/resources/blogs-insights",
-//     icon: "lightbulb",
-//   },
-//   {
-//     title: "Webinars",
-//     description: "Expert discussions on utility data, analytics and transformation.",
-//     href: "/resources/webinars",
-//     icon: "play",
-//   },
-// ];
+export const resourceInsights: MegaLink[] = [
+  {
+    title: "Blogs & Insights",
+    description: "Ideas, trends and perspectives on intelligent utilities.",
+    href: BLOG_INDEX_PATH,
+    icon: "lightbulb",
+  },
+];
 
 export const companyAbout: MegaLink[] = [
   {
@@ -172,43 +154,24 @@ export const companyAbout: MegaLink[] = [
     href: "/company/about",
     icon: "info",
   },
-  // {
-  //   title: "Leadership",
-  //   description: "Meet the people shaping the company.",
-  //   href: "/company/leadership",
-  //   icon: "user",
-  // },
+  {
+    title: "Careers",
+    description: "Join the team building intelligent utility technology.",
+    href: "/company/careers",
+    icon: "briefcase",
+  },
+  {
+    title: "News & Events",
+    description: "Explore the latest Zenium updates and events.",
+    href: "/company/news",
+    icon: "newspaper",
+  },
 ];
 
-export const companyConnect: MegaLink[] = [
-  // {
-  //   title: "Careers",
-  //   description: "Join the team building intelligent utility technology.",
-  //   href: "/company/careers",
-  //   icon: "briefcase",
-  // },
-  // {
-  //   title: "News & Events",
-  //   description: "Explore the latest Zenium updates and events.",
-  //   href: "/company/news",
-  //   icon: "newspaper",
-  // },
-];
+export const companyConnect: MegaLink[] = [];
 
-export const mobileSolutions = [
-  {
-    title: "HES",
-    description: "Connect and collect smart-meter data.",
-    href: "/solutions/hes",
-  },
-  {
-    title: "MDM",
-    description: "Transform meter data into trusted utility information.",
-    href: "/solutions/mdm",
-  },
-  {
-    title: "AI & Analytics",
-    description: "Turn complex utility data into actionable intelligence.",
-    href: "/solutions/ai-analytics",
-  },
-];
+export const mobileSolutions = solutionsLinks.map(({ title, description, href }) => ({
+  title,
+  description,
+  href,
+}));

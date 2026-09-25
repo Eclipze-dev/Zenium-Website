@@ -12,7 +12,7 @@ export type ContactFormPayload = {
   message: string;
 };
 
-export type ContactFieldName = Exclude<keyof ContactFormPayload, "phone">;
+export type ContactFieldName = keyof ContactFormPayload;
 
 export type ContactFieldErrors = Partial<Record<ContactFieldName, string>>;
 
@@ -44,6 +44,12 @@ export function validateContactForm(input: ContactFormPayload): {
     errors.email = "Enter a valid business email.";
   }
   if (!company) errors.company = "Company is required.";
+  const phoneDigits = phone.replace(/\D/g, "");
+  if (!phone) {
+    errors.phone = "Phone number is required.";
+  } else if (phoneDigits.length < 7) {
+    errors.phone = "Enter a valid phone number.";
+  }
   if (!interest) {
     errors.interest = "Please select what you are interested in.";
   } else if (!isInterest(interest)) {

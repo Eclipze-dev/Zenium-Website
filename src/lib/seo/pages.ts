@@ -1,3 +1,5 @@
+import { SOLUTION_PATHS, GUIDE_PATH, CALCULATOR_PATH, BLOG_INDEX_PATH } from "./paths";
+
 export type PageSeo = {
   path: string;
   title: string;
@@ -11,31 +13,49 @@ export const pageSeo = {
     path: "/",
     title: "Zenium | Energy Intelligence Platform for Smart Utilities",
     description:
-      "Zenium is a utility intelligence company helping utilities turn metering and operational data into actionable intelligence, built on a trusted HES and MDM foundation.",
+      "Zenium is a utility intelligence company helping utilities turn metering and operational data into actionable intelligence, built on a trusted Head-End System (HES) and Meter Data Management System (MDMS) foundation.",
+  },
+  ami: {
+    path: SOLUTION_PATHS.ami,
+    title: "Advanced Metering Infrastructure (AMI) Software | Zenium",
+    description:
+      "Scalable Advanced Metering Infrastructure (AMI) software platform. Hardware-agnostic HES, MDMS, and analytics for smart grid distribution utilities.",
   },
   hes: {
-    path: "/solutions/hes",
-    title: "Head-End System (HES) for Smart Meters | Zenium",
+    path: SOLUTION_PATHS.hes,
+    title: "Smart Meter Head-End System (HES) Software | Zenium",
     description:
-      "Zenium Head-End System connects smart meters and communication networks to utility operations — automating data acquisition and enabling secure remote operations.",
+      "Enterprise Head-End System (HES) software for large-scale AMI rollouts. Vendor-agnostic DLMS/COSEM support, RF Mesh, and Cellular connectivity.",
   },
   mdm: {
-    path: "/solutions/mdm",
-    title: "Meter Data Management (MDM) Platform | Zenium",
+    path: SOLUTION_PATHS.mdms,
+    title: "Meter Data Management System (MDMS) Software | Zenium",
     description:
-      "Zenium Meter Data Management System transforms meter data into trusted information for billing, prepaid operations, consumer services and downstream utility use.",
+      "Enterprise Meter Data Management System (MDMS). Automate VEE, meter-to-cash billing determinants, prepayment, and energy theft detection.",
   },
   aiAnalytics: {
-    path: "/solutions/ai-analytics",
-    title: "Analytics & AI for Utility Operations | Zenium",
+    path: SOLUTION_PATHS.analytics,
+    title: "Utility & Smart Grid Analytics Software | Zenium",
     description:
-      "Zenium Analytics & AI turns meter, consumer, asset and network data into intelligence that helps utilities identify losses, protect revenue and make operational decisions.",
+      "Turn interval meter data into actionable intelligence. Transformer load profiling, non-technical loss analytics, and feeder balance monitoring.",
+  },
+  smartMeterGuide: {
+    path: GUIDE_PATH,
+    title: "How to Read a Smart Meter Display | Zenium",
+    description:
+      "Learn how to read smart meter display codes and understand common meter readings. Built for consumers and utilities exploring Advanced Metering Infrastructure (AMI).",
+  },
+  wattsToKwhCalculator: {
+    path: CALCULATOR_PATH,
+    title: "Watts to kWh Calculator | Convert Power to Energy Units | Zenium",
+    description:
+      "Convert watts or kilowatts to kilowatt-hours (kWh). Understand that 1 unit of electricity equals 1 kWh, then explore Zenium AMI, HES and MDMS software.",
   },
   serveUtilities: {
     path: "/serve/utilities",
     title: "Intelligence for Electricity, Gas and Water | Zenium",
     description:
-      "Zenium helps electricity, gas and water utilities connect infrastructure, manage trusted data and turn operational signals into actionable intelligence with HES, MDM and Analytics & AI.",
+      "Zenium helps electricity, gas and water utilities connect infrastructure, manage trusted data and turn operational signals into actionable intelligence with Head-End System (HES), Meter Data Management System (MDMS) and Analytics.",
   },
   serveCities: {
     path: "/serve/cities",
@@ -65,7 +85,7 @@ export const pageSeo = {
     path: "/partners",
     title: "Partners for AMI and Utility Solutions | Zenium",
     description:
-      "Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter infrastructure, manage trusted data and support evolution towards AMI 2.0.",
+      "Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter infrastructure, manage trusted data and support evolution towards Advanced Metering Infrastructure (AMI) 2.0.",
   },
   about: {
     path: "/company/about",
@@ -134,10 +154,10 @@ export const pageSeo = {
     index: false,
   },
   resourcesBlogs: {
-    path: "/resources/blogs-insights",
+    path: BLOG_INDEX_PATH,
     title: "Blogs & Insights | Zenium",
-    description: "Blogs and insights page coming soon.",
-    index: false,
+    description:
+      "Insights on Advanced Metering Infrastructure (AMI), Head-End System (HES), Meter Data Management System (MDMS) and utility analytics from Zenium.",
   },
   resourcesWebinars: {
     path: "/resources/webinars",
@@ -150,3 +170,26 @@ export const pageSeo = {
 export const indexablePages: PageSeo[] = (
   Object.values(pageSeo) as PageSeo[]
 ).filter((page) => page.index !== false);
+
+/** CMS pages.slug for a public path. Homepage uses `home` (not empty). */
+export function slugFromPath(path: string): string {
+  if (!path || path === "/") return "home";
+  return path.replace(/^\//, "");
+}
+
+/** Known marketing routes for CMS SEO registry (slug + fallback meta). */
+export function cmsPageRegistry(): Array<{
+  slug: string;
+  path: string;
+  title: string;
+  seo_title: string;
+  seo_description: string;
+}> {
+  return (Object.values(pageSeo) as PageSeo[]).map((page) => ({
+    slug: slugFromPath(page.path),
+    path: page.path,
+    title: page.title,
+    seo_title: page.title,
+    seo_description: page.description,
+  }));
+}

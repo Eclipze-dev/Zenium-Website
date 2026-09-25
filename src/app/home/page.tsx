@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo/buildMetadata";
-import { pageSeo } from "@/lib/seo/pages";
+import { resolvePageSeo } from "@/lib/cms/content";
+import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import HeroSection from "./components/HeroSection";
 // import CTANetworkBackground from "./components/CTANetworkBackground";
 // import MetricsSection from "./components/MetricsSection";
@@ -15,7 +16,15 @@ import PartnersSection from "./components/PartnersSection";
 // import InsightsResourcesSection from "./components/InsightsResourcesSection";
 import FinalCtaSection from "./components/FinalCtaSection";
 
-export const metadata: Metadata = buildPageMetadata(pageSeo.home);
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolvePageSeo(
+    pageSeo.home,
+    slugFromPath(pageSeo.home.path),
+  );
+  return buildPageMetadata(seo);
+}
 
 export default function HomePage() {
   return (
