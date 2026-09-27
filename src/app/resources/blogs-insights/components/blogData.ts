@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     titleAccent: "Smart Metering Software",
     excerpt:
       "The Revamped Distribution Sector Scheme (RDSS) isn't just a government mandate—it's the biggest digital overhaul the Indian power sector has ever seen. The core goal is ambitious but necessary: drop Aggregate Technical and Commercial (AT&C) losses to 12–15% nationwide and finally close the revenue gap for DISCOMs.",
-    image: "/blogs/rdss-scheme.png",
+    image: "/blogs/rdss-scheme.webp",
     imageAlt:
       "Indian city distribution transformers and prepaid smart meters at dusk",
     cta: "Read More",
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
     titleAccent: "Why Utilities Need Hardware-Agnostic Software",
     excerpt:
       "Utilities scaling up their smart grids usually hit the same frustrating wall: vendor lock-in. When you rely on a meter manufacturer's proprietary software to read their specific devices, expanding your network or switching to a cheaper hardware vendor later becomes a costly nightmare.",
-    image: "/blogs/dlms-cosem.png",
+    image: "/blogs/dlms-cosem.webp",
     imageAlt:
       "Indian utility control room reviewing a multi-vendor smart meter network",
     cta: "Read More",
@@ -177,10 +177,10 @@ export const blogPosts: BlogPost[] = [
     titleAccent: "Protects Utility Revenue",
     excerpt:
       "Smart meters pump out a massive amount of data, pushing interval load profiles and consumption metrics every 15 to 30 minutes. But anyone working in field operations knows a simple truth: field data is almost never perfect.",
-    image: "/blogs/vee-revenue.png",
+    image: "/blogs/vee-revenue.webp",
     imageAlt:
       "Utility technician checking electricity meters in an Indian residential colony",
-    cta: "Discover Zenium",
+    cta: "Read More",
     seoTable: [
       {
         parameter: "Meta Title",
@@ -234,10 +234,10 @@ export const blogPosts: BlogPost[] = [
     titleAccent: "Solving Billing Challenges for Utilities",
     excerpt:
       "For years, electricity distribution utilities have been fighting a losing battle with postpaid billing. Manual meter reading delays, arguments over estimated bills, and the massive cost of chasing down arrears have drained utility cash flows.",
-    image: "/blogs/prepaid-metering.png",
+    image: "/blogs/prepaid-metering.webp",
     imageAlt:
       "Prepaid smart meter on a home veranda in an Indian town",
-    cta: "Explore Our Solutions",
+    cta: "Read More",
     seoTable: [
       {
         parameter: "Meta Title",
@@ -317,7 +317,7 @@ function mapCmsPost(post: CmsBlogPost): BlogPost {
     titleLead: post.title,
     titleAccent: "",
     excerpt: post.excerpt?.trim() || paragraphs[0] || "",
-    image: post.featured_image_url || "/blogs/rdss-scheme.png",
+    image: post.featured_image_url || "/blogs/rdss-scheme.webp",
     imageAlt: post.alt_text?.trim() || post.title,
     cta: "Read More",
     intro: post.excerpt?.trim() || paragraphs[0] || "",
