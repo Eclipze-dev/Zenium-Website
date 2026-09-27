@@ -50,8 +50,15 @@ type RouteSegment = {
 };
 
 const networkPoints: ReadonlyArray<readonly [number, number]> = [
-  [90, 310], [130, 230], [455, 280], [500, 360], [270, 130], [340, 220], [410, 470], [250, 520], [180, 570],
+  [90, 310], [130, 230], [270, 130], [340, 220], [410, 470], [250, 520], [180, 570],
 ];
+
+/** Keep mainland-only dots — drop Andaman/Nicobar (east) and Lakshadweep (SW). */
+function isMainlandPoint(lon: number, lat: number) {
+  if (lon > 91.2 && lat < 15.5) return false; // Andaman & Nicobar
+  if (lon < 74.2 && lat < 14 && lon > 71) return false; // Lakshadweep
+  return true;
+}
 
 function getIndiaFeature() {
   return indiaLand as {
@@ -77,6 +84,7 @@ function buildMapGeometry() {
   const dots: Array<{ x: number; y: number; key: string }> = [];
   for (let lat = 6; lat <= 37.5; lat += 0.52) {
     for (let lon = 67; lon <= 98; lon += 0.52) {
+      if (!isMainlandPoint(lon, lat)) continue;
       const point: [number, number] = [lon, lat];
       if (geoContains(indiaFeature as never, point)) {
         const projected = projection(point);
@@ -95,6 +103,8 @@ function buildMapGeometry() {
   const hubMap = Object.fromEntries(projectedHubs.map((hub) => [hub.name, hub])) as Record<string, Hub>;
 
   const routeSegments: RouteSegment[] = [];
+  // Prefer curves toward map center so arcs stay over land, not the Bay of Bengal.
+  const mapCenter = { x: 310, y: 380 };
   routes.forEach(([from, to], index) => {
     const a = hubMap[from];
     const b = hubMap[to];
@@ -107,9 +117,19 @@ function buildMapGeometry() {
     const distance = Math.sqrt(dx * dx + dy * dy);
     if (distance === 0) return;
 
-    const curveAmount = Math.min(90, distance * 0.35);
-    const controlX = midX - (dy * curveAmount) / distance;
-    const controlY = midY + (dx * curveAmount) / distance;
+    const curveAmount = Math.min(55, distance * 0.22);
+    const nx = -dy / distance;
+    const ny = dx / distance;
+    const c1x = midX + nx * curveAmount;
+    const c1y = midY + ny * curveAmount;
+    const c2x = midX - nx * curveAmount;
+    const c2y = midY - ny * curveAmount;
+    const d1 =
+      (c1x - mapCenter.x) ** 2 + (c1y - mapCenter.y) ** 2;
+    const d2 =
+      (c2x - mapCenter.x) ** 2 + (c2y - mapCenter.y) ** 2;
+    const controlX = d1 < d2 ? c1x : c2x;
+    const controlY = d1 < d2 ? c1y : c2y;
 
     routeSegments.push({
       key: `${from}-${to}`,
@@ -118,7 +138,30 @@ function buildMapGeometry() {
     });
   });
 
-  return { indiaPath, dots, projectedHubs, routeSegments };
+  // Keep decorative pulses only when they sit on mainland.
+  const inlandNetworkPoints = networkPoints.filter(([x, y]) => {
+    const lonLat = projection.invert?.([x, y]);
+    if (!lonLat) return false;
+    const [lon, lat] = lonLat;
+    return isMainlandPoint(lon, lat) && geoContains(indiaFeature as never, [lon, lat]);
+  });
+
+  // Bay of Bengal — between Chennai coast and Andaman.
+  // Keep fully inside the map column so the outer ring never clips into the text.
+  const badgeProjected = projection([85.8, 11.6]) ?? [450, 620];
+  const badgePosition = {
+    x: badgeProjected[0] - 8,
+    y: badgeProjected[1] - 28,
+  };
+
+  return {
+    indiaPath,
+    dots,
+    projectedHubs,
+    routeSegments,
+    inlandNetworkPoints,
+    badgePosition,
+  };
 }
 
 const mapGeometry = buildMapGeometry();
@@ -127,32 +170,37 @@ const MapRoute = memo(function MapRoute({
   pathD,
   index,
   reduced,
+  pulseOnly = false,
 }: {
   pathD: string;
   index: number;
   reduced: boolean;
+  /** When true, render only the traveling particle (for mainland clip). */
+  pulseOnly?: boolean;
 }) {
-  return (
-    <g>
-      <path
-        d={pathD}
-        className={cn(
-          'fill-none stroke-[#F07F25] [stroke-width:1.25] [stroke-linecap:round] [stroke-dasharray:4_5] opacity-70',
-          !reduced && '[filter:drop-shadow(0_0_3px_rgba(240,127,37,0.5))] animate-route-flow',
-        )}
-        style={reduced ? undefined : { animationDelay: `${index * 0.25}s` }}
+  if (pulseOnly) {
+    if (reduced) return null;
+    return (
+      <circle
+        r={3}
+        className="fill-[#F07F25] [filter:drop-shadow(0_0_6px_rgba(240,127,37,1))] animate-pulse-travel"
+        style={{
+          offsetPath: `path('${pathD}')`,
+          animationDelay: `${index * 0.35}s`,
+        }}
       />
-      {!reduced && (
-        <circle
-          r={3}
-          className="fill-[#F07F25] [filter:drop-shadow(0_0_6px_rgba(240,127,37,1))] animate-pulse-travel"
-          style={{
-            offsetPath: `path('${pathD}')`,
-            animationDelay: `${index * 0.35}s`,
-          }}
-        />
+    );
+  }
+
+  return (
+    <path
+      d={pathD}
+      className={cn(
+        'fill-none stroke-[#F07F25] [stroke-width:1.25] [stroke-linecap:round] [stroke-dasharray:4_5] opacity-70',
+        !reduced && '[filter:drop-shadow(0_0_3px_rgba(240,127,37,0.5))] animate-route-flow',
       )}
-    </g>
+      style={reduced ? undefined : { animationDelay: `${index * 0.25}s` }}
+    />
   );
 });
 
@@ -162,7 +210,10 @@ const MapHub = memo(function MapHub({ hub, reduced }: { hub: Hub; reduced: boole
       <circle
         r={28}
         fill="url(#hubGlow)"
-        className={cn('opacity-50', !reduced && 'animate-hub-glow')}
+        className={cn(
+          'opacity-50 [transform-box:fill-box] [transform-origin:center]',
+          !reduced && 'animate-hub-glow',
+        )}
       />
       <circle
         r={13}
@@ -229,7 +280,14 @@ export default function IndiaBuiltMap() {
     return () => mq.removeEventListener('change', update);
   }, []);
 
-  const { indiaPath, dots, projectedHubs, routeSegments } = mapGeometry;
+  const {
+    indiaPath,
+    dots,
+    projectedHubs,
+    routeSegments,
+    inlandNetworkPoints,
+    badgePosition,
+  } = mapGeometry;
 
   const routeElements = useMemo(
     () =>
@@ -244,16 +302,30 @@ export default function IndiaBuiltMap() {
     [routeSegments, reduced],
   );
 
+  const routePulseElements = useMemo(
+    () =>
+      routeSegments.map((route) => (
+        <MapRoute
+          key={`pulse-${route.key}`}
+          pathD={route.pathD}
+          index={route.index}
+          reduced={reduced}
+          pulseOnly
+        />
+      )),
+    [routeSegments, reduced],
+  );
+
   const hubElements = useMemo(
     () => projectedHubs.map((hub) => <MapHub key={hub.name} hub={hub} reduced={reduced} />),
     [projectedHubs, reduced],
   );
 
   return (
-    <div className="relative w-full max-w-[620px] overflow-hidden [aspect-ratio:620/760] max-lg:mx-auto max-md:max-w-[500px] max-sm:max-w-[390px]">
+    <div className="relative w-full max-w-[620px] overflow-hidden isolate [aspect-ratio:620/760] max-lg:mx-auto max-md:max-w-[500px] max-sm:max-w-[390px]">
       <svg
         viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
-        className="block h-full w-full overflow-visible"
+        className="block h-full w-full overflow-hidden"
         role="img"
         aria-label="Map of India showing Zenium hub locations and network connections"
       >
@@ -263,6 +335,9 @@ export default function IndiaBuiltMap() {
             <stop offset="40%" stopColor={ORANGE} stopOpacity="0.2" />
             <stop offset="100%" stopColor={ORANGE} stopOpacity="0" />
           </radialGradient>
+          <clipPath id="india-mainland-clip">
+            <path d={indiaPath} />
+          </clipPath>
         </defs>
 
         <path
@@ -270,21 +345,26 @@ export default function IndiaBuiltMap() {
           className="fill-[rgba(240,127,37,0.015)] stroke-[rgba(240,127,37,0.12)] [stroke-width:0.5]"
         />
 
-        <MapDots dots={dots} reduced={reduced} />
+        <g clipPath="url(#india-mainland-clip)">
+          <MapDots dots={dots} reduced={reduced} />
+        </g>
 
         <g>{routeElements}</g>
 
+        {/* Traveling pulses clipped so they never draw over ocean */}
+        <g clipPath="url(#india-mainland-clip)">{routePulseElements}</g>
+
         <g>{hubElements}</g>
 
-        <g>
-          {networkPoints.map(([x, y], index) => (
+        <g clipPath="url(#india-mainland-clip)">
+          {inlandNetworkPoints.map(([x, y], index) => (
             <circle
               key={`${x}-${y}`}
               cx={x}
               cy={y}
               r={2}
               className={cn(
-                'fill-[#F07F25] [filter:drop-shadow(0_0_4px_rgba(240,127,37,0.9))]',
+                'fill-[#F07F25] [filter:drop-shadow(0_0_4px_rgba(240,127,37,0.9))] [transform-box:fill-box] [transform-origin:center]',
                 !reduced && 'animate-network-pulse-alt',
               )}
               style={reduced ? undefined : { animationDelay: `${index * 0.4}s` }}
@@ -292,11 +372,14 @@ export default function IndiaBuiltMap() {
           ))}
         </g>
 
-        <g className="cursor-pointer" transform="translate(450 620)">
+        <g
+          className="cursor-pointer"
+          transform={`translate(${badgePosition.x} ${badgePosition.y})`}
+        >
           <circle
             r={66}
             className={cn(
-              'fill-none stroke-[#F07F25] [stroke-width:1] opacity-[0.18]',
+              'fill-none stroke-[#F07F25] [stroke-width:1] opacity-[0.18] [transform-box:fill-box] [transform-origin:center]',
               !reduced && 'animate-badge-pulse',
             )}
           />

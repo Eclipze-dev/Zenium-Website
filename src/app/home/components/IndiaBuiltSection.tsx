@@ -14,7 +14,7 @@ export default function IndiaBuiltSection() {
   return (
     <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container grid grid-cols-[minmax(360px,1fr)_minmax(0,1fr)] gap-[55px] items-center max-xl:grid-cols-1 max-xl:gap-[40px]">
-        <div className="min-h-[540px] relative grid place-items-center max-xl:min-h-[440px] max-lg:min-h-[380px] max-sm:min-h-[280px]">
+        <div className="relative isolate min-h-[540px] grid place-items-center overflow-hidden max-xl:min-h-[440px] max-lg:min-h-[380px] max-sm:min-h-[280px]">
           <Suspense fallback={null}>
             <IndiaBuiltMap />
           </Suspense>

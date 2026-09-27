@@ -6,7 +6,7 @@ import { resolvePageSeo } from "@/lib/cms/content";
 import { pageSeo, slugFromPath } from "@/lib/seo/pages";
 import HeroSection from "./components/HeroSection";
 // import CTANetworkBackground from "./components/CTANetworkBackground";
-// import MetricsSection from "./components/MetricsSection";
+import MetricsSection from "./components/MetricsSection";
 import JourneySection from "./components/JourneySection";
 import ZeniumEdgeSection from "./components/ZeniumEdgeSection";
 import IndiaBuiltSection from "./components/IndiaBuiltSection";
@@ -32,8 +32,10 @@ export default function HomePage() {
       <SiteHeader />
       <main className="overflow-x-clip">
         <HeroSection />
+        <div className="bg-[#010913]">
+          <MetricsSection />
+        </div>
         <div className="bg-bg2">
-          {/* <MetricsSection /> */}
           <JourneySection />
         </div>
         <ZeniumEdgeSection />

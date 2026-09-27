@@ -160,12 +160,12 @@ export const companyAbout: MegaLink[] = [
     href: "/company/careers",
     icon: "briefcase",
   },
-  {
-    title: "News & Events",
-    description: "Explore the latest Zenium updates and events.",
-    href: "/company/news",
-    icon: "newspaper",
-  },
+  // {
+  //   title: "News & Events",
+  //   description: "Explore the latest Zenium updates and events.",
+  //   href: "/company/news",
+  //   icon: "newspaper",
+  // },
 ];
 
 export const companyConnect: MegaLink[] = [];

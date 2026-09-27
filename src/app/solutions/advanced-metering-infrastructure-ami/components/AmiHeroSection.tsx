@@ -17,7 +17,7 @@ export default function AmiHeroSection() {
               Advanced Metering Infrastructure (AMI) Software{" "}
               <ShimmerText>Solutions</ShimmerText>
             </h1>
-            <p className="max-w-3xl text-p1 text-muted">
+            <p className="max-w-auto text-p1 text-muted">
               Scalable Advanced Metering Infrastructure (AMI) software platform.
               Hardware-agnostic Head-End System (HES), Meter Data Management
               System (MDMS), and analytics for smart grid distribution utilities.

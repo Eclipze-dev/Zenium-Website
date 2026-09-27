@@ -53,7 +53,7 @@ export default function ZeniumDataFlow({
   return (
     <div
       className={cn(
-        "zenium-data-flow relative mx-auto w-full",
+        "zenium-data-flow relative mx-auto w-full overflow-hidden",
         fit ? "flex h-full max-h-full max-w-none items-center justify-center" : "max-w-[460px]",
         className,
       )}
@@ -65,7 +65,7 @@ export default function ZeniumDataFlow({
         height={fit ? "100%" : "auto"}
         preserveAspectRatio="xMidYMid meet"
         className={cn(
-          "block overflow-visible",
+          "block overflow-hidden",
           fit && "h-full max-h-full w-auto max-w-full",
         )}
         style={{ background: "transparent" }}
@@ -581,18 +581,20 @@ export default function ZeniumDataFlow({
             stroke="rgba(240,127,37,0.2)"
             strokeWidth="2.5"
           />
-          <circle
-            cx="346"
-            cy="772"
-            r="9"
-            fill="none"
-            stroke="#F07F25"
-            strokeWidth="2.5"
-            strokeDasharray="28 56"
-            strokeLinecap="round"
-            transform="rotate(-90 346 772)"
-            className={reduced ? "" : "zdf-arc-spin"}
-          />
+          {/* Rotate via nested g so CSS animation can't orbit from a wrong SVG origin */}
+          <g transform="rotate(-90 346 772)">
+            <circle
+              cx="346"
+              cy="772"
+              r="9"
+              fill="none"
+              stroke="#F07F25"
+              strokeWidth="2.5"
+              strokeDasharray="28 56"
+              strokeLinecap="round"
+              className={reduced ? "" : "zdf-arc-spin"}
+            />
+          </g>
           <circle
             cx="322"
             cy="706"

@@ -2,13 +2,13 @@ import Button from "@/components/Button";
 import OptimizedImage from "@/components/OptimizedImage";
 import SectionBadge from "@/components/SectionBadge";
 import HeroTypewriter from "./HeroTypewriter";
-import HeroStats from "./HeroStats";
-import { metrics } from "./homeData";
+// import HeroStats from "./HeroStats";
+// import { metrics } from "./homeData";
 
 export default function HeroSection() {
   return (
     <section
-      className="relative flex items-center min-h-[100svh] overflow-hidden pt-0 pb-[80px] max-lg:min-h-0 max-lg:pt-[48px] max-lg:pb-[48px] max-md:pt-[32px] max-md:pb-[50px] max-sm:pt-[24px] max-sm:pb-[40px]"
+      className="relative flex h-auto min-h-[calc(100svh-5rem)] items-center overflow-hidden py-10 max-lg:min-h-[calc(100svh-4rem)] max-lg:py-8 max-sm:py-6"
       aria-labelledby="hero-title"
     >
       <OptimizedImage
@@ -46,12 +46,12 @@ export default function HeroSection() {
             <Button outline href="/solutions/head-end-system-hes">Explore Zenium</Button>
           </div>
         </div>
-        <div className="mt-[75px] max-lg:mt-[40px] max-sm:mt-[40px]">
+        {/* <div className="mt-[75px] max-lg:mt-[40px] max-sm:mt-[40px]">
           <HeroStats items={metrics} />
         </div>
         <div className="text-muted text-p1 font-light uppercase tracking-[0.08em] max-w-auto mt-[20px] max-lg:text-[13px] max-lg:leading-[1.4] max-lg:tracking-[0.06em] max-sm:text-caption max-sm:tracking-[0.05em]">
           Built on real-world utility experience.
-        </div>
+        </div> */}
       </div>
     </section>
   );

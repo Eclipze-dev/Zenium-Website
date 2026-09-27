@@ -22,7 +22,7 @@ export default function ShimmerText({
   return (
     <Tag
       className={cn(
-        "text-orange",
+        "!text-orange",
         textClassName,
         "max-lg:text-[1em] max-lg:leading-[inherit]",
         Tag === "p" && "inline",

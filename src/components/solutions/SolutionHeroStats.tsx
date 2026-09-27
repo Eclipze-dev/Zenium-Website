@@ -61,13 +61,13 @@ export default function SolutionHeroStats({
       <>
         <span
           className={cn(
-            "block text-center text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
+            "block text-center !text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
             valueClassName,
           )}
         >
           {value}
         </span>
-        <p className="mt-[14px] text-center text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
+        <p className="mt-[14px] text-center !text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
           {description}
         </p>
       </>

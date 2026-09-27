@@ -172,8 +172,8 @@ export const heroPhrases = [
 export const metrics: ReadonlyArray<
   readonly [LucideIcon, string, string]
 > = [
-  [Gauge, "5 Million", "Meter-point MDM deployment"],
   [Radio, "2 Million+", "Meters onboarded"],
+  [Gauge, "5 Million", "Meter-point MDM deployment"],
   [Server, "1 Million", "Meter-point HES deployment"],
   [TestTube2, "12 Million+", "Simulated DLMS meters tested"],
   [Lamp, "12 Cities", "Smart-streetlight implementations"],

@@ -226,8 +226,8 @@ section,
 }
 
 .button-secondary:hover {
-  background-color: #152D48;
-  border-color: #152D48;
+  background-color: var(--button-secondary-hover-bg, #152D48);
+  border-color: var(--button-secondary-hover-bg, #152D48);
   color: #FFFFFF;
 }
 
@@ -268,6 +268,7 @@ section,
 }
 
 .zdf-ring-pulse {
+  transform-box: fill-box;
   transform-origin: center;
   animation: zdf-ring 6s ease-in-out infinite;
 }
@@ -353,11 +354,12 @@ section,
 }
 
 .zdf-arc-spin {
-  transform-origin: 346px 772px;
+  transform-box: fill-box;
+  transform-origin: center;
   animation: zdf-arc 5s linear infinite;
 }
 @keyframes zdf-arc {
-  to { transform: rotate(270deg); }
+  to { transform: rotate(360deg); }
 }
 
 .zdf-dot-pulse {

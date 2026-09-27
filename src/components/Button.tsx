@@ -9,6 +9,7 @@ export default function Button({
   className,
   variant = "default",
   showArrow = true,
+  hoverBg,
 }: {
   children: React.ReactNode;
   outline?: boolean;
@@ -19,6 +20,8 @@ export default function Button({
   variant?: "default" | "text";
   /** Only applies to variant="text". Defaults to true. */
   showArrow?: boolean;
+  /** Outline-button hover fill. Other buttons keep the shared hover color. */
+  hoverBg?: string;
 }) {
   if (variant === "text") {
     const textClasses = cn(
@@ -64,16 +67,20 @@ export default function Button({
     className,
   );
 
+  const hoverStyle = hoverBg
+    ? ({ "--button-secondary-hover-bg": hoverBg } as React.CSSProperties)
+    : undefined;
+
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} style={hoverStyle}>
         {children}
       </a>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes}>
+    <button type="button" onClick={onClick} className={classes} style={hoverStyle}>
       {children}
     </button>
   );

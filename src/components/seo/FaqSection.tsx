@@ -30,7 +30,7 @@ export default function FaqSection({
           <ShimmerText>{accent}</ShimmerText>
         </h2>
 
-        <div className="min-w-0 border-t border-[#152D48] [overflow-anchor:none]">
+        <div className="min-w-0 border-t border-white/20 [overflow-anchor:none]">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `${baseId}-panel-${index}`;
@@ -39,7 +39,7 @@ export default function FaqSection({
             return (
               <div
                 key={item.question}
-                className="border-b border-[#152D48] [overflow-anchor:none]"
+                className="border-b border-white/20 [overflow-anchor:none]"
               >
                 <button
                   id={buttonId}

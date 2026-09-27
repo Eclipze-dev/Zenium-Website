@@ -153,7 +153,7 @@ const columns: { heading: string; links: FooterLinkItem[] }[] = [
     links: [
       { label: "About Zenium", href: "/company/about" },
       { label: "Careers", href: "/company/careers" },
-      { label: "News & Events", href: "/company/news" },
+      // { label: "News & Events", href: "/company/news" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -199,7 +199,7 @@ export default function Footer() {
               Turning connected utility data into intelligence.
             </p>
           </div>
-          <div className="grid min-w-0 flex-1 grid-cols-4 gap-x-[20px] gap-y-[40px] max-lg:gap-x-[12px] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
+          <div className="grid min-w-0 flex-1 grid-cols-5 gap-x-[20px] gap-y-[40px] max-lg:gap-x-[12px] max-sm:grid-cols-1 max-sm:gap-y-[36px]">
           {columns.map((col) => (
             <FooterColumn key={col.heading} {...col} />
           ))}

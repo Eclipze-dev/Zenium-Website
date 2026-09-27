@@ -131,7 +131,10 @@ export default function ZeniumEdgeSection() {
   const activeStage = STAGE_CYCLE[activeCapability % STAGE_CYCLE.length];
 
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]" id="resources">
+    <section
+      className="relative overflow-hidden py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
+      id="resources"
+    >
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(360px,1.05fr)] gap-[60px] items-stretch max-xl:grid-cols-1 max-xl:gap-[40px] max-sm:gap-[30px]">
         <div className="min-w-0">
           <SectionIntro
@@ -162,7 +165,7 @@ export default function ZeniumEdgeSection() {
           </div>
         </div>
 
-        <div className="flex h-full min-h-0 w-full items-center justify-center max-xl:min-h-[480px] max-lg:min-h-[420px] max-sm:min-h-[280px] max-sm:max-w-[460px] max-sm:mx-auto">
+        <div className="relative isolate flex h-full min-h-0 w-full items-center justify-center overflow-hidden max-xl:min-h-[480px] max-lg:min-h-[420px] max-sm:min-h-[280px] max-sm:max-w-[460px] max-sm:mx-auto">
           <ZeniumDataFlow
             fit
             activeStage={activeStage}
