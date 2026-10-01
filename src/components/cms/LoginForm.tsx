@@ -87,7 +87,7 @@ export default function LoginForm() {
     <Card className="w-full max-w-md">
       <CardHeader className="space-y-3 text-center">
         <img
-          src="/cms/eclipze-logo.png"
+          src="/cms/ZENIUM_dark_logo.png"
           alt="Eclipze"
           width={40}
           height={40}
