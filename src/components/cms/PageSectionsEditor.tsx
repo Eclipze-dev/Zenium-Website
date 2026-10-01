@@ -6,14 +6,18 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import {
+  CmsFormLabel as FormLabel,
+  CmsInput as Input,
+  CmsTextarea as Textarea,
+  formShellClass,
+  submitClass,
+} from "@/components/cms/cmsFields";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
@@ -86,7 +90,7 @@ function SectionEditor({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-3 rounded-md border p-4"
+        className={formShellClass}
       >
         <FormField
           control={form.control}
@@ -121,7 +125,7 @@ function SectionEditor({
             <FormItem>
               <FormLabel>Body</FormLabel>
               <FormControl>
-                <Textarea rows={4} {...field} />
+                <Textarea rows={5} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -132,11 +136,12 @@ function SectionEditor({
             control={form.control}
             name="sort_order"
             render={({ field }) => (
-              <FormItem className="w-28">
+              <FormItem className="w-36">
                 <FormLabel>Order</FormLabel>
                 <FormControl>
                   <Input
                     type="number"
+                    className="w-36"
                     {...field}
                     onChange={(e) => field.onChange(Number(e.target.value))}
                   />
@@ -149,19 +154,21 @@ function SectionEditor({
             control={form.control}
             name="enabled"
             render={({ field }) => (
-              <FormItem className="flex items-center gap-2 space-y-0">
+              <FormItem className="flex h-11 items-center gap-3 space-y-0">
                 <FormControl>
                   <Switch checked={field.value} onCheckedChange={field.onChange} />
                 </FormControl>
-                <FormLabel>Enabled</FormLabel>
+                <FormLabel className="!mt-0">Enabled</FormLabel>
               </FormItem>
             )}
           />
-          <Button type="submit" size="sm">
+        </div>
+        <div className="flex gap-2">
+          <Button type="submit" className={submitClass} disabled={form.formState.isSubmitting}>
             {section ? "Save" : "Add section"}
           </Button>
           {section ? (
-            <Button type="button" size="sm" variant="destructive" onClick={onDelete}>
+            <Button type="button" variant="outline" className={submitClass} onClick={onDelete}>
               Delete
             </Button>
           ) : null}
@@ -179,10 +186,12 @@ export default function PageSectionsEditor({
   sections: CmsPageSection[];
 }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div>
-        <h2 className="text-lg font-semibold">Page sections</h2>
-        <p className="text-sm text-muted-foreground">
+        <h2 className="m-0 text-2xl font-semibold leading-tight tracking-tight text-foreground">
+          Page sections
+        </h2>
+        <p className="m-0 mt-1 text-[15px] leading-snug text-muted-foreground">
           Optional content blocks managed in the CMS.
         </p>
       </div>

@@ -39,28 +39,10 @@ const INTEREST_COLOR: Record<string, string> = {
   "General enquiry": "#4F46E5",
 };
 
-function formatRelative(value: Date | string) {
-  const diffMs = Date.now() - new Date(value).getTime();
-  const minutes = Math.max(0, Math.round(diffMs / 60000));
-  if (minutes < 1) return "Just now";
-  if (minutes < 60) {
-    return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
-  }
-  const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
-  const days = Math.round(hours / 24);
-  return `${days} day${days === 1 ? "" : "s"} ago`;
-}
+type ActivityItem = Awaited<ReturnType<typeof getDashboardData>>["activity"][number];
 
-function activityDotClass(action: string) {
-  const key = action.toLowerCase();
-  if (key.includes("delete") || key.includes("remove")) {
-    return "bg-orange-100 [&>span]:bg-orange-500 cms-dark:bg-orange-500/15 cms-dark:[&>span]:bg-orange-300";
-  }
-  if (key.includes("update") || key.includes("edit")) {
-    return "bg-gray-100 [&>span]:bg-gray-900 cms-dark:bg-white/10 cms-dark:[&>span]:bg-slate-100";
-  }
-  return "bg-green-100 [&>span]:bg-green-600 cms-dark:bg-green-500/15 cms-dark:[&>span]:bg-green-300";
+function formatDate(value: Date | string) {
+  return new Date(value).toLocaleString();
 }
 
 const metricCardClass =
@@ -100,39 +82,6 @@ function MetricLink({ card }: { card: MetricCard }) {
         </div>
       </div>
     </Link>
-  );
-}
-
-type ActivityItem = Awaited<ReturnType<typeof getDashboardData>>["activity"][number];
-
-function activityDetail(item: ActivityItem) {
-  const name = item.admin_name || item.admin_email || "System";
-  const detail = `${item.action} ${item.entity}${item.entity_id ? ` #${item.entity_id}` : ""}`;
-  return { name, detail };
-}
-
-function ActivityRow({ item }: { item: ActivityItem }) {
-  const { name, detail } = activityDetail(item);
-  return (
-    <li className="flex items-start gap-4 rounded-xl bg-secondary p-4">
-      <div
-        className={cn(
-          "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
-          activityDotClass(item.action),
-        )}
-      >
-        <span className="h-2.5 w-2.5 rounded-full" />
-      </div>
-      <div className="flex min-w-0 flex-1 items-start justify-between gap-3 xl:block">
-          <div className="min-w-0">
-            <p className="text-[15px] font-medium text-foreground">{name}</p>
-            <p className="mt-0.5 text-[14px] text-muted-foreground">{detail}</p>
-          </div>
-          <p className="shrink-0 text-[13px] text-muted-foreground xl:mt-1">
-            {formatRelative(item.created_at)}
-          </p>
-      </div>
-    </li>
   );
 }
 
@@ -218,7 +167,7 @@ export default async function AdminDashboardPage() {
           database/seed.sql, then set DB_* environment variables.
         </p>
       ) : null}
-      <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-stretch 2xl:grid-cols-[minmax(0,1fr)_22rem]">
+      <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_20rem] 2xl:grid-cols-[minmax(0,1fr)_22rem]">
         <div className="min-w-0 space-y-6">
           <div className="grid items-start gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,max(220px,calc((100%-4.5rem)/4))),1fr))]">
             {cards.map((card) => (
@@ -250,20 +199,34 @@ export default async function AdminDashboardPage() {
             </Card>
           </div>
         </div>
-        <Card className={cn(panelCardClass, "flex h-full min-w-0 flex-col")}>
-          <CardHeader className="p-8 pb-0">
+        <Card className={cn(panelCardClass, "flex h-[calc(100dvh-13rem)] min-w-0 flex-col overflow-hidden")}>
+          <CardHeader className="shrink-0 p-8 pb-0">
             <CardTitle className={panelTitleClass}>Recent Activity</CardTitle>
             <CardDescription className="text-[14px] text-muted-foreground">
               Latest CMS actions
             </CardDescription>
           </CardHeader>
-          <CardContent className="p-8 pt-6 text-base font-normal">
+          <CardContent className="min-h-0 flex-1 overflow-y-auto px-8 pb-6 pt-2">
             {activity.length === 0 ? (
               <p className="text-sm text-muted-foreground">No activity yet.</p>
             ) : (
-              <ul className="space-y-3">
+              <ul className="divide-y divide-border">
                 {activity.map((item) => (
-                  <ActivityRow key={item.id} item={item} />
+                  <li
+                    key={item.id}
+                    className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 py-3"
+                  >
+                    <p className="min-w-0 text-sm font-medium">
+                      {item.admin_name || item.admin_email || "System"}{" "}
+                      <span className="font-normal text-muted-foreground">
+                        {item.action} {item.entity}
+                        {item.entity_id ? ` #${item.entity_id}` : ""}
+                      </span>
+                    </p>
+                    <p className="shrink-0 text-xs text-muted-foreground">
+                      {formatDate(item.created_at)}
+                    </p>
+                  </li>
                 ))}
               </ul>
             )}
