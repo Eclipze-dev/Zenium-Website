@@ -1,11 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { DataTable } from "@/components/cms/DataTable";
+import {
+  DeleteAction,
+  EditAction,
+  ListTable,
+  PrimaryText,
+  SecondaryText,
+  StatusPill,
+} from "@/components/cms/ListTable";
+import { notifyResult } from "@/components/cms/notifyResult";
 import {
   deletePageAction,
   togglePageStatusAction,
@@ -20,71 +24,61 @@ export default function PagesTable({ pages }: { pages: CmsPage[] }) {
   const router = useRouter();
 
   return (
-    <DataTable
-      data={pages}
+    <ListTable
+      rows={pages}
+      rowKey={(row) => String(row.id)}
       searchPlaceholder="Search pages…"
+      emptyMessage="No pages match your search."
+      searchText={(row) => `${row.title} ${row.slug} ${row.status}`}
       columns={[
-        { accessorKey: "title", header: "Title" },
-        { accessorKey: "slug", header: "Slug" },
         {
-          accessorKey: "status",
+          header: "Title",
+          accessor: (row) => <PrimaryText>{row.title}</PrimaryText>,
+        },
+        {
+          header: "Slug",
+          accessor: (row) => <SecondaryText mono>{row.slug}</SecondaryText>,
+        },
+        {
           header: "Status",
-          cell: ({ row }: { row: { original: CmsPage } }) => (
-            <Badge variant={row.original.status === "published" ? "default" : "secondary"}>
-              {row.original.status}
-            </Badge>
+          accessor: (row) => (
+            <StatusPill tone={row.status === "published" ? "green" : "gray"}>
+              {row.status === "published" ? "Published" : "Draft"}
+            </StatusPill>
           ),
         },
         {
-          accessorKey: "updated_at",
           header: "Updated",
-          cell: ({ row }: { row: { original: CmsPage } }) =>
-            formatDate(row.original.updated_at),
+          accessor: (row) => <SecondaryText>{formatDate(row.updated_at)}</SecondaryText>,
         },
         {
-          id: "actions",
-          header: "",
-          cell: ({ row }: { row: { original: CmsPage } }) => {
-            const page = row.original;
-            const nextStatus = page.status === "published" ? "draft" : "published";
+          header: "Actions",
+          accessor: (row) => {
+            const nextStatus = row.status === "published" ? "draft" : "published";
             return (
-              <div className="flex justify-end gap-2">
-                <Button variant="outline" size="sm" asChild>
-                  <Link href={`/admin/pages/${page.id}/edit`}>Edit</Link>
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="sm"
+              <div className="flex items-center gap-1">
+                <EditAction href={`/admin/pages/${row.id}/edit`} />
+                <button
+                  type="button"
+                  className="rounded-lg px-2 py-1.5 text-[13px] font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                   onClick={async () => {
-                    const result = await togglePageStatusAction(page.id, nextStatus);
-                    if (!result.ok) {
-                      toast.error(result.error);
-                      return;
-                    }
-                    toast.success(
+                    await notifyResult(
+                      await togglePageStatusAction(row.id, nextStatus),
                       nextStatus === "published" ? "Page published" : "Page unpublished",
+                      () => router.refresh(),
                     );
-                    router.refresh();
                   }}
                 >
-                  {page.status === "published" ? "Unpublish" : "Publish"}
-                </Button>
-                <Button
-                  variant="destructive"
-                  size="sm"
+                  {row.status === "published" ? "Unpublish" : "Publish"}
+                </button>
+                <DeleteAction
                   onClick={async () => {
-                    if (!confirm(`Delete “${page.title}”?`)) return;
-                    const result = await deletePageAction(page.id);
-                    if (!result.ok) {
-                      toast.error(result.error);
-                      return;
-                    }
-                    toast.success("Page deleted");
-                    router.refresh();
+                    if (!confirm(`Delete “${row.title}”?`)) return;
+                    await notifyResult(await deletePageAction(row.id), "Page deleted", () =>
+                      router.refresh(),
+                    );
                   }}
-                >
-                  Delete
-                </Button>
+                />
               </div>
             );
           },

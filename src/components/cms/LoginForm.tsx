@@ -93,8 +93,12 @@ export default function LoginForm() {
           height={40}
           className="cms-logo mx-auto h-10 w-10"
         />
-        <CardTitle className="text-2xl">CMS</CardTitle>
-        <CardDescription>Sign in to manage content</CardDescription>
+        <CardTitle className="!text-2xl !font-semibold normal-case tracking-normal text-foreground">
+          CMS
+        </CardTitle>
+        <CardDescription className="text-[15px] text-muted-foreground">
+          Sign in to manage content
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -104,9 +108,14 @@ export default function LoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-[13px] font-medium">Email</FormLabel>
                   <FormControl>
-                    <Input type="email" autoComplete="email" {...field} />
+                    <Input
+                      type="email"
+                      autoComplete="email"
+                      className="text-[15px] md:text-[15px]"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -117,11 +126,12 @@ export default function LoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-[13px] font-medium">Password</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
                       autoComplete="current-password"
+                      className="text-[15px] md:text-[15px]"
                       {...field}
                     />
                   </FormControl>
@@ -130,11 +140,11 @@ export default function LoginForm() {
               )}
             />
             {error ? (
-              <p className="text-sm text-destructive">{error}</p>
+              <p className="text-[13px] text-destructive">{error}</p>
             ) : null}
             <Button
               type="submit"
-              className="w-full"
+              className="w-full !text-[15px]"
               disabled={form.formState.isSubmitting}
             >
               {form.formState.isSubmitting ? "Signing in…" : "Sign in"}

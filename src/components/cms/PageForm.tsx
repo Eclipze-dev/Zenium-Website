@@ -6,22 +6,26 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import {
+  CmsFormLabel as FormLabel,
+  CmsInput as Input,
+  CmsSelectTrigger as SelectTrigger,
+  CmsTextarea as Textarea,
+  formShellClass,
+  submitClass,
+} from "@/components/cms/cmsFields";
 import {
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { pageSchema } from "@/lib/cms/schemas";
@@ -94,7 +98,7 @@ export default function PageForm({ page }: { page?: CmsPage }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-3xl space-y-5">
+      <form onSubmit={form.handleSubmit(onSubmit)} className={formShellClass}>
         <p className="rounded-md border border-border bg-muted/40 px-3 py-2 text-sm text-muted-foreground">
           Pages store SEO for existing site routes. Creating a row here does not
           create a public URL — add a React route under{" "}
@@ -238,10 +242,10 @@ export default function PageForm({ page }: { page?: CmsPage }) {
           )}
         />
         <div className="flex gap-2">
-          <Button type="submit" disabled={form.formState.isSubmitting}>
+          <Button type="submit" className={submitClass} disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? "Saving…" : "Save"}
           </Button>
-          <Button type="button" variant="outline" onClick={() => router.push("/admin/pages")}>
+          <Button type="button" variant="outline" className={submitClass} onClick={() => router.push("/admin/pages")}>
             Cancel
           </Button>
         </div>

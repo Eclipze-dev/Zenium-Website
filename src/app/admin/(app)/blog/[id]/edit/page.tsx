@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostForm from "@/components/cms/BlogPostForm";
+import { PageHeader } from "@/components/cms/PageHeader";
+import { toPlain } from "@/lib/cms/plain";
 import { getBlogPostById } from "@/lib/cms/queries";
 
 export const metadata: Metadata = { title: "Edit blog post" };
@@ -17,11 +19,8 @@ export default async function EditBlogPostPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Edit blog post</h1>
-        <p className="text-sm text-muted-foreground">{post.title}</p>
-      </div>
-      <BlogPostForm post={JSON.parse(JSON.stringify(post))} />
+      <PageHeader title="Edit blog post" subtitle={post.title} />
+      <BlogPostForm post={toPlain(post)} />
     </div>
   );
 }

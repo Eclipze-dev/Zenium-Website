@@ -1,10 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { DataTable } from "@/components/cms/DataTable";
+import {
+  DeleteAction,
+  EditAction,
+  ListTable,
+  PrimaryText,
+  SecondaryText,
+  StatusPill,
+} from "@/components/cms/ListTable";
+import { notifyResult } from "@/components/cms/notifyResult";
 import { deleteGuideEntryAction } from "@/lib/cms/actions/guide";
 import type { CmsSmartMeterGuideEntry } from "@/types/cms";
 
@@ -16,58 +21,52 @@ export default function GuideEntriesTable({
   const router = useRouter();
 
   return (
-    <DataTable
-      data={entries}
+    <ListTable
+      rows={entries}
+      rowKey={(row) => String(row.id)}
       searchPlaceholder="Search guide entries…"
+      emptyMessage="No guide entries match your search."
+      searchText={(row) =>
+        `${row.display_code ?? ""} ${row.category ?? ""} ${row.description ?? ""}`
+      }
       columns={[
         {
-          accessorKey: "display_code",
           header: "Code",
-          cell: ({ row }: { row: { original: CmsSmartMeterGuideEntry } }) =>
-            row.original.display_code || "—",
+          accessor: (row) => <PrimaryText>{row.display_code || "—"}</PrimaryText>,
         },
         {
-          accessorKey: "category",
           header: "Category",
-          cell: ({ row }: { row: { original: CmsSmartMeterGuideEntry } }) =>
-            row.original.category || "—",
+          accessor: (row) => <SecondaryText>{row.category || "—"}</SecondaryText>,
         },
-        { accessorKey: "sort_order", header: "Order" },
         {
-          accessorKey: "enabled",
+          header: "Order",
+          accessor: (row) => <SecondaryText>{row.sort_order}</SecondaryText>,
+        },
+        {
           header: "Status",
-          cell: ({ row }: { row: { original: CmsSmartMeterGuideEntry } }) =>
-            row.original.enabled ? "Enabled" : "Disabled",
+          accessor: (row) => (
+            <StatusPill tone={row.enabled ? "green" : "gray"}>
+              {row.enabled ? "Enabled" : "Disabled"}
+            </StatusPill>
+          ),
         },
         {
-          id: "actions",
-          header: "",
-          cell: ({ row }: { row: { original: CmsSmartMeterGuideEntry } }) => {
-            const entry = row.original;
-            return (
-              <div className="flex justify-end gap-2">
-                <Button asChild size="sm" variant="outline">
-                  <Link href={`/admin/guide/${entry.id}/edit`}>Edit</Link>
-                </Button>
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={async () => {
-                    if (!confirm("Delete this guide entry?")) return;
-                    const result = await deleteGuideEntryAction(entry.id);
-                    if (!result.ok) {
-                      toast.error(result.error);
-                      return;
-                    }
-                    toast.success("Entry deleted");
-                    router.refresh();
-                  }}
-                >
-                  Delete
-                </Button>
-              </div>
-            );
-          },
+          header: "Actions",
+          accessor: (row) => (
+            <div className="flex items-center gap-1">
+              <EditAction href={`/admin/guide/${row.id}/edit`} />
+              <DeleteAction
+                onClick={async () => {
+                  if (!confirm("Delete this guide entry?")) return;
+                  await notifyResult(
+                    await deleteGuideEntryAction(row.id),
+                    "Entry deleted",
+                    () => router.refresh(),
+                  );
+                }}
+              />
+            </div>
+          ),
         },
       ]}
     />

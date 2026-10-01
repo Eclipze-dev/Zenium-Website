@@ -2,10 +2,9 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/cms/auth";
 import { execute } from "@/lib/cms/db";
 import { logActivity } from "@/lib/cms/activity";
+import { getCmsSession } from "@/lib/cms/rbac";
 
 export const runtime = "nodejs";
 
@@ -19,7 +18,7 @@ const ALLOWED_TYPES: Record<string, string> = {
 };
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  const session = await getCmsSession();
   if (!session?.user?.id) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }

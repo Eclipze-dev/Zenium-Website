@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { execute, queryOne } from "@/lib/cms/db";
 import { getDbEnv } from "@/lib/cms/env";
 import { logActivity } from "@/lib/cms/activity";
+import { cmsAuthSecret } from "@/lib/cms/devAuth";
 import type { AdminRole, CmsAdmin } from "@/types/cms";
 
 declare module "next-auth" {
@@ -34,7 +35,7 @@ function mysqlErrorCode(error: unknown): string | undefined {
 }
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: cmsAuthSecret(),
   session: {
     strategy: "jwt",
   },

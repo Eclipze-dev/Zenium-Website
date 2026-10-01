@@ -1,6 +1,12 @@
-import { getToken } from "next-auth/jwt";
+import { encode, getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import {
+  cmsAuthSecret,
+  isCmsAuthSkipped,
+  LOCAL_CMS_COOKIE,
+  LOCAL_CMS_TOKEN,
+} from "@/lib/cms/devAuth";
 import { APEX_HOST, SITE_HOST } from "@/lib/seo/site";
 
 function isLocalHost(host: string) {
@@ -45,9 +51,33 @@ export async function middleware(request: NextRequest) {
   const isAdminApi = pathname.startsWith("/api/admin");
 
   if (isAdminUi || isAdminApi) {
+    const secret = cmsAuthSecret();
+
+    if (isCmsAuthSkipped()) {
+      const existing = secret
+        ? await getToken({ req: request, secret })
+        : null;
+      if (existing) return NextResponse.next();
+
+      const response = NextResponse.next();
+      if (secret) {
+        const jwt = await encode({
+          token: LOCAL_CMS_TOKEN,
+          secret,
+        });
+        response.cookies.set(LOCAL_CMS_COOKIE, jwt, {
+          httpOnly: true,
+          sameSite: "lax",
+          path: "/",
+          secure: false,
+        });
+      }
+      return response;
+    }
+
     const token = await getToken({
       req: request,
-      secret: process.env.NEXTAUTH_SECRET,
+      secret,
     });
 
     if (!token) {

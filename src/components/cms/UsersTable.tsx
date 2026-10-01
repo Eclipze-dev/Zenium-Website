@@ -5,10 +5,16 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Pencil } from "lucide-react";
 import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
+import { notifyResult } from "@/components/cms/notifyResult";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+  CmsFormLabel as FormLabel,
+  CmsInput as Input,
+  CmsSelectTrigger as SelectTrigger,
+  submitClass,
+} from "@/components/cms/cmsFields";
 import {
   Dialog,
   DialogContent,
@@ -20,17 +26,21 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { DataTable } from "@/components/cms/DataTable";
+import {
+  ListTable,
+  PrimaryText,
+  SecondaryText,
+  StatusPill,
+} from "@/components/cms/ListTable";
+import { PageHeader } from "@/components/cms/PageHeader";
 import {
   createUserAction,
   setUserStatusAction,
@@ -95,69 +105,80 @@ export default function UsersTable({
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-end">
-        <Button type="button" onClick={() => setCreateOpen(true)}>
-          New user
-        </Button>
-      </div>
-      <DataTable
-        data={users}
+    <div className="space-y-6">
+      <PageHeader
+        title="Users"
+        subtitle="Admins can manage CMS users. Editors cannot access this page."
+        actions={
+          <Button type="button" onClick={() => setCreateOpen(true)}>
+            New user
+          </Button>
+        }
+      />
+      <ListTable
+        rows={users}
+        rowKey={(row) => String(row.id)}
         searchPlaceholder="Search users…"
+        emptyMessage="No users match your search."
+        searchText={(row) => `${row.name} ${row.email} ${row.role} ${row.status}`}
         columns={[
-          { accessorKey: "name", header: "Name" },
-          { accessorKey: "email", header: "Email" },
           {
-            accessorKey: "role",
+            header: "Name",
+            accessor: (row) => <PrimaryText>{row.name}</PrimaryText>,
+          },
+          {
+            header: "Email",
+            accessor: (row) => <SecondaryText>{row.email}</SecondaryText>,
+          },
+          {
             header: "Role",
-            cell: ({ row }: { row: { original: CmsAdminPublic } }) => (
-              <span className="capitalize">{row.original.role}</span>
+            accessor: (row) => (
+              <StatusPill tone={row.role === "admin" ? "purple" : "gray"}>
+                {row.role === "admin" ? "Admin" : "Editor"}
+              </StatusPill>
             ),
           },
           {
-            accessorKey: "status",
             header: "Status",
-            cell: ({ row }: { row: { original: CmsAdminPublic } }) => (
-              <Badge variant={row.original.status === "active" ? "default" : "secondary"}>
-                {row.original.status}
-              </Badge>
+            accessor: (row) => (
+              <StatusPill tone={row.status === "active" ? "green" : "gray"}>
+                {row.status === "active" ? "Active" : "Disabled"}
+              </StatusPill>
             ),
           },
           {
-            accessorKey: "last_login_at",
             header: "Last login",
-            cell: ({ row }: { row: { original: CmsAdminPublic } }) =>
-              formatDate(row.original.last_login_at),
+            accessor: (row) => <SecondaryText>{formatDate(row.last_login_at)}</SecondaryText>,
           },
           {
-            id: "actions",
-            header: "",
-            cell: ({ row }: { row: { original: CmsAdminPublic } }) => {
-              const user = row.original;
-              const nextStatus = user.status === "active" ? "disabled" : "active";
+            header: "Actions",
+            accessor: (row) => {
+              const nextStatus = row.status === "active" ? "disabled" : "active";
+              const cannotDisable = row.id === currentUserId && nextStatus === "disabled";
               return (
-                <div className="flex justify-end gap-2">
-                  <Button variant="outline" size="sm" onClick={() => openEdit(user)}>
-                    Edit
-                  </Button>
-                  <Button
-                    variant={user.status === "active" ? "destructive" : "secondary"}
-                    size="sm"
-                    disabled={user.id === currentUserId && nextStatus === "disabled"}
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    title="Edit"
+                    onClick={() => openEdit(row)}
+                    className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-muted-foreground transition-all hover:bg-accent hover:text-foreground"
+                  >
+                    <Pencil size={18} />
+                  </button>
+                  <button
+                    type="button"
+                    disabled={cannotDisable}
+                    className="rounded-lg px-2 py-1.5 text-[13px] font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40"
                     onClick={async () => {
-                      const result = await setUserStatusAction(user.id, nextStatus);
-                      if (!result.ok) {
-                        toast.error(result.error);
-                        return;
-                      }
-                      toast.success(
+                      await notifyResult(
+                        await setUserStatusAction(row.id, nextStatus),
                         nextStatus === "disabled" ? "User disabled" : "User enabled",
+                        () => router.refresh(),
                       );
-                      router.refresh();
                     }}
                   >
-                    {user.status === "active" ? "Disable" : "Enable"}
-                  </Button>
+                    {row.status === "active" ? "Disable" : "Enable"}
+                  </button>
                 </div>
               );
             },
@@ -245,7 +266,7 @@ export default function UsersTable({
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={createForm.formState.isSubmitting}>
+              <Button type="submit" className={submitClass} disabled={createForm.formState.isSubmitting}>
                 Create
               </Button>
             </form>
@@ -354,7 +375,7 @@ export default function UsersTable({
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={editForm.formState.isSubmitting}>
+              <Button type="submit" className={submitClass} disabled={editForm.formState.isSubmitting}>
                 Save
               </Button>
             </form>

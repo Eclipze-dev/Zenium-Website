@@ -342,5 +342,10 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+    function cmsDarkVariant({ addVariant }) {
+      addVariant("cms-dark", "html[data-cms-theme='dark'] &");
+    },
+  ],
 };

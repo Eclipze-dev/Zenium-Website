@@ -29,6 +29,41 @@ const NAV = [
   { href: "/admin/settings", label: "Settings", icon: Settings, adminOnly: true },
 ] as const;
 
+function isNavActive(pathname: string, href: string) {
+  if (href === "/admin") return pathname === "/admin";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function logout() {
+  return signOut({ callbackUrl: "/admin/login" });
+}
+
+function NavLink({
+  href,
+  label,
+  icon: Icon,
+  active,
+  onNavigate,
+}: {
+  href: string;
+  label: string;
+  icon: (typeof NAV)[number]["icon"];
+  active: boolean;
+  onNavigate?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onNavigate}
+      data-active={active ? "true" : "false"}
+      className="cms-nav-link"
+    >
+      <Icon size={18} className="shrink-0" />
+      <span className="flex-1">{label}</span>
+    </Link>
+  );
+}
+
 export function AdminNav({
   onNavigate,
   className,
@@ -42,47 +77,52 @@ export function AdminNav({
   const items = NAV.filter((item) => !item.adminOnly || role === "admin");
 
   return (
-    <nav className={cn("flex flex-col gap-0.5", className)}>
-      {items.map((item) => {
-        const active =
-          item.href === "/admin"
-            ? pathname === "/admin"
-            : pathname === item.href || pathname.startsWith(`${item.href}/`);
-        const Icon = item.icon;
-        return (
-          <Link
+    <div className={cn("flex h-full flex-col", className)}>
+      <nav className="flex flex-1 flex-col gap-1 overflow-y-auto">
+        {items.map((item) => (
+          <NavLink
             key={item.href}
             href={item.href}
-            onClick={onNavigate}
-            data-active={active ? "true" : "false"}
-            className="cms-nav-link"
-          >
-            <Icon className="h-4 w-4 shrink-0" />
-            {item.label}
-          </Link>
-        );
-      })}
-      <button
-        type="button"
-        onClick={() => signOut({ callbackUrl: "/admin/login" })}
-        className="cms-nav-link mt-2 w-full text-left"
-      >
-        <LogOut className="h-4 w-4 shrink-0" />
-        Logout
-      </button>
-    </nav>
+            label={item.label}
+            icon={item.icon}
+            active={isNavActive(pathname, item.href)}
+            onNavigate={onNavigate}
+          />
+        ))}
+      </nav>
+      <p className="whitespace-nowrap px-4 pb-3 pt-2 text-[13px] text-gray-500 cms-dark:text-slate-400">
+        Powered by <span className="font-semibold text-gray-900 cms-dark:text-slate-100">Eclipze</span>
+      </p>
+      <div className="cms-sidebar-footer">
+        <button
+          type="button"
+          onClick={logout}
+          className="cms-nav-link w-full text-left"
+        >
+          <LogOut size={18} className="shrink-0" />
+          <span className="flex-1">Logout</span>
+        </button>
+      </div>
+    </div>
   );
 }
 
 export function AdminBrand() {
   return (
-    <Link href="/admin" className="flex items-center px-2 py-1" aria-label="CMS home">
+    <Link href="/admin" className="flex w-full items-center justify-center px-2 py-1" aria-label="CMS home">
       <img
-        src="/cms/eclipze-logo.png"
-        alt="Eclipze"
-        width={180}
-        height={52}
-        className="cms-logo"
+        src="/cms/ZENIUM_dark_logo.png"
+        alt="Zenium"
+        width={150}
+        height={44}
+        className="cms-logo cms-logo-dark !h-[44px] !w-[150px] object-contain"
+      />
+      <img
+        src="/cms/ZENIUM_light_logo.png"
+        alt=""
+        width={150}
+        height={44}
+        className="cms-logo cms-logo-light !h-[44px] !w-[150px] object-contain"
       />
     </Link>
   );

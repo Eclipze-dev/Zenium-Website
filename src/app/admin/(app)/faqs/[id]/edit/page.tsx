@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import FaqForm from "@/components/cms/FaqForm";
+import { PageHeader } from "@/components/cms/PageHeader";
+import { toPlain } from "@/lib/cms/plain";
 import { getFaqById } from "@/lib/cms/queries";
 
 export const metadata: Metadata = { title: "Edit FAQ" };
@@ -17,10 +19,8 @@ export default async function EditFaqPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Edit FAQ</h1>
-      </div>
-      <FaqForm faq={JSON.parse(JSON.stringify(faq))} />
+      <PageHeader title="Edit FAQ" />
+      <FaqForm faq={toPlain(faq)} />
     </div>
   );
 }

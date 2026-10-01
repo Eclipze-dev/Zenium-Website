@@ -1,8 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { DataTable } from "@/components/cms/DataTable";
+import {
+  ListTable,
+  PrimaryText,
+  SecondaryText,
+  ViewAction,
+} from "@/components/cms/ListTable";
 import type { CmsEnquiry } from "@/types/cms";
 
 function formatWhen(value: Date | string): string {
@@ -16,36 +19,42 @@ function formatWhen(value: Date | string): string {
 
 export default function EnquiriesTable({ enquiries }: { enquiries: CmsEnquiry[] }) {
   return (
-    <DataTable
-      data={enquiries}
+    <ListTable
+      rows={enquiries}
+      rowKey={(row) => String(row.id)}
       searchPlaceholder="Search enquiries…"
+      emptyMessage="No enquiries match your search."
+      searchText={(row) =>
+        `${row.first_name} ${row.last_name} ${row.email} ${row.company} ${row.interest}`
+      }
       columns={[
         {
-          accessorKey: "created_at",
           header: "Date",
-          cell: ({ row }: { row: { original: CmsEnquiry } }) =>
-            formatWhen(row.original.created_at),
+          accessor: (row) => <SecondaryText>{formatWhen(row.created_at)}</SecondaryText>,
         },
         {
-          id: "name",
           header: "Name",
-          accessorFn: (row: CmsEnquiry) => `${row.first_name} ${row.last_name}`,
-          cell: ({ row }: { row: { original: CmsEnquiry } }) =>
-            `${row.original.first_name} ${row.original.last_name}`,
-        },
-        { accessorKey: "email", header: "Email" },
-        { accessorKey: "company", header: "Company" },
-        { accessorKey: "interest", header: "Interest" },
-        {
-          id: "actions",
-          header: "",
-          cell: ({ row }: { row: { original: CmsEnquiry } }) => (
-            <div className="flex justify-end">
-              <Button asChild size="sm" variant="outline">
-                <Link href={`/admin/enquiries/${row.original.id}`}>View</Link>
-              </Button>
-            </div>
+          accessor: (row) => (
+            <PrimaryText>
+              {row.first_name} {row.last_name}
+            </PrimaryText>
           ),
+        },
+        {
+          header: "Email",
+          accessor: (row) => <SecondaryText>{row.email}</SecondaryText>,
+        },
+        {
+          header: "Company",
+          accessor: (row) => <SecondaryText>{row.company}</SecondaryText>,
+        },
+        {
+          header: "Interest",
+          accessor: (row) => <SecondaryText>{row.interest}</SecondaryText>,
+        },
+        {
+          header: "Actions",
+          accessor: (row) => <ViewAction href={`/admin/enquiries/${row.id}`} />,
         },
       ]}
     />

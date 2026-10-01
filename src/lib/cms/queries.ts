@@ -409,7 +409,7 @@ export async function getDashboardData() {
       countBlogPosts(),
       countEnquiries(),
       countGuideEntries(),
-      listEnquiryCountsByDay(14),
+      listEnquiryCountsByDay(7),
       listEnquiryCountsByInterest(),
     ]);
   return {

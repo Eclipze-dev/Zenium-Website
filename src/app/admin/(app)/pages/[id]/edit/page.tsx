@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PageHeader } from "@/components/cms/PageHeader";
 import PageForm from "@/components/cms/PageForm";
 import PageSectionsEditor from "@/components/cms/PageSectionsEditor";
+import { toPlain } from "@/lib/cms/plain";
 import { getPageById, listPageSections } from "@/lib/cms/queries";
 
 export const metadata: Metadata = { title: "Edit page" };
@@ -19,14 +21,11 @@ export default async function EditPagePage({
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Edit page</h1>
-        <p className="text-sm text-muted-foreground">{page.title}</p>
-      </div>
-      <PageForm page={JSON.parse(JSON.stringify(page))} />
+      <PageHeader title="Edit page" subtitle={page.title} />
+      <PageForm page={toPlain(page)} />
       <PageSectionsEditor
         pageId={id}
-        sections={JSON.parse(JSON.stringify(sections))}
+        sections={toPlain(sections)}
       />
     </div>
   );

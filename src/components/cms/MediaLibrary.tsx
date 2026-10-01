@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { Copy, Trash2, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { notifyResult } from "@/components/cms/notifyResult";
 import { deleteMediaAction } from "@/lib/cms/actions/media";
 import type { CmsMedia } from "@/types/cms";
+import { PageHeader } from "./PageHeader";
 
 function formatBytes(bytes: number) {
   if (bytes < 1024) return `${bytes} B`;
@@ -53,7 +55,11 @@ export default function MediaLibrary({ items }: { items: CmsMedia[] }) {
 
   return (
     <div className="space-y-6">
-      <div>
+      <div className="flex items-center justify-between">
+        <PageHeader
+          title="Media Library"
+          subtitle="Upload images to public/uploads. Preserve that folder on Hostinger ZIP redeploys."
+        />
         <input
           ref={inputRef}
           type="file"
@@ -108,13 +114,9 @@ export default function MediaLibrary({ items }: { items: CmsMedia[] }) {
                   size="sm"
                   onClick={async () => {
                     if (!confirm(`Delete ${item.original_name}?`)) return;
-                    const result = await deleteMediaAction(item.id);
-                    if (!result.ok) {
-                      toast.error(result.error);
-                      return;
-                    }
-                    toast.success("Media deleted");
-                    router.refresh();
+                    await notifyResult(await deleteMediaAction(item.id), "Media deleted", () =>
+                      router.refresh(),
+                    );
                   }}
                 >
                   <Trash2 className="h-4 w-4" />

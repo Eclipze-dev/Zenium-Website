@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import BlogPostForm from "@/components/cms/BlogPostForm";
+import { PageHeader } from "@/components/cms/PageHeader";
 
 export const metadata: Metadata = { title: "New blog post" };
 
 export default function NewBlogPostPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">New blog post</h1>
-      </div>
+      <PageHeader title="New blog post" />
       <BlogPostForm />
     </div>
   );

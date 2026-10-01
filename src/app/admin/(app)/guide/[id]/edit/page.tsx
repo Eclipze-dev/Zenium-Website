@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import GuideEntryForm from "@/components/cms/GuideEntryForm";
+import { PageHeader } from "@/components/cms/PageHeader";
+import { toPlain } from "@/lib/cms/plain";
 import { getGuideEntryById } from "@/lib/cms/queries";
 
 export const metadata: Metadata = { title: "Edit guide entry" };
@@ -17,10 +19,8 @@ export default async function EditGuideEntryPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Edit guide entry</h1>
-      </div>
-      <GuideEntryForm entry={JSON.parse(JSON.stringify(entry))} />
+      <PageHeader title="Edit guide entry" />
+      <GuideEntryForm entry={toPlain(entry)} />
     </div>
   );
 }

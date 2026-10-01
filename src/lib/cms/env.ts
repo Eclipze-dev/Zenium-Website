@@ -64,6 +64,10 @@ function loadFileEnv(): Partial<Record<DbEnvKey, string>> {
   return fileEnv;
 }
 
+export function isDbConfigured() {
+  return Boolean(getDbEnv("DB_HOST") && getDbEnv("DB_USER"));
+}
+
 /** DB_* from .env without Next.js `$VAR` expansion; Hostinger panel env is the fallback. */
 export function getDbEnv(key: DbEnvKey): string {
   const fromFile = loadFileEnv()[key];

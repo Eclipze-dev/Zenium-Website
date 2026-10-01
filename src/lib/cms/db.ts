@@ -1,6 +1,6 @@
 import dns from "node:dns";
 import mysql from "mysql2/promise";
-import { getDbEnv } from "@/lib/cms/env";
+import { getDbEnv, isDbConfigured } from "@/lib/cms/env";
 
 dns.setDefaultResultOrder("ipv4first");
 
@@ -35,6 +35,7 @@ export function getPool(): mysql.Pool {
 }
 
 export async function query<T>(sql: string, params: SqlParam[] = []): Promise<T[]> {
+  if (!isDbConfigured()) return [];
   const [rows] = await getPool().execute(sql, params);
   return rows as T[];
 }

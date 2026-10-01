@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { PageHeader } from "@/components/cms/PageHeader";
 import { getEnquiryById } from "@/lib/cms/queries";
 
 export const metadata: Metadata = { title: "Enquiry" };
@@ -36,12 +37,14 @@ export default async function AdminEnquiryPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between gap-4">
-        <h1 className="text-2xl font-semibold tracking-tight">Enquiry</h1>
-        <Button asChild variant="outline">
-          <Link href="/admin/enquiries">Back</Link>
-        </Button>
-      </div>
+      <PageHeader
+        title="Enquiry"
+        actions={
+          <Button asChild variant="outline">
+            <Link href="/admin/enquiries">Back</Link>
+          </Button>
+        }
+      />
       <dl className="divide-y rounded-lg border">
         {rows.map(([label, value]) => (
           <div key={label} className="grid gap-1 px-4 py-3 sm:grid-cols-[180px_1fr]">

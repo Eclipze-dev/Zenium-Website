@@ -6,14 +6,18 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import {
+  CmsFormLabel as FormLabel,
+  CmsInput as Input,
+  CmsTextarea as Textarea,
+  formShellClass,
+  submitClass,
+} from "@/components/cms/cmsFields";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
@@ -63,7 +67,7 @@ export default function GuideEntryForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-3xl space-y-5">
+      <form onSubmit={form.handleSubmit(onSubmit)} className={formShellClass}>
         <FormField
           control={form.control}
           name="display_code"
@@ -171,7 +175,7 @@ export default function GuideEntryForm({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting}>
+        <Button type="submit" className={submitClass} disabled={form.formState.isSubmitting}>
           {entry ? "Save entry" : "Create entry"}
         </Button>
       </form>

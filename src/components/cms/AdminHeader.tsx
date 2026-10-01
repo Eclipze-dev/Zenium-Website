@@ -5,16 +5,25 @@ import { useTheme } from "next-themes";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { AdminBrand, AdminNav } from "@/components/cms/AdminNav";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+const iconButtonClass =
+  "cursor-pointer rounded-lg p-2 text-muted-foreground transition-all hover:bg-accent hover:text-foreground";
+
+function initialsFrom(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -26,11 +35,9 @@ function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button
-        variant="outline"
-        size="icon"
-        aria-label="Toggle theme"
-        className="border-border text-foreground"
+      <span
+        aria-hidden
+        className="inline-flex h-9 w-9 rounded-lg"
       />
     );
   }
@@ -38,33 +45,28 @@ function ThemeToggle() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      className="border-border bg-background text-foreground hover:bg-accent"
+    <button
+      type="button"
+      className={iconButtonClass}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-    </Button>
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+    </button>
   );
 }
 
 export default function AdminHeader() {
   const { data } = useSession();
+  const [menuOpen, setMenuOpen] = useState(false);
   const name = data?.user?.name || "User";
-  const role = data?.user?.role || "editor";
-  const initials = name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+  const email = data?.user?.email || "";
+  const initials = initialsFrom(name);
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-3 border-b border-border bg-background/95 px-4 text-foreground backdrop-blur">
+    <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-border bg-background/95 px-6 py-4 text-foreground backdrop-blur">
       <div className="flex items-center gap-2 lg:hidden">
-        <Sheet>
+        <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -77,41 +79,34 @@ export default function AdminHeader() {
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-72 border-border bg-background p-0 text-foreground"
+            className="cms-drawer flex h-full w-64 flex-col gap-0 border-[#e5e5ea] p-0 shadow-xl sm:max-w-none"
           >
-            <SheetHeader className="border-b border-border p-4 text-left">
-              <SheetTitle className="text-foreground">
-                <AdminBrand />
-              </SheetTitle>
-            </SheetHeader>
-            <div className="px-3 pb-4 pt-2">
-              <AdminNav />
+            <div className="cms-sidebar-brand">
+              <AdminBrand />
             </div>
-            </SheetContent>
+            <div className="cms-sidebar-nav min-h-0 flex-1">
+              <AdminNav onNavigate={() => setMenuOpen(false)} />
+            </div>
+          </SheetContent>
         </Sheet>
       </div>
       <div className="hidden lg:block" />
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <ThemeToggle />
-        <Button
-          variant="outline"
-          size="icon"
+        <button
+          type="button"
           aria-label="Notifications"
-          disabled
-          className="border-border text-foreground"
+          className={cn(iconButtonClass, "relative")}
         >
-          <Bell className="h-4 w-4" />
-        </Button>
-        <Separator orientation="vertical" className="mx-1 h-6" />
-        <div className="flex items-center gap-2">
-          <Avatar className="h-8 w-8 border border-border">
-            <AvatarFallback className="bg-secondary text-xs text-secondary-foreground">
-              {initials}
-            </AvatarFallback>
-          </Avatar>
-          <div className="hidden leading-tight sm:block">
-            <p className="text-sm font-medium text-foreground">{name}</p>
-            <p className="text-xs capitalize text-muted-foreground">{role}</p>
+          <Bell size={20} />
+        </button>
+        <div className="flex items-center gap-3">
+          <div className="hidden text-right sm:block">
+            <p className="text-[14px] font-medium text-foreground">{name}</p>
+            <p className="text-[12px] text-muted-foreground">{email}</p>
+          </div>
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-900 text-[13px] font-semibold !text-white cms-dark:bg-slate-100 cms-dark:!text-gray-900">
+            {initials}
           </div>
         </div>
       </div>

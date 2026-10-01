@@ -14,7 +14,9 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       </aside>
       <div className="cms-main">
         <AdminHeader />
-        <main className="cms-main-content">{children}</main>
+        <main className="cms-main-content">
+          {children}
+        </main>
       </div>
     </div>
   );
