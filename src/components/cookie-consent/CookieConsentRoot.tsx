@@ -1,6 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+
+const AnimationProvider = dynamic(
+  () => import("@/components/animations/AnimationProvider"),
+);
 import CookieBanner from "./CookieBanner";
 import CookiePreferencesPanel from "./CookiePreferencesPanel";
 import ConsentAwareAnalytics from "./ConsentAwareAnalytics";
@@ -16,7 +21,7 @@ export default function CookieConsentRoot({
 
   return (
     <CookieConsentProvider>
-      {children}
+      {isAdmin ? children : <AnimationProvider>{children}</AnimationProvider>}
       {!isAdmin ? (
         <>
           <CookieBanner />

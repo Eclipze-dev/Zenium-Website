@@ -5,16 +5,19 @@ import { useCookieConsent } from "./CookieConsentProvider";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+/** Installed in the root layout head and body. Do not inject it again. */
+const LAYOUT_GTM_ID = "GTM-TVPSCJN7";
 
 /**
- * Loads analytics only after analytics consent is granted.
- * Prefer GTM (`NEXT_PUBLIC_GTM_ID`) with GA4 configured in the container.
- * If GTM is unset, fall back to direct GA4 (`NEXT_PUBLIC_GA_MEASUREMENT_ID`).
+ * GTM-TVPSCJN7 is installed in the root layout.
+ * A different NEXT_PUBLIC_GTM_ID still loads here after analytics consent.
  */
 export default function ConsentAwareAnalytics() {
   const { ready, analyticsAllowed } = useCookieConsent();
 
   if (!ready || !analyticsAllowed) return null;
+
+  if (!GTM_ID || GTM_ID === LAYOUT_GTM_ID) return null;
 
   if (GTM_ID) {
     return (

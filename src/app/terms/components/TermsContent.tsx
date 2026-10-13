@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Link from "next/link";
 import ShimmerText from "@/components/ShimmerText";
 import CookieSettingsLink from "@/components/cookie-consent/CookieSettingsLink";
@@ -71,6 +72,7 @@ export default function TermsContent() {
     >
       <div className="container">
         <div className="max-w-auto">
+          <ScrollReveal>
           <p className="m-0 text-caption font-medium uppercase tracking-[1.2px] text-common2">
             Last updated: {termsMeta.lastUpdated}
           </p>
@@ -93,6 +95,7 @@ export default function TermsContent() {
               </p>
             ))}
           </div>
+          </ScrollReveal>
 
           <div className="mt-[50px] flex flex-col gap-[50px] max-lg:gap-[36px]">
             {termsSections.map((section) => {

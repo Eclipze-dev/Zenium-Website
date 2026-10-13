@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@/components/icons/icons";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import CTANetworkBackground from "./CTANetworkBackground";
 import Button from "@/components/Button";
 import ShimmerText from "@/components/ShimmerText";
@@ -12,7 +13,7 @@ export default function FinalCtaSection() {
     >
       <CTANetworkBackground />
 
-      <div className="container relative z-[2] text-center">
+      <ScrollReveal className="container relative z-[2] text-center">
         <p className="text-h4 uppercase mb-[clamp(18px,2.4vw,30px)]">
           YOUR ENERGY DATA ALREADY KNOWS MORE.
         </p>
@@ -28,7 +29,7 @@ export default function FinalCtaSection() {
         <div className="mt-[40px] flex justify-center max-lg:mt-[32px] max-sm:mt-[28px]">
           <Button href="/contact" className="max-sm:w-full">Request a Demo</Button>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

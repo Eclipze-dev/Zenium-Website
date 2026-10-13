@@ -1,4 +1,5 @@
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import {
   amispSupportParagraphs,
   amispSupportTags,
@@ -7,7 +8,7 @@ import {
 
 export default function PartnersEcosystemSection() {
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container grid grid-cols-1 gap-[50px] max-lg:gap-[36px] xl:grid-cols-2">
         <SolutionPanelCard className="items-stretch !gap-0 p-[42px] max-lg:p-[32px] max-sm:p-[28px] bg-[#0D2B4B]">
           <p className="text-button uppercase tracking-[0.08em] text-muted">
@@ -61,6 +62,6 @@ export default function PartnersEcosystemSection() {
           </div>
         </SolutionPanelCard>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

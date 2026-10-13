@@ -25,7 +25,7 @@ export default function Button({
 }) {
   if (variant === "text") {
     const textClasses = cn(
-      "inline-flex items-center gap-1.5 text-body font-medium !text-orange transition-colors duration-200",
+      "inline-flex items-center gap-1.5 text-body font-medium !text-orange transition-colors duration-200 motion-safe:active:opacity-70",
       className,
     );
 
@@ -58,7 +58,7 @@ export default function Button({
   }
 
   const classes = cn(
-    "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 [&>svg]:block [&>svg]:shrink-0",
+    "inline-flex items-center justify-center gap-[6px] rounded-[3px] border px-[13px] py-[9px] text-button transition-all duration-200 [&>svg]:block [&>svg]:shrink-0 motion-safe:active:scale-[0.98] motion-reduce:active:scale-100",
     // Tablet
     "max-lg:gap-[5px] max-lg:px-[11px] max-lg:py-[7px] max-lg:text-[13px] max-lg:leading-[18px]",
     // Mobile

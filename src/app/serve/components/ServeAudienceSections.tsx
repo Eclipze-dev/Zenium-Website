@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import type { LucideIcon } from "@/components/icons/lucideIcons";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import Button from "@/components/Button";
@@ -40,14 +41,16 @@ export function ServeAudienceOverviewSection({
           {content.title}{" "}
           <ShimmerText>{content.accent}</ShimmerText>
         </SectionIntro>
-        <p className="my-[20px] max-w-auto text-p1 text-muted max-sm:my-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
-          {content.description}
-        </p>
-        {content.additionalDescription && (
-          <p className="max-w-auto text-p1 text-muted max-sm:text-[14px] max-sm:leading-[1.5]">
-            {content.additionalDescription}
+        <ScrollReveal>
+          <p className="my-[20px] max-w-auto text-p1 text-muted max-sm:my-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
+            {content.description}
           </p>
-        )}
+          {content.additionalDescription && (
+            <p className="max-w-auto text-p1 text-muted max-sm:text-[14px] max-sm:leading-[1.5]">
+              {content.additionalDescription}
+            </p>
+          )}
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -68,21 +71,24 @@ export function ServeAudienceCapabilitiesSection({
   return (
     <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px] max-lg:gap-[36px] max-sm:gap-[32px]">
-        <h2 className="text-h5 m-0">
-          {content.capabilitiesTitle}{" "}
-          <span className="text-h5 text-orange">
-            {content.capabilitiesAccent}
-          </span>
-        </h2>
+        <ScrollReveal>
+          <h2 className="text-h5 m-0">
+            {content.capabilitiesTitle}{" "}
+            <span className="text-h5 text-orange">
+              {content.capabilitiesAccent}
+            </span>
+          </h2>
+        </ScrollReveal>
 
         {layout === "wide-bottom" ? (
           <>
             {/* Desktop only: 3 + 2 split */}
             <div className="hidden flex-col gap-[10px] lg:flex">
               <div className="grid grid-cols-3 gap-[10px]">
-                {topItems.map(([Icon, title, text]) => (
+                {topItems.map(([Icon, title, text], index) => (
                   <SurfaceFeatureCard
                     key={title}
+                    revealIndex={index}
                     icon={Icon}
                     title={title}
                     text={text}
@@ -93,9 +99,10 @@ export function ServeAudienceCapabilitiesSection({
               </div>
               {bottomItems.length > 0 && (
                 <div className="grid grid-cols-2 gap-[10px]">
-                  {bottomItems.map(([Icon, title, text]) => (
+                  {bottomItems.map(([Icon, title, text], index) => (
                     <SurfaceFeatureCard
                       key={title}
+                      revealIndex={topItems.length + index}
                       icon={Icon}
                       title={title}
                       text={text}
@@ -112,6 +119,7 @@ export function ServeAudienceCapabilitiesSection({
               {items.map(([Icon, title, text], index) => (
                 <SurfaceFeatureCard
                   key={`tablet-${title}`}
+                  revealIndex={index}
                   icon={Icon}
                   title={title}
                   text={text}
@@ -127,9 +135,10 @@ export function ServeAudienceCapabilitiesSection({
 
             {/* Mobile only: single column */}
             <div className="grid grid-cols-1 gap-[10px] sm:hidden">
-              {items.map(([Icon, title, text]) => (
+              {items.map(([Icon, title, text], index) => (
                 <SurfaceFeatureCard
                   key={`mobile-${title}`}
+                  revealIndex={index}
                   icon={Icon}
                   title={title}
                   text={text}
@@ -141,9 +150,10 @@ export function ServeAudienceCapabilitiesSection({
           </>
         ) : (
           <div className="grid grid-cols-3 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
-            {items.map(([Icon, title, text]) => (
+            {items.map(([Icon, title, text], index) => (
               <SurfaceFeatureCard
                 key={title}
+                revealIndex={index}
                 icon={Icon}
                 title={title}
                 text={text}
@@ -166,7 +176,7 @@ export function ServeAudienceCtaSection({
   const { cta } = content;
 
   return (
-    <section className="pb-[80px] pt-[20px] max-lg:pb-[48px] max-lg:pt-[16px] max-sm:pb-[70px]">
+    <ScrollReveal as="section" className="pb-[80px] pt-[20px] max-lg:pb-[48px] max-lg:pt-[16px] max-sm:pb-[70px]">
       <div className="container">
         <h2 className="text-h5 m-0">
           {cta.title}{" "}
@@ -188,6 +198,6 @@ export function ServeAudienceCtaSection({
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

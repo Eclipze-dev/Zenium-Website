@@ -12,9 +12,10 @@ export default function HesCapabilitiesSection() {
         </SectionIntro>
 
         <div className="grid grid-cols-3 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {capabilities.map(([Icon, title, description, additionalDescription]) => (
+          {capabilities.map(([Icon, title, description, additionalDescription], index) => (
             <SurfaceFeatureCard
               key={title}
+              revealIndex={index}
               icon={Icon}
               title={title}
               text={description}

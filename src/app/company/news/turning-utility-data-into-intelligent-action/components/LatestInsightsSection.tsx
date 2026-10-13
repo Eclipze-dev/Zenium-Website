@@ -1,4 +1,5 @@
 import NewsCard from "../../components/NewsCard";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { newsItems } from "../../components/newsData";
 
 const latestInsights = newsItems
@@ -7,7 +8,7 @@ const latestInsights = newsItems
 
 export default function LatestInsightsSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="py-[80px] max-lg:py-[48px] max-sm:py-[60px]"
       aria-labelledby="latest-insights-title"
     >
@@ -33,6 +34,6 @@ export default function LatestInsightsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

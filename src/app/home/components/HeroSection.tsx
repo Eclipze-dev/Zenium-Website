@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import Button from "@/components/Button";
 import OptimizedImage from "@/components/OptimizedImage";
 import SectionBadge from "@/components/SectionBadge";
@@ -26,26 +28,34 @@ export default function HeroSection() {
       />
 
       <div className="container relative z-[2]">
-        <div className="min-w-0 max-w-[680px]">
-          <SectionBadge className="mb-[clamp(12px,1.5vw,20px)]">
-            ENERGY INTELLIGENCE
-          </SectionBadge>
-          <h1
-            id="hero-title"
-            className="text-h1 m-0 max-w-full"
-          >
-            Turn energy data into intelligence.
-            <HeroTypewriter />
-          </h1>
-          <p className="text-muted text-p1 mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-body">
-            Building smart-grid intelligence on a trusted HES and MDM
-            foundation.
-          </p>
-          <div className="flex flex-wrap gap-[10px] mt-[clamp(18px,2.5vw,30px)]">
-            <Button href="/contact">Request a Demo</Button>
-            <Button outline href="/solutions/head-end-system-hes">Explore Zenium</Button>
-          </div>
-        </div>
+        <StaggerContainer className="min-w-0 max-w-[680px]" stagger={0.1}>
+          <StaggerItem>
+            <SectionBadge className="mb-[clamp(12px,1.5vw,20px)]">
+              ENERGY INTELLIGENCE
+            </SectionBadge>
+          </StaggerItem>
+          <StaggerItem>
+            <h1
+              id="hero-title"
+              className="text-h1 m-0 max-w-full"
+            >
+              Turn energy data into intelligence.
+              <HeroTypewriter />
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="text-muted text-p1 mt-[clamp(14px,1.8vw,22px)] max-w-[560px] max-sm:text-body">
+              Building smart-grid intelligence on a trusted HES and MDM
+              foundation.
+            </p>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="flex flex-wrap gap-[10px] mt-[clamp(18px,2.5vw,30px)]">
+              <Button href="/contact">Request a Demo</Button>
+              <Button outline href="/solutions/head-end-system-hes">Explore Zenium</Button>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
         {/* <div className="mt-[75px] max-lg:mt-[40px] max-sm:mt-[40px]">
           <HeroStats items={metrics} />
         </div>

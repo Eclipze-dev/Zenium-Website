@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import Button from "@/components/Button";
 import SectionBadge from "@/components/SectionBadge";
 import ShimmerText from "@/components/ShimmerText";
@@ -11,25 +13,33 @@ export default function AiAnalyticsHeroSection() {
     >
       <div className="container">
         <div className="grid items-start gap-12 xl:gap-[50px]">
-          <div className="flex flex-col items-center justify-center gap-5 text-center">
-            <SectionBadge>ENERGY MANAGEMENT & ANALYTICS</SectionBadge>
-            <h1 id="ai-analytics-hero-title" className="text-h1 m-0">
-              Smart Grid & Meter Data Analytics{" "}
-              <ShimmerText>Software</ShimmerText>
-            </h1>
-            <p className="max-w-auto text-p1 text-muted">
-              Turn interval meter data into actionable intelligence. Transformer
-              load profiling, non-technical loss analytics, and feeder balance
-              monitoring — built on Zenium&apos;s Head-End System (HES) and Meter
-              Data Management System (MDMS) foundation.
-            </p>
-            <div className="flex flex-wrap justify-center gap-[10px] pt-2.5">
-              <Button href="/contact">Request a Demo</Button>
-              <Button href={SOLUTION_PATHS.ami} outline>
-                Explore Advanced Metering Infrastructure (AMI)
-              </Button>
-            </div>
-          </div>
+          <StaggerContainer className="flex flex-col items-center justify-center gap-5 text-center" stagger={0.1}>
+            <StaggerItem>
+              <SectionBadge>ENERGY MANAGEMENT & ANALYTICS</SectionBadge>
+            </StaggerItem>
+            <StaggerItem>
+              <h1 id="ai-analytics-hero-title" className="text-h1 m-0">
+                Smart Grid & Meter Data Analytics{" "}
+                <ShimmerText>Software</ShimmerText>
+              </h1>
+            </StaggerItem>
+            <StaggerItem>
+              <p className="max-w-auto text-p1 text-muted">
+                Turn interval meter data into actionable intelligence. Transformer
+                load profiling, non-technical loss analytics, and feeder balance
+                monitoring — built on Zenium&apos;s Head-End System (HES) and Meter
+                Data Management System (MDMS) foundation.
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="flex flex-wrap justify-center gap-[10px] pt-2.5">
+                <Button href="/contact">Request a Demo</Button>
+                <Button href={SOLUTION_PATHS.ami} outline>
+                  Explore Advanced Metering Infrastructure (AMI)
+                </Button>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </div>
     </section>

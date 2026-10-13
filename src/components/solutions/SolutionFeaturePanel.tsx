@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { cn } from "@/lib/cn";
 import SolutionPanelCard from "./SolutionPanelCard";
@@ -24,19 +25,25 @@ const SolutionFeaturePanel = ({
   const content = (
     <div className="flex min-w-0 flex-col gap-5 max-sm:gap-4">
       <SectionIntro eyebrow={eyebrow}>{title}</SectionIntro>
-      <div className="text-p1 text-muted [&>p+p]:mt-5 max-sm:text-[14px] max-sm:leading-[1.5] max-sm:[&>p+p]:mt-4">
+      <ScrollReveal className="text-p1 text-muted [&>p+p]:mt-5 max-sm:text-[14px] max-sm:leading-[1.5] max-sm:[&>p+p]:mt-4">
         {children}
-      </div>
+      </ScrollReveal>
     </div>
   );
 
   const visual = (
-    <SolutionPanelImage
-      src={image}
-      alt={imageAlt}
-      bounded={bounded}
-      sizes="(max-width: 1280px) 100vw, 640px"
-    />
+    <ScrollReveal
+      direction={imageSide === "left" ? "right" : "left"}
+     
+      className="min-w-0"
+    >
+      <SolutionPanelImage
+        src={image}
+        alt={imageAlt}
+        bounded={bounded}
+        sizes="(max-width: 1280px) 100vw, 640px"
+      />
+    </ScrollReveal>
   );
 
   return (

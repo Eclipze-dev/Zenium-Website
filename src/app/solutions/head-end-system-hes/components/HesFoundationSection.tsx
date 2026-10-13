@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import ShimmerText from "@/components/ShimmerText";
 import { ContentLink } from "@/components/seo/ContentLink";
@@ -16,7 +17,8 @@ export default function HesFoundationSection() {
           From connected meters to{" "}
           <ShimmerText>energy intelligence</ShimmerText>
         </SectionIntro>
-        <p className="text-muted text-p1 max-sm:text-[14px] max-sm:leading-[1.5]">
+        <ScrollReveal className="text-muted text-p1 max-sm:text-[14px] max-sm:leading-[1.5]">
+          <p className="m-0">
           Zenium Head-End System (HES) does more than collect meter readings. It
           creates the connected foundation where cleansed interval reads are
           forwarded to our{" "}
@@ -29,14 +31,15 @@ export default function HesFoundationSection() {
           </ContentLink>
           .
         </p>
+        </ScrollReveal>
 
-        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px] max-lg:px-6">
+        <ScrollReveal className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px] max-lg:px-6">
           <p className="text-p3 m-0 text-center italic text-zen-text">
             Head-End System (HES) connects the infrastructure. Meter Data
             Management System (MDMS) makes the data trustworthy. Analytics turns
             it into intelligence.
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

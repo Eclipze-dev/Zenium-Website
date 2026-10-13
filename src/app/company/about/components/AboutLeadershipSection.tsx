@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import OptimizedImage from "@/components/OptimizedImage";
 import { aboutLeadership, type AboutLeader } from "./aboutData";
 import ShimmerText from "@/components/ShimmerText";
@@ -18,9 +19,9 @@ function renderBioParagraph(paragraph: string) {
 
 function LeadershipPortrait({ leader }: { leader: AboutLeader }) {
   return (
-    <article className="mx-auto flex w-full max-w-[900px] overflow-hidden rounded-[16px] bg-white max-lg:flex-col max-md:flex-col">
+    <article className="mx-auto flex min-h-[374px] w-full max-w-[900px] overflow-hidden rounded-[16px] bg-white max-lg:flex-col max-md:flex-col">
       <div className="flex w-[30%] max-lg:w-full shrink-0 flex-col self-stretch max-md:w-full">
-        <div className="relative min-h-[220px] flex-1 overflow-hidden bg-[#EEF1F4] max-md:aspect-[4/3] max-md:min-h-0 max-md:flex-none">
+        <div className="relative min-h-[220px] flex-1 overflow-hidden bg-black max-md:aspect-[4/3] max-md:min-h-0 max-md:flex-none">
           {leader.image ? (
             <OptimizedImage
               src={leader.image}
@@ -57,7 +58,7 @@ export default function AboutLeadershipSection() {
       aria-labelledby="about-leadership-title"
     >
       <div className="container">
-        <header className="max-w-auto text-center">
+        <ScrollReveal as="header" className="max-w-auto text-center">
           <h2
             id="about-leadership-title"
             className="text-h1 m-0"
@@ -68,11 +69,13 @@ export default function AboutLeadershipSection() {
           <p className="m-0 mt-[30px] max-w-auto text-p1 text-muted">
             {aboutLeadership.description}
           </p>
-        </header>
+        </ScrollReveal>
 
         <div className="mt-[50px] flex flex-col gap-[50px] max-lg:gap-[36px]">
-          {aboutLeadership.leaders.map((leader) => (
-            <LeadershipPortrait key={leader.name} leader={leader} />
+          {aboutLeadership.leaders.map((leader, index) => (
+            <ScrollReveal key={leader.name} delay={Math.min(index, 4) * 0.08}>
+              <LeadershipPortrait leader={leader} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

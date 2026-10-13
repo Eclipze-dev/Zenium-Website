@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import Button from "@/components/Button";
 import SectionBadge from "@/components/SectionBadge";
 import SolutionHeroStats from "@/components/solutions/SolutionHeroStats";
@@ -13,24 +15,32 @@ export default function MdmHeroSection() {
     >
       <div className="container">
         <div className="grid items-start gap-12 xl:gap-[50px] pb-[40px]">
-          <div className="flex flex-col items-center justify-center gap-5">
-            <SectionBadge>METER DATA MANAGEMENT SYSTEM (MDMS)</SectionBadge>
-            <h1 id="mdm-hero-title" className="text-h1 m-0 text-center">
-              Enterprise Meter Data Management System{" "}
-              <ShimmerText>(MDMS)</ShimmerText>
-            </h1>
-            <p className="max-w-full text-p1 text-muted text-center">
-              Enterprise Meter Data Management System (MDMS). Automate
-              Validation, Editing, and Estimation (VEE), meter-to-cash billing
-              determinants, prepayment, and energy theft detection.
-            </p>
-            <div className="flex flex-wrap gap-[10px] pt-2.5">
-              <Button href="/contact">Request a Demo</Button>
-              <Button href={SOLUTION_PATHS.hes} outline>
-                Explore Head-End System (HES)
-              </Button>
-            </div>
-          </div>
+          <StaggerContainer className="flex flex-col items-center justify-center gap-5" stagger={0.1}>
+            <StaggerItem>
+              <SectionBadge>METER DATA MANAGEMENT SYSTEM (MDMS)</SectionBadge>
+            </StaggerItem>
+            <StaggerItem>
+              <h1 id="mdm-hero-title" className="text-h1 m-0 text-center">
+                Enterprise Meter Data Management System{" "}
+                <ShimmerText>(MDMS)</ShimmerText>
+              </h1>
+            </StaggerItem>
+            <StaggerItem>
+              <p className="max-w-full text-p1 text-muted text-center">
+                Enterprise Meter Data Management System (MDMS). Automate
+                Validation, Editing, and Estimation (VEE), meter-to-cash billing
+                determinants, prepayment, and energy theft detection.
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="flex flex-wrap gap-[10px] pt-2.5">
+                <Button href="/contact">Request a Demo</Button>
+                <Button href={SOLUTION_PATHS.hes} outline>
+                  Explore Head-End System (HES)
+                </Button>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
 
         <SolutionHeroStats

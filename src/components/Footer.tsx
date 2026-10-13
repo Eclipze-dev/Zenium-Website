@@ -1,4 +1,5 @@
 // import AnimatedNetworkBackground from "@/components/AnimatedNetworkBackground";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import {
   ArrowRightIcon,
   LinkedInIcon,
@@ -170,7 +171,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-zen-bg">
       {/* <AnimatedNetworkBackground /> */}
-      <div className="relative z-10">
+      <ScrollReveal className="relative z-10">
       {/* Navigation Area */}
       <div className="container py-[64px] max-lg:py-[40px] max-sm:py-[44px]">
         <div className="flex justify-between gap-[40px] max-xl:flex-col max-xl:gap-[40px]">
@@ -227,7 +228,7 @@ export default function Footer() {
 
       {/* Bottom Legal Bar */}
       <FooterBottomBar />
-      </div>
+      </ScrollReveal>
     </footer>
   );
 }

@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import OptimizedImage from "@/components/OptimizedImage";
 import type { CmsSmartMeterGuideEntry } from "@/types/cms";
 
@@ -15,9 +17,10 @@ export default function GuideEntriesSection({
             images are added in the CMS.
           </p>
         ) : (
-          <ul className="mx-auto grid max-w-4xl gap-8">
+          <StaggerContainer as="ul" className="mx-auto grid max-w-4xl gap-8">
             {entries.map((entry) => (
-              <li
+              <StaggerItem
+                as="li"
                 key={entry.id}
                 className="grid gap-6 rounded-[16px] border border-black/5 bg-white/50 p-6 sm:grid-cols-[200px_1fr]"
               >
@@ -64,9 +67,9 @@ export default function GuideEntriesSection({
                     </p>
                   ) : null}
                 </div>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerContainer>
         )}
       </div>
     </section>

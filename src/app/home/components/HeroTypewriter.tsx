@@ -4,17 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { heroPhrases } from "./homeData";
 
+const firstPhrase = heroPhrases[0];
+
 export default function HeroTypewriter() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(firstPhrase);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const stateRef = useRef({
-    phase: "typing" as "typing" | "pausing" | "deleting" | "switching",
+    phase: "pausing" as "typing" | "pausing" | "deleting" | "switching",
     start: 0,
-    charCount: 0,
+    charCount: firstPhrase.length,
   });
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const phrase = heroPhrases[phraseIndex];
     const s = stateRef.current;
     let rafId = 0;
@@ -78,7 +82,7 @@ export default function HeroTypewriter() {
     >
       {text}
       <span
-        className="inline-block w-[0.05em] ml-[0.04em] animate-caret-flow"
+        className="inline-block w-[0.05em] ml-[0.04em] animate-caret-flow motion-reduce:animate-none"
         aria-hidden="true"
       >
         &nbsp;

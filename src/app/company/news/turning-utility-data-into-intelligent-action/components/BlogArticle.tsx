@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import OptimizedImage from "@/components/OptimizedImage";
 import SectionBadge from "@/components/SectionBadge";
 import { ArrowRightIcon } from "@/components/icons/icons";
@@ -8,7 +9,7 @@ import ShimmerText from "@/components/ShimmerText";
 
 const BlogArticle = () => {
   return (
-    <section className="pb-[64px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pb-[48px] max-md:pt-24">
+    <ScrollReveal as="section" className="pb-[64px] pt-[50px] max-lg:pb-[48px] max-lg:pt-[40px] max-md:pb-[48px] max-md:pt-24">
       <div className="container">
         <div className="mx-auto max-w-auto">
           <div className="flex items-start justify-between gap-6 max-sm:flex-col max-sm:gap-3">
@@ -101,7 +102,7 @@ const BlogArticle = () => {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 };
 

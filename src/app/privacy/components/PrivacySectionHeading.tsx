@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/cn";
 import ShimmerText from "@/components/ShimmerText";
 
@@ -19,12 +20,14 @@ export default function PrivacySectionHeading({
   textClassName,
 }: PrivacySectionHeadingProps) {
   return (
-    <h2
+    <ScrollReveal
+      as="h2"
       id={id}
+     
       className={cn("m-0 text-common", className)}
     >
       {title}{" "}
       <ShimmerText textClassName={textClassName}>{accent}</ShimmerText>
-    </h2>
+    </ScrollReveal>
   );
 }

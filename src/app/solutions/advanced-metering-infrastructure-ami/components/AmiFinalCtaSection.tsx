@@ -1,4 +1,5 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/Button";
 import ShimmerText from "@/components/ShimmerText";
 import { SOLUTION_PATHS } from "@/lib/seo/paths";
@@ -11,7 +12,7 @@ export default function AmiFinalCtaSection() {
     >
       <CTANetworkBackground />
 
-      <div className="container relative z-[2] text-center">
+      <ScrollReveal className="container relative z-[2] text-center">
         <h2 id="ami-final-cta-title" className="text-h1 m-0">
           Build your Advanced Metering Infrastructure (AMI) on{" "}
           <ShimmerText>open software</ShimmerText>
@@ -29,7 +30,7 @@ export default function AmiFinalCtaSection() {
             Explore Analytics
           </Button>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

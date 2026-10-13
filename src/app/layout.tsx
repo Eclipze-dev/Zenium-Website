@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   ...buildPageMetadata(pageSeo.home),
 };
 
+const gtmId = "GTM-TVPSCJN7";
+
+const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`;
+
 const themeScript = `
 (function() {
   try {
@@ -56,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} [scroll-behavior:smooth]`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script dangerouslySetInnerHTML={{ __html: scrollToTopOnReloadScript }} />
       </head>
@@ -63,6 +72,14 @@ export default function RootLayout({
         className="m-0 bg-zen-bg text-white min-w-[320px] [&_a]:text-inherit [&_a]:no-underline [&_a]:[font:inherit] [&_button]:cursor-pointer [&_button]:[font:inherit]"
         style={{ background: 'var(--bg-gradient)', color: 'var(--text)' }}
       >
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <ScrollToTopOnReload />
         <JsonLd data={organizationSchema()} />
         <CookieConsentRoot>{children}</CookieConsentRoot>

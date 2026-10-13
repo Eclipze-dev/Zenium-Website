@@ -1,11 +1,12 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { aboutExperience } from "./aboutData";
 import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutExperienceSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-experience-title"
     >
@@ -46,6 +47,6 @@ export default function AboutExperienceSection() {
           </div>
         </SolutionPanelCard>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

@@ -1,10 +1,11 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import ShimmerText from "@/components/ShimmerText";
 import { ContentLink } from "@/components/seo/ContentLink";
 
 const AiAnalyticsFoundationSection = () => {
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <div className="flex w-full flex-row items-center justify-between gap-10 max-lg:flex-col max-lg:items-stretch max-lg:gap-8 max-sm:gap-6">
           {/* Tablet / mobile image */}
@@ -61,7 +62,7 @@ const AiAnalyticsFoundationSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 };
 

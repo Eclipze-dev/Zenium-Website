@@ -1,4 +1,5 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/Button";
 import { aboutFinalCta } from "./aboutData";
 import ShimmerText from "@/components/ShimmerText";
@@ -11,7 +12,7 @@ export default function AboutFinalCtaSection() {
     >
       <CTANetworkBackground />
 
-      <div className="container relative z-[2] text-center">
+      <ScrollReveal className="container relative z-[2] text-center">
         <h2
           id="about-final-cta-title"
           className="text-h1 m-0"
@@ -26,7 +27,7 @@ export default function AboutFinalCtaSection() {
           <Button href={aboutFinalCta.href}>{aboutFinalCta.cta}</Button>
         </div>
         <p className="m-0 mt-[22px] text-p3 italic font-normal text-muted">{aboutFinalCta.tagline}</p>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

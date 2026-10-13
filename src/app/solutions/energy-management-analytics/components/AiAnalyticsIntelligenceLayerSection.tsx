@@ -23,9 +23,10 @@ export default function AiAnalyticsIntelligenceLayerSection() {
         <div className="flex flex-col gap-[10px]">
           {/* Desktop: 3 + 2 */}
           <div className="hidden gap-[10px] lg:grid lg:grid-cols-3">
-            {topRow.map(([Icon, title, description]) => (
+            {topRow.map(([Icon, title, description], index) => (
               <SurfaceFeatureCard
                 key={title}
+                revealIndex={index}
                 icon={Icon}
                 title={title}
                 text={description}
@@ -34,9 +35,10 @@ export default function AiAnalyticsIntelligenceLayerSection() {
             ))}
           </div>
           <div className="hidden gap-[10px] lg:grid lg:grid-cols-2">
-            {bottomRow.map(([Icon, title, description]) => (
+            {bottomRow.map(([Icon, title, description], index) => (
               <SurfaceFeatureCard
                 key={title}
+                revealIndex={topRow.length + index}
                 icon={Icon}
                 title={title}
                 text={description}
@@ -50,6 +52,7 @@ export default function AiAnalyticsIntelligenceLayerSection() {
             {intelligenceLayerItems.map(([Icon, title, description], index) => (
               <SurfaceFeatureCard
                 key={`tablet-${title}`}
+                revealIndex={index}
                 icon={Icon}
                 title={title}
                 text={description}
@@ -65,9 +68,10 @@ export default function AiAnalyticsIntelligenceLayerSection() {
 
           {/* Mobile only: one column for all cards */}
           <div className="grid grid-cols-1 gap-[10px] sm:hidden">
-            {intelligenceLayerItems.map(([Icon, title, description]) => (
+            {intelligenceLayerItems.map(([Icon, title, description], index) => (
               <SurfaceFeatureCard
                 key={`mobile-${title}`}
+                revealIndex={index}
                 icon={Icon}
                 title={title}
                 text={description}

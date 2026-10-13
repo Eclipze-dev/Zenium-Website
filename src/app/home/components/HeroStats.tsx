@@ -1,3 +1,4 @@
+import { StatValue } from "@/components/animations/CountUp";
 import type { LucideIcon } from "@/components/icons/lucideIcons";
 import { cn } from "@/lib/cn";
 
@@ -42,9 +43,10 @@ export default function HeroStats({
               i > 0 && "max-sm:border-t max-sm:border-line",
             )}
           >
-            <span className="hero-stats__value block whitespace-nowrap text-left text-h3 !font-normal text-zen-text max-lg:text-center max-lg:whitespace-normal max-lg:text-[clamp(14px,1.9vw,18px)] max-lg:leading-[1.2] max-md:text-left max-md:text-[20px] max-md:leading-[1.25] max-sm:text-[18px] max-sm:leading-[1.25]">
-              {value}
-            </span>
+            <StatValue
+              text={value}
+              className="hero-stats__value block whitespace-nowrap text-left text-h3 !font-normal text-zen-text max-lg:text-center max-lg:whitespace-normal max-lg:text-[clamp(14px,1.9vw,18px)] max-lg:leading-[1.2] max-md:text-left max-md:text-[20px] max-md:leading-[1.25] max-sm:text-[18px] max-sm:leading-[1.25]"
+            />
             <p className="hero-stats__label mt-[10px] text-left text-button text-muted max-lg:mt-1.5 max-lg:text-center max-lg:text-[11px] max-lg:leading-[1.35] max-md:mt-[10px] max-md:text-left max-md:text-button max-sm:mt-1.5 max-sm:text-[12px] max-sm:leading-[1.4]">
               {description}
             </p>

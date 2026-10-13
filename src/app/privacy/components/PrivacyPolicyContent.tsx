@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import ShimmerText from "@/components/ShimmerText";
 import CookieSettingsLink from "@/components/cookie-consent/CookieSettingsLink";
 import PrivacyCheckList from "./PrivacyCheckList";
@@ -39,6 +40,7 @@ export default function PrivacyPolicyContent() {
     >
       <div className="container">
         <div className="max-w-auto">
+          <ScrollReveal>
           <p className="m-0 text-caption font-medium uppercase tracking-[1.2px] text-common2">
             Last updated: {privacyMeta.lastUpdated}
           </p>
@@ -61,6 +63,7 @@ export default function PrivacyPolicyContent() {
               </p>
             ))}
           </div>
+          </ScrollReveal>
 
           <div className="mt-[50px] flex flex-col gap-[50px] max-lg:gap-[36px]">
             {privacySections.map((section) => {

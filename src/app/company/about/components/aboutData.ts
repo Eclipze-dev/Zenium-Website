@@ -76,7 +76,7 @@ export const aboutLeadership = {
     {
       name: "Jean-Hervé Jenn",
       title: "Executive Director",
-      image: "/img.png",
+      image: "/about/JH.webp",
       bio: [
         "Prior to joining Zenium, Chairman of **Future Analytica**, an AI/ML platform since 2023, CEO of **Inatech**, a Glencore company, a Trading and Risk Management software platform for the Energy industry since 2012, EMEA President of **Teleperformance**, managing 32,000 people over 25 countries, President of **Convergys** International covering Convergys' Billing and customer care divisions, Executive Director at **Goldman-Sachs**, and Head of the European Information, Telecommunication and Entertainment practice for **KPMG** and co-founder of KPMG Ventures.",
         "Earned master's degrees in science from ESTP in Paris and in management from the University of California at Los Angeles. Also completed the Executive Management Program at INSEAD, France. Member of the Institute of Chartered Accountants of England and trade representative to the Financial Services Authority. Dual French/American citizen.",
@@ -85,13 +85,18 @@ export const aboutLeadership = {
     {
       name: "Ramana Elchuri",
       title: "Chief Revenue Officer",
-      image: "/img.png",
-      bio: leadershipPlaceholderBio,
+      image: "/about/ramana.webp",
+      bio: [
+        "Ramana is a technology sales and go-to-market leader with more than 28 years of experience, much of it in India's power and utility sector. He has worked closely with DISCOMs, AMISPs and system integrators on smart metering, AMI infrastructure, feeder automation and grid IoT programs. He brings a detailed understanding of RDSS, AMISP business models and utility procurement frameworks.",
+        "Before his focus on AMI, Ramana built extensive experience in IoT and smart cities. He took connected solutions to market across RF communication networks, cloud platforms and city-scale infrastructure for government and enterprise customers. This background in device-to-cloud architectures gives him a practical view of how field devices, networks and data platforms must work together. That understanding is central to AMI success His expertise covers the full AMI value chain, from smart meters and RF communication to head-end systems, meter data management, cloud and analytics. He specializes in consultative, institutional selling: building long-term relationships with utilities, structuring large and complex deals, and helping customers turn meter data into operational and commercial outcomes.",
+        "Ramana has led teams of more than 200 people and is a serial entrepreneur, which gives him a founder's mindset on growth and GTM strategy. At Zenium.ai, he leads [area], helping power utilities get the most from their MDM, HES and analytics investments.",
+
+      ],
     },
     {
       name: "Sreeju K B",
       title: "Chief Product Officer",
-      image: "/img.png",
+      image: "/about/sreeju.webp",
       bio: [
         "Sreeju K B is a product and technology leader with over two decades of experience in smart metering, smart grids and energy data platforms. For more than 14 years he has worked on Head End Systems (HES) and Meter Data Management (MDM), designing and scaling platforms that manage millions of smart meters and petabytes of energy data.",
         "His experience covers the full product lifecycle — strategy and customer needs through architecture, development, deployment and growth, across large-scale smart metering programmes and data-driven grid operations. As Chief Product Officer, Sreeju drives Zenium's product strategy and technology direction, building intelligent, scalable platforms and energy analytics that help utilities operate more efficiently and advance towards smarter, more connected energy networks.",
@@ -100,8 +105,8 @@ export const aboutLeadership = {
     {
       name: "Satyadip Das",
       title: "Chief Technology Officer",
-      image: "/img.png",
-      bio: leadershipPlaceholderBio,
+      image: "/about/sathya.webp",
+      bio: ["Satyadip Das leads technology strategy, product engineering, and innovation at Zenium. With over 25 years of experience in software architecture and cloud systems, he specializes in building scalable and secure enterprise system and driving digital transformation. He previously held leadership positions in product companies operating in banking and travel domain and serving many global multinational clients."],
     },
   ] satisfies AboutLeader[],
 };

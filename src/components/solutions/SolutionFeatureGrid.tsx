@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import type { LucideIcon } from "@/components/icons/lucideIcons";
 import { cn } from "@/lib/cn";
 
@@ -10,14 +12,15 @@ export default function SolutionFeatureGrid({
   bare?: boolean;
 }) {
   return (
-    <div
+    <StaggerContainer
       className={cn(
         "grid md:grid-cols-2 xl:grid-cols-4",
         !bare && "rounded-[10px] border-line bg-box p-[20px] max-lg:p-4",
       )}
     >
       {items.map(([Icon, title, description]) => (
-        <article
+        <StaggerItem
+          as="article"
           key={title}
           className={cn(
             "relative flex min-h-[230px] flex-col justify-center gap-[15px] px-[30px] max-lg:min-h-0 max-lg:gap-3 max-lg:px-[18px] max-lg:py-6",
@@ -36,8 +39,8 @@ export default function SolutionFeatureGrid({
           <p className="text-button text-muted m-0 max-lg:text-[13px] max-lg:leading-[1.45] max-sm:text-[12px] max-sm:leading-[1.45]">
             {description}
           </p>
-        </article>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerContainer>
   );
 }

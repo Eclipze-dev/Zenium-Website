@@ -1,3 +1,6 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import { Mail, MapPin, Phone } from "@/components/icons/lucideIcons";
 import SectionBadge from "@/components/SectionBadge";
 import ContactForm from "./ContactForm";
@@ -39,23 +42,34 @@ export default function ContactSection() {
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <header className="mx-auto mb-[48px] max-lg:mb-[36px] max-w-auto text-center max-sm:mb-[36px]">
-          <SectionBadge className="mx-auto mb-[clamp(12px,1.5vw,16px)]">
-            {contactIntro.eyebrow}
-          </SectionBadge>
-          <h1
-            id="contact-title"
-            className="text-h1 m-0"
-          >
-            {contactIntro.title}{" "}
-            <ShimmerText>{contactIntro.accent}</ShimmerText>
-          </h1>
-          <p className="text-muted text-p1 mx-auto mt-[20px] max-w-auto">
-            {contactIntro.description}
-          </p>
-        </header>
+        <StaggerContainer
+          as="header"
+          className="mx-auto mb-[48px] max-lg:mb-[36px] max-w-auto text-center max-sm:mb-[36px]"
+          stagger={0.1}
+         
+        >
+          <StaggerItem>
+            <SectionBadge className="mx-auto mb-[clamp(12px,1.5vw,16px)]">
+              {contactIntro.eyebrow}
+            </SectionBadge>
+          </StaggerItem>
+          <StaggerItem>
+            <h1
+              id="contact-title"
+              className="text-h1 m-0"
+            >
+              {contactIntro.title}{" "}
+              <ShimmerText>{contactIntro.accent}</ShimmerText>
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="text-muted text-p1 mx-auto mt-[20px] max-w-auto">
+              {contactIntro.description}
+            </p>
+          </StaggerItem>
+        </StaggerContainer>
 
-        <div className="rounded-[20px] max-w-auto mx-auto bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.28)] max-sm:p-2 lg:p-2">
+        <ScrollReveal className="rounded-[20px] max-w-auto mx-auto bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.28)] max-sm:p-2 lg:p-2">
           <div className="grid gap-3 lg:grid-cols-[minmax(260px,1fr)_minmax(0,2fr)] lg:gap-4">
             <aside className="relative overflow-hidden rounded-[16px] bg-common px-8 py-10 text-[#FFFFFF] max-sm:px-6 max-sm:py-8 lg:min-h-[560px] lg:px-10 lg:py-12">
               <SidebarMotif />
@@ -110,7 +124,7 @@ export default function ContactSection() {
               <ContactForm />
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

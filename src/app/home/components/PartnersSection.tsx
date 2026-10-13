@@ -19,9 +19,10 @@ export default function PartnersSection() {
           Better utility transformation, <ShimmerText>together.</ShimmerText>
         </SectionIntro>
         <div className="mt-[75px] grid grid-cols-3 gap-[10px] text-left max-lg:mt-[40px] max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {partners.map(([Icon, title, text]) => (
+          {partners.map(([Icon, title, text], index) => (
             <SurfaceFeatureCard
               key={title}
+              revealIndex={index}
               icon={Icon}
               title={title}
               text={text}

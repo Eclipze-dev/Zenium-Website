@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import { cn } from "@/lib/cn";
 import SectionBadge from "@/components/SectionBadge";
 import NewsCard from "./NewsCard";
@@ -61,21 +63,27 @@ export default function NewsSection() {
       aria-labelledby="news-title"
     >
       <div className="container">
-        <header className="max-w-auto">
-          <SectionBadge className="mb-[clamp(12px,1.5vw,16px)]">
-            {newsIntro.eyebrow}
-          </SectionBadge>
-          <h1
-            id="news-title"
-            className="text-h1 m-0 text-common"
-          >
-            {newsIntro.title}{" "}
-            <ShimmerText>{newsIntro.accent}</ShimmerText>
-          </h1>
-          <p className="mt-[20px] max-w-auto text-p1 text-common2">
-            {newsIntro.description}
-          </p>
-        </header>
+        <StaggerContainer as="header" className="max-w-auto" stagger={0.1}>
+          <StaggerItem>
+            <SectionBadge className="mb-[clamp(12px,1.5vw,16px)]">
+              {newsIntro.eyebrow}
+            </SectionBadge>
+          </StaggerItem>
+          <StaggerItem>
+            <h1
+              id="news-title"
+              className="text-h1 m-0 text-common"
+            >
+              {newsIntro.title}{" "}
+              <ShimmerText>{newsIntro.accent}</ShimmerText>
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="mt-[20px] max-w-auto text-p1 text-common2">
+              {newsIntro.description}
+            </p>
+          </StaggerItem>
+        </StaggerContainer>
 
         <div
           ref={tablistRef}

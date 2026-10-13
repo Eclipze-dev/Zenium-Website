@@ -1,10 +1,11 @@
 import CareersEmptyIllustration from "./CareersEmptyIllustration";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { careersOpportunities } from "./careersData";
 import ShimmerText from "@/components/ShimmerText";
 
 export default function CareersOpportunitiesSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="careers-opportunities-title"
     >
@@ -33,6 +34,6 @@ export default function CareersOpportunitiesSection() {
           {careersOpportunities.footer}
         </p>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

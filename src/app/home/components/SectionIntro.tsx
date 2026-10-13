@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import SectionBadge from "@/components/SectionBadge";
 import { cn } from "@/lib/cn";
 
@@ -36,7 +38,9 @@ export default function SectionIntro({
   );
 
   return (
-    <header
+    <StaggerContainer
+      as="header"
+      stagger={0.1}
       className={cn(
         "section-heading",
         centered && "mx-auto text-center",
@@ -44,34 +48,40 @@ export default function SectionIntro({
         className,
       )}
     >
-      {badge ? (
-        <SectionBadge className="mb-[clamp(12px,1.5vw,10px)] max-sm:mb-[10px]">
-          {eyebrow}
-        </SectionBadge>
-      ) : (
-        <p className={cn(
-          "!text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text max-sm:mb-[10px]",
-          eyebrowClassName,
-        )}>
-          {eyebrow}
-        </p>
-      )}
-      {children ? (
-        heading === "h1" ? (
-          <h1 id={headingId} className={headingClassName}>
-            {children}
-          </h1>
+      <StaggerItem>
+        {badge ? (
+          <SectionBadge className="mb-[clamp(12px,1.5vw,10px)] max-sm:mb-[10px]">
+            {eyebrow}
+          </SectionBadge>
         ) : (
-          <h2 className={headingClassName}>
-            {children}
-          </h2>
-        )
+          <p className={cn(
+            "!text-h4 tracking-eyebrow mb-[clamp(12px,1.5vw,10px)] text-zen-text max-sm:mb-[10px]",
+            eyebrowClassName,
+          )}>
+            {eyebrow}
+          </p>
+        )}
+      </StaggerItem>
+      {children ? (
+        <StaggerItem>
+          {heading === "h1" ? (
+            <h1 id={headingId} className={headingClassName}>
+              {children}
+            </h1>
+          ) : (
+            <h2 className={headingClassName}>
+              {children}
+            </h2>
+          )}
+        </StaggerItem>
       ) : null}
-      {text && (
-        <p className="text-muted text-p1 mt-[20px] max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
-          {text}
-        </p>
-      )}
-    </header>
+      {text ? (
+        <StaggerItem>
+          <p className="text-muted text-p1 mt-[20px] max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
+            {text}
+          </p>
+        </StaggerItem>
+      ) : null}
+    </StaggerContainer>
   );
 }

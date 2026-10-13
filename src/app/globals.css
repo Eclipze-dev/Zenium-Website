@@ -883,3 +883,11 @@ html[data-cms-theme="dark"] .cms-drawer .cms-nav-link[data-active="true"] {
   background-color: #1e293b;
   color: #f8fafc;
 }
+
+/* Public reveal fallback: stay visible without JS or when motion is reduced. */
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  [data-motion-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

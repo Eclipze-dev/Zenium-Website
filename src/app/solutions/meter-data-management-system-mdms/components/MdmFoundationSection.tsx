@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { measurableValueQuote } from "./mdmData";
 import ShimmerText from "@/components/ShimmerText";
@@ -16,11 +17,11 @@ export default function MdmFoundationSection() {
           <ShimmerText>measurable value</ShimmerText>
         </SectionIntro>
 
-        <div className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
+        <ScrollReveal className="mt-2 w-auto rounded-[10px] bg-[#F07F25] px-8 py-[10px]">
           <p className="text-p3 m-0 text-center italic text-zen-text">
             {measurableValueQuote}
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

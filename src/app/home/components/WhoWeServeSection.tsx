@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { audiences } from "./homeData";
 import Button from "@/components/Button";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
@@ -15,18 +16,21 @@ export default function WhoWeServeSection() {
           <SectionIntro eyebrow="WHO WE SERVE">
             <ShimmerText>Intelligence</ShimmerText>{` `}across the energy ecosystem.
           </SectionIntro>
-          <p className="text-muted text-p1 my-[20px] mb-[26px] max-sm:my-[14px] max-sm:mb-[20px] max-sm:text-[14px] max-sm:leading-[1.5]">
-            Zenium&apos;s technology is designed for the evolving needs of utilities
-            and the wider energy ecosystem.
-          </p>
-          <Button href="/serve/utilities" className="max-sm:w-full">
-            <span>Explore Who We Serve</span>
-          </Button>
+          <ScrollReveal>
+            <p className="text-muted text-p1 my-[20px] mb-[26px] max-sm:my-[14px] max-sm:mb-[20px] max-sm:text-[14px] max-sm:leading-[1.5]">
+              Zenium&apos;s technology is designed for the evolving needs of utilities
+              and the wider energy ecosystem.
+            </p>
+            <Button href="/serve/utilities" className="max-sm:w-full">
+              <span>Explore Who We Serve</span>
+            </Button>
+          </ScrollReveal>
         </div>
         <div className="min-w-0 grid grid-cols-6 gap-[10px] max-xl:grid-cols-2 max-sm:grid-cols-1">
           {audiences.map(([title, text, Icon], i) => (
             <SurfaceFeatureCard
               key={title}
+              revealIndex={i}
               icon={Icon}
               title={title}
               text={text}

@@ -1,10 +1,11 @@
 import { CircleCheck } from "@/components/icons/lucideIcons";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { aboutDirection } from "./aboutData";
 import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutDirectionSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-direction-title"
     >
@@ -44,6 +45,6 @@ export default function AboutDirectionSection() {
           </p>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

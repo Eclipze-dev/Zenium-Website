@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { connectedByDesignTags } from "./partnersData";
 import ShimmerText from "@/components/ShimmerText";
@@ -16,7 +17,7 @@ export default function PartnersConnectedSection() {
           <ShimmerText>wider solution</ShimmerText>
         </SectionIntro>
 
-        <div className="mx-auto mt-[40px] max-w-[800px] rounded-[10px] bg-orange px-6 py-4 max-sm:mt-[28px] max-sm:rounded-[16px] max-sm:px-4 max-sm:py-3">
+        <ScrollReveal className="mx-auto mt-[40px] max-w-[800px] rounded-[10px] bg-orange px-6 py-4 max-sm:mt-[28px] max-sm:rounded-[16px] max-sm:px-4 max-sm:py-3">
           {/* Desktop/tablet: single line */}
           <p className="m-0 hidden text-button italic text-white sm:block">
             {connectedByDesignTags.join(" • ")}
@@ -32,7 +33,7 @@ export default function PartnersConnectedSection() {
               </span>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

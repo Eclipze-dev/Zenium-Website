@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import Button from "@/components/Button";
 import SectionBadge from "@/components/SectionBadge";
 import SolutionHeroStats from "@/components/solutions/SolutionHeroStats";
@@ -11,26 +13,34 @@ export default function PartnersHeroSection() {
       aria-labelledby="partners-hero-title"
     >
       <div className="container">
-        <div className="flex flex-col items-center justify-center gap-5 text-center pb-[40px]">
-          <SectionBadge>PARTNERS</SectionBadge>
-          <h1
-            id="partners-hero-title"
-            className="text-h1 m-0"
-          >
-            Build stronger{" "}
-            <ShimmerText>energy solutions</ShimmerText> together.
-          </h1>
-          <p className="max-w-[1250px] text-p1 text-muted">
-            Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter 
-            infrastructure, manage trusted data and support the evolution towards AMI 2.0.
-          </p>
-          <div className="flex flex-wrap justify-center gap-[10px] pt-2.5">
-            <Button href="/contact">Become a partner</Button>
-            <Button href="/contact" outline>
-              Talk to our team
-            </Button>
-          </div>
-        </div>
+        <StaggerContainer className="flex flex-col items-center justify-center gap-5 text-center pb-[40px]" stagger={0.1}>
+          <StaggerItem>
+            <SectionBadge>PARTNERS</SectionBadge>
+          </StaggerItem>
+          <StaggerItem>
+            <h1
+              id="partners-hero-title"
+              className="text-h1 m-0"
+            >
+              Build stronger{" "}
+              <ShimmerText>energy solutions</ShimmerText> together.
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="max-w-[1250px] text-p1 text-muted">
+              Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter 
+              infrastructure, manage trusted data and support the evolution towards AMI 2.0.
+            </p>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="flex flex-wrap justify-center gap-[10px] pt-2.5">
+              <Button href="/contact">Become a partner</Button>
+              <Button href="/contact" outline>
+                Talk to our team
+              </Button>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
         <SolutionHeroStats
           items={statistics}
           variant="ruled"

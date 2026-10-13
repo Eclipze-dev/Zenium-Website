@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import SurfaceFeatureCard from "@/components/SurfaceFeatureCard";
 import { whySteps } from "./partnersData";
@@ -12,19 +13,22 @@ export default function PartnersWhySection() {
             Proven technology.{" "}
             <ShimmerText>Practical partnership.</ShimmerText>
           </SectionIntro>
-          <p className="text-muted text-p1 my-[20px] mb-[26px]">
+          <ScrollReveal>
+            <p className="text-muted text-p1 my-[20px] mb-[26px]">
             Successful smart-metering programmes depend on technology that
             works across products, providers and operating environments.
             Zenium combines proven HES and MDM capabilities with
             utility-domain knowledge gained through experience in complex,
             large-scale smart-metering environments.
           </p>
+          </ScrollReveal>
         </div>
 
         <div className="min-w-0 grid grid-cols-2 gap-[10px] max-sm:grid-cols-1">
-          {whySteps.map(({ label, title, text, icon }) => (
+          {whySteps.map(({ label, title, text, icon }, index) => (
             <SurfaceFeatureCard
               key={label}
+              revealIndex={index}
               icon={icon}
               label={label}
               title={title}

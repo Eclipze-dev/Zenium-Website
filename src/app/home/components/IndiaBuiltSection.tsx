@@ -2,6 +2,8 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import ShimmerText from "@/components/ShimmerText";
 import SectionIntro from "./SectionIntro";
 import { indiaBuiltFeatures } from "./homeData";
@@ -23,9 +25,9 @@ export default function IndiaBuiltSection() {
           <SectionIntro eyebrow="BUILT FOR INDIA. READY FOR SCALE.">
             <ShimmerText>India</ShimmerText>-built technology for modern utilities.
           </SectionIntro>
-          <div className="mt-[70px] max-lg:mt-[40px]">
+          <StaggerContainer className="mt-[70px] max-lg:mt-[40px]">
             {indiaBuiltFeatures.map(({ b, em, p, icon: Icon }) => (
-              <article key={b} className="border-t border-line py-[24px] max-lg:py-[20px]">
+              <StaggerItem as="article" key={b} className="border-t border-line py-[24px] max-lg:py-[20px]">
                 <Icon className="mb-3 h-6 w-6 text-orange" strokeWidth={1.8} />
                 <b className="block text-p2">{b}</b>
                 <em className="block text-p3 text-orange my-2">
@@ -34,9 +36,9 @@ export default function IndiaBuiltSection() {
                 <p className="text-muted text-p1 m-0">
                   {p}
                 </p>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

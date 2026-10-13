@@ -1,6 +1,25 @@
+import type { ReactNode } from "react";
 import type { LucideIcon } from "@/components/icons/lucideIcons";
+import { StatValue } from "@/components/animations/CountUp";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { surfaceCardClass } from "@/lib/surfaceCard";
 import { cn } from "@/lib/cn";
+
+function StatCell({
+  index,
+  className,
+  children,
+}: {
+  index: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <ScrollReveal className={className} delay={index * 0.1} duration={0.68}>
+      {children}
+    </ScrollReveal>
+  );
+}
 
 export default function SolutionHeroStats({
   items,
@@ -59,14 +78,13 @@ export default function SolutionHeroStats({
 
     const renderValue = (value: string, description: string) => (
       <>
-        <span
+        <StatValue
+          text={value}
           className={cn(
             "block text-center !text-h5 !font-normal text-zen-text whitespace-nowrap max-lg:text-[clamp(16px,2.2vw,22px)] max-lg:leading-[1.2] max-lg:whitespace-normal max-sm:text-[18px] max-sm:leading-[1.25]",
             valueClassName,
           )}
-        >
-          {value}
-        </span>
+        />
         <p className="mt-[14px] text-center !text-button text-muted max-lg:mt-2 max-lg:text-[12px] max-lg:leading-[1.35] max-sm:mt-1.5 max-sm:text-[11px]">
           {description}
         </p>
@@ -80,12 +98,14 @@ export default function SolutionHeroStats({
       const renderRow = (
         rowItems: typeof items,
         cols: string,
+        startIndex: number,
         extraItemClassName?: string,
       ) => (
         <div className={cn("grid", cols)}>
           {rowItems.map(([, value, description], i) => (
-            <div
+            <StatCell
               key={`ruled-${value}`}
+              index={startIndex + i}
               className={cn(
                 "min-w-0",
                 itemClassName,
@@ -97,7 +117,7 @@ export default function SolutionHeroStats({
               )}
             >
               {renderValue(value, description)}
-            </div>
+            </StatCell>
           ))}
         </div>
       );
@@ -111,9 +131,9 @@ export default function SolutionHeroStats({
             className,
           )}
         >
-          {renderRow(topItems, "grid-cols-3 max-sm:grid-cols-1")}
+          {renderRow(topItems, "grid-cols-3 max-sm:grid-cols-1", 0)}
           <div className="border-t border-line" aria-hidden="true" />
-          {renderRow(bottomItems, "grid-cols-2 max-sm:grid-cols-1", bottomItemClassName)}
+          {renderRow(bottomItems, "grid-cols-2 max-sm:grid-cols-1", topItems.length, bottomItemClassName)}
         </div>
       );
     }
@@ -139,8 +159,9 @@ export default function SolutionHeroStats({
           const isLast = i === items.length - 1;
 
           return (
-            <div
+            <StatCell
               key={`ruled-${value}`}
+              index={i}
               className={cn(
                 fitContent && !isLast ? "w-max max-lg:w-auto" : "min-w-0",
                 itemClassName,
@@ -158,7 +179,7 @@ export default function SolutionHeroStats({
               )}
             >
               {renderValue(value, description)}
-            </div>
+            </StatCell>
           );
         })}
       </div>
@@ -172,17 +193,18 @@ export default function SolutionHeroStats({
         className,
       )}
     >
-      {items.map(([Icon, value, description]) => (
-        <div
+      {items.map(([Icon, value, description], i) => (
+        <StatCell
           key={value}
+          index={i}
           className={surfaceCardClass(
             "flex min-h-[118px] flex-col justify-center rounded-[10px] p-[25px]",
           )}
         >
           <Icon className="h-6 w-6 text-orange" strokeWidth={1.8} />
-          <span className="mt-5 text-h3 text-zen-text">{value}</span>
+          <StatValue text={value} className="mt-5 block text-h3 text-zen-text" />
           <p className="mt-5 text-button text-zen-text">{description}</p>
-        </div>
+        </StatCell>
       ))}
     </div>
   );

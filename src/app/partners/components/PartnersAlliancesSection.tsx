@@ -1,4 +1,5 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/cn";
 import { allianceLogos } from "./partnersData";
 
@@ -11,12 +12,14 @@ export default function PartnersAlliancesSection() {
       className="overflow-hidden container pt-[0px] pb-[80px] max-lg:pb-[48px] max-sm:py-[70px]"
       aria-labelledby="partners-alliances-title"
     >
-      <h2
+      <ScrollReveal
+        as="h2"
         id="partners-alliances-title"
+       
         className="m-0 text-center text-h4 tracking-eyebrow text-zen-text"
       >
         PARTNERS &amp; ALLIANCES
-      </h2>
+      </ScrollReveal>
 
       <div className="relative mt-[50px] w-full overflow-hidden max-sm:mt-[40px]">
         <div

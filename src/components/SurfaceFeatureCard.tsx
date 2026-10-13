@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import type { LucideIcon } from "@/components/icons/lucideIcons";
 import { cn } from "@/lib/cn";
 import {
@@ -17,6 +18,7 @@ export default function SurfaceFeatureCard({
   spacing = "journey",
   className,
   children,
+  revealIndex = 0,
 }: {
   icon?: LucideIcon;
   label?: string;
@@ -33,11 +35,17 @@ export default function SurfaceFeatureCard({
   /** Use for grid spans, min-height, padding overrides, etc. */
   className?: string;
   children?: React.ReactNode;
+  /** Stagger order when several cards enter together. */
+  revealIndex?: number;
 }) {
   const isStack = spacing === "stack";
 
   return (
-    <article
+    <ScrollReveal
+      as="article"
+      lift
+      delay={Math.min(revealIndex, 6) * 0.1}
+      duration={0.62}
       className={surfaceCardClass(
         "min-w-0 rounded-[8px] p-[42px] max-lg:p-[32px] max-sm:p-[22px]",
         isStack &&
@@ -102,6 +110,6 @@ export default function SurfaceFeatureCard({
       )}
 
       {children}
-    </article>
+    </ScrollReveal>
   );
 }

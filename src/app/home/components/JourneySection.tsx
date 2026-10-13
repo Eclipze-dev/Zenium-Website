@@ -17,9 +17,10 @@ export default function JourneySection() {
           From meter to insight. From insight to{` `}<ShimmerText>action.</ShimmerText>
         </SectionIntro>
         <div className="mt-[75px] grid grid-cols-4 gap-[10px] max-lg:mt-[40px] max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {journey.map(({ label, title, text, icon }) => (
+          {journey.map(({ label, title, text, icon }, index) => (
             <SurfaceFeatureCard
               key={label}
+              revealIndex={index}
               icon={icon}
               label={label}
               title={title}

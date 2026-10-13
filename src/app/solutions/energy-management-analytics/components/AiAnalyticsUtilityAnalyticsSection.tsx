@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import OptimizedImage from "@/components/OptimizedImage";
 import {
@@ -17,9 +19,10 @@ const AiAnalyticsUtilityAnalyticsSection = () => {
           <ShimmerText>utility value chain.</ShimmerText>
         </SectionIntro>
 
-        <div className="grid grid-cols-1 gap-[10px] md:grid-cols-2 xl:grid-cols-3">
+        <StaggerContainer className="grid grid-cols-1 gap-[10px] md:grid-cols-2 xl:grid-cols-3">
           {utilityAnalyticsItems.map((item) => (
-            <article
+            <StaggerItem
+              as="article"
               key={item.title}
               className={surfaceCardClass(
                 "flex h-full flex-col items-stretch gap-[18px] rounded-[8px] p-6 xl:p-8",
@@ -43,9 +46,9 @@ const AiAnalyticsUtilityAnalyticsSection = () => {
                   {item.additionalDescription}
                 </p>
               )}
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

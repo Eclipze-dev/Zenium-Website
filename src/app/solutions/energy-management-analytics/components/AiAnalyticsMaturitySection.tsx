@@ -1,3 +1,5 @@
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { maturitySteps } from "./aiAnalyticsData";
 import ShimmerText from "@/components/ShimmerText";
@@ -13,8 +15,8 @@ export default function AiAnalyticsMaturitySection() {
           <ShimmerText>knowing what happens next.</ShimmerText>
         </SectionIntro>
 
-        <div className="flex flex-col md:gap-[30px] lg:gap-[50px] max-lg:gap-[36px]">
-          <div className="flex flex-col">
+        <StaggerContainer className="flex flex-col md:gap-[30px] lg:gap-[50px] max-lg:gap-[36px]">
+          <StaggerItem className="flex flex-col">
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {descriptive.label}
             </p>
@@ -22,9 +24,9 @@ export default function AiAnalyticsMaturitySection() {
               <h3 className="text-p2 m-0 text-zen-text">{descriptive.title}</h3>
               <p className="m-0 text-p1 text-muted">{descriptive.text}</p>
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="flex flex-col">
+          <StaggerItem className="flex flex-col">
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {predictive.label}
             </p>
@@ -50,9 +52,9 @@ export default function AiAnalyticsMaturitySection() {
                 </>
               )}
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="flex flex-col">
+          <StaggerItem className="flex flex-col">
             <p className="text-button uppercase tracking-[0.08em] text-muted">
               {prescriptive.label}
             </p>
@@ -60,8 +62,8 @@ export default function AiAnalyticsMaturitySection() {
               <h3 className="text-p2 m-0 text-zen-text">{prescriptive.title}</h3>
               <p className="m-0 text-p1 text-muted">{prescriptive.text}</p>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </div>
     </section>
   );

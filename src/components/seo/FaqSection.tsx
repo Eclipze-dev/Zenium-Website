@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { cn } from "@/lib/cn";
 import ShimmerText from "@/components/ShimmerText";
 import type { FaqItem } from "@/lib/seo/jsonld";
@@ -25,10 +26,10 @@ export default function FaqSection({
       aria-labelledby={titleId}
     >
       <div className="container grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start gap-[60px] max-lg:grid-cols-1 max-lg:gap-[36px]">
-        <h2 id={titleId} className="text-h1 m-0 max-w-auto">
+        <ScrollReveal as="h2" id={titleId} className="text-h1 m-0 max-w-auto">
           {title}{" "}
           <ShimmerText>{accent}</ShimmerText>
-        </h2>
+        </ScrollReveal>
 
         <div className="min-w-0 border-t border-white/20 [overflow-anchor:none]">
           {items.map((item, index) => {

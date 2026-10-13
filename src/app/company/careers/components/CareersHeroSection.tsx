@@ -1,3 +1,6 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import StaggerContainer from "@/components/animations/StaggerContainer";
+import StaggerItem from "@/components/animations/StaggerItem";
 import OptimizedImage from "@/components/OptimizedImage";
 import SectionBadge from "@/components/SectionBadge";
 import { careersHero } from "./careersData";
@@ -10,23 +13,29 @@ export default function CareersHeroSection() {
       aria-labelledby="careers-hero-title"
     >
       <div className="container grid grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] items-stretch gap-[60px] max-lg:grid-cols-1 max-lg:gap-[36px]">
-        <div className="min-w-0">
-          <SectionBadge className="mb-[10px]">
-            {careersHero.eyebrow}
-          </SectionBadge>
-          <h1
-            id="careers-hero-title"
-            className="text-h1 m-0"
-          >
-            {careersHero.title}{" "}
-            <ShimmerText>{careersHero.accent}</ShimmerText>
-          </h1>
-          <p className="mt-[20px] max-w-auto text-p1 text-muted">
-            {careersHero.description}
-          </p>
-        </div>
+        <StaggerContainer className="min-w-0" stagger={0.1}>
+          <StaggerItem>
+            <SectionBadge className="mb-[10px]">
+              {careersHero.eyebrow}
+            </SectionBadge>
+          </StaggerItem>
+          <StaggerItem>
+            <h1
+              id="careers-hero-title"
+              className="text-h1 m-0"
+            >
+              {careersHero.title}{" "}
+              <ShimmerText>{careersHero.accent}</ShimmerText>
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="mt-[20px] max-w-auto text-p1 text-muted">
+              {careersHero.description}
+            </p>
+          </StaggerItem>
+        </StaggerContainer>
 
-        <div className="relative min-h-0 overflow-hidden rounded-[16px] bg-[#0A1725] max-lg:aspect-[16/10] lg:h-auto">
+        <ScrollReveal direction="left" className="relative min-h-0 overflow-hidden rounded-[16px] bg-[#0A1725] max-lg:aspect-[16/10] lg:h-auto">
           <OptimizedImage
             src={careersHero.image}
             alt={careersHero.imageAlt}
@@ -35,7 +44,7 @@ export default function CareersHeroSection() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

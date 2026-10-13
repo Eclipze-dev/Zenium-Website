@@ -1,4 +1,5 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/Button";
 import ShimmerText from "@/components/ShimmerText";
 
@@ -10,7 +11,7 @@ export default function AiAnalyticsFinalCtaSection() {
     >
       <CTANetworkBackground />
 
-      <div className="container relative z-[2] text-center">
+      <ScrollReveal className="container relative z-[2] text-center">
         <h2
           id="ai-analytics-final-cta-title"
           className="text-h1 m-0"
@@ -25,7 +26,7 @@ export default function AiAnalyticsFinalCtaSection() {
         <div className="mt-[40px] max-lg:mt-[32px] flex flex-wrap justify-center gap-[10px]">
           <Button href="/contact">Request a Demo</Button>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

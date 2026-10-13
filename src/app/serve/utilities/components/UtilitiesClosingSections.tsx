@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import { CircleCheck } from "@/components/icons/lucideIcons";
 import Button from "@/components/Button";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
@@ -5,7 +6,7 @@ import { utilitiesContent } from "../../components/serveData";
 
 export function UtilitiesSolutionsSection() {
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-[60px] items-start max-lg:grid-cols-1 max-lg:gap-[36px]">
         <h2 className="text-h5 m-0 max-w-auto">
           Technology for the complete{" "}
@@ -24,13 +25,13 @@ export function UtilitiesSolutionsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }
 
 export function UtilitiesPrioritiesSection() {
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container flex flex-col gap-[50px] max-lg:gap-[36px]">
         <h2 className="text-h5 m-0">
           Built for different{" "}
@@ -67,7 +68,7 @@ export function UtilitiesPrioritiesSection() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }
 
@@ -75,7 +76,7 @@ export function UtilitiesAmiNextSection() {
   const { amiNext } = utilitiesContent;
 
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <div className="max-w-auto">
           <h2 className="text-h5 m-0">
@@ -90,6 +91,6 @@ export function UtilitiesAmiNextSection() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

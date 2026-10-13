@@ -1,11 +1,12 @@
 import CTANetworkBackground from "@/app/home/components/CTANetworkBackground";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/Button";
 import ShimmerText from "@/components/ShimmerText";
 import { SOLUTION_PATHS } from "@/lib/seo/paths";
 
 export default function GuideCtaSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="relative overflow-hidden bg-box py-[80px] max-lg:py-[48px] max-sm:py-[80px]"
       aria-labelledby="guide-final-cta-title"
     >
@@ -30,6 +31,6 @@ export default function GuideCtaSection() {
           </Button>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

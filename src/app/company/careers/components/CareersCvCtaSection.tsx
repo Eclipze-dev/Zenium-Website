@@ -1,11 +1,12 @@
 import { Mail } from "@/components/icons/lucideIcons";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/Button";
 import SolutionPanelCard from "@/components/solutions/SolutionPanelCard";
 import { careersCvCta } from "./careersData";
 
 export default function CareersCvCtaSection() {
   return (
-    <section className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
+    <ScrollReveal as="section" className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]">
       <div className="container">
         <SolutionPanelCard className="!flex-row !items-center !justify-between !gap-[24px] p-[32px] max-lg:p-[28px] max-md:!flex-col max-md:!items-start max-sm:gap-[20px] max-sm:p-[24px]">
           <div className="flex min-w-0 flex-1 items-center gap-[46px] max-lg:gap-[28px] max-sm:items-start max-sm:gap-[16px]">
@@ -30,6 +31,6 @@ export default function CareersCvCtaSection() {
           </Button>
         </SolutionPanelCard>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

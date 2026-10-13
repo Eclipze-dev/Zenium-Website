@@ -1,9 +1,10 @@
 import { aboutDecisions } from "./aboutData";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import ShimmerText from "@/components/ShimmerText";
 
 export default function AboutDecisionsSection() {
   return (
-    <section
+    <ScrollReveal as="section"
       className="py-[80px] max-lg:py-[48px] max-sm:py-[70px]"
       aria-labelledby="about-decisions-title"
     >
@@ -24,6 +25,6 @@ export default function AboutDecisionsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

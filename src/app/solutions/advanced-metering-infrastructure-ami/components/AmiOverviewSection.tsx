@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionIntro from "@/app/home/components/SectionIntro";
 import { ContentLink } from "@/components/seo/ContentLink";
 import ShimmerText from "@/components/ShimmerText";
@@ -14,7 +15,8 @@ export default function AmiOverviewSection() {
             End-to-end Advanced Metering Infrastructure{" "}
             <ShimmerText>(AMI)</ShimmerText>
           </SectionIntro>
-          <p className="mt-5 text-p1 text-muted">
+          <ScrollReveal className="mt-5 text-p1 text-muted">
+            <p className="m-0">
             A utility-grade Advanced Metering Infrastructure (AMI) architecture
             connects smart field devices through multi-technology communication
             networks to a{" "}
@@ -31,12 +33,14 @@ export default function AmiOverviewSection() {
             </ContentLink>{" "}
             built on trusted interval data.
           </p>
+          </ScrollReveal>
         </div>
 
         <div className="grid grid-cols-3 gap-[10px] max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {[...amiArchitecture, ...amiCapabilities].map(([Icon, title, body]) => (
+          {[...amiArchitecture, ...amiCapabilities].map(([Icon, title, body], index) => (
             <SurfaceFeatureCard
               key={title}
+              revealIndex={index}
               icon={Icon}
               title={title}
               text={body}

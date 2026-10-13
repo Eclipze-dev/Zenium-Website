@@ -1,4 +1,5 @@
 import OptimizedImage from "@/components/OptimizedImage";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionBadge from "@/components/SectionBadge";
 import ShimmerText from "@/components/ShimmerText";
 import Button from "@/components/Button";
@@ -48,7 +49,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           <div className="mt-[50px] flex flex-col gap-[50px] text-[16px] leading-[1.65] text-[#3D4C5C]">
             {post.intro ? <p className="m-0">{post.intro}</p> : null}
             {post.sections.map((section) => (
-              <section key={section.heading || section.paragraphs[0]} className="flex flex-col gap-5">
+              <ScrollReveal as="section" key={section.heading || section.paragraphs[0]} className="flex flex-col gap-5">
                 {section.heading ? (
                   <h2 className="m-0 text-[20px] font-semibold text-[#152D48]">
                     {section.heading}
@@ -79,7 +80,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                     {paragraph}
                   </p>
                 ))}
-              </section>
+              </ScrollReveal>
             ))}
           </div>
         ) : null}
