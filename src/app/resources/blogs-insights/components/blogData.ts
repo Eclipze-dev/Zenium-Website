@@ -25,7 +25,17 @@ export type BlogPost = {
   seoTable?: BlogSeoRow[];
   intro: string;
   sections: BlogSection[];
+  authorName: string;
+  authorRole: string;
+  publishedAt: string | null;
 };
+
+/** Static insights were already public when the 17 September 2026 SEO briefing was written. */
+const STATIC_INSIGHT = {
+  authorName: "Zenium",
+  authorRole: "Utility intelligence",
+  publishedAt: "2026-09-17",
+} as const;
 
 export const blogIntro = {
   eyebrow: "BLOGS",
@@ -51,12 +61,12 @@ export const blogPosts: BlogPost[] = [
       {
         parameter: "Meta Title",
         specification:
-          "RDSS Scheme Smart Meters: Compliance & Software Architecture | Zenium",
+          "RDSS Scheme Smart Meter Compliance Software | Zenium",
       },
       {
         parameter: "Meta Description",
         specification:
-          "Learn the RDSS full form, its impact on Indian DISCOMs, and how Zenium's software architecture ensures compliance with national smart metering mandates.",
+          "Learn the RDSS full form, what the scheme asks of Indian DISCOMs, and how Zenium software supports national smart metering compliance programmes.",
       },
       {
         parameter: "Target Keywords",
@@ -65,6 +75,7 @@ export const blogPosts: BlogPost[] = [
     ],
     intro:
       "To pull this off, the scheme calls for 250 million prepaid smart meters by 2026, plus mandatory metering on all distribution transformers (DTs) and feeders. But putting physical rdss scheme smart meters on walls is only half the battle. The real success of this rollout depends entirely on the enterprise software—specifically the Head-End System (HES) and Meter Data Management System (MDMS)—that actually turns all that raw field data into grid intelligence and cash flow.",
+    ...STATIC_INSIGHT,
     sections: [
       {
         heading: "Why Software Makes or Breaks RDSS Compliance",
@@ -109,12 +120,12 @@ export const blogPosts: BlogPost[] = [
       {
         parameter: "Meta Title",
         specification:
-          "DLMS/COSEM Protocol & Vendor Agnostic Smart Metering | Zenium",
+          "DLMS/COSEM Protocol for Vendor-Agnostic Meters | Zenium",
       },
       {
         parameter: "Meta Description",
         specification:
-          "Understand the dlms cosem protocol and how vendor-agnostic smart metering software prevents hardware lock-in for utility distribution networks.",
+          "Understand the DLMS/COSEM protocol and how vendor-agnostic smart metering software keeps a utility from locking into one meter manufacturer.",
       },
       {
         parameter: "Target Keywords",
@@ -122,7 +133,8 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     intro:
-      "The way out of this trap is the dlms cosem protocol. It's an international standard that forces different brands of smart grid hardware to speak the same language.",
+      "The way out of this trap is the dlms cosem protocol. It's an international standard that forces different brands of smart grid hardware to speak the same language. A Head-End System (HES) can then read those meters without locking the utility to one manufacturer.",
+    ...STATIC_INSIGHT,
     sections: [
       {
         heading: "Breaking Down the DLMS/COSEM Protocol",
@@ -190,7 +202,7 @@ export const blogPosts: BlogPost[] = [
       {
         parameter: "Meta Description",
         specification:
-          "Discover how vee smart metering and rigorous meter data validation processes eliminate billing errors and prevent utility revenue leakage.",
+          "See how validation, editing, and estimation in a meter data system checks interval reads and stops billing errors from leaking utility revenue.",
       },
       {
         parameter: "Target Keywords",
@@ -198,7 +210,8 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     intro:
-      "Network latency, cellular dead zones, hardware glitches, and physical tampering can all create gaps or corrupt data packets. If you feed that raw, unverified data directly into a Customer Information System (CIS), you end up with chaotic billing, angry customers, and massive revenue leakage. That is exactly why vee smart metering is the most important step in the meter-to-cash lifecycle.",
+      "Network latency, cellular dead zones, hardware glitches, and physical tampering can all create gaps or corrupt data packets. If you feed that raw, unverified data directly into a Customer Information System (CIS), you end up with chaotic billing, angry customers, and massive revenue leakage. That is exactly why vee smart metering is the most important step in the meter-to-cash lifecycle, and it runs inside a Meter Data Management System (MDMS).",
+    ...STATIC_INSIGHT,
     sections: [
       {
         heading: "How VEE Secures the Billing Cycle",
@@ -241,12 +254,12 @@ export const blogPosts: BlogPost[] = [
     seoTable: [
       {
         parameter: "Meta Title",
-        specification: "Prepaid Smart Metering MDMS Architecture | Zenium",
+        specification: "Prepaid Smart Metering and MDMS Architecture | Zenium",
       },
       {
         parameter: "Meta Description",
         specification:
-          "Explore how a prepaid smart metering mdms automates real-time balance tracking, dynamic tariffs, and remote disconnects to improve utility cash flow.",
+          "See how a prepaid meter data system tracks account balances, applies tariffs, and sends remote disconnects that protect a utility cash flow.",
       },
       {
         parameter: "Target Keywords",
@@ -254,7 +267,8 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     intro:
-      "Smart meter prepayment flips the script completely. When consumers pay for energy before they use it, bad debt essentially drops to zero, and collection costs disappear. But running a prepaid model at a national scale requires a highly tuned software engine.",
+      "Smart meter prepayment flips the script completely. When consumers pay for energy before they use it, bad debt essentially drops to zero, and collection costs disappear. But running a prepaid model at a national scale requires a highly tuned software engine: a Meter Data Management System (MDMS) for the balance, and a Head-End System (HES) for the field command.",
+    ...STATIC_INSIGHT,
     sections: [
       {
         heading: "The Engine Behind the Meter",
@@ -305,6 +319,18 @@ export function findBlogPost(slug: string, cmsPosts: CmsBlogPost[]) {
   );
 }
 
+function authorRoleLabel(role: string | null | undefined) {
+  if (role === "admin" || role === "editor") return "Editor";
+  return role?.trim() || STATIC_INSIGHT.authorRole;
+}
+
+function publishedIso(value: Date | string | null | undefined) {
+  if (!value) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toISOString().slice(0, 10);
+}
+
 function mapCmsPost(post: CmsBlogPost): BlogPost {
   const paragraphs = (post.content ?? "")
     .split(/\n{2,}/)
@@ -324,5 +350,9 @@ function mapCmsPost(post: CmsBlogPost): BlogPost {
     sections: paragraphs.length
       ? [{ heading: "", paragraphs }]
       : [],
+    authorName: post.author_name?.trim() || STATIC_INSIGHT.authorName,
+    authorRole: authorRoleLabel(post.author_role),
+    publishedAt:
+      publishedIso(post.published_at) || publishedIso(post.created_at),
   };
 }

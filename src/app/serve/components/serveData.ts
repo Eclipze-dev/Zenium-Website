@@ -50,8 +50,8 @@ export const utilitiesContent = {
   title: "Intelligence across the",
   accent: "utility value chain.",
   description:
-    "Zenium helps electricity, gas and water utilities connect infrastructure, manage trusted data and turn operational signals into actionable intelligence. Built on deep utility-domain expertise and proven smart metering foundations, Zenium brings together HES, MDM and Analytics & AI to support the journey from meter connectivity to intelligent utility operations.",
-  heroImage: "/serve/smart-utility-infrastructure-energy-water-gas-network.png",
+    "Zenium for utilities is software that connects electricity, gas, and water metering and turns that data into operational intelligence. Built on smart metering foundations, it brings together HES, MDM, and Analytics to support the journey from meter connectivity to utility operations.",
+  heroImage: "/serve/smart-utility-infrastructure-energy-water-gas-network.webp",
   heroImageAlt:
     "Utility transmission towers with connected smart-grid data network",
   journeyTitle: "From meter data to",
@@ -149,10 +149,10 @@ export const citiesContent: ServeAudienceContent = {
   title: "Intelligence for connected",
   accent: "urban infrastructure.",
   description:
-    "Zenium helps cities and infrastructure operators connect distributed assets, manage operational data and build greater visibility across connected urban environments.",
+    "Zenium for cities is software that connects distributed urban assets and turns their operational data into a clearer view of infrastructure.",
   additionalDescription:
     "Drawing on experience across smart metering and smart streetlighting environments, Zenium provides the data foundation and intelligence needed to support more responsive urban operations.",
-  heroImage: "/serve/smart-city-connected-urban-infrastructure-india.png",
+  heroImage: "/serve/smart-city-connected-urban-infrastructure-india.webp",
   heroImageAlt:
     "Urban energy infrastructure with connected digital network overlay",
   capabilitiesTitle: "Connect infrastructure.",
@@ -212,10 +212,10 @@ export const commercialContent: ServeAudienceContent = {
   title: "Turn energy data into",
   accent: "business intelligence.",
   description:
-    "Zenium helps commercial and industrial organisations gain greater visibility into energy consumption across sites, meters and operations.",
+    "Zenium for commercial and industrial sites is software that brings multi-site energy data together for consumption and performance insight.",
   additionalDescription:
     "By bringing fragmented energy data together and applying analytics, organisations can better understand consumption, identify anomalies and uncover opportunities to improve energy performance.",
-  heroImage: "/serve/commercial-industrial-energy-management-smart-infrastructure.png",
+  heroImage: "/serve/commercial-industrial-energy-management-smart-infrastructure.webp",
   heroImageAlt:
     "Commercial energy infrastructure with connected data intelligence overlay",
   capabilitiesTitle: "See where energy goes.",
@@ -273,10 +273,10 @@ export const microgridContent: ServeAudienceContent = {
   title: "Intelligence for",
   accent: "distributed energy systems.",
   description:
-    "As energy systems become more decentralised, understanding generation, storage, consumption and connected assets becomes increasingly important.",
+    "Zenium for microgrids is software that brings generation, storage, and consumption data into one view of a distributed energy system.",
   additionalDescription:
     "Zenium helps bring distributed energy data together to create greater visibility into energy flows, system behaviour and performance.",
-  heroImage: "/serve/smart-microgrid-solar-wind-energy-storage-system.png",
+  heroImage: "/serve/smart-microgrid-solar-wind-energy-storage-system.webp",
   heroImageAlt:
     "Distributed energy network with connected microgrid intelligence overlay",
   capabilitiesTitle: "Understand the",
@@ -334,8 +334,8 @@ export const prosumersContent: ServeAudienceContent = {
   title: "Intelligence on both",
   accent: "sides of the meter.",
   description:
-    "Energy consumers are increasingly becoming energy producers.  Zenium helps organisations bring consumption and generation data together to create a clearer view of their changing energy position.",
-  heroImage: "/serve/prosumer-solar-energy-generation-smart-grid.png",
+    "Zenium for prosumers is software that brings consumption and generation data together on both sides of the meter.",
+  heroImage: "/serve/prosumer-solar-energy-generation-smart-grid.webp",
   heroImageAlt:
     "Two-way energy participation with connected meter intelligence overlay",
   capabilitiesTitle: "Understand what you consume —",

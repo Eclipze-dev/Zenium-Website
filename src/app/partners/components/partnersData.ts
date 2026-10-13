@@ -22,7 +22,7 @@ export const whySteps = [
     title: "Built on utility experience",
     text: "Our technology and product knowledge were developed through years of work in utility transformation and advanced metering.",
     icon: Radio,
-    image: "/image.png",
+    image: "/image.webp",
     imageAlt: "Utility network infrastructure at dusk",
   },
   {
@@ -30,7 +30,7 @@ export const whySteps = [
     title: "Open by design",
     text: "Integrate different meter makes, HES platforms, communication technologies and utility applications through standards-based interfaces.",
     icon: Puzzle,
-    image: "/image.png",
+    image: "/image.webp",
     imageAlt: "Connected energy network integration",
   },
   {
@@ -38,7 +38,7 @@ export const whySteps = [
     title: "Ready to scale",
     text: "Support growing meter populations and data volumes through flexible cloud, on-premise or hybrid deployment.",
     icon: Layers,
-    image: "/image.png",
+    image: "/image.webp",
     imageAlt: "Scalable utility data platform",
   },
   {
@@ -46,7 +46,7 @@ export const whySteps = [
     title: "Structured for quality",
     text: "CMMI Level 3 certified processes provide a disciplined foundation for product development, integration and delivery.",
     icon: ShieldCheck,
-    image: "/image.png",
+    image: "/image.webp",
     imageAlt: "Quality-driven utility operations",
   },
 ] as const;

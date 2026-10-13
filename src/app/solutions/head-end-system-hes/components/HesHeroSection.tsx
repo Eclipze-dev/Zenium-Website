@@ -27,10 +27,11 @@ export default function HesHeroSection() {
             </StaggerItem>
             <StaggerItem>
               <p className="max-w-full text-p1 text-muted text-center">
-                Enterprise Head-End System (HES) software for large-scale Advanced
-                Metering Infrastructure (AMI) rollouts. Vendor-agnostic DLMS/COSEM
-                support, RF Mesh, and Cellular connectivity — automating data
-                acquisition and enabling secure remote operations.
+                A Head-End System (HES) is software that connects and manages
+                communication between smart meters and utility back-office systems.
+                Zenium&apos;s HES supports large-scale Advanced Metering Infrastructure
+                (AMI) rollouts, with vendor-agnostic DLMS/COSEM, RF Mesh, and
+                cellular connectivity.
               </p>
             </StaggerItem>
             <StaggerItem>

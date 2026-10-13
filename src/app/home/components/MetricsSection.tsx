@@ -3,6 +3,7 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import MetricsNetwork from "./MetricsNetwork";
 import SectionIntro from "./SectionIntro";
 import { metrics } from "./homeData";
+import ShimmerText from "@/components/ShimmerText";
 
 export default function MetricsSection() {
   return (
@@ -16,8 +17,11 @@ export default function MetricsSection() {
           centered
           singleLine
           fullWidth
+          className="text-white"
           eyebrow="BUILT ON REAL-WORLD UTILITY EXPERIENCE."
-        />
+        >
+          Zenium by the <ShimmerText>Numbers.</ShimmerText>
+        </SectionIntro>
         <div className="mt-[45px] flex flex-wrap justify-center gap-y-[40px] max-lg:mt-[40px] max-sm:mt-[32px] max-sm:gap-y-[32px]">
           {metrics.map(([, value, description], index) => (
             <ScrollReveal
@@ -35,7 +39,9 @@ export default function MetricsSection() {
             </ScrollReveal>
           ))}
         </div>
-  
+        <p className="mx-auto mt-8 max-w-2xl text-center text-[13px] leading-[1.5] text-white/70">
+          Deployment and laboratory test figures from Zenium utility programmes.
+        </p>
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ export default function MdmAudienceSection() {
           <div className="grid w-full items-stretch gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
             <ScrollReveal direction="right" className="min-w-0">
               <SolutionPanelImage
-                src="/solutions/mdm-energy-analytics.png"
+                src="/solutions/mdm-energy-analytics.webp"
                 alt="MDM energy analytics"
                 sizes="(max-width: 1280px) 100vw, 600px"
               />

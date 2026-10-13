@@ -119,7 +119,7 @@ export function AdminBrand() {
       />
       <img
         src="/cms/ZENIUM_light_logo.png"
-        alt=""
+        alt="Zenium"
         width={150}
         height={44}
         className="cms-logo cms-logo-light !h-[44px] !w-[150px] object-contain"

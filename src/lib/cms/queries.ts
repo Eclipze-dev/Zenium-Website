@@ -276,14 +276,19 @@ export async function listBlogPosts(): Promise<CmsBlogPost[]> {
   );
 }
 
+const PUBLISHED_POST_SELECT = `SELECT p.id, p.title, p.slug, p.excerpt, p.content,
+            p.featured_image_url, p.alt_text, p.category, p.tags,
+            p.meta_title, p.meta_description, p.status, p.created_by,
+            p.updated_by, p.published_at, p.created_at, p.updated_at,
+            a.name AS author_name, a.role AS author_role
+     FROM blog_posts p
+     LEFT JOIN admins a ON a.id = p.created_by`;
+
 export async function listPublishedBlogPosts(): Promise<CmsBlogPost[]> {
   return query<CmsBlogPost>(
-    `SELECT id, title, slug, excerpt, content, featured_image_url, alt_text,
-            category, tags, meta_title, meta_description, status,
-            created_by, updated_by, published_at, created_at, updated_at
-     FROM blog_posts
-     WHERE status = 'published'
-     ORDER BY COALESCE(published_at, created_at) DESC`,
+    `${PUBLISHED_POST_SELECT}
+     WHERE p.status = 'published'
+     ORDER BY COALESCE(p.published_at, p.created_at) DESC`,
   );
 }
 
@@ -329,11 +334,8 @@ export async function getPublishedBlogPostBySlug(
   slug: string,
 ): Promise<CmsBlogPost | null> {
   return queryOne<CmsBlogPost>(
-    `SELECT id, title, slug, excerpt, content, featured_image_url, alt_text,
-            category, tags, meta_title, meta_description, status,
-            created_by, updated_by, published_at, created_at, updated_at
-     FROM blog_posts
-     WHERE slug = ? AND status = 'published'
+    `${PUBLISHED_POST_SELECT}
+     WHERE p.slug = ? AND p.status = 'published'
      LIMIT 1`,
     [slug],
   );

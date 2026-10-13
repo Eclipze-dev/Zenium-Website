@@ -3,6 +3,8 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionBadge from "@/components/SectionBadge";
 import ShimmerText from "@/components/ShimmerText";
 import Button from "@/components/Button";
+import { ArticleByline } from "@/components/seo/ArticleByline";
+import { LinkedText } from "@/components/seo/LinkedText";
 import { BLOG_INDEX_PATH } from "@/lib/seo/paths";
 import type { BlogPost } from "./blogData";
 
@@ -31,8 +33,13 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           ) : null}
         </h1>
         <p className="mb-0 mt-5 text-p1 leading-[1.6] text-[#5A6B7C]">
-          {post.excerpt}
+          <LinkedText text={post.excerpt} />
         </p>
+        <ArticleByline
+          authorName={post.authorName}
+          authorRole={post.authorRole}
+          publishedAt={post.publishedAt}
+        />
 
         <div className="relative mt-[50px] aspect-[16/9] overflow-hidden rounded-[16px]">
           <OptimizedImage
@@ -47,7 +54,11 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
 
         {post.intro || post.sections.length > 0 ? (
           <div className="mt-[50px] flex flex-col gap-[50px] text-[16px] leading-[1.65] text-[#3D4C5C]">
-            {post.intro ? <p className="m-0">{post.intro}</p> : null}
+            {post.intro ? (
+              <p className="m-0">
+                <LinkedText text={post.intro} />
+              </p>
+            ) : null}
             {post.sections.map((section) => (
               <ScrollReveal as="section" key={section.heading || section.paragraphs[0]} className="flex flex-col gap-5">
                 {section.heading ? (
@@ -57,7 +68,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                 ) : null}
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph.slice(0, 48)} className="m-0">
-                    {paragraph}
+                    <LinkedText text={paragraph} />
                   </p>
                 ))}
                 {section.points ? (
@@ -77,7 +88,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                 ) : null}
                 {section.trailing?.map((paragraph) => (
                   <p key={paragraph.slice(0, 48)} className="m-0">
-                    {paragraph}
+                    <LinkedText text={paragraph} />
                   </p>
                 ))}
               </ScrollReveal>

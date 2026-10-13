@@ -1,38 +1,53 @@
 # Zenium
 
-Zenium is a utility intelligence company helping utilities and the wider energy ecosystem turn metering and operational data into actionable intelligence. The platform is built on a trusted Head-End System (HES) and Meter Data Management (MDM) foundation, with Analytics & AI for utility operations.
+Zenium is a utility intelligence company helping utilities turn metering and operational data into actionable intelligence, built on a trusted Head-End System (HES) and Meter Data Management System (MDMS) foundation.
 
 Website: https://www.zenium.ai
 
+## Advanced Metering Infrastructure (AMI)
+
+Scalable Advanced Metering Infrastructure (AMI) software platform. Hardware-agnostic Head-End System (HES), Meter Data Management System (MDMS), and analytics for smart grid distribution utilities.
+
+- Page: https://www.zenium.ai/solutions/advanced-metering-infrastructure-ami
+
 ## Head-End System (HES)
 
-Zenium Head-End System connects smart meters and communication networks to utility operations — automating data acquisition, enabling secure remote operations and providing visibility across the metering network.
+Enterprise Head-End System (HES) software for large-scale AMI rollouts. Vendor-agnostic DLMS/COSEM support, RF Mesh, and Cellular connectivity.
 
-- Page: https://www.zenium.ai/solutions/hes
+- Page: https://www.zenium.ai/solutions/head-end-system-hes
 
-## Meter Data Management (MDM)
+## Meter Data Management System (MDMS)
 
-Zenium Meter Data Management System transforms meter data into trusted information for billing, prepaid operations and consumer services.
+Enterprise Meter Data Management System (MDMS). Automate Validation, Editing, and Estimation (VEE), meter-to-cash billing determinants, prepayment, and energy theft detection.
 
-- Page: https://www.zenium.ai/solutions/mdm
+- Page: https://www.zenium.ai/solutions/meter-data-management-system-mdms
 
-## Analytics & AI
+## Energy management and analytics
 
-Zenium Analytics & AI turns meter, consumer, asset and network data into intelligence that helps utilities identify losses, protect revenue, understand asset health and make operational decisions. It is built on Zenium's HES and MDM foundation.
+Turn interval meter data into actionable intelligence. Transformer load profiling, non-technical loss analytics, and feeder balance monitoring.
 
-- Page: https://www.zenium.ai/solutions/ai-analytics
+- Page: https://www.zenium.ai/solutions/energy-management-analytics
 
 ## Who we serve
 
 - Utilities: https://www.zenium.ai/serve/utilities
 - Smart cities: https://www.zenium.ai/serve/cities
-- Commercial & industrial: https://www.zenium.ai/serve/commercial
+- Commercial and industrial: https://www.zenium.ai/serve/commercial
 - Microgrids: https://www.zenium.ai/serve/microgrid
 - Prosumers: https://www.zenium.ai/serve/prosumers
+
+## Guides and tools
+
+- How to read a smart meter display: https://www.zenium.ai/guides/how-to-read-a-smart-meter-display
+- Watts to kWh calculator: https://www.zenium.ai/tools/watts-to-kwh-calculator
 
 ## Company
 
 - About: https://www.zenium.ai/company/about
+- Careers: https://www.zenium.ai/company/careers
 - Partners: https://www.zenium.ai/partners
-- Contact: https://www.zenium.ai/contact
 - News: https://www.zenium.ai/company/news
+- Blogs and insights: https://www.zenium.ai/resources/blogs-insights
+- Contact: https://www.zenium.ai/contact
+- Privacy: https://www.zenium.ai/privacy
+- Terms: https://www.zenium.ai/terms

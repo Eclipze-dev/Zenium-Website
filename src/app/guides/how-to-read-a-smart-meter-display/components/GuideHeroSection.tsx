@@ -2,6 +2,8 @@ import StaggerContainer from "@/components/animations/StaggerContainer";
 import StaggerItem from "@/components/animations/StaggerItem";
 import SectionBadge from "@/components/SectionBadge";
 import ShimmerText from "@/components/ShimmerText";
+import { ContentLink } from "@/components/seo/ContentLink";
+import { SOLUTION_PATHS } from "@/lib/seo/paths";
 
 export default function GuideHeroSection() {
   return (
@@ -18,8 +20,15 @@ export default function GuideHeroSection() {
         <StaggerItem>
           <p className="mt-5 text-p1 text-muted">
             Use this guide to understand common smart meter display codes and
-            readings. Entries are maintained in the CMS and only published when
-            verified — we do not invent display codes or meter images.
+            readings. Those readings are collected by a{" "}
+            <ContentLink href={SOLUTION_PATHS.hes}>
+              Head-End System (HES)
+            </ContentLink>{" "}
+            and checked in a{" "}
+            <ContentLink href={SOLUTION_PATHS.mdms}>
+              Meter Data Management System (MDMS)
+            </ContentLink>
+            . Entries are maintained in the CMS and only published when verified.
           </p>
         </StaggerItem>
       </StaggerContainer>

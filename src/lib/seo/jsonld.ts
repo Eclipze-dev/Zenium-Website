@@ -94,13 +94,36 @@ export function articleSchema({
   description,
   path,
   image,
+  authorName = BRAND_NAME,
+  authorRole,
+  datePublished,
 }: {
   headline: string;
   description: string;
   path: string;
   image: string;
+  authorName?: string;
+  authorRole?: string;
+  datePublished?: string | null;
 }) {
   const url = `${SITE_URL}${path}`;
+  const isOrganization = authorName === BRAND_NAME;
+  const author = isOrganization
+    ? {
+        "@type": "Organization",
+        name: BRAND_NAME,
+        url: SITE_URL,
+      }
+    : {
+        "@type": "Person",
+        name: authorName,
+        ...(authorRole ? { jobTitle: authorRole } : {}),
+        worksFor: {
+          "@type": "Organization",
+          name: BRAND_NAME,
+          url: SITE_URL,
+        },
+      };
 
   return {
     "@context": "https://schema.org",
@@ -110,11 +133,8 @@ export function articleSchema({
     url,
     mainEntityOfPage: url,
     image: `${SITE_URL}${image}`,
-    author: {
-      "@type": "Organization",
-      name: BRAND_NAME,
-      url: SITE_URL,
-    },
+    ...(datePublished ? { datePublished } : {}),
+    author,
     publisher: {
       "@type": "Organization",
       name: BRAND_NAME,

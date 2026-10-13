@@ -13,7 +13,7 @@ export default function MdmInteroperabilitySection() {
       bounded
       eyebrow="CONNECTED OPERATIONS"
       imageSide="left"
-      image="/solutions/mdm-connected-operations.png"
+      image="/solutions/mdm-connected-operations.webp"
       imageAlt="MDM connected operations"
       title={
         <>

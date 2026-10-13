@@ -63,6 +63,9 @@ export default async function BlogPostPage({ params }: Props) {
             description: post.excerpt || title,
             path,
             image: post.image || DEFAULT_OG_IMAGE,
+            authorName: post.authorName,
+            authorRole: post.authorRole,
+            datePublished: post.publishedAt,
           }),
         ]}
       />

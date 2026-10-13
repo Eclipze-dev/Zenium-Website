@@ -86,6 +86,9 @@ export type CmsBlogPost = {
   published_at: Date | string | null;
   created_at: Date | string;
   updated_at: Date | string;
+  /** Present on public queries that join the publishing admin. */
+  author_name?: string | null;
+  author_role?: string | null;
 };
 
 export type CmsMedia = {

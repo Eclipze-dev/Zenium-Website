@@ -25,10 +25,11 @@ export default function AiAnalyticsHeroSection() {
             </StaggerItem>
             <StaggerItem>
               <p className="max-w-auto text-p1 text-muted">
-                Turn interval meter data into actionable intelligence. Transformer
-                load profiling, non-technical loss analytics, and feeder balance
-                monitoring — built on Zenium&apos;s Head-End System (HES) and Meter
-                Data Management System (MDMS) foundation.
+                Meter data analytics software turns interval readings into
+                operational insight for utilities. Zenium covers transformer load
+                profiling, non-technical loss analytics, and feeder balance
+                monitoring, on a Head-End System (HES) and Meter Data Management
+                System (MDMS) foundation.
               </p>
             </StaggerItem>
             <StaggerItem>

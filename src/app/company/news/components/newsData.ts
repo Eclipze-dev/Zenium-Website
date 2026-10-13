@@ -38,7 +38,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Utilities generate enormous volumes of data every day — from smart meters, field devices, network systems and enterprise applications.",
     cta: "Read Insight",
-    image: "/news/news-turning-utility-data.png",
+    image: "/news/news-turning-utility-data.webp",
     href: "/company/news/turning-utility-data-into-intelligent-action",
   },
   {
@@ -49,7 +49,7 @@ export const newsItems: NewsItem[] = [
     description:
       "From connected meters to connected intelligence  Smart meters have changed the way utilities collect information. Instead of relying on periodic readings, utilities can now access a continuous...",
     cta: "Read Insight",
-    image: "/news/news-smart-metering-beyond-measurement.png",
+    image: "/news/news-smart-metering-beyond-measurement.webp",
     href: "#",
   },
   {
@@ -60,7 +60,7 @@ export const newsItems: NewsItem[] = [
     description:
       "The connection between the meter and the enterprise. The Head-End System is one of the most important layers within a smart-metering ecosystem.",
     cta: "Read More",
-    image: "/news/news-from-hes-to-intelligence.png",
+    image: "/news/news-from-hes-to-intelligence.webp",
     href: "#",
   },
   {
@@ -71,7 +71,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Millions of readings. One opportunity: better decisions. Smart meters can generate millions of readings and events across a utility’s network.",
     cta: "Read More",
-    image: "/news/news-making-meter-data-actionable.png",
+    image: "/news/news-making-meter-data-actionable.webp",
     href: "#",
   },
   {
@@ -82,7 +82,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Building intelligence for the modern utility. Zenium brings together utility technology, data management and analytics to help organisations make better use of the information generated across their energy environments.",
     cta: "Discover Zenium",
-    image: "/news/news-introducing-zenium.png",
+    image: "/news/news-introducing-zenium.webp",
     href: "#",
   },
   {
@@ -93,7 +93,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Technology built around utility reality. Utility environments are complex. Different technologies, devices, communication networks, operational systems and data sources need to work together reliably.",
     cta: "Explore Our Solutions",
-    image: "/news/news-the-zenium-approach.png",
+    image: "/news/news-the-zenium-approach.webp",
     href: "#",
   },
   {
@@ -104,7 +104,7 @@ export const newsItems: NewsItem[] = [
     description:
       "From automated meter reading to intelligent utility management Smart metering has evolved significantly. What began primarily as a way to automate meter reading has developed into a much broader....",
     cta: "Explore Zenium Solutions",
-    image: "/news/news-evolution-of-smart-metering.png",
+    image: "/news/news-evolution-of-smart-metering.webp",
     href: "#",
   },
   {
@@ -115,7 +115,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Why utility intelligence starts with trusted data. The modern grid is becoming increasingly digital.",
     cta: "Explore Intelligent Utility Management",
-    image: "/news/news-data-foundation-intelligent-grid.png",
+    image: "/news/news-data-foundation-intelligent-grid.webp",
     href: "#",
   },
   {
@@ -126,7 +126,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Zenium will be connecting with utility leaders, technology providers and industry professionals to discuss the evolving role of data, analytics and intelligent....",
     cta: "Connect with our team",
-    image: "/news/news-connecting-utility-community.png",
+    image: "/news/news-connecting-utility-community.webp",
     href: "#",
   },
   {
@@ -137,7 +137,7 @@ export const newsItems: NewsItem[] = [
     description:
       "Utility organisations are generating more data than ever before. But how can that data become genuinely useful?",
     cta: "Register / Learn More",
-    image: "/news/news-from-utility-data-event.png",
+    image: "/news/news-from-utility-data-event.webp",
     href: "#",
   },
 ];

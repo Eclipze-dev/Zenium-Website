@@ -3,8 +3,11 @@ export const blogPost = {
   title: "Turning Utility Data Into",
   accent: "Intelligent Action",
   intro:
-    "Utilities generate enormous volumes of data every day — from smart meters, field devices, network systems and enterprise applications.",
-  image: "/news/news-turning-utility-data.png",
+    "Utilities generate enormous volumes of data every day — from smart meters, field devices, network systems and enterprise applications. A Head-End System (HES) and a Meter Data Management System (MDMS) turn that stream into something operations can use.",
+  authorName: "Zenium",
+  authorRole: "Utility intelligence",
+  publishedAt: "2026-09-17",
+  image: "/news/news-turning-utility-data.webp",
   imageAlt:
     "Power transmission towers at dusk with a connected utility data network overlay",
   sections: [
@@ -18,7 +21,7 @@ export const blogPost = {
     },
     {
       type: "paragraph" as const,
-      text: "With the right combination of HES, MDM and advanced analytics, utilities can move from simply collecting information to understanding what is happening across their operations, identifying what needs attention and anticipating what comes next.",
+      text: "With the right combination of a Head-End System (HES), a Meter Data Management System (MDMS) and advanced analytics, utilities can move from simply collecting information to understanding what is happening across their operations, identifying what needs attention and anticipating what comes next.",
     },
     {
       type: "heading" as const,

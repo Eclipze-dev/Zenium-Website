@@ -1,5 +1,3 @@
-"use client";
-
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import ShimmerText from "@/components/ShimmerText";
 import CookieSettingsLink from "@/components/cookie-consent/CookieSettingsLink";
@@ -74,8 +72,8 @@ export default function PrivacyPolicyContent() {
                       id={section.id}
                       title={section.title}
                       accent={section.accent}
-                      className="text-h5"
-                      textClassName="text-h5"
+                      className="text-h5 !text-common"
+                      textClassName="text-h5 "
                     />
                     <div className="mt-[10px] flex flex-col gap-[30px]">
                       <p className="m-0 text-p1 text-common2">{section.intro}</p>
@@ -114,7 +112,7 @@ export default function PrivacyPolicyContent() {
                       id={section.id}
                       title={section.title}
                       accent={section.accent}
-                      className="text-h5"
+                      className="text-h5 !text-common"
                       textClassName="text-h5"
                     />
                     <div className="mt-[10px] flex flex-col gap-[10px]">
@@ -137,7 +135,7 @@ export default function PrivacyPolicyContent() {
                     id={section.id}
                     title={section.title}
                     accent={section.accent}
-                    className="text-h5"
+                    className="text-h5 !text-common"
                     textClassName="text-h5"
                   />
                   <div className="mt-[10px] flex flex-col gap-[20px]">

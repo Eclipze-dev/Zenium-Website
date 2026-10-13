@@ -9,7 +9,7 @@ const SolutionFeaturePanel = ({
   title,
   children,
   imageSide = "right",
-  image = "/image.png",
+  image = "/image.webp",
   imageAlt = "Connected energy network",
   bounded = false,
 }: {

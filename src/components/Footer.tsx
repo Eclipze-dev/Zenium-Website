@@ -57,9 +57,9 @@ function FooterColumn({
 }) {
   return (
     <div className="min-w-0">
-      <h3 className="mb-[20px] text-p2 max-lg:mb-[12px] max-lg:text-[13px] max-lg:leading-[1.35] max-lg:font-bold max-sm:mb-[10px] max-sm:text-[12px]">
+      <h2 className="mb-[20px] text-p2 max-lg:mb-[12px] max-lg:text-[13px] max-lg:leading-[1.35] max-lg:font-bold max-sm:mb-[10px] max-sm:text-[12px]">
         {heading}
-      </h3>
+      </h2>
       <ul className="m-0 list-none text-button text-muted space-y-[12px] p-0 max-lg:space-y-[8px] max-sm:space-y-[8px]">
         {links.map((link) => (
           <li key={link.label}>

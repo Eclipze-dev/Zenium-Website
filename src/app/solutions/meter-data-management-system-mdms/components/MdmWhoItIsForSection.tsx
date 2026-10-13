@@ -16,7 +16,7 @@ export default function MdmWhoItIsForSection() {
             <ScrollReveal direction="right" className="min-w-0">
               <SolutionPanelImage
                 bounded
-                src="/solutions/mdm-who-it-is-for.png"
+                src="/solutions/mdm-who-it-is-for.webp"
                 alt="MDM who it is for"
                 // sizes="(max-width: 1280px) 100vw, 600px"
               />

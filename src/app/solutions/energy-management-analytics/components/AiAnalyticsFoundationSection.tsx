@@ -11,7 +11,7 @@ const AiAnalyticsFoundationSection = () => {
           {/* Tablet / mobile image */}
           <div className="relative aspect-video w-full overflow-hidden rounded-[16px] lg:hidden max-sm:order-2">
             <OptimizedImage
-              src="/solutions/trusted-utility-data-foundation.png"
+              src="/solutions/trusted-utility-data-foundation.webp"
               alt="Trusted utility data foundation"
               fill
               sizes="100vw"
@@ -22,7 +22,7 @@ const AiAnalyticsFoundationSection = () => {
           {/* Desktop: side column */}
           <div className="relative hidden min-h-[280px] w-[40%] overflow-hidden rounded-[16px] lg:block">
             <OptimizedImage
-              src="/solutions/trusted-utility-data-foundation.png"
+              src="/solutions/trusted-utility-data-foundation.webp"
               alt="Trusted utility data foundation"
               fill
               sizes="40vw"

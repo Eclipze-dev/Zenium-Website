@@ -4,7 +4,7 @@ export const careersHero = {
   accent: "energy intelligence",
   description:
     "Zenium combines deep utility expertise with smart-metering technology, analytics and AI. We're looking for people who want to build meaningful products that help utilities turn data into intelligence.",
-  image: "/news/news-turning-utility-data.png",
+  image: "/news/news-turning-utility-data.webp",
   imageAlt:
     "Utility transmission towers with connected smart-grid data network",
 };

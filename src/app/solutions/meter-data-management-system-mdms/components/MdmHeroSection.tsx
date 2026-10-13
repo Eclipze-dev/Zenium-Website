@@ -27,9 +27,11 @@ export default function MdmHeroSection() {
             </StaggerItem>
             <StaggerItem>
               <p className="max-w-full text-p1 text-muted text-center">
-                Enterprise Meter Data Management System (MDMS). Automate
-                Validation, Editing, and Estimation (VEE), meter-to-cash billing
-                determinants, prepayment, and energy theft detection.
+                A Meter Data Management System (MDMS) is software that validates,
+                stores, and prepares smart-meter data for billing and utility
+                operations. Zenium&apos;s MDMS automates Validation, Editing, and
+                Estimation (VEE), meter-to-cash billing, prepayment, and energy
+                theft detection.
               </p>
             </StaggerItem>
             <StaggerItem>

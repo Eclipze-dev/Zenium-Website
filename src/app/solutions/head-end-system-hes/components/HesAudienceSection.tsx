@@ -15,7 +15,7 @@ export default function HesAudienceSection() {
           <div className="grid w-full items-stretch gap-10 xl:grid-cols-[minmax(0,600px)_minmax(0,1fr)] xl:gap-[40px]">
             <ScrollReveal direction="right" className="min-w-0">
               <SolutionPanelImage
-                src="/solutions/hes-who-it-is-for.png"
+                src="/solutions/hes-who-it-is-for.webp"
                 alt="HES who it is for"
                 sizes="(max-width: 1280px) 100vw, 600px"
                 bounded

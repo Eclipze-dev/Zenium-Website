@@ -6,6 +6,8 @@ import { ArrowRightIcon } from "@/components/icons/icons";
 import { cn } from "@/lib/cn";
 import { blogPost } from "./blogData";
 import ShimmerText from "@/components/ShimmerText";
+import { ArticleByline } from "@/components/seo/ArticleByline";
+import { LinkedText } from "@/components/seo/LinkedText";
 
 const BlogArticle = () => {
   return (
@@ -25,8 +27,14 @@ const BlogArticle = () => {
           </h1>
 
           <p className="mt-[20px] text-p1 leading-relaxed text-common2 max-sm:mt-[14px] max-sm:text-[14px] max-sm:leading-[1.5]">
-            {blogPost.intro}
+            <LinkedText text={blogPost.intro} />
           </p>
+          <ArticleByline
+            authorName={blogPost.authorName}
+            authorRole={blogPost.authorRole}
+            publishedAt={blogPost.publishedAt}
+            className="mt-3 text-sm text-common2"
+          />
 
           <div className="relative mt-[50px] max-lg:mt-[32px] aspect-[21/9] overflow-hidden rounded-[16px] bg-[#EEF1F4] max-sm:mt-[28px] max-sm:aspect-[16/9]">
             <OptimizedImage
@@ -75,7 +83,7 @@ const BlogArticle = () => {
                     key={`${section.type}-${index}`}
                     className="m-0 mt-[10px] text-p1 text-common2 first:mt-0"
                   >
-                    {section.text}
+                    <LinkedText text={section.text} />
                   </p>
                 );
               }
@@ -88,7 +96,7 @@ const BlogArticle = () => {
                     afterHeading ? "mt-[10px]" : "mt-5",
                   )}
                 >
-                  {section.text}
+                  <LinkedText text={section.text} />
                 </p>
               );
             })}

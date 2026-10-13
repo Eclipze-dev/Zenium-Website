@@ -1,5 +1,3 @@
-"use client";
-
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Link from "next/link";
 import ShimmerText from "@/components/ShimmerText";
@@ -107,7 +105,7 @@ export default function TermsContent() {
                       id={section.id}
                       title={section.title}
                       accent={section.accent}
-                      className="text-h5"
+                      className="text-h5 !text-common"
                       textClassName="text-h5"
                     />
                     <div className="mt-[10px] flex flex-col gap-[30px]">
@@ -138,7 +136,7 @@ export default function TermsContent() {
                       id={section.id}
                       title={section.title}
                       accent={section.accent}
-                      className="text-h5"
+                      className="text-h5 !text-common"
                       textClassName="text-h5"
                     />
                     <div className="mt-[10px] flex flex-col gap-[10px]">
@@ -163,7 +161,7 @@ export default function TermsContent() {
                     id={section.id}
                     title={section.title}
                     accent={section.accent}
-                    className="text-h5"
+                    className="text-h5 !text-common"
                     textClassName="text-h5"
                   />
                   <div className="mt-[10px] flex flex-col gap-[20px]">

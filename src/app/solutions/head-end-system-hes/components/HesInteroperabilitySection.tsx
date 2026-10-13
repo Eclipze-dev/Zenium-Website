@@ -7,7 +7,7 @@ export default function HesInteroperabilitySection() {
     <SolutionFeaturePanel
       eyebrow="INTEROPERABILITY"
       imageSide="left"
-      image="/solutions/hes-interoperability.png"
+      image="/solutions/hes-interoperability.webp"
       imageAlt="HES interoperability"
       bounded
       title={<>Built for mixed meter <ShimmerText>environments</ShimmerText></>}

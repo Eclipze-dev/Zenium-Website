@@ -32,6 +32,9 @@ export default function TurningUtilityDataPage() {
             description: blogPost.intro,
             path: pageSeo.newsArticle.path,
             image: blogPost.image,
+            authorName: blogPost.authorName,
+            authorRole: blogPost.authorRole,
+            datePublished: blogPost.publishedAt,
           }),
         ]}
       />

@@ -9,176 +9,181 @@ export const CMS_PAGES_SEED = [
     slug: "home",
     seo_title: "Zenium | Energy Intelligence Platform for Smart Utilities",
     seo_description:
-      "Zenium is a utility intelligence company helping utilities turn metering and operational data into actionable intelligence, built on a trusted Head-End System (HES) and Meter Data Management System (MDMS) foundation.",
+      "Zenium helps utilities turn metering and operational data into actionable intelligence, built on a Head-End System and meter-data foundation.",
   },
   {
     title: "Advanced Metering Infrastructure (AMI) Software | Zenium",
     slug: "solutions/advanced-metering-infrastructure-ami",
     seo_title: "Advanced Metering Infrastructure (AMI) Software | Zenium",
     seo_description:
-      "Scalable Advanced Metering Infrastructure (AMI) software platform. Hardware-agnostic HES, MDMS, and analytics for smart grid distribution utilities.",
+      "Scalable Advanced Metering Infrastructure software. Hardware-agnostic Head-End System, meter data management, and analytics for distribution utilities.",
   },
   {
     title: "Smart Meter Head-End System (HES) Software | Zenium",
     slug: "solutions/head-end-system-hes",
     seo_title: "Smart Meter Head-End System (HES) Software | Zenium",
     seo_description:
-      "Enterprise Head-End System (HES) software for large-scale AMI rollouts. Vendor-agnostic DLMS/COSEM support, RF Mesh, and Cellular connectivity.",
+      "Enterprise Head-End System software for large-scale AMI rollouts, with vendor-agnostic DLMS/COSEM, RF Mesh, and cellular smart-meter connectivity.",
   },
   {
     title: "Meter Data Management System (MDMS) Software | Zenium",
     slug: "solutions/meter-data-management-system-mdms",
     seo_title: "Meter Data Management System (MDMS) Software | Zenium",
     seo_description:
-      "Enterprise Meter Data Management System (MDMS). Automate VEE, meter-to-cash billing determinants, prepayment, and energy theft detection.",
+      "Enterprise Meter Data Management System software. Automate VEE, meter-to-cash billing determinants, prepayment, and energy theft detection for utilities.",
   },
   {
-    title: "Utility & Smart Grid Analytics Software | Zenium",
+    title: "Smart Grid and Meter Data Analytics Software | Zenium",
     slug: "solutions/energy-management-analytics",
-    seo_title: "Utility & Smart Grid Analytics Software | Zenium",
+    seo_title: "Smart Grid and Meter Data Analytics Software | Zenium",
     seo_description:
-      "Turn interval meter data into actionable intelligence. Transformer load profiling, non-technical loss analytics, and feeder balance monitoring.",
+      "Turn interval meter data into actionable utility intelligence, including transformer load profiling, loss analytics, and feeder balance monitoring.",
   },
   {
-    title: "How to Read a Smart Meter Display | Zenium",
+    title: "How to Read a Smart Meter Display | Guide | Zenium",
     slug: "guides/how-to-read-a-smart-meter-display",
-    seo_title: "How to Read a Smart Meter Display | Zenium",
+    seo_title: "How to Read a Smart Meter Display | Guide | Zenium",
     seo_description:
-      "Learn how to read smart meter display codes and understand common meter readings. Built for consumers and utilities exploring Advanced Metering Infrastructure (AMI).",
+      "Learn how to read a smart meter display, including common codes and readings, written for consumers and utilities exploring advanced metering.",
   },
   {
-    title: "Watts to kWh Calculator | Convert Power to Energy Units | Zenium",
+    title: "Watts to kWh Calculator | Convert Power to kWh | Zenium",
     slug: "tools/watts-to-kwh-calculator",
-    seo_title: "Watts to kWh Calculator | Convert Power to Energy Units | Zenium",
+    seo_title: "Watts to kWh Calculator | Convert Power to kWh | Zenium",
     seo_description:
-      "Convert watts or kilowatts to kilowatt-hours (kWh). Understand that 1 unit of electricity equals 1 kWh, then explore Zenium AMI, HES and MDMS software.",
+      "Convert watts or kilowatts into kilowatt-hours. See that one unit of electricity equals 1 kWh, then explore Zenium AMI, HES, and MDMS software.",
   },
   {
     title: "Intelligence for Electricity, Gas and Water | Zenium",
     slug: "serve/utilities",
     seo_title: "Intelligence for Electricity, Gas and Water | Zenium",
     seo_description:
-      "Zenium helps electricity, gas and water utilities connect infrastructure, manage trusted data and turn operational signals into actionable intelligence with Head-End System (HES), Meter Data Management System (MDMS) and Analytics.",
+      "Zenium helps electricity, gas, and water utilities connect infrastructure, manage trusted meter data, and turn operational signals into intelligence.",
   },
   {
     title: "Intelligence for Connected Urban Infrastructure | Zenium",
     slug: "serve/cities",
     seo_title: "Intelligence for Connected Urban Infrastructure | Zenium",
     seo_description:
-      "Zenium helps cities and infrastructure operators connect distributed assets, manage operational data and build greater visibility across connected urban environments.",
+      "Zenium helps cities and infrastructure operators connect distributed assets, manage operational data, and see performance across urban networks.",
   },
   {
     title: "C&I Energy Data and Business Intelligence | Zenium",
     slug: "serve/commercial",
     seo_title: "C&I Energy Data and Business Intelligence | Zenium",
     seo_description:
-      "Zenium helps commercial and industrial organisations gain greater visibility into energy consumption across sites, meters and operations.",
+      "Zenium helps commercial and industrial organisations see energy use across sites, meters, and operations, then find where performance can improve.",
   },
   {
     title: "Intelligence for Distributed Energy Systems | Zenium",
     slug: "serve/microgrid",
     seo_title: "Intelligence for Distributed Energy Systems | Zenium",
     seo_description:
-      "Zenium helps bring distributed energy data together to create greater visibility into generation, storage, consumption and system performance.",
+      "Zenium brings distributed energy data together so operators can see generation, storage, consumption, and how a microgrid system is performing.",
   },
   {
-    title: "Intelligence on Both Sides of the Meter | Zenium",
+    title: "Energy Intelligence on Both Sides of the Meter | Zenium",
     slug: "serve/prosumers",
-    seo_title: "Intelligence on Both Sides of the Meter | Zenium",
+    seo_title: "Energy Intelligence on Both Sides of the Meter | Zenium",
     seo_description:
-      "Zenium helps organisations bring consumption and generation data together to create a clearer view of their changing energy position.",
+      "Zenium helps organisations bring consumption and generation data together, creating a clearer view of their position on both sides of the meter.",
   },
   {
-    title: "Partners for AMI and Utility Solutions | Zenium",
+    title: "Technology Partners for AMI and Utility Solutions | Zenium",
     slug: "partners",
-    seo_title: "Partners for AMI and Utility Solutions | Zenium",
+    seo_title: "Technology Partners for AMI and Utility Solutions | Zenium",
     seo_description:
-      "Zenium works with AMISPs, meter manufacturers and system integrators to connect smart-meter infrastructure, manage trusted data and support evolution towards Advanced Metering Infrastructure (AMI) 2.0.",
+      "Zenium works with AMISPs, meter manufacturers, and system integrators to connect smart-meter infrastructure and support the move toward AMI 2.0.",
   },
   {
-    title: "About Zenium | Utility Intelligence Company",
+    title: "About Zenium | Utility Intelligence Company in India",
     slug: "company/about",
-    seo_title: "About Zenium | Utility Intelligence Company",
+    seo_title: "About Zenium | Utility Intelligence Company in India",
     seo_description:
-      "Zenium is a utility intelligence company helping utilities and the wider energy ecosystem turn metering and operational data into actionable intelligence.",
+      "Zenium is a utility intelligence company helping utilities and the wider energy ecosystem turn metering and operational data into action they can use.",
   },
   {
-    title: "Careers in Energy Intelligence | Zenium",
+    title: "Careers in Utility and Energy Intelligence | Zenium",
     slug: "company/careers",
-    seo_title: "Careers in Energy Intelligence | Zenium",
+    seo_title: "Careers in Utility and Energy Intelligence | Zenium",
     seo_description:
-      "Zenium combines deep utility expertise with smart-metering technology, analytics and AI. We look for people who want to help utilities turn data into intelligence.",
+      "Zenium combines utility expertise with smart metering, analytics, and AI. We hire people who want to help utilities turn data into intelligence.",
   },
   {
     title: "News and Insights on Utility Intelligence | Zenium",
     slug: "company/news",
     seo_title: "News and Insights on Utility Intelligence | Zenium",
     seo_description:
-      "Perspectives, developments and ideas shaping the future of intelligent utility management from Zenium.",
+      "Perspectives, product developments, and ideas from Zenium on intelligent utility management, smart metering software, and operational energy data.",
   },
   {
     title: "Turning Utility Data Into Intelligent Action | Zenium",
     slug: "company/news/turning-utility-data-into-intelligent-action",
     seo_title: "Turning Utility Data Into Intelligent Action | Zenium",
     seo_description:
-      "Utilities generate enormous volumes of data every day. The real opportunity is turning that information into insight — and insight into action.",
+      "Utilities generate enormous volumes of data every day. Zenium looks at how that information becomes insight, and how insight becomes action.",
   },
   {
-    title: "Contact Zenium | Utility Intelligence Enquiries",
+    title: "Contact Zenium | Utility Intelligence Enquiries Team",
     slug: "contact",
-    seo_title: "Contact Zenium | Utility Intelligence Enquiries",
+    seo_title: "Contact Zenium | Utility Intelligence Enquiries Team",
     seo_description:
-      "Whether you are a utility, AMISP, meter manufacturer, technology partner or another organisation in the energy ecosystem, talk to Zenium about your requirements.",
+      "Talk to Zenium if you are a utility, AMISP, meter manufacturer, technology partner, or another organisation working in the energy ecosystem.",
   },
   {
-    title: "Privacy Policy | Zenium",
+    title: "Zenium Privacy Policy for Website Visitors | Zenium",
     slug: "privacy",
-    seo_title: "Privacy Policy | Zenium",
+    seo_title: "Zenium Privacy Policy for Website Visitors | Zenium",
     seo_description:
-      "This Privacy Policy explains how Zenix Data Private Limited, operating as Zenium, collects and uses information when you visit www.zenium.ai or contact us through the website.",
+      "This Privacy Policy explains how Zenix Data Private Limited, operating as Zenium, collects and uses information when you visit www.zenium.ai.",
   },
   {
-    title: "Terms of Use | Zenium",
+    title: "Terms of Use for Visitors to the Zenium Site | Zenium",
     slug: "terms",
-    seo_title: "Terms of Use | Zenium",
+    seo_title: "Terms of Use for Visitors to the Zenium Site | Zenium",
     seo_description:
-      "Terms of Use for www.zenium.ai, operated by Zenix Data Private Limited under the brand name Zenium.",
+      "These Terms of Use govern how visitors may access and use www.zenium.ai, operated by Zenix Data Private Limited under the brand name Zenium.",
   },
   {
-    title: "Leadership | Zenium",
+    title: "Zenium Leadership Team and Company Direction | Zenium",
     slug: "company/leadership",
-    seo_title: "Leadership | Zenium",
-    seo_description: "Leadership page coming soon.",
-  },
-  {
-    title: "Case Studies | Zenium",
-    slug: "resources/case-studies",
-    seo_title: "Case Studies | Zenium",
-    seo_description: "Case studies page coming soon.",
-  },
-  {
-    title: "Brochures | Zenium",
-    slug: "resources/brochures",
-    seo_title: "Brochures | Zenium",
-    seo_description: "Brochures page coming soon.",
-  },
-  {
-    title: "Whitepapers | Zenium",
-    slug: "resources/whitepapers",
-    seo_title: "Whitepapers | Zenium",
-    seo_description: "Whitepapers page coming soon.",
-  },
-  {
-    title: "Blogs & Insights | Zenium",
-    slug: "resources/blogs-insights",
-    seo_title: "Blogs & Insights | Zenium",
+    seo_title: "Zenium Leadership Team and Company Direction | Zenium",
     seo_description:
-      "Insights on Advanced Metering Infrastructure (AMI), Head-End System (HES), Meter Data Management System (MDMS) and utility analytics from Zenium.",
+      "Meet the leadership team at Zenium, the utility intelligence company building software for smart metering, meter data, and energy operations.",
   },
   {
-    title: "Webinars | Zenium",
+    title: "Utility Intelligence Case Studies and Results | Zenium",
+    slug: "resources/case-studies",
+    seo_title: "Utility Intelligence Case Studies and Results | Zenium",
+    seo_description:
+      "Case studies from Zenium on utility intelligence programmes, smart metering deployments, and how metering data supports operational decisions.",
+  },
+  {
+    title: "Product Brochures for Zenium Utility Software | Zenium",
+    slug: "resources/brochures",
+    seo_title: "Product Brochures for Zenium Utility Software | Zenium",
+    seo_description:
+      "Download product brochures for Zenium utility software, covering Advanced Metering Infrastructure, the Head-End System, and meter data management.",
+  },
+  {
+    title: "Whitepapers on AMI and Utility Intelligence | Zenium",
+    slug: "resources/whitepapers",
+    seo_title: "Whitepapers on AMI and Utility Intelligence | Zenium",
+    seo_description:
+      "Read whitepapers from Zenium on Advanced Metering Infrastructure, Head-End Systems, meter data management, and analytics for utility operators.",
+  },
+  {
+    title: "Blogs and Insights on Utility Intelligence | Zenium",
+    slug: "resources/blogs-insights",
+    seo_title: "Blogs and Insights on Utility Intelligence | Zenium",
+    seo_description:
+      "Read insights from Zenium on Advanced Metering Infrastructure, Head-End Systems, meter data management, and analytics written for utility teams.",
+  },
+  {
+    title: "Webinars on Smart Metering and Utility Data | Zenium",
     slug: "resources/webinars",
-    seo_title: "Webinars | Zenium",
-    seo_description: "Webinars page coming soon.",
+    seo_title: "Webinars on Smart Metering and Utility Data | Zenium",
+    seo_description:
+      "Watch webinars from Zenium covering smart metering, Head-End Systems, meter data management, and analytics built for utility and energy teams.",
   },
 ];

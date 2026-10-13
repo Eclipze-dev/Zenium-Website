@@ -14,23 +14,39 @@ function isDbConfigured() {
   return Boolean(process.env.DB_HOST && process.env.DB_USER);
 }
 
+/** Guide asks for 4–6 public questions on HES and MDMS. AMI keeps its full set. */
+const RANGED_FAQ_KEYS = new Set<FaqPageKey>(["hes", "mdms"]);
+
+function faqsInPublicRange(pageKey: FaqPageKey, items: FaqItem[]): FaqItem[] {
+  if (!RANGED_FAQ_KEYS.has(pageKey)) return items;
+  const capped = items.slice(0, 6);
+  if (capped.length >= 4) return capped;
+  const extras = faqContentByPage[pageKey].filter(
+    (item) => !capped.some((row) => row.question === item.question),
+  );
+  return [...capped, ...extras].slice(0, 6);
+}
+
 /** Enabled FAQs from CMS, falling back to docs/FAQ.md content. */
 export async function getFaqsForPage(pageKey: FaqPageKey): Promise<FaqItem[]> {
   if (!isDbConfigured()) {
-    return [...faqContentByPage[pageKey]];
+    return faqsInPublicRange(pageKey, [...faqContentByPage[pageKey]]);
   }
 
   try {
     const rows = await listEnabledFaqs(pageKey);
     if (rows.length === 0) {
-      return [...faqContentByPage[pageKey]];
+      return faqsInPublicRange(pageKey, [...faqContentByPage[pageKey]]);
     }
-    return rows.map((row) => ({
-      question: row.question,
-      answer: row.answer,
-    }));
+    return faqsInPublicRange(
+      pageKey,
+      rows.map((row) => ({
+        question: row.question,
+        answer: row.answer,
+      })),
+    );
   } catch {
-    return [...faqContentByPage[pageKey]];
+    return faqsInPublicRange(pageKey, [...faqContentByPage[pageKey]]);
   }
 }
 
