@@ -78,7 +78,7 @@ export const aboutLeadership = {
       title: "Executive Director",
       image: "/about/JH.webp",
       bio: [
-        "Prior to joining Zenium, Chairman of **Future Analytica**, an AI/ML platform since 2023, CEO of **Inatech**, a Glencore company, a Trading and Risk Management software platform for the Energy industry since 2012, EMEA President of **Teleperformance**, managing 32,000 people over 25 countries, President of **Convergys** International covering Convergys' Billing and customer care divisions, Executive Director at **Goldman-Sachs**, and Head of the European Information, Telecommunication and Entertainment practice for **KPMG** and co-founder of KPMG Ventures.",
+        "Prior to joining Zenium, Chairman of Future Analytica, an AI/ML platform since 2023, CEO of Inatech, a Glencore company, a Trading and Risk Management software platform for the Energy industry since 2012, EMEA President of Teleperformance, managing 32,000 people over 25 countries, President of Convergys International covering Convergys' Billing and customer care divisions, Executive Director at Goldman-Sachs, and Head of the European Information, Telecommunication and Entertainment practice for KPMG and co-founder of KPMG Ventures.",
         "Earned master's degrees in science from ESTP in Paris and in management from the University of California at Los Angeles. Also completed the Executive Management Program at INSEAD, France. Member of the Institute of Chartered Accountants of England and trade representative to the Financial Services Authority. Dual French/American citizen.",
       ],
     },
@@ -87,10 +87,8 @@ export const aboutLeadership = {
       title: "Chief Revenue Officer",
       image: "/about/ramana.webp",
       bio: [
-        "Ramana is a technology sales and go-to-market leader with more than 28 years of experience, much of it in India's power and utility sector. He has worked closely with DISCOMs, AMISPs and system integrators on smart metering, AMI infrastructure, feeder automation and grid IoT programs. He brings a detailed understanding of RDSS, AMISP business models and utility procurement frameworks.",
-        "Before his focus on AMI, Ramana built extensive experience in IoT and smart cities. He took connected solutions to market across RF communication networks, cloud platforms and city-scale infrastructure for government and enterprise customers. This background in device-to-cloud architectures gives him a practical view of how field devices, networks and data platforms must work together. That understanding is central to AMI success His expertise covers the full AMI value chain, from smart meters and RF communication to head-end systems, meter data management, cloud and analytics. He specializes in consultative, institutional selling: building long-term relationships with utilities, structuring large and complex deals, and helping customers turn meter data into operational and commercial outcomes.",
-        "Ramana has led teams of more than 200 people and is a serial entrepreneur, which gives him a founder's mindset on growth and GTM strategy. At Zenium.ai, he leads [area], helping power utilities get the most from their MDM, HES and analytics investments.",
-
+        "Ramana is a technology sales and go-to-market leader with more than 28 years of experience across government, public sector and private enterprises. Over his career he has led large teams, built markets for emerging technologies and, earlier, launched tech ventures as a serial entrepreneur.",
+        "Much of his work has centered on India's power and utility sector, where he works closely with DISCOMs, AMISPs and system integrators on smart metering, AMI, Energy Analytics, and grid IoT, backed by deep knowledge of RDSS and utility procurement. His earlier work taking IoT, RF communication and smart city solutions to market gives him a practical device-to-cloud view of how meters, networks and data platforms fit together. He specializes in consultative, institutional selling across the full AMI value chain, from meters to analytics, structuring complex deals and helping utilities turn meter data into operational and commercial outcomes.",
       ],
     },
     {
@@ -106,7 +104,9 @@ export const aboutLeadership = {
       name: "Satyadip Das",
       title: "Chief Technology Officer",
       image: "/about/sathya.webp",
-      bio: ["Satyadip Das leads technology strategy, product engineering, and innovation at Zenium. With over 25 years of experience in software architecture and cloud systems, he specializes in building scalable and secure enterprise system and driving digital transformation. He previously held leadership positions in product companies operating in banking and travel domain and serving many global multinational clients."],
+      bio: ["Satyadip Das leads technology strategy, product engineering, and innovation at Zenium. With over 25 years of experience in software architecture and cloud systems, he specializes in building scalable and secure enterprise systems and driving digital transformation. Prior to Zenium, he held senior leadership roles at Amadeus Labs, Inatech, and Misys (now Finastra), where he contributed to product and technology initiatives serving global clients in the banking and travel domains.",
+            "As a technology and innovation leader, Satyadip focuses on architecting modern cloud platforms, solving complex challenges in large-scale distributed systems, microservices, API platforms, DevOps, and cybersecurity. He is passionate about fostering high-performing engineering cultures and delivering transformative technology solutions that enable businesses to scale securely and innovate at speed.",
+      ],
     },
   ] satisfies AboutLeader[],
 };

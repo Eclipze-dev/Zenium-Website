@@ -20,7 +20,7 @@ function renderBioParagraph(paragraph: string) {
 function LeadershipPortrait({ leader }: { leader: AboutLeader }) {
   return (
     <article className="mx-auto flex min-h-[374px] w-full max-w-[900px] overflow-hidden rounded-[16px] bg-white max-lg:flex-col max-md:flex-col">
-      <div className="flex w-[30%] max-lg:w-full shrink-0 flex-col self-stretch max-md:w-full">
+      <div className="flex w-[40%] max-lg:w-full shrink-0 flex-col self-stretch max-md:w-full">
         <div className="relative min-h-[220px] flex-1 overflow-hidden bg-black max-md:aspect-[4/3] max-md:min-h-0 max-md:flex-none">
           {leader.image ? (
             <OptimizedImage
