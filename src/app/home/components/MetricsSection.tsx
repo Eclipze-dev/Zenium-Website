@@ -39,9 +39,9 @@ export default function MetricsSection() {
             </ScrollReveal>
           ))}
         </div>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-[13px] leading-[1.5] text-white/70">
+        {/* <p className="mx-auto mt-8 max-w-2xl text-center text-[13px] leading-[1.5] text-white/70">
           Deployment and laboratory test figures from Zenium utility programmes.
-        </p>
+        </p> */}
       </div>
     </section>
   );
