@@ -1,4 +1,4 @@
-image: node:22
+image: node:22.23.4
 
 pipelines:
   default:

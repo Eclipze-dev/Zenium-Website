@@ -11,9 +11,10 @@ export const metadata: Metadata = { title: "Edit page" };
 export default async function EditPagePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = Number(params.id);
+  const { id: rawId } = await params;
+  const id = Number(rawId);
   if (!Number.isInteger(id) || id < 1) notFound();
   const page = await getPageById(id);
   if (!page) notFound();

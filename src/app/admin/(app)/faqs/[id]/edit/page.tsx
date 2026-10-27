@@ -10,9 +10,10 @@ export const metadata: Metadata = { title: "Edit FAQ" };
 export default async function EditFaqPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = Number(params.id);
+  const { id: rawId } = await params;
+  const id = Number(rawId);
   if (!Number.isInteger(id) || id < 1) notFound();
   const faq = await getFaqById(id);
   if (!faq) notFound();

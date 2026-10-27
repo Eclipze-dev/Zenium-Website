@@ -51,6 +51,7 @@ import {
   UtilityNetwork,
 } from "./nav/NetworkMotifs";
 import { cn } from "@/lib/cn";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BLOG_INDEX_PATH } from "@/lib/seo/paths";
 // import ThemeToggle from "./ThemeToggle";
@@ -489,7 +490,7 @@ export default function SiteHeader() {
     >
       <div className="relative">
       <div className="container grid h-20 grid-cols-[1fr_auto_1fr] items-center max-lg:flex max-lg:h-16 max-lg:justify-between">
-        <a
+        <Link
           href="/"
           className="justify-self-start flex items-center"
           aria-label="Zenium home"
@@ -511,7 +512,7 @@ export default function SiteHeader() {
             priority
             className="hidden h-[32px] w-auto block max-lg:h-[30px] max-sm:h-7 theme-logo-light"
           />
-        </a>
+        </Link>
 
         <nav className="flex items-center gap-1 max-lg:hidden" aria-label="Main navigation">
           {primaryNav.map((item) => {

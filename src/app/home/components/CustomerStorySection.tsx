@@ -41,7 +41,7 @@ export default function CustomerStorySection() {
       <div className="container">
         <SectionIntro centered fullWidth eyebrow="CUSTOMER STORY">
           <p className="text-h1 font-normal tracking-display m-0 [&_strong]:inline [&_strong]:text-orange [&_strong]:font-bold">
-            Proven in the field. One of <ShimmerText>India's large-scale</ShimmerText>{" "}
+            Proven in the field. One of <ShimmerText>India&apos;s large-scale</ShimmerText>{" "}
             electricity deployments.
           </p>
         </SectionIntro>
@@ -71,11 +71,11 @@ export default function CustomerStorySection() {
             className="h-[48px] w-auto opacity-70 transition-opacity duration-300 hover:opacity-100 max-sm:h-[36px]"
           />
           <blockquote className="text-p1 max-w-[850px] m-0 max-sm:text-base-lg max-sm:leading-[1.5]">
-            "ZENIUM has helped us modernize our utility operations with a
+            &quot;ZENIUM has helped us modernize our utility operations with a
             technology platform that is reliable, scalable, and built around our
             real-world requirements. Their understanding of utility workflows
             and focus on seamless implementation made the entire deployment much
-            more efficient."
+            more efficient.&quot;
           </blockquote>
           <div className="gap-2 flex flex-col items-center">
             <b className="text-orange text-p2">Rajesh Kumar</b>

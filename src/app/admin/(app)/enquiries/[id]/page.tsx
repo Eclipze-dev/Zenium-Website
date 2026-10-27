@@ -19,9 +19,10 @@ function formatWhen(value: Date | string): string {
 export default async function AdminEnquiryPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = Number(params.id);
+  const { id: rawId } = await params;
+  const id = Number(rawId);
   if (!Number.isInteger(id) || id < 1) notFound();
   const enquiry = await getEnquiryById(id);
   if (!enquiry) notFound();

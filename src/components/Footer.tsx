@@ -1,4 +1,5 @@
 // import AnimatedNetworkBackground from "@/components/AnimatedNetworkBackground";
+import Link from "next/link";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import {
   ArrowRightIcon,
@@ -176,7 +177,7 @@ export default function Footer() {
       <div className="container py-[64px] max-lg:py-[40px] max-sm:py-[44px]">
         <div className="flex justify-between gap-[40px] max-xl:flex-col max-xl:gap-[40px]">
           <div className="min-w-0 shrink-0">
-            <a
+            <Link
               href="/"
               className="inline-flex items-center"
               aria-label="Zenium home"
@@ -195,7 +196,7 @@ export default function Footer() {
                 height={36}
                 className="hidden h-9 w-auto block max-sm:h-8 theme-logo-light"
               />
-            </a>
+            </Link>
             <p className="mt-[20px] max-w-[280px] text-button text-muted max-lg:mt-[14px] max-lg:text-[13px] max-lg:leading-[1.45] max-sm:mt-[12px] max-sm:text-[12px] max-sm:leading-[1.45]">
               Turning connected utility data into intelligence.
             </p>

@@ -10,9 +10,10 @@ export const metadata: Metadata = { title: "Edit guide entry" };
 export default async function EditGuideEntryPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = Number(params.id);
+  const { id: rawId } = await params;
+  const id = Number(rawId);
   if (!Number.isInteger(id) || id < 1) notFound();
   const entry = await getGuideEntryById(id);
   if (!entry) notFound();

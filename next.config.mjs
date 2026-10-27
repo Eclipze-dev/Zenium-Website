@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  serverExternalPackages: ["mysql2"],
   experimental: {
-    serverComponentsExternalPackages: ["mysql2"],
     serverActions: {
       bodySizeLimit: "8mb",
     },

@@ -10,9 +10,10 @@ export const metadata: Metadata = { title: "Edit blog post" };
 export default async function EditBlogPostPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const id = Number(params.id);
+  const { id: rawId } = await params;
+  const id = Number(rawId);
   if (!Number.isInteger(id) || id < 1) notFound();
   const post = await getBlogPostById(id);
   if (!post) notFound();

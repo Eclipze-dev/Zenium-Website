@@ -12,11 +12,12 @@ import BlogArticle from "../components/BlogArticle";
 import LatestInsights from "../components/LatestInsights";
 import { blogTitle, findBlogPost, mergeBlogPosts } from "../components/blogData";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const cmsPosts = await getPublishedPostsForPublic();
-  const post = findBlogPost(params.slug, cmsPosts);
+  const post = findBlogPost(slug, cmsPosts);
   if (!post) {
     return { robots: { index: false, follow: false } };
   }
@@ -42,8 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
   const cmsPosts = await getPublishedPostsForPublic();
-  const post = findBlogPost(params.slug, cmsPosts);
+  const post = findBlogPost(slug, cmsPosts);
   if (!post) notFound();
 
   const path = `${BLOG_INDEX_PATH}/${post.slug}`;
